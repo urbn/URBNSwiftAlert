@@ -20,11 +20,6 @@ struct URBNSwAlertConfiguration {
     var message = ""
     
     /**
-     *  Array of actions added to the alert
-     */
-    var actions = [URBNSwAlertAction]()
-    
-    /**
      *  Array of UITextFields added to the array
      */
     var textFieldInputs = [UITextField]()
