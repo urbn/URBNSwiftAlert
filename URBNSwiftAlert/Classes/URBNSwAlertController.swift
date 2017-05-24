@@ -8,8 +8,6 @@
 
 import Foundation
 
-typealias URBNSwAlertButtonTouched = (URBNSwAlertController, Int) -> Void
-
 struct URBNSwAlertController {
     
     var alertStyler: URBNSwAlertStyler?
@@ -25,7 +23,6 @@ struct URBNSwAlertController {
         
         showNextAlert()
     }
-    
     
     public mutating func showNextAlert() {
         guard let nextAVC = queue.first, !alertIsVisible else { return }

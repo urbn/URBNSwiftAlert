@@ -16,7 +16,6 @@ open class URBNSwAlertViewController: UIViewController {
     var alertView: UIView?
     
     fileprivate var blurImageView: UIImageView?
-    
     fileprivate var customView: UIView?
     
     /**

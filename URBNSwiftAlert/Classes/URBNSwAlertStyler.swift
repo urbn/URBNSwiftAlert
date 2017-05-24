@@ -19,5 +19,4 @@ struct URBNSwAlertStyler {
     }
     
     var saturationDelta: CGFloat = 1.0
-    
 }
