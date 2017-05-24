@@ -1,0 +1,6 @@
+framework module URBNSwiftAlert {
+  umbrella header "URBNSwiftAlert-umbrella.h"
+
+  export *
+  module * { export * }
+}

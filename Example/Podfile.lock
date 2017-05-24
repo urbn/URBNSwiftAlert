@@ -1,0 +1,16 @@
+PODS:
+  - URBNSwiftAlert (0.1.0)
+
+DEPENDENCIES:
+  - URBNSwiftAlert (from `../`)
+
+EXTERNAL SOURCES:
+  URBNSwiftAlert:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  URBNSwiftAlert: 356a166d3db24934b04c70aca4ec191858d59575
+
+PODFILE CHECKSUM: 1604b6d2e8f0cbab75ddc09bbdf4a524b458c9c2
+
+COCOAPODS: 1.2.1
