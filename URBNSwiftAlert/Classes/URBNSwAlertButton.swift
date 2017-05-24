@@ -8,6 +8,10 @@
 
 import Foundation
 
+enum URBNSwAlertActionType {
+    case normal, destructive, cancel, passive
+}
+
 open class URBNSwAlertButton: UIButton {
     
 }
