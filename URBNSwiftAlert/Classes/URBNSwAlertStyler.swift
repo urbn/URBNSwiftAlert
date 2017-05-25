@@ -10,6 +10,7 @@ import Foundation
 
 struct URBNSwAlertStyler {
     var blurEnabled = true
+    var backgroundColor = UIColor.white
     var backgroundTintColor: UIColor?
     var blurRadius: CGFloat = 5.0
     var blurTintColor: UIColor = UIColor.white.withAlphaComponent(0.4) {
@@ -22,5 +23,8 @@ struct URBNSwAlertStyler {
     var animationDuration: CGFloat = 0.6
     var animationDamping: CGFloat = 0.6
     var animationInitialVelocity: CGFloat = -10.0
-    
+    var alertWidth = UIScreen.main.bounds.width / 2
+    var alertWrappingInsets: UIEdgeInsets?
+    var standardAlertLabelVerticalSpacing: CGFloat = 10.0
+    var standardAlertViewInsets = UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
 }

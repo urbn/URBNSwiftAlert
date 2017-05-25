@@ -8,18 +8,89 @@
 
 import URBNConvenience
 
-open class URBNSwAlertViewController: UIViewController {
+protocol URBNSwAlertable {
+    var alertConfiguration: URBNSwAlertConfiguration { get }
+    var alertController: URBNSwAlertController { get }
+    var alertStyler: URBNSwAlertStyler { get }
+    var type: URBNSwAlertType { get set }
+}
+
+extension URBNSwAlertable {
+    var alertConfiguration: URBNSwAlertConfiguration {
+        return URBNSwAlertConfiguration()
+    }
     
-    var alertConfiguration: URBNSwAlertConfiguration
-    var alertController: URBNSwAlertController
-    var alertStyler = URBNSwAlertStyler()
+    var alertController: URBNSwAlertController {
+        return URBNSwAlertController.shared
+    }
     
+    var alertStyler: URBNSwAlertStyler {
+        return URBNSwAlertController.shared.alertStyler
+    }
+    
+    var type: URBNSwAlertType {
+        return .fullStandard
+    }
+}
+
+enum URBNSwAlertType {
+    case fullCustom, customView, customButton, standardTitle, standardMessage, fullStandard
+}
+
+open class URBNSwAlertViewController: UIViewController, URBNSwAlertable {
+    // alertables
+    let avAlertConfiguration: URBNSwAlertConfiguration
+    let alertStyler = URBNSwAlertController.shared.alertStyler
+    var alertController = URBNSwAlertController.shared
+    
+    // convenience
     fileprivate var blurImageView: UIImageView?
-    fileprivate var customView: UIView?
-    fileprivate var customButtonContainer: URBNSwAlertButtonContainer?
+    var alertContainer: UIView?
+    
+    // handlers
+    var dismissingHandler: ((Bool) -> Void)?
+        
+    public convenience init(title: String) {
+        self.init(type: .standardTitle)
+        
+        alertContainer = URBNSwAlertView(alertable: self, title: title)
+    }
+    
+    public convenience init(message: String) {
+        self.init(type: .standardMessage)
+    }
+
+    public convenience init(title: String, message: String) {
+        self.init(type: .fullStandard)
+    }
+    
+    public convenience init(customView: UIView) {
+        self.init(type: .customView)
+    }
+    
+    public convenience init(title: String? = nil, message: String? = nil, customButtons: URBNSwAlertButtonContainer) {
+        self.init(type: .customButton)
+    }
+    
+    public convenience init(title: String? = nil, message: String? = nil, customView: UIView, customButtons: URBNSwAlertButtonContainer) {
+        self.init(type: .fullCustom)
+    }
+    
+    private init(type: URBNSwAlertType) {
+        self.type = type
+        avAlertConfiguration = URBNSwAlertConfiguration()
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    // MARK: URNBSwAlertable Conformance
+    var type: URBNSwAlertType
+    var alertConfiguration: URBNSwAlertConfiguration {
+        return avAlertConfiguration
+    }
     
     /**
-     *  Initialize with a title and/or message, as well as a customView if desired
+     *  Initialize with a
      *
      *  @param title   Optional. The title text displayed in the alert
      *  @param message Optional. The message text displayed in the alert
@@ -28,29 +99,23 @@ open class URBNSwAlertViewController: UIViewController {
      *  @return A URBNAlertViewController ready to be configurated further or displayed
      */
     
-    public init(title: String? = nil, message: String? = nil, customView: UIView? = nil, customButtonContainer: URBNSwAlertButtonContainer? = nil) {
-        
-        alertConfiguration = URBNSwAlertConfiguration()
-        alertController = URBNSwAlertController()
-        self.customView = customView
-        self.customButtonContainer = customButtonContainer
-        
-        super.init(nibName: nil, bundle: nil)
-        
-//        alertView = URBNSwAlertView(config: alertConfiguration, styler: alertStyler)
-    }
-    
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        let av = alertView
-        animate(in: av)
+        guard let ac = alertContainer else {
+            assertionFailure("failed to unwrap an alertContainer")
+            return
+        }
         
-        // closure to dismiss
-    }
-    
-    open func dismiss() {
-     
+        setUpBackground()
+        layout(alertContainer: ac)
+        
+        animate(in: ac)
+        
+        if alertConfiguration.touchOutsideToDismiss {
+            let tap = UITapGestureRecognizer(target: self, action: #selector(dismissAlert(sender:)))
+            view.addGestureRecognizer(tap)
+        }
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -60,22 +125,28 @@ open class URBNSwAlertViewController: UIViewController {
 
 // MARK: Layout and Animations
 extension URBNSwAlertViewController {
-    var alertView: UIView {
+    func setUpBackground() {
         if alertStyler.blurEnabled {
             addBlurScreenshot()
         }
         else if let bgTintColor = alertStyler.backgroundTintColor {
             view.backgroundColor = bgTintColor
         }
+    }
+    
+    func layout(alertContainer: UIView) {
+        alertContainer.alpha = 0.0
         
-        let alertView = customView ?? URBNSwAlertView(config: alertConfiguration, styler: alertStyler)
-        alertView.alpha = 0
-        view.addSubviewsWithNoConstraints(alertView)
-        alertView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        alertView.heightAnchor.constraint(equalToConstant: 100).isActive = true
-        alertView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-        alertView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
-        return alertView
+        let container = alertConfiguration.presentationView ?? view
+        
+        if let insets = alertStyler.alertWrappingInsets {
+            _ = alertContainer.wrapInView(container, withInsets: insets)
+        }
+        else {
+            container?.addSubviewsWithNoConstraints(alertContainer)
+            alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+            alertContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        }
     }
     
     private var scaler: CGFloat { return 0.3 }
@@ -83,11 +154,12 @@ extension URBNSwAlertViewController {
     func animate(in alertView: UIView) {
         alertView.transform = CGAffineTransform(scaleX: scaler, y: scaler)
         
-        let duration = alertStyler.animationDuration
-        let damping = alertStyler.animationDamping
-        let initialV = alertStyler.animationInitialVelocity
-        
-        UIView.animate(withDuration: TimeInterval(duration), delay: 0.0, usingSpringWithDamping: damping, initialSpringVelocity: initialV, options: [], animations: {
+        UIView.animate(withDuration: TimeInterval(alertStyler.animationDuration),
+                       delay: 0.0,
+                       usingSpringWithDamping: alertStyler.animationDamping,
+                       initialSpringVelocity: alertStyler.animationInitialVelocity,
+                       options: [],
+                       animations: {
             alertView.transform = CGAffineTransform.identity
             alertView.alpha = 1.0
         }) { (complete) in
@@ -95,12 +167,20 @@ extension URBNSwAlertViewController {
         }
     }
     
-    func animate(out alertView: UIView) {
-        
+    func animate(out alertView: UIView, completion: @escaping (Void) -> Void) {
+        UIView.animate(withDuration: TimeInterval(alertStyler.animationDuration/2.0),
+                       delay: 0,
+                       usingSpringWithDamping: alertStyler.animationDamping,
+                       initialSpringVelocity: alertStyler.animationInitialVelocity,
+                       options: [],
+                       animations: { [unowned self] in
+            alertView.transform = CGAffineTransform(scaleX: self.scaler, y: self.scaler)
+            alertView.alpha = 0.0
+        }) { (complete) in
+            completion()
+        }
     }
-}
-
-extension URBNSwAlertViewController {
+    
     func addBlurScreenshot(withSize size: CGSize? = nil) {
         if let screenShot = UIImage.screenShot(view: viewForScreenshot, afterScreenUpdates: true) {
             let blurredSize = size ?? viewForScreenshot.bounds.size
@@ -116,6 +196,25 @@ extension URBNSwAlertViewController {
     
     var viewForScreenshot: UIView {
         return alertConfiguration.presentationView ?? alertController.presentingWindow
+    }
+}
+
+extension URBNSwAlertViewController {
+    func dismissAlert(sender: Any) {
+        view.endEditing(true)
+        
+        // tell controller to remove top controller and show next alert
+        alertController.popQueueAndShowNextIfNecessary()
+        
+        guard let ac = alertContainer else {
+            assertionFailure("failed to unwrap an alertContainer")
+            return
+        }
+        
+        animate(out: ac) { [unowned self] in
+            self.dismiss(animated: false, completion: nil)
+            self.dismissingHandler?(sender is UITapGestureRecognizer)
+        }
     }
 }
 

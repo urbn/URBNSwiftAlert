@@ -8,26 +8,36 @@
 
 import Foundation
 
-struct URBNSwAlertController {
-    
-    var alertStyler: URBNSwAlertStyler?
+class URBNSwAlertController: NSObject {
+    static let shared = URBNSwAlertController()
+    let alertStyler = URBNSwAlertStyler()
     
     private var alertIsVisible = false
     private var queue: [URBNSwAlertViewController] = []
-    private lazy var alertWindow = UIWindow(frame: UIScreen.main.bounds)
+    private var alertWindow: UIWindow?
     var presentingWindow = UIApplication.shared.windows.first ?? UIWindow(frame: UIScreen.main.bounds)
     
     // MARK: Queueing
-    public mutating func addAlertToQueue(avc: URBNSwAlertViewController) {
+    public func addAlertToQueue(avc: URBNSwAlertViewController) {
         queue.append(avc)
         
         showNextAlert()
     }
     
-    public mutating func showNextAlert() {
+    public func showNextAlert() {
         guard let nextAVC = queue.first, !alertIsVisible else { return }
         
-        // between here and there, pop
+        nextAVC.dismissingHandler = {[unowned self] wasTouchedOutside in
+            if wasTouchedOutside {
+                self.dismiss(alertViewController: nextAVC)
+            }
+            
+            if self.queue.isEmpty {
+                self.presentingWindow.makeKeyAndVisible()
+                self.alertWindow?.isHidden = true
+                self.alertWindow = nil
+            }
+        }
         
         if let presentationView = nextAVC.alertConfiguration.presentationView {
             var rect = nextAVC.view.frame
@@ -38,17 +48,32 @@ struct URBNSwAlertController {
             nextAVC.alertConfiguration.presentationView?.addSubview(nextAVC.view)
         }
         else {
-            //        NotificationCenter.default.addObserver(self, selector: #selector(resignActive:) , name: "UIWindowDidBecomeKeyNotification", object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(resignActive) , name:  Notification.Name(rawValue: "UIWindowDidBecomeKeyNotification")  , object: nil)
             setupAlertWindow()
-            alertWindow.rootViewController = nextAVC
-            alertWindow.makeKeyAndVisible()
+            alertWindow?.rootViewController = nextAVC
+            alertWindow?.makeKeyAndVisible()
         }
     }
     
-    private mutating func setupAlertWindow() {
-        alertWindow.windowLevel = UIWindowLevelAlert
-        alertWindow.isHidden = false
+    private func setupAlertWindow() {
+        if alertWindow == nil {
+            alertWindow = UIWindow(frame: UIScreen.main.bounds)
+        }
+        alertWindow?.windowLevel = UIWindowLevelAlert
+        alertWindow?.isHidden = false
         
-        //        NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name: NSNotification.Name(rawValue: "UIWindowDidBecomeKeyNotification"), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(resignActive) , name:  Notification.Name(rawValue: "UIWindowDidBecomeKeyNotification")  , object: nil)
     }
+    
+    func popQueueAndShowNextIfNecessary() {
+        alertIsVisible = false
+        _ = queue.removeFirst()
+        showNextAlert()
+    }
+    
+    func dismiss(alertViewController: URBNSwAlertViewController) {
+        alertIsVisible = false
+    }
+    
+    func resignActive() {}
 }

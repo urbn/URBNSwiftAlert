@@ -7,12 +7,30 @@
 //
 
 import Foundation
+import URBNConvenience
 
 class URBNSwAlertView: UIView {
-    init(config: URBNSwAlertConfiguration, styler: URBNSwAlertStyler) {
+    private lazy var titleLabel = UILabel()
+    private lazy var messageView = UITextView()
+    
+    init(alertable: URBNSwAlertable, title: String? = nil, message: String? = nil, customView: UIView? = nil, customButtons: URBNSwAlertButtonContainer? = nil) {
         super.init(frame: CGRect.zero)
         
-        backgroundColor = .red
+        backgroundColor = alertable.alertStyler.backgroundColor
+        
+        let stackView = UIStackView()
+        
+        if let title = title {
+            titleLabel.text = title
+            stackView.addArrangedSubview(titleLabel)
+        }
+        
+        if let message = message {
+            messageView.isEditable = false
+            messageView.text = message
+        }
+        
+        stackView.wrap(in: self, with: InsetConstraints(insets: alertable.alertStyler.standardAlertViewInsets, priority: UILayoutPriorityDefaultHigh))
     }
     
     required init?(coder aDecoder: NSCoder) {

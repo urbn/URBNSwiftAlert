@@ -42,5 +42,5 @@ struct URBNSwAlertConfiguration {
     /**
      *  When set to YES, you can touch outside of an alert to dismiss it
      */
-    var touch = true
+    var touchOutsideToDismiss = true
 }
