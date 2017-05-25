@@ -19,4 +19,8 @@ struct URBNSwAlertStyler {
     }
     
     var saturationDelta: CGFloat = 1.0
+    var animationDuration: CGFloat = 0.6
+    var animationDamping: CGFloat = 0.6
+    var animationInitialVelocity: CGFloat = -10.0
+    
 }

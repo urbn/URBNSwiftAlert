@@ -8,6 +8,11 @@
 
 import Foundation
 
+// For custom button containers
+public protocol URBNSwAlertButtonContainer {
+    var buttons: [UIButton: URBNSwAlertAction] { get }
+}
+
 enum URBNSwAlertActionType {
     case normal, destructive, cancel, passive
 }

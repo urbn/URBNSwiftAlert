@@ -11,6 +11,8 @@ import Foundation
 class URBNSwAlertView: UIView {
     init(config: URBNSwAlertConfiguration, styler: URBNSwAlertStyler) {
         super.init(frame: CGRect.zero)
+        
+        backgroundColor = .red
     }
     
     required init?(coder aDecoder: NSCoder) {
