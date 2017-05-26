@@ -12,7 +12,7 @@ protocol URBNSwAlertable {
     var alertConfiguration: URBNSwAlertConfiguration { get }
     var alertController: URBNSwAlertController { get }
     var alertStyler: URBNSwAlertStyler { get }
-    var type: URBNSwAlertType { get set }
+//    var type: URBNSwAlertType { get set }
 }
 
 extension URBNSwAlertable {
@@ -37,9 +37,9 @@ enum URBNSwAlertType {
     case fullCustom, customView, customButton, fullStandard
 }
 
-open class URBNSwAlertViewController: UIViewController, URBNSwAlertable {
+open class URBNSwAlertViewController: UIViewController {
     // alertables
-    let avAlertConfiguration: URBNSwAlertConfiguration
+    var avAlertConfiguration: URBNSwAlertConfiguration
     let alertStyler = URBNSwAlertController.shared.alertStyler
     var alertController = URBNSwAlertController.shared
     
@@ -69,16 +69,10 @@ open class URBNSwAlertViewController: UIViewController, URBNSwAlertable {
     }
     
     private init(type: URBNSwAlertType) {
-        self.type = type
+//        self.type = type
         avAlertConfiguration = URBNSwAlertConfiguration()
         
         super.init(nibName: nil, bundle: nil)
-    }
-    
-    // MARK: URNBSwAlertable Conformance
-    var type: URBNSwAlertType
-    var alertConfiguration: URBNSwAlertConfiguration {
-        return avAlertConfiguration
     }
     
     /**
@@ -112,6 +106,14 @@ open class URBNSwAlertViewController: UIViewController, URBNSwAlertable {
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+}
+
+// MARK: URNBSwAlertable Conformance
+extension URBNSwAlertViewController: URBNSwAlertable {
+//    var type: URBNSwAlertType
+    var alertConfiguration: URBNSwAlertConfiguration {
+        return avAlertConfiguration
     }
 }
 
@@ -207,7 +209,14 @@ extension URBNSwAlertViewController {
     }
 }
 
+// MARK: Actions
 extension URBNSwAlertViewController {
+    public func show() {
+        // TODO margin settings
+        
+        alertController.addAlertToQueue(avc: self)
+    }
+    
     func dismissAlert(sender: Any) {
         view.endEditing(true)
         
@@ -219,13 +228,15 @@ extension URBNSwAlertViewController {
             self.dismissingHandler?(sender is UITapGestureRecognizer)
         }
     }
-}
-
-// MARK: Actions
-extension URBNSwAlertViewController {
-    public func show() {
-        // TODO margin settings
-        
-        alertController.addAlertToQueue(avc: self)
+    
+    public func addAction(_ action: URBNSwAlertAction) {}
+    public func addActions(_ actions: URBNSwAlertAction...) {
+        addActions(actions)
+    }
+    
+    public func addActions(_ actions: [URBNSwAlertAction]) {
+        avAlertConfiguration.actions += actions
+        avAlertConfiguration.isActiveAlert = !actions.filter{$0.type != .passive}.isEmpty
     }
 }
+

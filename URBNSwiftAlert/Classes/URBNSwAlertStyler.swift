@@ -29,4 +29,46 @@ struct URBNSwAlertStyler {
     var standardAlertLabelVerticalSpacing: CGFloat = 10.0
     var standardAlertViewInsets = UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
     var standardButtonHeight: CGFloat = 44.0
+    var disabledButtonTitleColor = UIColor.gray
+    var disabledButtonBackgroundColor = UIColor.lightGray
+    var disabledButtonAlpha: CGFloat = 1.0
+    var cancelButtonTitleColor = UIColor.black
+    var cancelButtonBackgroundColor = UIColor.white
+    var standardButtonTitleColor = UIColor.black
+    var standardButtonBackgroundColor = UIColor.white
+    var destructiveButtonTitleColor = UIColor.red
+    var destructiveButtonBackgroundColor = UIColor.white
+}
+
+// MARK: Standard Button Styling
+extension URBNSwAlertStyler {
+    func buttonTitleColor(actionType: URBNSwAlertActionType, isEnabled: Bool) -> UIColor {
+        if !isEnabled {
+            return disabledButtonTitleColor
+        }
+        
+        switch actionType {
+        case .cancel:
+            return cancelButtonTitleColor
+        case .destructive:
+            return destructiveButtonTitleColor
+        case .normal, .custom, .passive:
+            return standardButtonTitleColor
+        }
+    }
+    
+    func buttonBackgroundColor(actionType: URBNSwAlertActionType, isEnabled: Bool) -> UIColor {
+        if !isEnabled {
+            return disabledButtonBackgroundColor
+        }
+        
+        switch actionType {
+        case .cancel:
+            return cancelButtonBackgroundColor
+        case .destructive:
+            return destructiveButtonBackgroundColor
+        case .normal, .custom, .passive:
+            return standardButtonBackgroundColor
+        }
+    }
 }

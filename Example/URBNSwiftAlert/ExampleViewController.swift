@@ -28,6 +28,9 @@ class ExampleViewController: UIViewController {
     
     func showOneButtonAlert() {
         let oneBtnAlert = URBNSwAlertViewController(title: wrappingTitle, message: longMessage)
+        
+        
+        
         oneBtnAlert.show()
     }
 }
