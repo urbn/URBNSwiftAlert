@@ -8,41 +8,43 @@
 
 import Foundation
 
-enum URBNSwAlertActionType {
+public enum URBNSwAlertActionType {
     case normal, destructive, cancel, passive, custom
 }
 
-public struct URBNSwAlertAction {
+public class URBNSwAlertAction: NSObject {
     let type: URBNSwAlertActionType
     let shouldDismiss: Bool
-    var actionButton: URBNSwAlertButton?
+    let isEnabled: Bool
+    let completion: ((URBNSwAlertAction) -> Void)
+    var button: UIButton?
+    var title: String?
     
     var isButton: Bool {
         return type != .passive
     }
     
-    init(customButton: UIButton, shouldDismiss: Bool = true, completion: ((URBNSwAlertAction) -> Void)) {
+    public init(customButton: UIButton, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: @escaping ((URBNSwAlertAction) -> Void)) {
         type = .custom
         self.shouldDismiss = shouldDismiss
+        self.isEnabled = isEnabled
+        self.completion = completion
     }
 
-    init(title: String, type: URBNSwAlertActionType, shouldDismiss: Bool = true, completion: ((URBNSwAlertAction) -> Void)) {
+    public init(title: String, type: URBNSwAlertActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: @escaping ((URBNSwAlertAction) -> Void)) {
         self.type = type
         self.shouldDismiss = shouldDismiss
+        self.isEnabled = isEnabled
+        self.title = title
+        self.completion = completion
     }
     
-    func set(enabled: Bool) {
-        if isButton, let button = actionButton {
-            button.isEnabled = true
-            style(button: button, isEnabled: true)
-        }
+    func add(button: UIButton) {
+        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        self.button = button
     }
     
-    private func style(button: URBNSwAlertButton, isEnabled: Bool) {
-        let titleColor = button.styler.buttonTitleColor(actionType: button.actionType, isEnabled: isEnabled)
-        
-        button.setTitleColor(titleColor, for: .normal)
-        button.backgroundColor = button.styler.buttonBackgroundColor(actionType: button.actionType, isEnabled: isEnabled)
-        button.alpha = isEnabled ? 1.0 : button.styler.disabledButtonAlpha
+    @objc public func buttonPressed() {
+        completion(self)
     }
 }

@@ -12,7 +12,7 @@ protocol URBNSwAlertable {
     var alertConfiguration: URBNSwAlertConfiguration { get }
     var alertController: URBNSwAlertController { get }
     var alertStyler: URBNSwAlertStyler { get }
-//    var type: URBNSwAlertType { get set }
+    var actions: [URBNSwAlertAction] { get }
 }
 
 extension URBNSwAlertable {
@@ -45,7 +45,7 @@ open class URBNSwAlertViewController: UIViewController {
     
     // convenience
     fileprivate var blurImageView: UIImageView?
-    var alertContainer: UIView?
+//    var alertContainer: UIView?
     
     // handlers
     var dismissingHandler: ((Bool) -> Void)?
@@ -53,7 +53,7 @@ open class URBNSwAlertViewController: UIViewController {
     public convenience init(title: String? = nil, message: String? = nil) {
         self.init(type: .fullStandard)
         
-        alertContainer = URBNSwAlertView(alertable: self, title: title, message: message)
+        avAlertConfiguration.alertView = URBNSwAlertView(alertable: self, title: title, message: message)
     }
     
     public convenience init(customView: UIView) {
@@ -88,7 +88,7 @@ open class URBNSwAlertViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let ac = alertContainer else {
+        guard let ac = avAlertConfiguration.alertView else {
             assertionFailure("failed to unwrap an alertContainer")
             return
         }
@@ -114,6 +114,10 @@ extension URBNSwAlertViewController: URBNSwAlertable {
 //    var type: URBNSwAlertType
     var alertConfiguration: URBNSwAlertConfiguration {
         return avAlertConfiguration
+    }
+    
+    var actions: [URBNSwAlertAction] {
+        return avAlertConfiguration.actions
     }
 }
 
@@ -147,7 +151,7 @@ extension URBNSwAlertViewController {
     private var scaler: CGFloat { return 0.3 }
     
     func setVisible(isVisible: Bool, completion: ((Void) -> Void)? = nil) {
-        guard let ac = alertContainer else {
+        guard let ac = avAlertConfiguration.alertView else {
             assertionFailure()
             return
         }
@@ -211,6 +215,9 @@ extension URBNSwAlertViewController {
 
 // MARK: Actions
 extension URBNSwAlertViewController {
+    
+    // how to only expose a function to a particular type?
+    
     public func show() {
         // TODO margin settings
         
@@ -228,8 +235,12 @@ extension URBNSwAlertViewController {
             self.dismissingHandler?(sender is UITapGestureRecognizer)
         }
     }
-    
+}
+
+extension URBNSwAlertViewController {
+    @available(*, unavailable, message: "use addActions instead")
     public func addAction(_ action: URBNSwAlertAction) {}
+    
     public func addActions(_ actions: URBNSwAlertAction...) {
         addActions(actions)
     }
@@ -237,6 +248,14 @@ extension URBNSwAlertViewController {
     public func addActions(_ actions: [URBNSwAlertAction]) {
         avAlertConfiguration.actions += actions
         avAlertConfiguration.isActiveAlert = !actions.filter{$0.type != .passive}.isEmpty
+        
+        avAlertConfiguration.alertView?.addActions(actions)
+        
+        for action in actions {
+            if action.shouldDismiss {
+                action.button?.addTarget(self, action: #selector(dismissAlert(sender:)), for: .touchUpInside)
+            }
+        }
     }
 }
 

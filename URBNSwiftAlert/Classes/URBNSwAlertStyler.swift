@@ -27,17 +27,23 @@ struct URBNSwAlertStyler {
     var alertWidth = UIScreen.main.bounds.width - 90
     var alertWrappingInsets: UIEdgeInsets?
     var standardAlertLabelVerticalSpacing: CGFloat = 10.0
-    var standardAlertViewInsets = UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
+    var standardAlertViewInsets = UIEdgeInsets(top: 24, left: 16, bottom: 5, right: 16)
     var standardButtonHeight: CGFloat = 44.0
     var disabledButtonTitleColor = UIColor.gray
     var disabledButtonBackgroundColor = UIColor.lightGray
     var disabledButtonAlpha: CGFloat = 1.0
     var cancelButtonTitleColor = UIColor.black
     var cancelButtonBackgroundColor = UIColor.white
+    var cancelButtonHighlightColor = UIColor.darkGray
     var standardButtonTitleColor = UIColor.black
-    var standardButtonBackgroundColor = UIColor.white
+    var standardButtonBackgroundColor = UIColor.blue
+    var standardButtonHighlightColor = UIColor.darkGray
+    var standardButtonSelectedBackgroundColor = UIColor.lightGray
     var destructiveButtonTitleColor = UIColor.red
     var destructiveButtonBackgroundColor = UIColor.white
+    var destructiveButtonHighlightColor = UIColor.darkGray
+    var standardButtonContainerInsets = UIEdgeInsets.zero
+    var standardButtonSpacing: CGFloat = 0.0
 }
 
 // MARK: Standard Button Styling

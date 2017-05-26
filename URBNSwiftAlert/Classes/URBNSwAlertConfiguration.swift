@@ -45,4 +45,8 @@ struct URBNSwAlertConfiguration {
     var touchOutsideToDismiss = true
     
     var actions = [URBNSwAlertAction]()
+    
+    var alertView: URBNSwAlertView?
+    
+    var alertViewButtonContainer: URBNSwAlertButtonContainer?
 }

@@ -12,13 +12,20 @@ import URBNConvenience
 class URBNSwAlertView: UIView {
     private lazy var titleLabel = UILabel()
     private lazy var messageView = UITextView()
+    fileprivate let stackView = UIStackView()
+    fileprivate lazy var standardButtons = [UIButton]()
+    fileprivate lazy var buttonsSV = UIStackView()
+    fileprivate lazy var buttonsContainerView = UIView()
+    fileprivate lazy var buttonActions = [URBNSwAlertAction]()
+    fileprivate let alertable: URBNSwAlertable
     
     init(alertable: URBNSwAlertable, title: String? = nil, message: String? = nil, customView: UIView? = nil, customButtons: URBNSwAlertButtonContainer? = nil) {
+        self.alertable = alertable
+        
         super.init(frame: CGRect.zero)
         
         backgroundColor = alertable.alertStyler.backgroundColor
         
-        let stackView = UIStackView()
         stackView.spacing = alertable.alertStyler.standardAlertLabelVerticalSpacing
         stackView.axis = .vertical
         
@@ -38,6 +45,13 @@ class URBNSwAlertView: UIView {
             stackView.addArrangedSubview(messageView)
         }
         
+        if alertable.type != .customButton || alertable.type != .fullCustom {
+            buttonsSV.spacing = alertable.alertStyler.standardButtonSpacing
+            let buttonInsets = InsetConstraints(insets: alertable.alertStyler.standardButtonContainerInsets, priority: UILayoutPriorityDefaultHigh)
+            buttonsSV.wrap(in: buttonsContainerView, with: buttonInsets)
+            stackView.addArrangedSubview(buttonsContainerView)
+        }
+        
         stackView.wrap(in: self, with: InsetConstraints(insets: alertable.alertStyler.standardAlertViewInsets, priority: UILayoutPriorityDefaultHigh))
     }
     
@@ -45,3 +59,35 @@ class URBNSwAlertView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+extension URBNSwAlertView: URBNSwAlertButtonContainer {
+    var buttons: [UIButton] {
+        return standardButtons
+    }
+    
+    var buttonStackView: UIStackView {
+        return buttonsSV
+    }
+    
+    var containerView: UIView {
+        return buttonsContainerView
+    }
+    
+    var actions: [URBNSwAlertAction] {
+        return buttonActions
+    }
+    
+    public func addAction(_ action: URBNSwAlertAction) {}
+    public func addActions(_ actions: URBNSwAlertAction...) {
+        addActions(actions)
+    }
+    
+    public func addActions(_ actions: [URBNSwAlertAction]) {
+        for action in actions {
+            let button = URBNSwAlertButton(styler: alertable.alertStyler, action: action)
+            buttonsSV.addArrangedSubview(button)
+            action.add(button: button)
+        }
+    }
+}
+

@@ -28,9 +28,11 @@ class ExampleViewController: UIViewController {
     
     func showOneButtonAlert() {
         let oneBtnAlert = URBNSwAlertViewController(title: wrappingTitle, message: longMessage)
+        let action = URBNSwAlertAction(title: "Done", type: .normal) { (action) in
+            print("one button alert action completed")
+        }
         
-        
-        
+        oneBtnAlert.addActions(action)
         oneBtnAlert.show()
     }
 }
