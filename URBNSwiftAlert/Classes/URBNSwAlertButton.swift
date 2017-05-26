@@ -11,6 +11,7 @@ import Foundation
 // For custom button containers
 public protocol URBNSwAlertButtonContainer {
     var buttons: [UIButton: URBNSwAlertAction] { get }
+    var containerView: UIView { get }
 }
 
 enum URBNSwAlertActionType {

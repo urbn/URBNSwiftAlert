@@ -34,7 +34,7 @@ extension URBNSwAlertable {
 }
 
 enum URBNSwAlertType {
-    case fullCustom, customView, customButton, standardTitle, standardMessage, fullStandard
+    case fullCustom, customView, customButton, fullStandard
 }
 
 open class URBNSwAlertViewController: UIViewController, URBNSwAlertable {
@@ -49,19 +49,11 @@ open class URBNSwAlertViewController: UIViewController, URBNSwAlertable {
     
     // handlers
     var dismissingHandler: ((Bool) -> Void)?
-        
-    public convenience init(title: String) {
-        self.init(type: .standardTitle)
-        
-        alertContainer = URBNSwAlertView(alertable: self, title: title)
-    }
-    
-    public convenience init(message: String) {
-        self.init(type: .standardMessage)
-    }
 
-    public convenience init(title: String, message: String) {
+    public convenience init(title: String? = nil, message: String? = nil) {
         self.init(type: .fullStandard)
+        
+        alertContainer = URBNSwAlertView(alertable: self, title: title, message: message)
     }
     
     public convenience init(customView: UIView) {
@@ -110,7 +102,7 @@ open class URBNSwAlertViewController: UIViewController, URBNSwAlertable {
         setUpBackground()
         layout(alertContainer: ac)
         
-        animate(in: ac)
+        setVisible(isVisible: true)
         
         if alertConfiguration.touchOutsideToDismiss {
             let tap = UITapGestureRecognizer(target: self, action: #selector(dismissAlert(sender:)))
@@ -144,6 +136,7 @@ extension URBNSwAlertViewController {
         }
         else {
             container?.addSubviewsWithNoConstraints(alertContainer)
+            alertContainer.widthAnchor.constraint(equalToConstant: alertStyler.alertWidth).isActive = true
             alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             alertContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
@@ -151,33 +144,48 @@ extension URBNSwAlertViewController {
     
     private var scaler: CGFloat { return 0.3 }
     
-    func animate(in alertView: UIView) {
-        alertView.transform = CGAffineTransform(scaleX: scaler, y: scaler)
-        
-        UIView.animate(withDuration: TimeInterval(alertStyler.animationDuration),
-                       delay: 0.0,
-                       usingSpringWithDamping: alertStyler.animationDamping,
-                       initialSpringVelocity: alertStyler.animationInitialVelocity,
-                       options: [],
-                       animations: {
-            alertView.transform = CGAffineTransform.identity
-            alertView.alpha = 1.0
-        }) { (complete) in
-            
+    func setVisible(isVisible: Bool, completion: ((Void) -> Void)? = nil) {
+        guard let ac = alertContainer else {
+            assertionFailure()
+            return
         }
-    }
-    
-    func animate(out alertView: UIView, completion: @escaping (Void) -> Void) {
-        UIView.animate(withDuration: TimeInterval(alertStyler.animationDuration/2.0),
-                       delay: 0,
-                       usingSpringWithDamping: alertStyler.animationDamping,
-                       initialSpringVelocity: alertStyler.animationInitialVelocity,
-                       options: [],
-                       animations: { [unowned self] in
-            alertView.transform = CGAffineTransform(scaleX: self.scaler, y: self.scaler)
-            alertView.alpha = 0.0
-        }) { (complete) in
-            completion()
+        
+        if isVisible {
+            ac.alpha = 0.0
+            ac.transform = CGAffineTransform(scaleX: scaler, y: scaler)
+        }
+        
+        let alpha: CGFloat = isVisible ? 1.0 : 0.0
+        let endingTransform = isVisible ? CGAffineTransform.identity : CGAffineTransform(scaleX: scaler, y: scaler)
+        
+        let bounceAnimation = {
+            ac.transform = endingTransform
+        }
+        
+        let fadeAnimation = { [unowned self] in
+            ac.alpha = alpha
+            if self.alertStyler.blurEnabled {
+                self.blurImageView?.alpha = alpha
+            }
+        }
+        
+        if alertStyler.isAnimated {
+            let duration = TimeInterval(alertStyler.animationDuration)
+            let damping = alertStyler.animationDamping
+            let initVel = isVisible ? 0 : alertStyler.animationInitialVelocity
+            
+            UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: initVel, options: [], animations: bounceAnimation, completion: { (complete) in
+                if complete {
+                    completion?()
+                }
+            })
+            
+            UIView.animate(withDuration: duration/2, animations: fadeAnimation)
+        }
+        else {
+            fadeAnimation()
+            bounceAnimation()
+            completion?()
         }
     }
     
@@ -206,12 +214,7 @@ extension URBNSwAlertViewController {
         // tell controller to remove top controller and show next alert
         alertController.popQueueAndShowNextIfNecessary()
         
-        guard let ac = alertContainer else {
-            assertionFailure("failed to unwrap an alertContainer")
-            return
-        }
-        
-        animate(out: ac) { [unowned self] in
+        setVisible(isVisible: false) {  [unowned self] in
             self.dismiss(animated: false, completion: nil)
             self.dismissingHandler?(sender is UITapGestureRecognizer)
         }

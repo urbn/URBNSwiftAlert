@@ -19,8 +19,11 @@ class URBNSwAlertView: UIView {
         backgroundColor = alertable.alertStyler.backgroundColor
         
         let stackView = UIStackView()
+        stackView.spacing = alertable.alertStyler.standardAlertLabelVerticalSpacing
+        stackView.axis = .vertical
         
         if let title = title {
+            titleLabel.numberOfLines = 2
             titleLabel.text = title
             stackView.addArrangedSubview(titleLabel)
         }
@@ -28,6 +31,11 @@ class URBNSwAlertView: UIView {
         if let message = message {
             messageView.isEditable = false
             messageView.text = message
+            
+            let buttonH = customButtons?.containerView.frame.height ?? alertable.alertStyler.standardButtonHeight
+            let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (alertable.alertStyler.alertWrappingInsets?.top ?? 16) * 2 - buttonH
+            messageView.heightAnchor.constraint(equalToConstant: maxTextViewH).isActive = true
+            stackView.addArrangedSubview(messageView)
         }
         
         stackView.wrap(in: self, with: InsetConstraints(insets: alertable.alertStyler.standardAlertViewInsets, priority: UILayoutPriorityDefaultHigh))

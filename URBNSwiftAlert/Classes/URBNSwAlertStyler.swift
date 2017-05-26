@@ -20,11 +20,13 @@ struct URBNSwAlertStyler {
     }
     
     var saturationDelta: CGFloat = 1.0
+    var isAnimated: Bool = true
     var animationDuration: CGFloat = 0.6
     var animationDamping: CGFloat = 0.6
     var animationInitialVelocity: CGFloat = -10.0
-    var alertWidth = UIScreen.main.bounds.width / 2
+    var alertWidth = UIScreen.main.bounds.width - 90
     var alertWrappingInsets: UIEdgeInsets?
     var standardAlertLabelVerticalSpacing: CGFloat = 10.0
     var standardAlertViewInsets = UIEdgeInsets(top: 24, left: 16, bottom: 24, right: 16)
+    var standardButtonHeight: CGFloat = 44.0
 }

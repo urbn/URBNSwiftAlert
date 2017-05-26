@@ -16,23 +16,26 @@ class ExampleViewController: UIViewController {
         
         view.backgroundColor = UIColor.lightGray
         
-        let titleOnlyBtn = UIButton(type: .custom)
-        titleOnlyBtn.setTitle("Title Only", for: .normal)
-        titleOnlyBtn.setTitleColor(.green, for: .normal)
-        titleOnlyBtn.addTarget(self, action: #selector(showTitleOnlyAlert), for: .touchUpInside)
+        let oneButtonBtn = UIButton(type: .custom)
+        oneButtonBtn.setTitle("Title Only", for: .normal)
+        oneButtonBtn.setTitleColor(.green, for: .normal)
+        oneButtonBtn.addTarget(self, action: #selector(showOneButtonAlert), for: .touchUpInside)
         
-        let leftSV = UIStackView(arrangedSubviews: [titleOnlyBtn])
+        let leftSV = UIStackView(arrangedSubviews: [oneButtonBtn])
         
         _ = leftSV.wrapInView(view)
     }
     
-    func showTitleOnlyAlert() {
-        let titleOnlyAlert = URBNSwAlertViewController(title: "THIS IS A TITLE")
-        titleOnlyAlert.show()
+    func showOneButtonAlert() {
+        let oneBtnAlert = URBNSwAlertViewController(title: wrappingTitle, message: longMessage)
+        oneBtnAlert.show()
     }
 }
 
 extension ExampleViewController {
+    var wrappingTitle: String {
+        return "The Title of my message can be up to 2 lines long.  It wraps and centers."
+    }
     var longMessage: String {
         return "And the message that is a bunch of text that will turn scrollable once the text view runs out of space.\nAnd the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text."
     }
