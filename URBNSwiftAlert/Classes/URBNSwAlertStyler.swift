@@ -43,7 +43,7 @@ struct URBNSwAlertStyler {
     var destructiveButtonBackgroundColor = UIColor.white
     var destructiveButtonHighlightColor = UIColor.darkGray
     var standardButtonContainerInsets = UIEdgeInsets.zero
-    var standardButtonSpacing: CGFloat = 0.0
+    var standardButtonSpacing: CGFloat = 10.0
 }
 
 // MARK: Standard Button Styling

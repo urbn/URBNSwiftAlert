@@ -10,7 +10,7 @@ import Foundation
 
 // For custom button containers
 public protocol URBNSwAlertButtonContainer {
-    var buttons: [UIButton] { get }
+    var customButtons: [UIButton] { get }
     var containerView: UIView { get }
     var buttonStackView: UIStackView { get }
     var actions: [URBNSwAlertAction] { get }

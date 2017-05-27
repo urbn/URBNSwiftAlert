@@ -61,7 +61,7 @@ class URBNSwAlertView: UIView {
 }
 
 extension URBNSwAlertView: URBNSwAlertButtonContainer {
-    var buttons: [UIButton] {
+    var customButtons: [UIButton] {
         return standardButtons
     }
     
