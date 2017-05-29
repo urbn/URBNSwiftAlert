@@ -8,47 +8,55 @@
 
 import Foundation
 
-struct URBNSwAlertStyler {
-    var blurEnabled = true
-    var backgroundColor = UIColor.white
-    var backgroundTintColor: UIColor?
-    var blurRadius: CGFloat = 5.0
-    var blurTintColor: UIColor = UIColor.white.withAlphaComponent(0.4) {
+public struct URBNSwAlertStyler {
+    public var type: URBNSwAlertType = .fullStandard
+    public var blurEnabled = true
+    public var backgroundColor = UIColor.white
+    public var backgroundTintColor: UIColor?
+    public var blurRadius: CGFloat = 5.0
+    public var blurTintColor: UIColor = UIColor.white.withAlphaComponent(0.4) {
         didSet {
             assert(blurTintColor.cgColor.alpha < 1.0, "URBNAlertStyle: blurTintColor alpha component must be less than 1.0 to see the blur effect. Please use colorWithAlphaComponent: when setting a custom blurTintColor, for example: UIColor.white.withAlphaComponent(0.4)")
         }
     }
     
-    var saturationDelta: CGFloat = 1.0
-    var isAnimated: Bool = true
-    var animationDuration: CGFloat = 0.6
-    var animationDamping: CGFloat = 0.6
-    var animationInitialVelocity: CGFloat = -10.0
-    var alertWidth = UIScreen.main.bounds.width - 90
-    var alertWrappingInsets: UIEdgeInsets?
-    var standardAlertLabelVerticalSpacing: CGFloat = 10.0
-    var standardAlertViewInsets = UIEdgeInsets(top: 24, left: 16, bottom: 5, right: 16)
-    var standardButtonHeight: CGFloat = 44.0
-    var disabledButtonTitleColor = UIColor.gray
-    var disabledButtonBackgroundColor = UIColor.lightGray
-    var disabledButtonAlpha: CGFloat = 1.0
-    var cancelButtonTitleColor = UIColor.black
-    var cancelButtonBackgroundColor = UIColor.white
-    var cancelButtonHighlightColor = UIColor.darkGray
-    var standardButtonTitleColor = UIColor.black
-    var standardButtonBackgroundColor = UIColor.blue
-    var standardButtonHighlightColor = UIColor.darkGray
-    var standardButtonSelectedBackgroundColor = UIColor.lightGray
-    var destructiveButtonTitleColor = UIColor.red
-    var destructiveButtonBackgroundColor = UIColor.white
-    var destructiveButtonHighlightColor = UIColor.darkGray
-    var standardButtonContainerInsets = UIEdgeInsets.zero
-    var standardButtonSpacing: CGFloat = 10.0
+    public var saturationDelta: CGFloat = 1.0
+    public var isAnimated: Bool = true
+    public var animationDuration: CGFloat = 0.6
+    public var animationDamping: CGFloat = 0.6
+    public var animationInitialVelocity: CGFloat = -10.0
+    public var alertWidth = UIScreen.main.bounds.width - 90
+    public var alertWrappingInsets: UIEdgeInsets?
+    public var standardAlertLabelVerticalSpacing: CGFloat = 10.0
+    public var standardAlertViewInsets = UIEdgeInsets(top: 24, left: 16, bottom: 5, right: 16)
+    public var standardButtonHeight: CGFloat = 44.0
+    public var disabledButtonTitleColor = UIColor.gray
+    public var disabledButtonBackgroundColor = UIColor.lightGray
+    public var disabledButtonAlpha: CGFloat = 1.0
+    public var cancelButtonTitleColor = UIColor.black
+    public var cancelButtonBackgroundColor = UIColor.white
+    public var cancelButtonHighlightColor = UIColor.darkGray
+    public var standardButtonTitleColor = UIColor.black
+    public var standardButtonBackgroundColor = UIColor.blue
+    public var standardButtonHighlightColor = UIColor.darkGray
+    public var standardButtonSelectedBackgroundColor = UIColor.lightGray
+    public var destructiveButtonTitleColor = UIColor.red
+    public var destructiveButtonBackgroundColor = UIColor.white
+    public var destructiveButtonHighlightColor = UIColor.darkGray
+    public var standardButtonContainerInsets = UIEdgeInsets.zero
+    public var standardButtonSpacing: CGFloat = 10.0
+    public var titleFont = UIFont.systemFont(ofSize: 14) {
+        didSet {
+            print("title font was set to \(titleFont)")
+        }
+    }
+    
+    public init() {}
 }
 
 // MARK: Standard Button Styling
 extension URBNSwAlertStyler {
-    func buttonTitleColor(actionType: URBNSwAlertActionType, isEnabled: Bool) -> UIColor {
+    public func buttonTitleColor(actionType: URBNSwAlertActionType, isEnabled: Bool) -> UIColor {
         if !isEnabled {
             return disabledButtonTitleColor
         }
@@ -63,7 +71,7 @@ extension URBNSwAlertStyler {
         }
     }
     
-    func buttonBackgroundColor(actionType: URBNSwAlertActionType, isEnabled: Bool) -> UIColor {
+    public func buttonBackgroundColor(actionType: URBNSwAlertActionType, isEnabled: Bool) -> UIColor {
         if !isEnabled {
             return disabledButtonBackgroundColor
         }

@@ -17,19 +17,20 @@ class URBNSwAlertView: UIView {
     fileprivate lazy var buttonsSV = UIStackView()
     fileprivate lazy var buttonsContainerView = UIView()
     fileprivate lazy var buttonActions = [URBNSwAlertAction]()
-    fileprivate let alertable: URBNSwAlertable
+    fileprivate let alertStyler: URBNSwAlertStyler
     
-    init(alertable: URBNSwAlertable, title: String? = nil, message: String? = nil, customView: UIView? = nil, customButtons: URBNSwAlertButtonContainer? = nil) {
-        self.alertable = alertable
+    init(alertStyler: URBNSwAlertStyler, title: String? = nil, message: String? = nil, customView: UIView? = nil, customButtons: URBNSwAlertButtonContainer? = nil) {
+        self.alertStyler = alertStyler
         
         super.init(frame: CGRect.zero)
         
-        backgroundColor = alertable.alertStyler.backgroundColor
+        backgroundColor = alertStyler.backgroundColor
         
-        stackView.spacing = alertable.alertStyler.standardAlertLabelVerticalSpacing
+        stackView.spacing = alertStyler.standardAlertLabelVerticalSpacing
         stackView.axis = .vertical
         
         if let title = title {
+            titleLabel.font = alertStyler.titleFont
             titleLabel.numberOfLines = 2
             titleLabel.text = title
             stackView.addArrangedSubview(titleLabel)
@@ -39,20 +40,21 @@ class URBNSwAlertView: UIView {
             messageView.isEditable = false
             messageView.text = message
             
-            let buttonH = customButtons?.containerView.frame.height ?? alertable.alertStyler.standardButtonHeight
-            let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (alertable.alertStyler.alertWrappingInsets?.top ?? 16) * 2 - buttonH
+            let buttonH = customButtons?.containerView.frame.height ?? alertStyler.standardButtonHeight
+            let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (alertStyler.alertWrappingInsets?.top ?? 16) * 2 - buttonH
             messageView.heightAnchor.constraint(equalToConstant: maxTextViewH).isActive = true
             stackView.addArrangedSubview(messageView)
         }
         
-        if alertable.type != .customButton || alertable.type != .fullCustom {
-            buttonsSV.spacing = alertable.alertStyler.standardButtonSpacing
-            let buttonInsets = InsetConstraints(insets: alertable.alertStyler.standardButtonContainerInsets, priority: UILayoutPriorityDefaultHigh)
+        if alertStyler.type != .customButton || alertStyler.type != .fullCustom {
+            buttonsSV.distribution = .fillEqually
+            buttonsSV.spacing = alertStyler.standardButtonSpacing
+            let buttonInsets = InsetConstraints(insets: alertStyler.standardButtonContainerInsets, priority: UILayoutPriorityDefaultHigh)
             buttonsSV.wrap(in: buttonsContainerView, with: buttonInsets)
             stackView.addArrangedSubview(buttonsContainerView)
         }
         
-        stackView.wrap(in: self, with: InsetConstraints(insets: alertable.alertStyler.standardAlertViewInsets, priority: UILayoutPriorityDefaultHigh))
+        stackView.wrap(in: self, with: InsetConstraints(insets: alertStyler.standardAlertViewInsets, priority: UILayoutPriorityDefaultHigh))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -84,7 +86,7 @@ extension URBNSwAlertView: URBNSwAlertButtonContainer {
     
     public func addActions(_ actions: [URBNSwAlertAction]) {
         for action in actions {
-            let button = URBNSwAlertButton(styler: alertable.alertStyler, action: action)
+            let button = URBNSwAlertButton(styler: alertStyler, action: action)
             buttonsSV.addArrangedSubview(button)
             action.add(button: button)
         }

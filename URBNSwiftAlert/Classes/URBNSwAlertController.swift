@@ -9,13 +9,13 @@
 import Foundation
 
 class URBNSwAlertController: NSObject {
-    static let shared = URBNSwAlertController()
-    let alertStyler = URBNSwAlertStyler()
+    public static let shared = URBNSwAlertController()
+    public var alertStyler = URBNSwAlertStyler()
     
     private var alertIsVisible = false
     private var queue: [URBNSwAlertViewController] = []
     private var alertWindow: UIWindow?
-    var presentingWindow = UIApplication.shared.windows.first ?? UIWindow(frame: UIScreen.main.bounds)
+    public var presentingWindow = UIApplication.shared.windows.first ?? UIWindow(frame: UIScreen.main.bounds)
     
     // MARK: Queueing
     public func addAlertToQueue(avc: URBNSwAlertViewController) {
@@ -48,7 +48,7 @@ class URBNSwAlertController: NSObject {
             nextAVC.alertConfiguration.presentationView?.addSubview(nextAVC.view)
         }
         else {
-            NotificationCenter.default.addObserver(self, selector: #selector(resignActive) , name:  Notification.Name(rawValue: "UIWindowDidBecomeKeyNotification")  , object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name:  Notification.Name(rawValue: "UIWindowDidBecomeKeyNotification")  , object: nil)
             setupAlertWindow()
             alertWindow?.rootViewController = nextAVC
             alertWindow?.makeKeyAndVisible()

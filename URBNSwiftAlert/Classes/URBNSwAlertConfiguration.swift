@@ -12,41 +12,41 @@ struct URBNSwAlertConfiguration {
     /**
      *  Title text for the alert
      */
-    var title = ""
+    public var title = ""
     
     /**
      *  Message text for the alert
      */
-    var message = ""
+    public var message = ""
     
     /**
      *  Array of UITextFields added to the array
      */
-    var textFieldInputs = [UITextField]()
+    public var textFieldInputs = [UITextField]()
     
     /**
      *  The view to present from when using showInView:
      */
-    var presentationView: UIView?
+    public var presentationView: UIView?
     
     /**
      *  Flag if the alert is active. False = a passive alert
      */
-    var isActiveAlert = false
+    public var isActiveAlert = false
     
     /**
      *  Duration of a passive alert (no buttons added)
      */
-    var duration = 3.0
+    public var duration = 3.0
     
     /**
      *  When set to YES, you can touch outside of an alert to dismiss it
      */
-    var touchOutsideToDismiss = true
+    public var touchOutsideToDismiss = true
     
-    var actions = [URBNSwAlertAction]()
+    public var actions = [URBNSwAlertAction]()
     
-    var alertView: URBNSwAlertView?
+    public var alertView: URBNSwAlertView?
     
-    var alertViewButtonContainer: URBNSwAlertButtonContainer?
+    public var alertViewButtonContainer: URBNSwAlertButtonContainer?
 }

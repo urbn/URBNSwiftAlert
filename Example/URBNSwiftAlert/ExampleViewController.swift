@@ -28,9 +28,9 @@ class ExampleViewController: UIViewController {
         }
         
         let leftActiveBtns = btnsMapper(["One Button": #selector(ExampleViewController.showOneButtonAlert),
-                                   "Two Buttons": #selector(ExampleViewController.showTwoBtnAlert),
-                                   "Custom Style": #selector(ExampleViewController.showCustomStyleAlert),
-                                   "Custom View": #selector(ExampleViewController.showCustomViewAlert)
+                                         "Two Buttons": #selector(ExampleViewController.showTwoBtnAlert),
+                                         "Custom Style": #selector(ExampleViewController.showCustomStyleAlert),
+                                         "Custom View": #selector(ExampleViewController.showCustomViewAlert)
                                  ], .blue)
         
         let leftActivBtnsSV = UIStackView(arrangedSubviews: leftActiveBtns)
@@ -38,9 +38,9 @@ class ExampleViewController: UIViewController {
         leftActivBtnsSV.spacing = 10
         
         let rightActiveBtns = btnsMapper(["Queued Alerts ": #selector(ExampleViewController.showQueuedAlerts),
-                                    "Inputs": #selector(ExampleViewController.showInputsAlert),
-                                    "Full Custom": #selector(ExampleViewController.showFullCustomAlert),
-                                    "Validate": #selector(ExampleViewController.showValidateInputAlert)
+                                          "Inputs": #selector(ExampleViewController.showInputsAlert),
+                                          "Full Custom": #selector(ExampleViewController.showFullCustomAlert),
+                                          "Validate": #selector(ExampleViewController.showValidateInputAlert)
                                   ], .blue)
         
         let rightActiveBtnsSV = UIStackView(arrangedSubviews: rightActiveBtns)
@@ -51,11 +51,11 @@ class ExampleViewController: UIViewController {
         activeButtonsSV.spacing = 30
         
         let topPassiveBtns = btnsMapper(["Simple Long": #selector(ExampleViewController.showSimpleLongPassiveAlert),
-                                             "Simple Short": #selector(ExampleViewController.showSimpleShortPassiveAlert)
+                                         "Simple Short": #selector(ExampleViewController.showSimpleShortPassiveAlert)
                                              ], .brown)
         
         let bottomPassiveBtns = btnsMapper(["Custom View": #selector(ExampleViewController.showPassiveCustomAlert),
-                                           "Queued Alerts": #selector(ExampleViewController.showPassiveQueuedAlerts)
+                                            "Queued Alerts": #selector(ExampleViewController.showPassiveQueuedAlerts)
                                            ], .brown)
         
         
@@ -102,11 +102,31 @@ class ExampleViewController: UIViewController {
     }
     
     func showTwoBtnAlert() {
-        
+        let twoBtnAlert = URBNSwAlertViewController(title: wrappingTitle, message: longMessage)
+        let firstAction = URBNSwAlertAction(title: "Done", type: .normal) { (action) in
+            print("two button done pressed")
+        }
+        let secondAction = URBNSwAlertAction(title: "Cancel", type: .cancel) { (action) in
+            print("cancel pressed")
+        }
+        twoBtnAlert.addActions([firstAction, secondAction])
+        twoBtnAlert.show()
     }
     
     func showCustomStyleAlert() {
+        let firstAction = URBNSwAlertAction(title: "Done", type: .normal) { (action) in
+            print("two button done pressed")
+        }
+        let secondAction = URBNSwAlertAction(title: "Cancel", type: .cancel) { (action) in
+            print("cancel pressed")
+        }
         
+        let customStyleAlert = URBNSwAlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
+        
+        customStyleAlert.addActions([firstAction, secondAction])
+        customStyleAlert.alertStyler.backgroundColor = .orange
+        customStyleAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
+        customStyleAlert.show()
     }
     
     func showCustomViewAlert() {
@@ -130,6 +150,7 @@ class ExampleViewController: UIViewController {
     }
     
     func showSimpleLongPassiveAlert() {
+        
     }
     
     func showSimpleShortPassiveAlert() {

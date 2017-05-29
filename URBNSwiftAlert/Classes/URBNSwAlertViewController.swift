@@ -8,52 +8,23 @@
 
 import URBNConvenience
 
-protocol URBNSwAlertable {
-    var alertConfiguration: URBNSwAlertConfiguration { get }
-    var alertController: URBNSwAlertController { get }
-    var alertStyler: URBNSwAlertStyler { get }
-    var actions: [URBNSwAlertAction] { get }
-}
-
-extension URBNSwAlertable {
-    var alertConfiguration: URBNSwAlertConfiguration {
-        return URBNSwAlertConfiguration()
-    }
-    
-    var alertController: URBNSwAlertController {
-        return URBNSwAlertController.shared
-    }
-    
-    var alertStyler: URBNSwAlertStyler {
-        return URBNSwAlertController.shared.alertStyler
-    }
-    
-    var type: URBNSwAlertType {
-        return .fullStandard
-    }
-}
-
-enum URBNSwAlertType {
+public enum URBNSwAlertType {
     case fullCustom, customView, customButton, fullStandard
 }
 
 open class URBNSwAlertViewController: UIViewController {
-    // alertables
-    var avAlertConfiguration: URBNSwAlertConfiguration
-    let alertStyler = URBNSwAlertController.shared.alertStyler
+    var alertConfiguration = URBNSwAlertConfiguration()
+    public var alertStyler = URBNSwAlertController.shared.alertStyler
     var alertController = URBNSwAlertController.shared
     
     // convenience
     fileprivate var blurImageView: UIImageView?
-//    var alertContainer: UIView?
     
     // handlers
     var dismissingHandler: ((Bool) -> Void)?
 
     public convenience init(title: String? = nil, message: String? = nil) {
-        self.init(type: .fullStandard)
-        
-        avAlertConfiguration.alertView = URBNSwAlertView(alertable: self, title: title, message: message)
+        self.init(type: .fullStandard, title: title, message: message)
     }
     
     public convenience init(customView: UIView) {
@@ -61,18 +32,22 @@ open class URBNSwAlertViewController: UIViewController {
     }
     
     public convenience init(title: String? = nil, message: String? = nil, customButtons: URBNSwAlertButtonContainer) {
-        self.init(type: .customButton)
+        self.init(type: .customButton, title: title, message: message)
     }
     
     public convenience init(title: String? = nil, message: String? = nil, customView: UIView, customButtons: URBNSwAlertButtonContainer) {
-        self.init(type: .fullCustom)
+        self.init(type: .fullCustom, title: title, message: message)
     }
     
-    private init(type: URBNSwAlertType) {
-//        self.type = type
-        avAlertConfiguration = URBNSwAlertConfiguration()
+    private init(type: URBNSwAlertType, title: String? = nil, message: String? = nil) {
+        alertStyler.type = type
+        
+        print("alert syler \(alertStyler.titleFont)")
         
         super.init(nibName: nil, bundle: nil)
+        
+        alertConfiguration.title = title ?? ""
+        alertConfiguration.message = message ?? ""
     }
     
     /**
@@ -88,7 +63,7 @@ open class URBNSwAlertViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let ac = avAlertConfiguration.alertView else {
+        guard let ac = alertConfiguration.alertView else {
             assertionFailure("failed to unwrap an alertContainer")
             return
         }
@@ -110,16 +85,20 @@ open class URBNSwAlertViewController: UIViewController {
 }
 
 // MARK: URNBSwAlertable Conformance
-extension URBNSwAlertViewController: URBNSwAlertable {
-//    var type: URBNSwAlertType
-    var alertConfiguration: URBNSwAlertConfiguration {
-        return avAlertConfiguration
-    }
-    
-    var actions: [URBNSwAlertAction] {
-        return avAlertConfiguration.actions
-    }
-}
+//extension URBNSwAlertViewController: URBNSwAlertable {
+////    var type: URBNSwAlertType
+//    var alertConfiguration: URBNSwAlertConfiguration {
+//        return avAlertConfiguration
+//    }
+//    
+//    public var actions: [URBNSwAlertAction] {
+//        return avAlertConfiguration.actions
+//    }
+//    
+//    public var alertStyler: URBNSwAlertStyler {
+//        return self.avAlertStyler
+//    }
+//}
 
 // MARK: Layout and Animations
 extension URBNSwAlertViewController {
@@ -151,7 +130,7 @@ extension URBNSwAlertViewController {
     private var scaler: CGFloat { return 0.3 }
     
     func setVisible(isVisible: Bool, completion: ((Void) -> Void)? = nil) {
-        guard let ac = avAlertConfiguration.alertView else {
+        guard let ac = alertConfiguration.alertView else {
             assertionFailure()
             return
         }
@@ -220,6 +199,7 @@ extension URBNSwAlertViewController {
     
     public func show() {
         // TODO margin settings
+        alertConfiguration.alertView = URBNSwAlertView(alertStyler: alertStyler, title: alertConfiguration.title, message: alertConfiguration.message)
         
         alertController.addAlertToQueue(avc: self)
     }
@@ -246,10 +226,10 @@ extension URBNSwAlertViewController {
     }
     
     public func addActions(_ actions: [URBNSwAlertAction]) {
-        avAlertConfiguration.actions += actions
-        avAlertConfiguration.isActiveAlert = !actions.filter{$0.type != .passive}.isEmpty
+        alertConfiguration.actions += actions
+        alertConfiguration.isActiveAlert = !actions.filter{$0.type != .passive}.isEmpty
         
-        avAlertConfiguration.alertView?.addActions(actions)
+        alertConfiguration.alertView?.addActions(actions)
         
         for action in actions {
             if action.shouldDismiss {
