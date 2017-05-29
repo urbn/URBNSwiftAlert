@@ -46,7 +46,5 @@ struct URBNSwAlertConfiguration {
     
     public var actions = [URBNSwAlertAction]()
     
-    public var alertView: URBNSwAlertView?
-    
     public var alertViewButtonContainer: URBNSwAlertButtonContainer?
 }

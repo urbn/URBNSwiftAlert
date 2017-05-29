@@ -16,6 +16,7 @@ open class URBNSwAlertViewController: UIViewController {
     var alertConfiguration = URBNSwAlertConfiguration()
     public var alertStyler = URBNSwAlertController.shared.alertStyler
     var alertController = URBNSwAlertController.shared
+    var alertView: URBNSwAlertView?
     
     // convenience
     fileprivate var blurImageView: UIImageView?
@@ -42,8 +43,6 @@ open class URBNSwAlertViewController: UIViewController {
     private init(type: URBNSwAlertType, title: String? = nil, message: String? = nil) {
         alertStyler.type = type
         
-        print("alert syler \(alertStyler.titleFont)")
-        
         super.init(nibName: nil, bundle: nil)
         
         alertConfiguration.title = title ?? ""
@@ -63,7 +62,7 @@ open class URBNSwAlertViewController: UIViewController {
     open override func viewDidLoad() {
         super.viewDidLoad()
         
-        guard let ac = alertConfiguration.alertView else {
+        guard let ac = alertView else {
             assertionFailure("failed to unwrap an alertContainer")
             return
         }
@@ -83,22 +82,6 @@ open class URBNSwAlertViewController: UIViewController {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
-// MARK: URNBSwAlertable Conformance
-//extension URBNSwAlertViewController: URBNSwAlertable {
-////    var type: URBNSwAlertType
-//    var alertConfiguration: URBNSwAlertConfiguration {
-//        return avAlertConfiguration
-//    }
-//    
-//    public var actions: [URBNSwAlertAction] {
-//        return avAlertConfiguration.actions
-//    }
-//    
-//    public var alertStyler: URBNSwAlertStyler {
-//        return self.avAlertStyler
-//    }
-//}
 
 // MARK: Layout and Animations
 extension URBNSwAlertViewController {
@@ -130,7 +113,7 @@ extension URBNSwAlertViewController {
     private var scaler: CGFloat { return 0.3 }
     
     func setVisible(isVisible: Bool, completion: ((Void) -> Void)? = nil) {
-        guard let ac = alertConfiguration.alertView else {
+        guard let ac = alertView else {
             assertionFailure()
             return
         }
@@ -198,8 +181,10 @@ extension URBNSwAlertViewController {
     // how to only expose a function to a particular type?
     
     public func show() {
-        // TODO margin settings
-        alertConfiguration.alertView = URBNSwAlertView(alertStyler: alertStyler, title: alertConfiguration.title, message: alertConfiguration.message)
+        // if no alert view, config now
+        if alertView == nil {
+            alertView = URBNSwAlertView(alertStyler: alertStyler, title: alertConfiguration.title, message: alertConfiguration.message)
+        }
         
         alertController.addAlertToQueue(avc: self)
     }
@@ -228,8 +213,13 @@ extension URBNSwAlertViewController {
     public func addActions(_ actions: [URBNSwAlertAction]) {
         alertConfiguration.actions += actions
         alertConfiguration.isActiveAlert = !actions.filter{$0.type != .passive}.isEmpty
+     
+        // if no alert view, config now
+        if alertView == nil {
+            alertView = URBNSwAlertView(alertStyler: alertStyler, title: alertConfiguration.title, message: alertConfiguration.message)
+        }
         
-        alertConfiguration.alertView?.addActions(actions)
+        alertView?.addActions(actions)
         
         for action in actions {
             if action.shouldDismiss {
