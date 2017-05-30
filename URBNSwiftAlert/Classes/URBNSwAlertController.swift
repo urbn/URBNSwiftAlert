@@ -67,7 +67,9 @@ class URBNSwAlertController: NSObject {
     
     func popQueueAndShowNextIfNecessary() {
         alertIsVisible = false
-        _ = queue.removeFirst()
+        if !queue.isEmpty {
+            _ = queue.removeFirst()
+        }
         showNextAlert()
     }
     

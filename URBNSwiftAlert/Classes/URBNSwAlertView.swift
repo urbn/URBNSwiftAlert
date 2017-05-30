@@ -17,10 +17,10 @@ class URBNSwAlertView: UIView {
     fileprivate lazy var buttonsSV = UIStackView()
     fileprivate lazy var buttonsContainerView = UIView()
     fileprivate lazy var buttonActions = [URBNSwAlertAction]()
-    fileprivate let alertStyler: URBNSwAlertStyler
+    var alertStyler: URBNSwAlertStyler
     
-    init(alertStyler: URBNSwAlertStyler, title: String? = nil, message: String? = nil, customView: UIView? = nil, customButtons: URBNSwAlertButtonContainer? = nil) {
-        self.alertStyler = alertStyler
+    init(configuration: URBNSwAlertConfiguration) {
+        self.alertStyler = configuration.styler
         
         super.init(frame: CGRect.zero)
         
@@ -29,20 +29,24 @@ class URBNSwAlertView: UIView {
         stackView.spacing = alertStyler.standardAlertLabelVerticalSpacing
         stackView.axis = .vertical
         
-        if let title = title {
+        if let title = configuration.title {
             titleLabel.font = alertStyler.titleFont
             titleLabel.numberOfLines = 2
             titleLabel.text = title
             stackView.addArrangedSubview(titleLabel)
         }
         
-        if let message = message {
+        if let message = configuration.message, !message.isEmpty {
             messageView.isEditable = false
             messageView.text = message
             
-            let buttonH = customButtons?.containerView.frame.height ?? alertStyler.standardButtonHeight
+            let buttonH = configuration.customButtons?.containerView.frame.height ?? alertStyler.standardButtonHeight
             let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (alertStyler.alertWrappingInsets?.top ?? 16) * 2 - buttonH
-            messageView.heightAnchor.constraint(equalToConstant: maxTextViewH).isActive = true
+            let maxWidth = UIScreen.main.bounds.width - (alertStyler.standardAlertViewInsets.left + alertStyler.standardAlertViewInsets.right)
+            let messageSize = messageView.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
+            let maxHeight = messageSize.height > maxTextViewH ? maxTextViewH : messageSize.height
+            messageView.heightAnchor.constraint(equalToConstant: maxHeight).isActive = true
+            
             stackView.addArrangedSubview(messageView)
         }
         
@@ -52,6 +56,10 @@ class URBNSwAlertView: UIView {
             let buttonInsets = InsetConstraints(insets: alertStyler.standardButtonContainerInsets, priority: UILayoutPriorityDefaultHigh)
             buttonsSV.wrap(in: buttonsContainerView, with: buttonInsets)
             stackView.addArrangedSubview(buttonsContainerView)
+        }
+        
+        if let customView = configuration.customView {
+            stackView.addArrangedSubview(customView)
         }
         
         stackView.wrap(in: self, with: InsetConstraints(insets: alertStyler.standardAlertViewInsets, priority: UILayoutPriorityDefaultHigh))

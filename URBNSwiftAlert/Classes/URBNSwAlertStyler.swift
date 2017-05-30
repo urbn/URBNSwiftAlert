@@ -45,13 +45,9 @@ public struct URBNSwAlertStyler {
     public var destructiveButtonHighlightColor = UIColor.darkGray
     public var standardButtonContainerInsets = UIEdgeInsets.zero
     public var standardButtonSpacing: CGFloat = 10.0
-    public var titleFont = UIFont.systemFont(ofSize: 14) {
-        didSet {
-            print("title font was set to \(titleFont)")
-        }
-    }
+    public var titleFont = UIFont.systemFont(ofSize: 14)
     
-    public init() {}
+//    public init() {}
 }
 
 // MARK: Standard Button Styling

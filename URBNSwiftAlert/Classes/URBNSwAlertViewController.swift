@@ -14,7 +14,11 @@ public enum URBNSwAlertType {
 
 open class URBNSwAlertViewController: UIViewController {
     var alertConfiguration = URBNSwAlertConfiguration()
-    public var alertStyler = URBNSwAlertController.shared.alertStyler
+    public var alertStyler = URBNSwAlertController.shared.alertStyler {
+        didSet {
+            alertConfiguration.styler = self.alertStyler
+        }
+    }
     var alertController = URBNSwAlertController.shared
     var alertView: URBNSwAlertView?
     
@@ -30,21 +34,22 @@ open class URBNSwAlertViewController: UIViewController {
     
     public convenience init(customView: UIView) {
         self.init(type: .customView)
+        
+        alertConfiguration.customView = customView
     }
     
     public convenience init(title: String? = nil, message: String? = nil, customButtons: URBNSwAlertButtonContainer) {
         self.init(type: .customButton, title: title, message: message)
     }
     
-    public convenience init(title: String? = nil, message: String? = nil, customView: UIView, customButtons: URBNSwAlertButtonContainer) {
-        self.init(type: .fullCustom, title: title, message: message)
+    public convenience init(customView: UIView, customButtons: URBNSwAlertButtonContainer) {
+        self.init(type: .fullCustom)
     }
     
     private init(type: URBNSwAlertType, title: String? = nil, message: String? = nil) {
-        alertStyler.type = type
-        
         super.init(nibName: nil, bundle: nil)
         
+        alertConfiguration.type = type
         alertConfiguration.title = title ?? ""
         alertConfiguration.message = message ?? ""
     }
@@ -177,13 +182,18 @@ extension URBNSwAlertViewController {
 
 // MARK: Actions
 extension URBNSwAlertViewController {
-    
-    // how to only expose a function to a particular type?
-    
     public func show() {
-        // if no alert view, config now
-        if alertView == nil {
-            alertView = URBNSwAlertView(alertStyler: alertStyler, title: alertConfiguration.title, message: alertConfiguration.message)
+       alertView = URBNSwAlertView(configuration: alertConfiguration)
+        
+        if !alertConfiguration.actions.isEmpty {
+            // TODO fix this - the alert view cannot be adding its own buttons, that should be the alert view contorller's job alone
+            alertView?.addActions(alertConfiguration.actions)
+
+            for action in alertConfiguration.actions {
+                if action.shouldDismiss {
+                    action.button?.addTarget(self, action: #selector(dismissAlert(sender:)), for: .touchUpInside)
+                }
+            }
         }
         
         alertController.addAlertToQueue(avc: self)
@@ -213,19 +223,6 @@ extension URBNSwAlertViewController {
     public func addActions(_ actions: [URBNSwAlertAction]) {
         alertConfiguration.actions += actions
         alertConfiguration.isActiveAlert = !actions.filter{$0.type != .passive}.isEmpty
-     
-        // if no alert view, config now
-        if alertView == nil {
-            alertView = URBNSwAlertView(alertStyler: alertStyler, title: alertConfiguration.title, message: alertConfiguration.message)
-        }
-        
-        alertView?.addActions(actions)
-        
-        for action in actions {
-            if action.shouldDismiss {
-                action.button?.addTarget(self, action: #selector(dismissAlert(sender:)), for: .touchUpInside)
-            }
-        }
     }
 }
 

@@ -12,12 +12,12 @@ struct URBNSwAlertConfiguration {
     /**
      *  Title text for the alert
      */
-    public var title = ""
+    public var title: String?
     
     /**
      *  Message text for the alert
      */
-    public var message = ""
+    public var message: String?
     
     /**
      *  Array of UITextFields added to the array
@@ -47,4 +47,12 @@ struct URBNSwAlertConfiguration {
     public var actions = [URBNSwAlertAction]()
     
     public var alertViewButtonContainer: URBNSwAlertButtonContainer?
+    
+    public var type = URBNSwAlertType.fullStandard
+    
+    public var styler = URBNSwAlertController.shared.alertStyler
+    
+    public var customView: UIView?
+    
+    public var customButtons: URBNSwAlertButtonContainer?
 }

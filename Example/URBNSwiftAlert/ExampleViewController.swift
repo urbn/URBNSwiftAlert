@@ -11,6 +11,15 @@ import URBNConvenience
 import URBNSwiftAlert
 
 class ExampleViewController: UIViewController {
+    
+    let genericCancelAction = URBNSwAlertAction(title: "Cancel", type: .cancel) { (action) in
+        print("two button done pressed")
+    }
+    
+    let genericDoneAction = URBNSwAlertAction(title: "Done", type: .normal) { (action) in
+        print("one button alert action completed")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -93,44 +102,40 @@ class ExampleViewController: UIViewController {
     
     func showOneButtonAlert() {
         let oneBtnAlert = URBNSwAlertViewController(title: wrappingTitle, message: longMessage)
-        let action = URBNSwAlertAction(title: "Done", type: .normal) { (action) in
-            print("one button alert action completed")
-        }
-        
-        oneBtnAlert.addActions(action)
+        oneBtnAlert.addActions(genericDoneAction)
         oneBtnAlert.show()
     }
     
     func showTwoBtnAlert() {
         let twoBtnAlert = URBNSwAlertViewController(title: wrappingTitle, message: longMessage)
-        let firstAction = URBNSwAlertAction(title: "Done", type: .normal) { (action) in
-            print("two button done pressed")
-        }
-        let secondAction = URBNSwAlertAction(title: "Cancel", type: .cancel) { (action) in
-            print("cancel pressed")
-        }
-        twoBtnAlert.addActions([firstAction, secondAction])
+        
+        twoBtnAlert.addActions([genericCancelAction, genericDoneAction])
         twoBtnAlert.show()
     }
     
     func showCustomStyleAlert() {
-        let firstAction = URBNSwAlertAction(title: "Done", type: .normal) { (action) in
-            print("two button done pressed")
-        }
-        let secondAction = URBNSwAlertAction(title: "Cancel", type: .cancel) { (action) in
-            print("cancel pressed")
-        }
         
         let customStyleAlert = URBNSwAlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
-        
-        customStyleAlert.addActions([firstAction, secondAction])
+        customStyleAlert.addActions([genericCancelAction, genericDoneAction])
         customStyleAlert.alertStyler.backgroundColor = .orange
         customStyleAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
         customStyleAlert.show()
     }
     
     func showCustomViewAlert() {
+        let customView = UIView()
+        let iv = UIImageView(image: UIImage(named: "IMG_7016"))
+        iv.widthAnchor.constraint(equalToConstant: 100).isActive = true
+        iv.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        iv.contentMode = .scaleAspectFit
+        let label = UILabel()
+        label.text = "Cat In Box"
+        let sv = UIStackView(arrangedSubviews: [iv, label])
+        sv.wrap(in: customView, with: InsetConstraints(insets: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), priority: UILayoutPriorityDefaultHigh))
+        let customViewAlert = URBNSwAlertViewController(customView: customView)
         
+        customViewAlert.addActions(genericCancelAction, genericDoneAction)
+        customViewAlert.show()
     }
     
     func showQueuedAlerts() {
@@ -161,6 +166,14 @@ class ExampleViewController: UIViewController {
     }
     
     func showPassiveQueuedAlerts() {
+        
+    }
+    
+    func showFromModal() {
+        
+    }
+    
+    func showFromView() {
         
     }
 }
