@@ -49,7 +49,20 @@ class ExampleViewController: UIViewController {
     }
     
     func showQueuedAlerts() {
+        let firstAlert = URBNSwAlertViewController(title: "I'm the first alert", message: longMessage)
+        firstAlert.addActions(genericDoneAction)
         
+        firstAlert.show()
+        
+        let secondAlert = URBNSwAlertViewController(title: "I'm the second alert", message: longMessage)
+        secondAlert.alertStyler.backgroundColor = .brown
+        secondAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
+        secondAlert.addActions(genericCancelAction, genericDoneAction)
+        secondAlert.show()
+        
+        let thirdAlert = URBNSwAlertViewController(title: "I'm the third alert", message: "Short message", customButtons: ExampleCustomButtons())
+        
+        thirdAlert.show()
     }
     
     func showInputsAlert() {

@@ -33,7 +33,7 @@ open class URBNSwAlertViewController: UIViewController {
     }
     
     public convenience init(title: String? = nil, message: String? = nil, customButtons: URBNSwAlertButtonContainer) {
-        self.init(type: .customButton, title: title, message: message)
+        self.init(type: .customButton, title: title, message: message, customButtons: customButtons)
     }
     
     public convenience init(customView: UIView, customButtons: URBNSwAlertButtonContainer) {
@@ -44,8 +44,8 @@ open class URBNSwAlertViewController: UIViewController {
         super.init(nibName: nil, bundle: nil)
         
         alertConfiguration.type = type
-        alertConfiguration.title = title ?? ""
-        alertConfiguration.message = message ?? ""
+        alertConfiguration.title = title
+        alertConfiguration.message = message
         alertConfiguration.customView = customView
         alertConfiguration.customButtons = customButtons
         
@@ -74,7 +74,6 @@ open class URBNSwAlertViewController: UIViewController {
         
         setUpBackground()
         layout(alertContainer: ac)
-        
         setVisible(isVisible: true)
         
         if alertConfiguration.touchOutsideToDismiss {
