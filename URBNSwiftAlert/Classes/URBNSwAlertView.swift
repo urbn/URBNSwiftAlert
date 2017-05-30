@@ -25,10 +25,10 @@ class URBNSwAlertView: UIView {
         
         backgroundColor = configuration.styler.backgroundColor
         
-        stackView.spacing = configuration.styler.standardAlertLabelVerticalSpacing
         stackView.axis = .vertical
         
         var insets: UIEdgeInsets
+        var spacing: CGFloat
         
         switch configuration.type {
         case .fullStandard:
@@ -36,20 +36,26 @@ class URBNSwAlertView: UIView {
             addMessage()
             addButtons()
             insets = configuration.styler.standardAlertViewInsets
+            spacing = configuration.styler.standardAlertLabelVerticalSpacing
         case .customButton:
             addTitle()
             addMessage()
             addCustomButtons()
             insets = configuration.styler.standardAlertViewInsets
+            spacing = configuration.styler.standardAlertLabelVerticalSpacing
         case .customView:
             addCustomView()
             addButtons()
             insets = UIEdgeInsets.zero
+            spacing = 0.0
         case .fullCustom:
             addCustomView()
             addCustomButtons()
             insets = UIEdgeInsets.zero
+            spacing = 0.0
         }
+        
+        stackView.spacing = spacing
         
         stackView.wrap(in: self, with: InsetConstraints(insets: insets, priority: UILayoutPriorityDefaultHigh))
     }

@@ -21,12 +21,8 @@ open class URBNSwAlertViewController: UIViewController {
     }
     var alertController = URBNSwAlertController.shared
     var alertView: URBNSwAlertView?
-    
-    // convenience
-    fileprivate var blurImageView: UIImageView?
-    
-    // handlers
     var dismissingHandler: ((Bool) -> Void)?
+    fileprivate var blurImageView: UIImageView?
 
     public convenience init(title: String? = nil, message: String? = nil) {
         self.init(type: .fullStandard, title: title, message: message)
@@ -190,8 +186,12 @@ extension URBNSwAlertViewController {
        alertView = URBNSwAlertView(configuration: alertConfiguration)
         
         if !alertConfiguration.actions.isEmpty {
-            // TODO fix this - the alert view cannot be adding its own buttons, that should be the alert view contorller's job alone
-            alertView?.addActions(alertConfiguration.actions)
+            switch alertConfiguration.type {
+            case .fullStandard, .customView:
+                alertView?.addActions(alertConfiguration.actions)
+            case .customButton, .fullCustom:
+                break
+            }
 
             for action in alertConfiguration.actions {
                 if action.shouldDismiss {
