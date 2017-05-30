@@ -9,15 +9,9 @@
 import Foundation
 
 // For custom button containers
-public protocol URBNSwAlertButtonContainer {
-    var customButtons: [UIButton] { get }
+public protocol URBNSwAlertButtonContainer: class {
     var containerView: UIView { get }
-    var buttonStackView: UIStackView { get }
     var actions: [URBNSwAlertAction] { get }
-    
-    func addAction(_ action: URBNSwAlertAction)
-    func addActions(_ actions: URBNSwAlertAction...)
-    func addActions(_ actions: [URBNSwAlertAction])
 }
 
 public class URBNSwAlertButton: UIButton {

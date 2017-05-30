@@ -33,9 +33,7 @@ open class URBNSwAlertViewController: UIViewController {
     }
     
     public convenience init(customView: UIView) {
-        self.init(type: .customView)
-        
-        alertConfiguration.customView = customView
+        self.init(type: .customView, customView: customView)
     }
     
     public convenience init(title: String? = nil, message: String? = nil, customButtons: URBNSwAlertButtonContainer) {
@@ -43,15 +41,21 @@ open class URBNSwAlertViewController: UIViewController {
     }
     
     public convenience init(customView: UIView, customButtons: URBNSwAlertButtonContainer) {
-        self.init(type: .fullCustom)
+        self.init(type: .fullCustom, customView: customView, customButtons: customButtons)
     }
     
-    private init(type: URBNSwAlertType, title: String? = nil, message: String? = nil) {
+    private init(type: URBNSwAlertType, title: String? = nil, message: String? = nil, customView: UIView? = nil, customButtons: URBNSwAlertButtonContainer? = nil) {
         super.init(nibName: nil, bundle: nil)
         
         alertConfiguration.type = type
         alertConfiguration.title = title ?? ""
         alertConfiguration.message = message ?? ""
+        alertConfiguration.customView = customView
+        alertConfiguration.customButtons = customButtons
+        
+        if let customActions = customButtons?.actions {
+            alertConfiguration.actions = customActions
+        }
     }
     
     /**

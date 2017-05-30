@@ -29,6 +29,10 @@ public class URBNSwAlertAction: NSObject {
         self.shouldDismiss = shouldDismiss
         self.isEnabled = isEnabled
         self.completion = completion
+        
+        super.init()
+        
+        add(button: customButton)
     }
 
     public init(title: String, type: URBNSwAlertActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: @escaping ((URBNSwAlertAction) -> Void)) {

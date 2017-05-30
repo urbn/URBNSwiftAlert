@@ -10,59 +10,48 @@ import Foundation
 import URBNConvenience
 
 class URBNSwAlertView: UIView {
-    private lazy var titleLabel = UILabel()
-    private lazy var messageView = UITextView()
+    fileprivate lazy var titleLabel = UILabel()
+    fileprivate lazy var messageView = UITextView()
     fileprivate let stackView = UIStackView()
     fileprivate lazy var standardButtons = [UIButton]()
     fileprivate lazy var buttonsSV = UIStackView()
-    fileprivate lazy var buttonsContainerView = UIView()
     fileprivate lazy var buttonActions = [URBNSwAlertAction]()
-    var alertStyler: URBNSwAlertStyler
+    var configuration: URBNSwAlertConfiguration
     
     init(configuration: URBNSwAlertConfiguration) {
-        self.alertStyler = configuration.styler
+        self.configuration = configuration
         
         super.init(frame: CGRect.zero)
         
-        backgroundColor = alertStyler.backgroundColor
+        backgroundColor = configuration.styler.backgroundColor
         
-        stackView.spacing = alertStyler.standardAlertLabelVerticalSpacing
+        stackView.spacing = configuration.styler.standardAlertLabelVerticalSpacing
         stackView.axis = .vertical
         
-        if let title = configuration.title {
-            titleLabel.font = alertStyler.titleFont
-            titleLabel.numberOfLines = 2
-            titleLabel.text = title
-            stackView.addArrangedSubview(titleLabel)
+        var insets: UIEdgeInsets
+        
+        switch configuration.type {
+        case .fullStandard:
+            addTitle()
+            addMessage()
+            addButtons()
+            insets = configuration.styler.standardAlertViewInsets
+        case .customButton:
+            addTitle()
+            addMessage()
+            addCustomButtons()
+            insets = configuration.styler.standardAlertViewInsets
+        case .customView:
+            addCustomView()
+            addButtons()
+            insets = UIEdgeInsets.zero
+        case .fullCustom:
+            addCustomView()
+            addCustomButtons()
+            insets = UIEdgeInsets.zero
         }
         
-        if let message = configuration.message, !message.isEmpty {
-            messageView.isEditable = false
-            messageView.text = message
-            
-            let buttonH = configuration.customButtons?.containerView.frame.height ?? alertStyler.standardButtonHeight
-            let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (alertStyler.alertWrappingInsets?.top ?? 16) * 2 - buttonH
-            let maxWidth = UIScreen.main.bounds.width - (alertStyler.standardAlertViewInsets.left + alertStyler.standardAlertViewInsets.right)
-            let messageSize = messageView.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
-            let maxHeight = messageSize.height > maxTextViewH ? maxTextViewH : messageSize.height
-            messageView.heightAnchor.constraint(equalToConstant: maxHeight).isActive = true
-            
-            stackView.addArrangedSubview(messageView)
-        }
-        
-        if alertStyler.type != .customButton || alertStyler.type != .fullCustom {
-            buttonsSV.distribution = .fillEqually
-            buttonsSV.spacing = alertStyler.standardButtonSpacing
-            let buttonInsets = InsetConstraints(insets: alertStyler.standardButtonContainerInsets, priority: UILayoutPriorityDefaultHigh)
-            buttonsSV.wrap(in: buttonsContainerView, with: buttonInsets)
-            stackView.addArrangedSubview(buttonsContainerView)
-        }
-        
-        if let customView = configuration.customView {
-            stackView.addArrangedSubview(customView)
-        }
-        
-        stackView.wrap(in: self, with: InsetConstraints(insets: alertStyler.standardAlertViewInsets, priority: UILayoutPriorityDefaultHigh))
+        stackView.wrap(in: self, with: InsetConstraints(insets: insets, priority: UILayoutPriorityDefaultHigh))
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -70,31 +59,62 @@ class URBNSwAlertView: UIView {
     }
 }
 
+extension URBNSwAlertView {
+    func addTitle() {
+        if let title = configuration.title {
+            titleLabel.font = configuration.styler.titleFont
+            titleLabel.numberOfLines = 2
+            titleLabel.text = title
+            stackView.addArrangedSubview(titleLabel)
+        }
+    }
+    
+    func addMessage() {
+        if let message = configuration.message, !message.isEmpty {
+            messageView.isEditable = false
+            messageView.text = message
+            
+            let buttonH = configuration.customButtons?.containerView.frame.height ?? configuration.styler.standardButtonHeight
+            let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (configuration.styler.alertWrappingInsets?.top ?? 16) * 2 - buttonH
+            let maxWidth = UIScreen.main.bounds.width - (configuration.styler.standardAlertViewInsets.left + configuration.styler.standardAlertViewInsets.right)
+            let messageSize = messageView.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
+            let maxHeight = messageSize.height > maxTextViewH ? maxTextViewH : messageSize.height
+            messageView.heightAnchor.constraint(equalToConstant: maxHeight).isActive = true
+            
+            stackView.addArrangedSubview(messageView)
+        }
+    }
+    
+    func addButtons() {
+        buttonsSV.distribution = .fillEqually
+        buttonsSV.spacing = configuration.styler.standardButtonSpacing
+        let buttonInsets = InsetConstraints(insets: configuration.styler.standardButtonContainerInsets, priority: UILayoutPriorityDefaultHigh)
+        stackView.addArrangedSubview(buttonsSV.wrapInNewView(with: buttonInsets))
+    }
+    
+    func addCustomView() {
+        if let customView = configuration.customView {
+            stackView.addArrangedSubview(customView)
+        }
+    }
+    
+    func addCustomButtons() {
+        if let customButtons = configuration.customButtons as? UIView {
+            stackView.addArrangedSubview(customButtons)
+        }
+    }
+}
+
 extension URBNSwAlertView: URBNSwAlertButtonContainer {
-    var customButtons: [UIButton] {
-        return standardButtons
-    }
-    
-    var buttonStackView: UIStackView {
-        return buttonsSV
-    }
-    
-    var containerView: UIView {
-        return buttonsContainerView
-    }
+    var containerView: UIView { return self }
     
     var actions: [URBNSwAlertAction] {
         return buttonActions
     }
     
-    public func addAction(_ action: URBNSwAlertAction) {}
-    public func addActions(_ actions: URBNSwAlertAction...) {
-        addActions(actions)
-    }
-    
     public func addActions(_ actions: [URBNSwAlertAction]) {
         for action in actions {
-            let button = URBNSwAlertButton(styler: alertStyler, action: action)
+            let button = URBNSwAlertButton(styler: configuration.styler, action: action)
             buttonsSV.addArrangedSubview(button)
             action.add(button: button)
         }

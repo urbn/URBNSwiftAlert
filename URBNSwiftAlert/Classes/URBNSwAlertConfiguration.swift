@@ -55,4 +55,6 @@ struct URBNSwAlertConfiguration {
     public var customView: UIView?
     
     public var customButtons: URBNSwAlertButtonContainer?
+    
+    public var customButtonHeight: CGFloat?
 }

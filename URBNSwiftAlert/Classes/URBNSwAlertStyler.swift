@@ -43,11 +43,9 @@ public struct URBNSwAlertStyler {
     public var destructiveButtonTitleColor = UIColor.red
     public var destructiveButtonBackgroundColor = UIColor.white
     public var destructiveButtonHighlightColor = UIColor.darkGray
-    public var standardButtonContainerInsets = UIEdgeInsets.zero
+    public var standardButtonContainerInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
     public var standardButtonSpacing: CGFloat = 10.0
     public var titleFont = UIFont.systemFont(ofSize: 14)
-    
-//    public init() {}
 }
 
 // MARK: Standard Button Styling
