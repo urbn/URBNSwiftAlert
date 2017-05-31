@@ -56,5 +56,5 @@ struct URBNSwAlertConfiguration {
     
     public var customButtons: URBNSwAlertButtonContainer?
     
-    public var customButtonHeight: CGFloat?
+    public var textFields = [UITextField]()
 }

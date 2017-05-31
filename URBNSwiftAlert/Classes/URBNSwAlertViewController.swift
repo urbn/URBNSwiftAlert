@@ -22,6 +22,7 @@ open class URBNSwAlertViewController: UIViewController {
     var alertController = URBNSwAlertController.shared
     var alertView: URBNSwAlertView?
     var dismissingHandler: ((Bool) -> Void)?
+    
     fileprivate var blurImageView: UIImageView?
 
     public convenience init(title: String? = nil, message: String? = nil) {
@@ -71,8 +72,6 @@ open class URBNSwAlertViewController: UIViewController {
             assertionFailure("failed to unwrap an alertContainer")
             return
         }
-        
-        view.backgroundColor = .red
         
         setUpBackground()
         layout(alertContainer: ac)
@@ -179,7 +178,7 @@ extension URBNSwAlertViewController {
     }
 }
 
-// MARK: Actions
+// MARK: Show and Dismiss
 extension URBNSwAlertViewController {
     public func show() {
        alertView = URBNSwAlertView(configuration: alertConfiguration)
@@ -220,6 +219,7 @@ extension URBNSwAlertViewController {
     }
 }
 
+// MARK: Actions and Textfields
 extension URBNSwAlertViewController {
     @available(*, unavailable, message: "use addActions instead")
     public func addAction(_ action: URBNSwAlertAction) {}
@@ -231,6 +231,22 @@ extension URBNSwAlertViewController {
     public func addActions(_ actions: [URBNSwAlertAction]) {
         alertConfiguration.actions += actions
         alertConfiguration.isActiveAlert = !actions.filter{$0.type != .passive}.isEmpty
+    }
+    
+    public func addTextfield(configurationHandler: ((UITextField) -> Void)) {
+        let tf = UITextField()
+        alertConfiguration.textFields.append(tf)
+        configurationHandler(tf)
+    }
+    
+    public var textField: UITextField? {
+        return alertConfiguration.textFields.first
+    }
+    
+    public func textField(atIndex index: Int) -> UITextField? {
+        // 0 1 2 3  count 4
+        guard index < alertConfiguration.textFields.count else { return nil }
+        return alertConfiguration.textFields[index]
     }
 }
 

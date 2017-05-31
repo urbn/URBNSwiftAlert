@@ -29,7 +29,6 @@ class ExampleViewController: UIViewController {
     
     func showTwoBtnAlert() {
         let twoBtnAlert = URBNSwAlertViewController(title: wrappingTitle, message: longMessage)
-        
         twoBtnAlert.addActions([genericCancelAction, genericDoneAction])
         twoBtnAlert.show()
     }
@@ -52,7 +51,6 @@ class ExampleViewController: UIViewController {
     func showQueuedAlerts() {
         let firstAlert = URBNSwAlertViewController(title: "I'm the first alert", message: longMessage)
         firstAlert.addActions(genericDoneAction)
-        
         firstAlert.show()
         
         let secondAlert = URBNSwAlertViewController(title: "I'm the second alert", message: longMessage)
@@ -62,12 +60,35 @@ class ExampleViewController: UIViewController {
         secondAlert.show()
         
         let thirdAlert = URBNSwAlertViewController(title: "I'm the third alert", message: "Short message", customButtons: ExampleCustomButtons())
-        
         thirdAlert.show()
     }
     
     func showInputsAlert() {
+        let textFieldsAlert = URBNSwAlertViewController(title: "Textfields Alert", message: "Enter some info:")
         
+        textFieldsAlert.addTextfield { (textField) in
+            textField.borderStyle = .line
+            textField.placeholder = "Email"
+        }
+        
+        textFieldsAlert.addTextfield { (textField) in
+            textField.borderStyle = .line
+            textField.placeholder = "Password"
+        }
+        
+        textFieldsAlert.addTextfield { (textField) in
+            textField.borderStyle = .line
+            textField.placeholder = "Confirm"
+        }
+
+        let textFieldsAlertAction = URBNSwAlertAction(title: "Done", type: .normal) { (action) in
+            print("textfield 0 \(textFieldsAlert.textField?.text ?? "")")
+            print("textfield 1 \(textFieldsAlert.textField(atIndex: 1)?.text ?? "")")
+            print("textfield 2 \(textFieldsAlert.textField(atIndex: 2)?.text ?? "")")
+        }
+        
+        textFieldsAlert.addActions(textFieldsAlertAction)
+        textFieldsAlert.show()
     }
     
     func showFullCustomAlert() {

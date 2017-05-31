@@ -32,14 +32,12 @@ class URBNSwAlertView: UIView {
         
         switch configuration.type {
         case .fullStandard:
-            addTitle()
-            addMessage()
+            addStandardComponents()
             addButtons()
             insets = configuration.styler.standardAlertViewInsets
             spacing = configuration.styler.standardAlertLabelVerticalSpacing
         case .customButton:
-            addTitle()
-            addMessage()
+            addStandardComponents()
             addCustomButtons()
             insets = configuration.styler.standardAlertViewInsets
             spacing = configuration.styler.standardAlertLabelVerticalSpacing
@@ -66,16 +64,14 @@ class URBNSwAlertView: UIView {
 }
 
 extension URBNSwAlertView {
-    func addTitle() {
+    func addStandardComponents() {
         if let title = configuration.title {
             titleLabel.font = configuration.styler.titleFont
             titleLabel.numberOfLines = 2
             titleLabel.text = title
             stackView.addArrangedSubview(titleLabel)
         }
-    }
-    
-    func addMessage() {
+        
         if let message = configuration.message, !message.isEmpty {
             messageView.isEditable = false
             messageView.text = message
@@ -85,9 +81,15 @@ extension URBNSwAlertView {
             let maxWidth = UIScreen.main.bounds.width - (configuration.styler.standardAlertViewInsets.left + configuration.styler.standardAlertViewInsets.right)
             let messageSize = messageView.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
             let maxHeight = messageSize.height > maxTextViewH ? maxTextViewH : messageSize.height
-            messageView.heightAnchor.constraint(equalToConstant: maxHeight).isActive = true
             
+            messageView.heightAnchor.constraint(equalToConstant: maxHeight).isActive = true
             stackView.addArrangedSubview(messageView)
+        }
+        
+        if !configuration.textFields.isEmpty {
+            for tf in configuration.textFields {
+                stackView.addArrangedSubview(tf)
+            }
         }
     }
     
