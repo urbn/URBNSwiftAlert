@@ -57,12 +57,6 @@ class URBNSwAlertController: NSObject {
             alertWindow?.makeKeyAndVisible()
         }
         
-//        [NSObject cancelPreviousPerformRequestsWithTarget:self];
-//        if (!avc.alertConfig.isActiveAlert) {
-//            CGFloat duration = avc.alertConfig.duration == 0 ? [self calculateDuration:avc.alertConfig] : avc.alertConfig.duration;
-//            [self performSelector:@selector(dismissAlertViewController:) withObject:avc afterDelay:duration];
-//        }
-        
         NSObject.cancelPreviousPerformRequests(withTarget: self)
         
         if !nextAVC.alertConfiguration.isActiveAlert, let duration = nextAVC.alertConfiguration.duration {

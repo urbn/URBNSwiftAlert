@@ -12,6 +12,7 @@ import URBNSwiftAlert
 
 class ExampleViewController: UIViewController {
     let presentationView = UIView()
+    let modalButton = UIButton(type: .custom)
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -121,20 +122,46 @@ class ExampleViewController: UIViewController {
     }
     
     func showPassiveCustomAlert() {
-        
+        let passiveCustomAlert = URBNSwAlertViewController(customView: customView)
+        passiveCustomAlert.alertConfiguration.duration = 5.0
+        passiveCustomAlert.alertConfiguration.touchOutsideToDismiss = true
+        passiveCustomAlert.show()
     }
     
     func showPassiveQueuedAlerts() {
+        let firstPassiveAlert = URBNSwAlertViewController(title: "First Alert", message: "Will auto dismiss in 3 seconds")
+        firstPassiveAlert.alertConfiguration.touchOutsideToDismiss = true
+        firstPassiveAlert.alertConfiguration.duration = 3.0
         
+        let secondPassiveAlert = URBNSwAlertViewController(customView: customView)
+        secondPassiveAlert.alertConfiguration.touchOutsideToDismiss = true
+        let secondAction = URBNSwAlertAction(type: .passive) { (action) in
+            print("second passive action")
+        }
+        secondPassiveAlert.addActions(secondAction)
+        
+        let thirdPassiveAlert = URBNSwAlertViewController(title: "Final alert", message: "Touch to dismiss")
+        thirdPassiveAlert.alertConfiguration.touchOutsideToDismiss = true
+        
+        firstPassiveAlert.show()
+        secondPassiveAlert.show()
+        thirdPassiveAlert.show()
     }
     
     func showFromModal() {
-        
+        let vc = ExampleViewController()
+        let nav = UINavigationController(rootViewController: vc)
+        vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closePressed))
+        present(nav, animated: true, completion: nil)
     }
     
     func showFromView() {
         let customViewAlert = URBNSwAlertViewController(customView: customView)
         customViewAlert.show(inView: presentationView)
+    }
+    
+    func closePressed() {
+        dismiss(animated: true, completion: nil)
     }
 }
 
@@ -207,7 +234,11 @@ extension ExampleViewController {
             presentFromViewBtn.wrap(in: presentationView, with: InsetConstraints(insets:  UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), priority: UILayoutPriorityDefaultHigh))
         }
         
-        let allElementsSV = UIStackView(arrangedSubviews: [activeAlertsLabel, activeButtonsSV, passiveAlertsLabel, passiveBtnsSV, presentationView])
+        modalButton.setTitle("From Modal", for: .normal)
+        modalButton.backgroundColor = .magenta
+        modalButton.addTarget(self, action: #selector(showFromModal), for: .touchUpInside)
+        
+        let allElementsSV = UIStackView(arrangedSubviews: [activeAlertsLabel, activeButtonsSV, passiveAlertsLabel, passiveBtnsSV, modalButton, presentationView])
         allElementsSV.spacing = 20
         allElementsSV.axis = .vertical
         allElementsSV.alignment = .center
