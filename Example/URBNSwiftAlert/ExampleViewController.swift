@@ -11,6 +11,7 @@ import URBNConvenience
 import URBNSwiftAlert
 
 class ExampleViewController: UIViewController {
+    let presentationView = UIView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -99,7 +100,8 @@ class ExampleViewController: UIViewController {
     }
     
     func showFromView() {
-        
+        let customViewAlert = URBNSwAlertViewController(customView: customView)
+        customViewAlert.show(inView: presentationView)
     }
 }
 
@@ -148,7 +150,6 @@ extension ExampleViewController {
                                             "Queued Alerts": #selector(ExampleViewController.showPassiveQueuedAlerts)
             ], .brown)
         
-        
         let topPassiveBtnsSV = UIStackView(arrangedSubviews: topPassiveBtns)
         topPassiveBtnsSV.spacing = 10
         topPassiveBtnsSV.axis = .vertical
@@ -165,10 +166,13 @@ extension ExampleViewController {
         let passiveAlertsLabel = UILabel()
         passiveAlertsLabel.text = "Passive Alerts"
         
-        let presentationView = UIView()
         presentationView.backgroundColor = .white
-        presentationView.heightAnchor.constraint(equalToConstant: view.height/4).isActive = true
-        presentationView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - 60).isActive = true
+        presentationView.heightAnchor.constraint(equalToConstant: view.height/3).isActive = true
+        presentationView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
+        
+        if let presentFromViewBtn = btnsMapper(["Show in View": #selector(ExampleViewController.showFromView)], .green).first {
+            presentFromViewBtn.wrap(in: presentationView, with: InsetConstraints(insets:  UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), priority: UILayoutPriorityDefaultHigh))
+        }
         
         let allElementsSV = UIStackView(arrangedSubviews: [activeAlertsLabel, activeButtonsSV, passiveAlertsLabel, passiveBtnsSV, presentationView])
         allElementsSV.spacing = 20
@@ -178,7 +182,7 @@ extension ExampleViewController {
         
         view.addSubviewsWithNoConstraints(allElementsSV)
         allElementsSV.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
-        activateVFL(format: "H:|-30-[allElementsSV]-30-|", views: ["allElementsSV": allElementsSV])
+        activateVFL(format: "H:|[allElementsSV]|", views: ["allElementsSV": allElementsSV])
     }
 }
 

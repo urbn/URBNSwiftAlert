@@ -72,6 +72,8 @@ open class URBNSwAlertViewController: UIViewController {
             return
         }
         
+        view.backgroundColor = .red
+        
         setUpBackground()
         layout(alertContainer: ac)
         setVisible(isVisible: true)
@@ -101,13 +103,11 @@ extension URBNSwAlertViewController {
     func layout(alertContainer: UIView) {
         alertContainer.alpha = 0.0
         
-        let container = alertConfiguration.presentationView ?? view
-        
         if let insets = alertStyler.alertWrappingInsets {
-            _ = alertContainer.wrapInView(container, withInsets: insets)
+            _ = alertContainer.wrapInView(view, withInsets: insets)
         }
         else {
-            container?.addSubviewsWithNoConstraints(alertContainer)
+            view.addSubviewsWithNoConstraints(alertContainer)
             alertContainer.widthAnchor.constraint(equalToConstant: alertStyler.alertWidth).isActive = true
             alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             alertContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
@@ -200,6 +200,11 @@ extension URBNSwAlertViewController {
         }
         
         alertController.addAlertToQueue(avc: self)
+    }
+    
+    public func show(inView view: UIView) {
+        alertConfiguration.presentationView = view
+        show()
     }
     
     func dismissAlert(sender: Any) {

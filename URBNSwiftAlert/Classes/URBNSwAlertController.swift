@@ -37,6 +37,10 @@ class URBNSwAlertController: NSObject {
                 self.alertWindow?.isHidden = true
                 self.alertWindow = nil
             }
+            
+            if nextAVC.alertConfiguration.presentationView != nil {
+                nextAVC.view.removeFromSuperview()
+            }
         }
         
         if let presentationView = nextAVC.alertConfiguration.presentationView {
@@ -44,7 +48,6 @@ class URBNSwAlertController: NSObject {
             rect.size.width = presentationView.frame.size.width
             rect.size.height = presentationView.frame.size.height
             nextAVC.view.frame = rect
-            
             nextAVC.alertConfiguration.presentationView?.addSubview(nextAVC.view)
         }
         else {
