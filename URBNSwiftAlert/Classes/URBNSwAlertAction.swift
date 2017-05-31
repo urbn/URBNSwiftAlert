@@ -35,7 +35,7 @@ public class URBNSwAlertAction: NSObject {
         add(button: customButton)
     }
 
-    public init(title: String, type: URBNSwAlertActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: @escaping ((URBNSwAlertAction) -> Void)) {
+    public init(title: String? = nil, type: URBNSwAlertActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: @escaping ((URBNSwAlertAction) -> Void)) {
         self.type = type
         self.shouldDismiss = shouldDismiss
         self.isEnabled = isEnabled
@@ -44,11 +44,11 @@ public class URBNSwAlertAction: NSObject {
     }
     
     func add(button: UIButton) {
-        button.addTarget(self, action: #selector(buttonPressed), for: .touchUpInside)
+        button.addTarget(self, action: #selector(completeAction), for: .touchUpInside)
         self.button = button
     }
     
-    @objc public func buttonPressed() {
+    @objc public func completeAction() {
         completion(self)
     }
 }

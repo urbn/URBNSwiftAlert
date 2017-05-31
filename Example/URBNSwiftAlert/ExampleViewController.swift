@@ -102,10 +102,22 @@ class ExampleViewController: UIViewController {
     }
     
     func showSimpleLongPassiveAlert() {
+        let passiveAlert = URBNSwAlertViewController(title: "Simple Passive", message: longMessage)
+        passiveAlert.alertConfiguration.touchOutsideToDismiss = true
         
+        let passiveAction = URBNSwAlertAction(type: .passive) { (action) in
+            print("long passive action")
+        }
+        
+        passiveAlert.addActions(passiveAction)
+        passiveAlert.show()
     }
     
     func showSimpleShortPassiveAlert() {
+        let passiveAlert = URBNSwAlertViewController(title: "Simple Passive", message: "Very short alert. Minimum 2 second duration.")
+        passiveAlert.alertConfiguration.touchOutsideToDismiss = true
+        passiveAlert.alertConfiguration.duration = 2.0
+        passiveAlert.show()
     }
     
     func showPassiveCustomAlert() {

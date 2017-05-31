@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct URBNSwAlertConfiguration {
+public struct URBNSwAlertConfiguration {
     /**
      *  Title text for the alert
      */
@@ -37,12 +37,12 @@ struct URBNSwAlertConfiguration {
     /**
      *  Duration of a passive alert (no buttons added)
      */
-    public var duration = 3.0
+    public var duration: CGFloat?
     
     /**
-     *  When set to YES, you can touch outside of an alert to dismiss it
+     *  When set to true, you can touch outside of an alert to dismiss it
      */
-    public var touchOutsideToDismiss = true
+    public var touchOutsideToDismiss = false
     
     public var actions = [URBNSwAlertAction]()
     

@@ -13,7 +13,7 @@ public enum URBNSwAlertType {
 }
 
 open class URBNSwAlertViewController: UIViewController {
-    var alertConfiguration = URBNSwAlertConfiguration()
+    public var alertConfiguration = URBNSwAlertConfiguration()
     public var alertStyler = URBNSwAlertController.shared.alertStyler {
         didSet {
             alertConfiguration.styler = self.alertStyler
@@ -196,6 +196,11 @@ extension URBNSwAlertViewController {
                     action.button?.addTarget(self, action: #selector(dismissAlert(sender:)), for: .touchUpInside)
                 }
             }
+            
+            if !alertConfiguration.isActiveAlert {
+                let tap = UITapGestureRecognizer(target: self, action: #selector(dismissAlert(sender:)))
+                alertView?.addGestureRecognizer(tap)
+            }
         }
         
         alertController.addAlertToQueue(avc: self)
@@ -208,6 +213,12 @@ extension URBNSwAlertViewController {
     
     func dismissAlert(sender: Any) {
         view.endEditing(true)
+        
+        if !alertConfiguration.isActiveAlert {
+            for action in alertConfiguration.actions {
+                action.completeAction()
+            }
+        }
         
         // tell controller to remove top controller and show next alert
         alertController.popQueueAndShowNextIfNecessary()
@@ -244,7 +255,6 @@ extension URBNSwAlertViewController {
     }
     
     public func textField(atIndex index: Int) -> UITextField? {
-        // 0 1 2 3  count 4
         guard index < alertConfiguration.textFields.count else { return nil }
         return alertConfiguration.textFields[index]
     }

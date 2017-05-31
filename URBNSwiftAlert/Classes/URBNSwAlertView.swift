@@ -63,6 +63,7 @@ class URBNSwAlertView: UIView {
     }
 }
 
+// MARK: Setup and add UI
 extension URBNSwAlertView {
     func addStandardComponents() {
         if let title = configuration.title {
@@ -122,9 +123,11 @@ extension URBNSwAlertView: URBNSwAlertButtonContainer {
     
     public func addActions(_ actions: [URBNSwAlertAction]) {
         for action in actions {
-            let button = URBNSwAlertButton(styler: configuration.styler, action: action)
-            buttonsSV.addArrangedSubview(button)
-            action.add(button: button)
+            if action.type != .passive {
+                let button = URBNSwAlertButton(styler: configuration.styler, action: action)
+                buttonsSV.addArrangedSubview(button)
+                action.add(button: button)
+            }
         }
     }
 }

@@ -51,10 +51,22 @@ class URBNSwAlertController: NSObject {
             nextAVC.alertConfiguration.presentationView?.addSubview(nextAVC.view)
         }
         else {
-            NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name:  Notification.Name(rawValue: "UIWindowDidBecomeKeyNotification")  , object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name:  Notification.Name(rawValue: "UIWindowDidBecomeKeyNotification"), object: nil)
             setupAlertWindow()
             alertWindow?.rootViewController = nextAVC
             alertWindow?.makeKeyAndVisible()
+        }
+        
+//        [NSObject cancelPreviousPerformRequestsWithTarget:self];
+//        if (!avc.alertConfig.isActiveAlert) {
+//            CGFloat duration = avc.alertConfig.duration == 0 ? [self calculateDuration:avc.alertConfig] : avc.alertConfig.duration;
+//            [self performSelector:@selector(dismissAlertViewController:) withObject:avc afterDelay:duration];
+//        }
+        
+        NSObject.cancelPreviousPerformRequests(withTarget: self)
+        
+        if !nextAVC.alertConfiguration.isActiveAlert, let duration = nextAVC.alertConfiguration.duration {
+            perform(#selector(dismiss(alertViewController:)), with: nextAVC, afterDelay: TimeInterval(duration))
         }
     }
     
@@ -78,6 +90,7 @@ class URBNSwAlertController: NSObject {
     
     func dismiss(alertViewController: URBNSwAlertViewController) {
         alertIsVisible = false
+        alertViewController.dismissAlert(sender: self)
     }
     
     func resignActive() {}
