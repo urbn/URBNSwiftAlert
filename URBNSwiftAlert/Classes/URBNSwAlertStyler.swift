@@ -267,7 +267,7 @@ public struct URBNSwAlertStyler {
     /**
      *  Vertical margin between textfields
      */
-    public var textFieldVerticalMargin: CGFloat = 0.0
+    public var textFieldVerticalMargin: CGFloat = 5.0
     
     /**
      *  Layout axis for buttons (for 3+ always vertical always used)

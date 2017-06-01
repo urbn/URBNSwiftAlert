@@ -20,11 +20,6 @@ public struct URBNSwAlertConfiguration {
     public var message: String?
     
     /**
-     *  Array of UITextFields added to the array
-     */
-    public var textFieldInputs = [UITextField]()
-    
-    /**
      *  The view to present from when using showInView:
      */
     public var presentationView: UIView?
@@ -44,17 +39,17 @@ public struct URBNSwAlertConfiguration {
      */
     public var touchOutsideToDismiss = false
     
-    public var actions = [URBNSwAlertAction]()
-    
+    /**
+     *  When set to true, you can touch outside of an alert to dismiss it
+     */
     public var alertViewButtonContainer: URBNSwAlertButtonContainer?
     
-    public var type = URBNSwAlertType.fullStandard
-    
-    public var styler = URBNSwAlertController.shared.alertStyler
-    
-    public var customView: UIView?
-    
-    public var customButtons: URBNSwAlertButtonContainer?
-    
-    public var textFields = [UITextField]()
+    // Internal Variables
+    var type = URBNSwAlertType.fullStandard
+    var styler = URBNSwAlertController.shared.alertStyler
+    var textFields = [UITextField]()
+    var customView: UIView?
+    var customButtons: URBNSwAlertButtonContainer?
+    var actions = [URBNSwAlertAction]()
+    var textFieldInputs = [UITextField]()
 }
