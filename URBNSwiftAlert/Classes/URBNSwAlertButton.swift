@@ -29,17 +29,26 @@ public class URBNSwAlertButton: UIButton {
         let titleColor = styler.buttonTitleColor(actionType: action.type, isEnabled: isEnabled)
         setTitleColor(titleColor, for: .normal)
         backgroundColor = styler.buttonBackgroundColor(actionType: action.type, isEnabled: action.isEnabled)
+        titleLabel?.font = styler.standardButtonFont
+        layer.cornerRadius = styler.standardButtonCornerRadius
+        layer.borderWidth = styler.buttonBorderWidth
+        layer.borderColor = styler.buttonBorderColor
+        layer.shadowOpacity = styler.buttonShadowOpacity
+        layer.shadowRadius = styler.buttonShadowRadius
+        layer.shadowColor = styler.buttonShadowColor
+        layer.shadowOffset = styler.buttonShadowOffset
+        
     }
     
     public override var isHighlighted: Bool {
         didSet {
             switch action.type {
             case .destructive:
-                backgroundColor = isHighlighted ? styler.destructiveButtonHighlightColor : styler.destructiveButtonBackgroundColor
+                backgroundColor = isHighlighted ? styler.destructiveButtonHighlightBackgroundColor : styler.destructiveButtonBackgroundColor
             case .cancel:
-                backgroundColor = isHighlighted ? styler.cancelButtonHighlightColor : styler.cancelButtonBackgroundColor
+                backgroundColor = isHighlighted ? styler.cancelButtonHighlightBackgroundColor : styler.cancelButtonBackgroundColor
             case .custom, .normal, .passive:
-                backgroundColor = isHighlighted ? styler.standardButtonHighlightColor : styler.standardButtonBackgroundColor
+                backgroundColor = isHighlighted ? styler.standardButtonHighlightBackgroundColor : styler.standardButtonBackgroundColor
             }
         }
     }

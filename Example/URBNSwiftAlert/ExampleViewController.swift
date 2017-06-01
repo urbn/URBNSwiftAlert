@@ -122,9 +122,7 @@ class ExampleViewController: UIViewController {
                     return
                 }
                 
-                // show input error message
-                validateAlert.showTextFieldError(message: "Error!  You must enter more than 4 characters.")
-                // set buttons as invalid state
+                validateAlert.showTextFieldError(message: "Error! You must enter more than 4 characters.  You must now cancel to close.")
                 action.button?.isEnabled = false
             })
         }
@@ -188,6 +186,7 @@ class ExampleViewController: UIViewController {
     
     func showFromView() {
         let customViewAlert = URBNSwAlertViewController(customView: customView)
+        customViewAlert.alertConfiguration.touchOutsideToDismiss = true
         customViewAlert.show(inView: presentationView)
     }
     
@@ -202,6 +201,7 @@ extension ExampleViewController {
         let btnsMapper: ([String: Selector], UIColor) -> [UIButton] = { (dict, color) in
             return dict.map({ (entry) -> UIButton in
                 let btn = UIButton(type: .custom)
+                btn.titleLabel?.font = UIFont.systemFont(ofSize: 14.0)
                 btn.setTitle(entry.key, for: .normal)
                 btn.addTarget(self, action: entry.value, for: .touchUpInside)
                 btn.backgroundColor = color

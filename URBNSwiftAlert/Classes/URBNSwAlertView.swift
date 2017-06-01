@@ -24,6 +24,11 @@ class URBNSwAlertView: UIView {
         super.init(frame: CGRect.zero)
         
         backgroundColor = configuration.styler.backgroundColor
+        layer.cornerRadius = configuration.styler.alertCornerRadius
+        layer.shadowRadius = configuration.styler.alertViewShadowRadius
+        layer.shadowOpacity = configuration.styler.alertViewShadowOpacity
+        layer.shadowOffset = configuration.styler.alertShadowOffset
+        layer.shadowColor = configuration.styler.alertViewShadowColor
         
         stackView.axis = .vertical
         
@@ -66,12 +71,12 @@ class URBNSwAlertView: UIView {
 // MARK: Setup and add UI
 extension URBNSwAlertView {
     func addStandardComponents() {
-        if let title = configuration.title {
+        if let title = configuration.title, !title.isEmpty {
             titleLabel.font = configuration.styler.titleFont
             titleLabel.numberOfLines = 2
             titleLabel.textColor = configuration.styler.titleColor
             titleLabel.text = title
-            stackView.addArrangedSubview(titleLabel)
+            stackView.addArrangedSubview(titleLabel.wrapInNewView(with: configuration.styler.titleLabelInsetConstraints))
         }
         
         if let message = configuration.message, !message.isEmpty {
@@ -81,34 +86,37 @@ extension URBNSwAlertView {
             messageView.text = message
             
             let buttonH = configuration.customButtons?.containerView.frame.height ?? configuration.styler.standardButtonHeight
-            let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (configuration.styler.alertWrappingInsets?.top ?? 16) * 2 - buttonH
+            let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (configuration.styler.standardAlertViewInsets.top) * 2 - buttonH
             let maxWidth = UIScreen.main.bounds.width - (configuration.styler.standardAlertViewInsets.left + configuration.styler.standardAlertViewInsets.right)
             let messageSize = messageView.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
             let maxHeight = messageSize.height > maxTextViewH ? maxTextViewH : messageSize.height
             
             messageView.heightAnchor.constraint(equalToConstant: maxHeight).isActive = true
-            stackView.addArrangedSubview(messageView)
+            stackView.addArrangedSubview(messageView.wrapInNewView(with: configuration.styler.messageInsetConstraints))
         }
         
         if !configuration.textFields.isEmpty {
+            let textFieldsSV = UIStackView(arrangedSubviews: configuration.textFields)
+            textFieldsSV.axis = .vertical
+            textFieldsSV.spacing = configuration.styler.textFieldVerticalMargin
             for tf in configuration.textFields {
                 tf.delegate = self
-                stackView.addArrangedSubview(tf)
             }
             
             textFieldErrorLabel.numberOfLines = 0
             textFieldErrorLabel.lineBreakMode = .byWordWrapping
             textFieldErrorLabel.textColor = configuration.styler.textFieldErrorMessageColor
+            textFieldErrorLabel.font = configuration.styler.textFieldErrorMessageFont
             stackView.addArrangedSubview(textFieldErrorLabel)
             textFieldErrorLabel.isHidden = true
         }
     }
     
     func addButtons() {
+        buttonsSV.axis = configuration.actions.count < 3 ? configuration.styler.buttonsLayoutAxis : .vertical
         buttonsSV.distribution = .fillEqually
         buttonsSV.spacing = configuration.styler.standardButtonSpacing
-        let buttonInsets = InsetConstraints(insets: configuration.styler.standardButtonContainerInsets, priority: UILayoutPriorityDefaultHigh)
-        stackView.addArrangedSubview(buttonsSV.wrapInNewView(with: buttonInsets))
+        stackView.addArrangedSubview(buttonsSV.wrapInNewView(with: configuration.styler.standardButtonContainerInsetConstraints))
     }
     
     func addCustomView() {
@@ -140,6 +148,7 @@ extension URBNSwAlertView: URBNSwAlertButtonContainer {
         for action in actions {
             if action.type != .passive {
                 let button = URBNSwAlertButton(styler: configuration.styler, action: action)
+                button.heightAnchor.constraint(equalToConstant: configuration.styler.standardButtonHeight).isActive = true
                 buttonsSV.addArrangedSubview(button)
                 action.add(button: button)
             }
