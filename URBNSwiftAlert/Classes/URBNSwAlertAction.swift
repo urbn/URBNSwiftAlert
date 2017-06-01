@@ -48,11 +48,14 @@ public class URBNSwAlertAction: NSObject {
         self.button = button
     }
     
+    /**
+     * Enables / Disables the Button in the alert (non custom only)
+     */
     public func set(isEnabled: Bool) {
         button?.isEnabled = isEnabled
     }
     
-    @objc public func completeAction() {
+    @objc func completeAction() {
         completion(self)
     }
 }

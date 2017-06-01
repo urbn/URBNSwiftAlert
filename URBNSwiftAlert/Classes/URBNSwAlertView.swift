@@ -96,12 +96,15 @@ extension URBNSwAlertView {
         }
         
         if !configuration.textFields.isEmpty {
-            let textFieldsSV = UIStackView(arrangedSubviews: configuration.textFields)
+            let textFieldsSV = UIStackView()
             textFieldsSV.axis = .vertical
             textFieldsSV.spacing = configuration.styler.textFieldVerticalMargin
             for tf in configuration.textFields {
+                textFieldsSV.addArrangedSubview(tf)
                 tf.delegate = self
             }
+            
+            stackView.addArrangedSubview(textFieldsSV)
             
             textFieldErrorLabel.numberOfLines = 0
             textFieldErrorLabel.lineBreakMode = .byWordWrapping
