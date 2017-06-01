@@ -214,7 +214,7 @@ extension URBNSwAlertViewController {
     public func dismissAlert(sender: Any) {
         view.endEditing(true)
         
-        if !alertConfiguration.isActiveAlert {
+        if !alertConfiguration.isActiveAlert && alertConfiguration.type != .customButton && alertConfiguration.type != .fullCustom {
             for action in alertConfiguration.actions {
                 action.completeAction()
             }

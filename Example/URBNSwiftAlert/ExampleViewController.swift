@@ -285,13 +285,13 @@ extension ExampleViewController {
 extension ExampleViewController {
     var genericCancelAction: URBNSwAlertAction {
         return URBNSwAlertAction(title: "Cancel", type: .cancel) { (action) in
-            print("two button done pressed")
+            print("Cancel pressed")
         }
     }
     
     var genericDoneAction: URBNSwAlertAction {
         return URBNSwAlertAction(title: "Done", type: .normal) { (action) in
-            print("one button alert action completed")
+            print("Done pressed")
         }
     }
     
@@ -327,30 +327,30 @@ class ExampleCustomButtons: UIView, URBNSwAlertButtonContainer {
     }
 
     var actions: [URBNSwAlertAction] {
-        let firstAction = URBNSwAlertAction(customButton: myFirstCustomButton) { (action) in
-            print("custom 1 button action")
+        let firstAction = URBNSwAlertAction(customButton: cancelButton) { (action) in
+            print("custom Cancel button pressed")
         }
         
-        let secondAction = URBNSwAlertAction(customButton: mySecondCustomButton) { (action) in
-            print("custom 2 button action")
+        let secondAction = URBNSwAlertAction(customButton: confirmButton) { (action) in
+            print("custom Confirm button pressed")
         }
         
         return [firstAction, secondAction]
     }
     
-    let myFirstCustomButton: UIButton
-    let mySecondCustomButton: UIButton
+    let cancelButton: UIButton
+    let confirmButton: UIButton
     
     override init(frame: CGRect) {
-        myFirstCustomButton = UIButton(type: .custom)
-        myFirstCustomButton.backgroundColor = .cyan
-        myFirstCustomButton.setImage(UIImage(named: "ExampleCancel"), for: .normal)
-        myFirstCustomButton.setTitle("Cancel", for: .normal)
-        myFirstCustomButton.imageView?.contentMode = .scaleAspectFit
-        mySecondCustomButton = UIButton(type: .custom)
-        mySecondCustomButton.setTitle("Done", for: .normal)
-        mySecondCustomButton.imageView?.contentMode = .scaleAspectFit
-        mySecondCustomButton.backgroundColor = .purple
+        cancelButton = UIButton(type: .custom)
+        cancelButton.backgroundColor = .cyan
+        cancelButton.setImage(UIImage(named: "ExampleCancel"), for: .normal)
+        cancelButton.setTitle("Cancel", for: .normal)
+        cancelButton.imageView?.contentMode = .scaleAspectFit
+        confirmButton = UIButton(type: .custom)
+        confirmButton.setTitle("Done", for: .normal)
+        confirmButton.imageView?.contentMode = .scaleAspectFit
+        confirmButton.backgroundColor = .purple
         
         let customTopDivider = UIView()
         customTopDivider.backgroundColor = .orange
@@ -359,10 +359,10 @@ class ExampleCustomButtons: UIView, URBNSwAlertButtonContainer {
         customButtonDivider.backgroundColor = .magenta
         
         let buttonsContainer = UIView()
-        let buttons = ["myFirstCustomButton": myFirstCustomButton, "customButtonDivider": customButtonDivider, "mySecondCustomButton": mySecondCustomButton]
-        buttonsContainer.addSubviewsWithNoConstraints(myFirstCustomButton, customButtonDivider, mySecondCustomButton)
-        activateVFL(format: "H:|[myFirstCustomButton][customButtonDivider(5)][mySecondCustomButton(myFirstCustomButton)]|", options:[.alignAllTop, .alignAllBottom], views: buttons)
-        activateVFL(format: "V:|[myFirstCustomButton(44)]|", views: buttons)
+        let buttons = ["cancelButton": cancelButton, "customButtonDivider": customButtonDivider, "confirmButton": confirmButton]
+        buttonsContainer.addSubviewsWithNoConstraints(cancelButton, customButtonDivider, confirmButton)
+        activateVFL(format: "H:|[cancelButton][customButtonDivider(5)][confirmButton(cancelButton)]|", options:[.alignAllTop, .alignAllBottom], views: buttons)
+        activateVFL(format: "V:|[cancelButton(44)]|", views: buttons)
         
         let sv = UIStackView(arrangedSubviews: [customTopDivider, buttonsContainer])
         sv.axis = .vertical
