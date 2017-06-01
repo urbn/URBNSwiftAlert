@@ -17,7 +17,7 @@ public class URBNSwAlertAction: NSObject {
     let shouldDismiss: Bool
     let isEnabled: Bool
     let completion: ((URBNSwAlertAction) -> Void)
-    var button: UIButton?
+    public var button: UIButton?
     var title: String?
     
     var isButton: Bool {
@@ -46,6 +46,10 @@ public class URBNSwAlertAction: NSObject {
     func add(button: UIButton) {
         button.addTarget(self, action: #selector(completeAction), for: .touchUpInside)
         self.button = button
+    }
+    
+    public func set(isEnabled: Bool) {
+        button?.isEnabled = isEnabled
     }
     
     @objc public func completeAction() {

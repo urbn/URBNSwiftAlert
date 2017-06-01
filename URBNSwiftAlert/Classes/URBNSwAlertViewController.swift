@@ -211,7 +211,7 @@ extension URBNSwAlertViewController {
         show()
     }
     
-    func dismissAlert(sender: Any) {
+    public func dismissAlert(sender: Any) {
         view.endEditing(true)
         
         if !alertConfiguration.isActiveAlert {
@@ -259,6 +259,10 @@ extension URBNSwAlertViewController {
     public func textField(atIndex index: Int) -> UITextField? {
         guard index < alertConfiguration.textFields.count else { return nil }
         return alertConfiguration.textFields[index]
+    }
+    
+    public func showTextFieldError(message: String) {
+        alertView?.show(errorMessage: message)
     }
 }
 

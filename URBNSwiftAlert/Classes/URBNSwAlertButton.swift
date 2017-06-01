@@ -50,6 +50,14 @@ public class URBNSwAlertButton: UIButton {
         }
     }
     
+    public override var isEnabled: Bool {
+        didSet {
+            setTitleColor(styler.buttonTitleColor(actionType: action.type, isEnabled: isEnabled), for: .normal)
+            backgroundColor = styler.buttonBackgroundColor(actionType: action.type, isEnabled: isEnabled)
+            alpha = isEnabled ? 1.0 : styler.disabledButtonAlpha
+        }
+    }
+    
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -99,7 +99,38 @@ class ExampleViewController: UIViewController {
     }
     
     func showValidateInputAlert() {
+        let validateAlert = URBNSwAlertViewController(title: "Textfield Validation", message: "Text must be > 4")
+        let validateCancelAction = URBNSwAlertAction(title: "Cancel", type: .cancel) { (action) in
+            print("validate action cancelled")
+        }
         
+        validateAlert.addTextfield { (textfield) in
+            textfield.borderStyle = .line
+            textfield.placeholder = "enter a string"
+        }
+        
+        let validateDoneAction = URBNSwAlertAction(title: "Done", type: .normal, shouldDismiss: false, isEnabled: true) { (action) in
+            guard let textField = validateAlert.textField else { return }
+            
+            textField.urbn_showLoading(true, animated: true, spinnerInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8))
+            
+            dispatchAfterDelayInSeconds(2.0, DispatchQueue.main, {
+                textField.urbn_showLoading(false, animated: true, spinnerInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8))
+                
+                guard let text = textField.text, text.characters.count < 5 else {
+                    validateAlert.dismissAlert(sender: self)
+                    return
+                }
+                
+                // show input error message
+                validateAlert.showTextFieldError(message: "Error!  You must enter more than 4 characters.")
+                // set buttons as invalid state
+                action.button?.isEnabled = false
+            })
+        }
+        
+        validateAlert.addActions(validateCancelAction, validateDoneAction)
+        validateAlert.show()
     }
     
     func showSimpleLongPassiveAlert() {
@@ -289,6 +320,7 @@ extension ExampleViewController {
     }
 }
 
+// MARK: Custom Buttons
 class ExampleCustomButtons: UIView, URBNSwAlertButtonContainer {
     var containerView: UIView {
         return self

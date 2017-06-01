@@ -12,8 +12,8 @@ import URBNConvenience
 class URBNSwAlertView: UIView {
     fileprivate lazy var titleLabel = UILabel()
     fileprivate lazy var messageView = UITextView()
+    fileprivate lazy var textFieldErrorLabel = UILabel()
     fileprivate let stackView = UIStackView()
-    fileprivate lazy var standardButtons = [UIButton]()
     fileprivate lazy var buttonsSV = UIStackView()
     fileprivate lazy var buttonActions = [URBNSwAlertAction]()
     var configuration: URBNSwAlertConfiguration
@@ -69,11 +69,14 @@ extension URBNSwAlertView {
         if let title = configuration.title {
             titleLabel.font = configuration.styler.titleFont
             titleLabel.numberOfLines = 2
+            titleLabel.textColor = configuration.styler.titleColor
             titleLabel.text = title
             stackView.addArrangedSubview(titleLabel)
         }
         
         if let message = configuration.message, !message.isEmpty {
+            messageView.font = configuration.styler.messageFont
+            messageView.textColor = configuration.styler.messageColor
             messageView.isEditable = false
             messageView.text = message
             
@@ -89,8 +92,15 @@ extension URBNSwAlertView {
         
         if !configuration.textFields.isEmpty {
             for tf in configuration.textFields {
+                tf.delegate = self
                 stackView.addArrangedSubview(tf)
             }
+            
+            textFieldErrorLabel.numberOfLines = 0
+            textFieldErrorLabel.lineBreakMode = .byWordWrapping
+            textFieldErrorLabel.textColor = configuration.styler.textFieldErrorMessageColor
+            stackView.addArrangedSubview(textFieldErrorLabel)
+            textFieldErrorLabel.isHidden = true
         }
     }
     
@@ -121,6 +131,11 @@ extension URBNSwAlertView: URBNSwAlertButtonContainer {
         return buttonActions
     }
     
+    public func show(errorMessage: String) {
+        textFieldErrorLabel.isHidden = false
+        textFieldErrorLabel.text = errorMessage
+    }
+    
     public func addActions(_ actions: [URBNSwAlertAction]) {
         for action in actions {
             if action.type != .passive {
@@ -132,3 +147,15 @@ extension URBNSwAlertView: URBNSwAlertButtonContainer {
     }
 }
 
+extension URBNSwAlertView: UITextFieldDelegate {
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let charCount = textField.text?.characters.count ?? 0
+        if let charCount = textField.text?.characters.count, range.length + range.location > charCount {
+            return false
+        }
+        
+        let newLength = charCount + string.characters.count - range.length
+        
+        return newLength < configuration.styler.textFieldMaxLength
+    }
+}
