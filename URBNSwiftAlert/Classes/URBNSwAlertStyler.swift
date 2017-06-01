@@ -86,9 +86,9 @@ public struct URBNSwAlertStyler {
     public var animationInitialVelocity: CGFloat = -10.0
     
     /**
-     * Width of the alert.  Used if no insets are given.  The alert view will use its most compressed layout values for height
+     * Margins on left and right sides of the alert, which sets the width constraint.  Used if no insets are given.  The alert view will use its most compressed layout values for height
      */
-    public var alertWidth = UIScreen.main.bounds.width - 90
+    public var horizontalMargin: CGFloat = 45.0
     
     /**
      * Insets of the alert from the top / left / bottom / right of the screen.

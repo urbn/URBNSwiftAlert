@@ -107,7 +107,7 @@ extension URBNSwAlertViewController {
         }
         else {
             view.addSubviewsWithNoConstraints(alertContainer)
-            alertContainer.widthAnchor.constraint(equalToConstant: alertStyler.alertWidth).isActive = true
+            alertContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - alertStyler.horizontalMargin*2).isActive = true
             alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             alertContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
         }
