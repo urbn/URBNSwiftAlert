@@ -197,7 +197,7 @@ extension URBNSwAlertViewController {
                 }
             }
             
-            if !alertConfiguration.isActiveAlert {
+            if !alertConfiguration.isActiveAlert && alertConfiguration.type != .fullCustom && alertConfiguration.type != .customView {
                 let tap = UITapGestureRecognizer(target: self, action: #selector(dismissAlert(sender:)))
                 alertView?.addGestureRecognizer(tap)
             }
