@@ -122,7 +122,7 @@ extension URBNSwAlertView {
     func addButtons() {
         buttonsSV.axis = configuration.actions.count < 3 ? configuration.styler.buttonsLayoutAxis : .vertical
         buttonsSV.distribution = .fillEqually
-        buttonsSV.spacing = configuration.styler.standardButtonSpacing
+        buttonsSV.spacing = configuration.styler.buttonSpacing
         stackView.addArrangedSubview(buttonsSV.wrapInNewView(with: configuration.styler.buttonContainerInsetConstraints))
     }
     

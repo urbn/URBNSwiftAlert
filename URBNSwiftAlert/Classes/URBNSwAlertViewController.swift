@@ -19,11 +19,12 @@ open class URBNSwAlertViewController: UIViewController {
             alertConfiguration.styler = self.alertStyler
         }
     }
-    var alertController = URBNSwAlertController.shared
-    var alertView: URBNSwAlertView?
-    var dismissingHandler: ((Bool) -> Void)?
     
+    var dismissingHandler: ((Bool) -> Void)?
+    fileprivate var alertView: URBNSwAlertView?
     fileprivate var blurImageView: UIImageView?
+    fileprivate var alertController = URBNSwAlertController.shared
+    fileprivate var alertViewYContraint: NSLayoutConstraint?
 
     public convenience init(title: String? = nil, message: String? = nil) {
         self.init(type: .fullStandard, title: title, message: message)
@@ -73,9 +74,15 @@ open class URBNSwAlertViewController: UIViewController {
             return
         }
         
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notif:)), name: .UIKeyboardWillShow, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notif:)), name: .UIKeyboardWillHide, object: nil)
+        
         setUpBackground()
         layout(alertContainer: ac)
-        setVisible(isVisible: true)
+        
+        setVisible(isVisible: true) { [unowned self] in
+            self.alertConfiguration.textFields.first?.becomeFirstResponder()
+        }
         
         if alertConfiguration.touchOutsideToDismiss {
             let tap = UITapGestureRecognizer(target: self, action: #selector(dismissAlert(sender:)))
@@ -103,13 +110,15 @@ extension URBNSwAlertViewController {
         alertContainer.alpha = 0.0
         
         if let insets = alertStyler.alertWrappingInsets {
+            assert(alertConfiguration.textFields.isEmpty, "Setting wrapping insets will hide textfields under the keyboard")
             _ = alertContainer.wrapInView(view, withInsets: insets)
         }
         else {
             view.addSubviewsWithNoConstraints(alertContainer)
             alertContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - alertStyler.horizontalMargin*2).isActive = true
             alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            alertContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+            alertViewYContraint = alertContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
+            alertViewYContraint?.isActive = true
         }
     }
     
@@ -263,6 +272,32 @@ extension URBNSwAlertViewController {
     
     public func showTextFieldError(message: String) {
         alertView?.show(errorMessage: message)
+    }
+}
+
+// MARK: Keyboard management
+extension URBNSwAlertViewController {
+    func keyboardWillShow(notif: Notification) {
+        if let value = notif.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue, let av = alertView  {
+            let kbFrame = value.cgRectValue
+            let alertViewBottomYPos = av.height + av.frame.origin.y
+            let offSet = -(alertViewBottomYPos - kbFrame.origin.y)
+            if offSet < 0 {
+                alertViewYContraint?.constant = offSet - 30
+            }
+            
+            UIView.animate(withDuration: TimeInterval(0.1) , animations: { [unowned self] in
+                self.view.layoutIfNeeded()
+            })
+        }
+    }
+    
+    func keyboardWillHide(notif: Notification) {
+        alertViewYContraint?.constant = 0
+        
+        UIView.animate(withDuration: TimeInterval(0.1) , animations: { [unowned self] in
+            self.view.layoutIfNeeded()
+        })
     }
 }
 

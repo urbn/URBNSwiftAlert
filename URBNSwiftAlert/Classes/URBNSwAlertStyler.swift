@@ -176,7 +176,11 @@ public struct URBNSwAlertStyler {
      */
     public var buttonContainerInsetConstraints = InsetConstraints(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), priority: UILayoutPriorityDefaultHigh)
     
-    public var standardButtonSpacing: CGFloat = 10.0
+    public var buttonSpacing: CGFloat = 10.0 {
+        didSet {
+            assert(buttonSpacing > 0, "Button spacing must be greater than 0")
+        }
+    }
     
     /**
      * Corner radius of the alert's buttons
