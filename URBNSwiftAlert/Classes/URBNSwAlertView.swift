@@ -96,11 +96,11 @@ extension URBNSwAlertView {
         }
         
         if !configuration.textFields.isEmpty {
-            let textFieldsSV = UIStackView()
+            let textFieldsSV = UIStackView(arrangedSubviews: configuration.textFields)
             textFieldsSV.axis = .vertical
             textFieldsSV.spacing = configuration.styler.textFieldVerticalMargin
             for tf in configuration.textFields {
-                textFieldsSV.addArrangedSubview(tf)
+                tf.returnKeyType = .done
                 tf.delegate = self
             }
             
@@ -169,5 +169,10 @@ extension URBNSwAlertView: UITextFieldDelegate {
         let newLength = charCount + string.characters.count - range.length
         
         return newLength < configuration.styler.textFieldMaxLength
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        return false
     }
 }
