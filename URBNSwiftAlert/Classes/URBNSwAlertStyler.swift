@@ -10,7 +10,6 @@ import Foundation
 import URBNConvenience
 
 public struct URBNSwAlertStyler {
-    public var type: URBNSwAlertType = .fullStandard
     
     /**
      * Pass no to disable blurring in the background

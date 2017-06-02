@@ -24,23 +24,25 @@ public class URBNSwAlertAction: NSObject {
         return type != .passive
     }
     
-    public init(customButton: UIButton, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: @escaping ((URBNSwAlertAction) -> Void)) {
-        type = .custom
+    public convenience init(customButton: UIButton, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: @escaping ((URBNSwAlertAction) -> Void)) {
+        self.init(type: .custom, isEnabled: isEnabled, shouldDismiss: shouldDismiss, completion: completion)
+        
+        add(button: customButton)
+    }
+
+    public convenience init(title: String? = nil, type: URBNSwAlertActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: @escaping ((URBNSwAlertAction) -> Void)) {
+        self.init(type: type, isEnabled: isEnabled, shouldDismiss: shouldDismiss, completion: completion)
+        
+        self.title = title
+    }
+    
+    private init(type: URBNSwAlertActionType, isEnabled: Bool, shouldDismiss: Bool, completion: @escaping ((URBNSwAlertAction) -> Void)) {
+        self.type = type
         self.shouldDismiss = shouldDismiss
         self.isEnabled = isEnabled
         self.completion = completion
         
         super.init()
-        
-        add(button: customButton)
-    }
-
-    public init(title: String? = nil, type: URBNSwAlertActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: @escaping ((URBNSwAlertAction) -> Void)) {
-        self.type = type
-        self.shouldDismiss = shouldDismiss
-        self.isEnabled = isEnabled
-        self.title = title
-        self.completion = completion
     }
     
     func add(button: UIButton) {
