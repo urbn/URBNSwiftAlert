@@ -29,13 +29,13 @@ public class URBNSwAlertButton: UIButton {
         let titleColor = styler.buttonTitleColor(actionType: action.type, isEnabled: isEnabled)
         setTitleColor(titleColor, for: .normal)
         backgroundColor = styler.buttonBackgroundColor(actionType: action.type, isEnabled: action.isEnabled)
-        titleLabel?.font = styler.standardButtonFont
-        layer.cornerRadius = styler.standardButtonCornerRadius
+        titleLabel?.font = styler.buttonFont
+        layer.cornerRadius = styler.buttonCornerRadius
         layer.borderWidth = styler.buttonBorderWidth
-        layer.borderColor = styler.buttonBorderColor
+        layer.borderColor = styler.buttonBorderColor.cgColor
         layer.shadowOpacity = styler.buttonShadowOpacity
         layer.shadowRadius = styler.buttonShadowRadius
-        layer.shadowColor = styler.buttonShadowColor
+        layer.shadowColor = styler.buttonShadowColor.cgColor
         layer.shadowOffset = styler.buttonShadowOffset
         
     }
@@ -48,14 +48,14 @@ public class URBNSwAlertButton: UIButton {
             case .cancel:
                 backgroundColor = isHighlighted ? styler.cancelButtonHighlightBackgroundColor : styler.cancelButtonBackgroundColor
             case .custom, .normal, .passive:
-                backgroundColor = isHighlighted ? styler.standardButtonHighlightBackgroundColor : styler.standardButtonBackgroundColor
+                backgroundColor = isHighlighted ? styler.buttonHighlightBackgroundColor : styler.buttonBackgroundColor
             }
         }
     }
     
     public override var isSelected: Bool {
         didSet {
-            backgroundColor = isSelected ? styler.standardButtonSelectedBackgroundColor : styler.buttonBackgroundColor(actionType: action.type, isEnabled: isEnabled)
+            backgroundColor = isSelected ? styler.buttonSelectedBackgroundColor : styler.buttonBackgroundColor(actionType: action.type, isEnabled: isEnabled)
         }
     }
     

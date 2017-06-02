@@ -25,15 +25,16 @@ public struct URBNSwAlertStyler {
      * Tint color of the view behind the Alert. Blur must be disabled
      */
     public var backgroundTintColor: UIColor?
-    /**
-     * Opacity of the alert view's shadow
-     */
-    public var alertViewShadowOpacity: Float = 0.0
     
     /**
      * Radius of the blurred snapshot
      */
     public var blurRadius: CGFloat = 5.0
+    
+    /**
+     * Opacity of the alert view's shadow
+     */
+    public var alertViewShadowOpacity: Float = 0.0
     
     /**
      * Radius of the alert view's shadow
@@ -43,7 +44,7 @@ public struct URBNSwAlertStyler {
     /**
      * Color of the alert view's shadow
      */
-    public var alertViewShadowColor = UIColor.clear.cgColor
+    public var alertViewShadowColor = UIColor.clear
     
     /**
      * Offset of the alert view's shadow
@@ -87,7 +88,11 @@ public struct URBNSwAlertStyler {
     /**
      * Margins on left and right sides of the alert, which sets the width constraint.  Used if no insets are given.  The alert view will use its most compressed layout values for height
      */
-    public var horizontalMargin: CGFloat = 45.0
+    public var horizontalMargin: CGFloat = 45.0 {
+        didSet {
+            assert(horizontalMargin > 0, "Margin must be greater than 0")
+        }
+    }
     
     /**
      * Insets of the alert from the top / left / bottom / right of the screen.
@@ -139,54 +144,54 @@ public struct URBNSwAlertStyler {
     /**
      * Height of the alert's buttons
      */
-    public var standardButtonHeight: CGFloat = 44.0
+    public var buttonHeight: CGFloat = 44.0
     
     /**
      * Text color of the button titles
      */
-    public var standardButtonTitleColor = UIColor.black
+    public var buttonTitleColor = UIColor.black
     
     /**
      * Background color of the buttons for active alerts
      */
-    public var standardButtonBackgroundColor = UIColor.gray
+    public var buttonBackgroundColor = UIColor.gray
     
     /**
      * Background color of a highlighted button for an active alert
      */
-    public var standardButtonHighlightBackgroundColor = UIColor.darkGray
+    public var buttonHighlightBackgroundColor = UIColor.darkGray
     
     /**
      * Background color of a selected button for an active alert
      */
-    public var standardButtonSelectedBackgroundColor = UIColor.lightGray
+    public var buttonSelectedBackgroundColor = UIColor.lightGray
     
     /**
      * Button title color for a selected state
      */
-    public var standardButtonSelectedTitleColor = UIColor.black
+    public var buttonSelectedTitleColor = UIColor.black
     
     /**
      * Button container inset constraints
      */
-    public var standardButtonContainerInsetConstraints = InsetConstraints(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), priority: UILayoutPriorityDefaultHigh)
+    public var buttonContainerInsetConstraints = InsetConstraints(insets: UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10), priority: UILayoutPriorityDefaultHigh)
     
     public var standardButtonSpacing: CGFloat = 10.0
     
     /**
      * Corner radius of the alert's buttons
      */
-    public var standardButtonCornerRadius: CGFloat = 0.0
+    public var buttonCornerRadius: CGFloat = 0.0
     
     /**
      * Font of the button's titles
      */
-    public var standardButtonFont = UIFont.systemFont(ofSize: 12.0)
+    public var buttonFont: UIFont? = UIFont.systemFont(ofSize: 12.0)
     
     /**
      * Button title color on highlight
      */
-    public var standardButtonHighlightTitleColor = UIColor.black
+    public var buttonHighlightTitleColor = UIColor.black
     
     /**
      * Text color of destructive button colors
@@ -211,12 +216,12 @@ public struct URBNSwAlertStyler {
     /**
      * Font of the alert's title
      */
-    public var titleFont = UIFont.systemFont(ofSize: 14)
+    public var titleFont: UIFont? = UIFont.systemFont(ofSize: 14)
     
     /**
      * Font of the alert's message
      */
-    public var messageFont = UIFont.systemFont(ofSize: 12.0)
+    public var messageFont: UIFont? = UIFont.systemFont(ofSize: 12.0)
     
     /**
      * Text color of the alert's title
@@ -227,6 +232,16 @@ public struct URBNSwAlertStyler {
      * Text color of the alert's message
      */
     public var messageColor = UIColor.black
+    
+    /**
+     * Background color of the alert's title
+     */
+    public var titleBackgroundColor = UIColor.clear
+    
+    /**
+     * Background color of the alert's message
+     */
+    public var messageBackgroundColor = UIColor.clear
     
     /**
      * Alignment of the titles's message
@@ -251,7 +266,7 @@ public struct URBNSwAlertStyler {
     /**
      * Text font of the error label text
      */
-    public var textFieldErrorMessageFont = UIFont.systemFont(ofSize: 12.0)
+    public var textFieldErrorMessageFont: UIFont? = UIFont.systemFont(ofSize: 12.0)
     
     /**
      *  Text Insets for input text fields on alerts
@@ -296,7 +311,7 @@ public struct URBNSwAlertStyler {
     /**
      * UIColor of the alert's button's border
      */
-    public var buttonBorderColor = UIColor.clear.cgColor
+    public var buttonBorderColor = UIColor.clear
     
     /**
      * Opacity of the alert's button's shadows
@@ -311,7 +326,7 @@ public struct URBNSwAlertStyler {
     /**
      * Color of the alert's button's shadows
      */
-    public var buttonShadowColor = UIColor.clear.cgColor
+    public var buttonShadowColor = UIColor.clear
     
     /**
      * Offset of the alert's button's shadows
@@ -345,7 +360,7 @@ extension URBNSwAlertStyler {
         case .destructive:
             return destructiveButtonTitleColor
         case .normal, .custom, .passive:
-            return standardButtonTitleColor
+            return buttonTitleColor
         }
     }
     
@@ -367,7 +382,7 @@ extension URBNSwAlertStyler {
         case .destructive:
             return destructiveButtonBackgroundColor
         case .normal, .custom, .passive:
-            return standardButtonBackgroundColor
+            return buttonBackgroundColor
         }
     }
 }

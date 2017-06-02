@@ -37,9 +37,24 @@ class ExampleViewController: UIViewController {
     func showCustomStyleAlert() {
         let customStyleAlert = URBNSwAlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
         customStyleAlert.addActions([genericCancelAction, genericDoneAction])
+        customStyleAlert.alertStyler.horizontalMargin = 10
         customStyleAlert.alertStyler.backgroundColor = .orange
         customStyleAlert.alertStyler.standardAlertViewInsets = UIEdgeInsets(top: 2, left: 40, bottom: 20, right: 10)
         customStyleAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
+        customStyleAlert.alertStyler.alertCornerRadius = 5.0
+        customStyleAlert.alertStyler.alertViewShadowColor = UIColor.purple
+        customStyleAlert.alertStyler.alertShadowOffset = CGSize(width: 5, height: 5)
+        customStyleAlert.alertStyler.alertViewShadowRadius = 5.0
+        customStyleAlert.alertStyler.alertViewShadowOpacity = 0.9
+        customStyleAlert.alertStyler.cancelButtonTitleColor = .magenta
+        customStyleAlert.alertStyler.blurTintColor = UIColor.blue.withAlphaComponent(0.2)
+        customStyleAlert.alertStyler.buttonShadowColor = UIColor.red
+        customStyleAlert.alertStyler.buttonShadowOffset = CGSize(width: 10, height: 10)
+        customStyleAlert.alertStyler.buttonShadowRadius = 10
+        customStyleAlert.alertStyler.buttonShadowOpacity = 0.9
+        customStyleAlert.alertStyler.buttonBackgroundColor = .cyan
+        customStyleAlert.alertStyler.cancelButtonBackgroundColor = .brown
+        customStyleAlert.alertStyler.messageFont = UIFont(name: "AmericanTypewriter-Bold", size: 15)
         customStyleAlert.show()
     }
     
