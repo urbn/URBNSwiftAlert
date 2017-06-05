@@ -34,8 +34,9 @@ public class URBNSwAlertButton: UIButton {
         
         setTitle(action.title, for: .normal)
         
-        let titleColor = styler.buttonTitleColor(actionType: action.type, isEnabled: isEnabled)
-        setTitleColor(titleColor, for: .normal)
+        setTitleColor(styler.buttonTitleColor(actionType: action.type, isEnabled: isEnabled), for: .normal)
+        setTitleColor(styler.buttonHighlightTitleColor(actionType: action.type, isEnabled: isEnabled), for: .highlighted)
+        setTitleColor(styler.buttonSelectedTitleColor, for: .selected)
         backgroundColor = styler.buttonBackgroundColor(actionType: action.type, isEnabled: action.isEnabled)
         titleLabel?.font = styler.buttonFont
         layer.cornerRadius = styler.buttonCornerRadius
@@ -45,7 +46,7 @@ public class URBNSwAlertButton: UIButton {
         layer.shadowRadius = styler.buttonShadowRadius
         layer.shadowColor = styler.buttonShadowColor.cgColor
         layer.shadowOffset = styler.buttonShadowOffset
-        
+        contentEdgeInsets = styler.buttonContentInsets
     }
     
     public override var isHighlighted: Bool {
@@ -70,6 +71,7 @@ public class URBNSwAlertButton: UIButton {
     public override var isEnabled: Bool {
         didSet {
             setTitleColor(styler.buttonTitleColor(actionType: action.type, isEnabled: isEnabled), for: .normal)
+            setTitleColor(styler.buttonHighlightTitleColor(actionType: action.type, isEnabled: isEnabled), for: .highlighted)
             backgroundColor = styler.buttonBackgroundColor(actionType: action.type, isEnabled: isEnabled)
             alpha = isEnabled ? 1.0 : styler.disabledButtonAlpha
         }

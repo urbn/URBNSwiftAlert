@@ -338,6 +338,11 @@ public struct URBNSwAlertStyler {
     public var buttonShadowOffset = CGSize.zero
     
     /**
+     * Insets of the buttons contents
+     */
+    public var buttonContentInsets = UIEdgeInsets.zero
+    
+    /**
      * The view you want to become the first responder when the alert view is finished presenting
      * The alert position will adjust for the keyboard when using this property
      */
@@ -347,7 +352,7 @@ public struct URBNSwAlertStyler {
 // MARK: Standard Button Styling
 extension URBNSwAlertStyler {
     /**
-     *  Returns the correct title color for given an actionType
+     *  Returns the correct button title color for given an actionType
      *
      *  @param actionType Action type associated with the button
      *
@@ -369,7 +374,29 @@ extension URBNSwAlertStyler {
     }
     
     /**
-     *  Returns the correct background color for given an actionType
+     *  Returns the correct button highlight title color for given an actionType
+     *
+     *  @param actionType Action type associated with the button
+     *
+     *  @return
+     */
+    public func buttonHighlightTitleColor(actionType: URBNSwAlertActionType, isEnabled: Bool) -> UIColor {
+        if !isEnabled {
+            return disabledButtonTitleColor
+        }
+        
+        switch actionType {
+        case .cancel:
+            return cancelButtonHighlightTitleColor
+        case .destructive:
+            return destructiveButtonHighlightTitleColor
+        case .normal, .custom, .passive:
+            return buttonHighlightTitleColor
+        }
+    }
+    
+    /**
+     *  Returns the correct button background color for given an actionType
      *
      *  @param actionType Action type associated with the button
      *
@@ -389,5 +416,7 @@ extension URBNSwAlertStyler {
             return buttonBackgroundColor
         }
     }
+    
+    
 }
 

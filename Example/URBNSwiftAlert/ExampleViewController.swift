@@ -42,19 +42,22 @@ class ExampleViewController: UIViewController {
         customStyleAlert.alertStyler.standardAlertViewInsets = UIEdgeInsets(top: 2, left: 40, bottom: 20, right: 10)
         customStyleAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
         customStyleAlert.alertStyler.alertCornerRadius = 5.0
-        customStyleAlert.alertStyler.alertViewShadowColor = UIColor.purple
+        customStyleAlert.alertStyler.alertViewShadowColor = .purple
         customStyleAlert.alertStyler.alertShadowOffset = CGSize(width: 5, height: 5)
         customStyleAlert.alertStyler.alertViewShadowRadius = 5.0
         customStyleAlert.alertStyler.alertViewShadowOpacity = 0.9
         customStyleAlert.alertStyler.cancelButtonTitleColor = .magenta
         customStyleAlert.alertStyler.blurTintColor = UIColor.blue.withAlphaComponent(0.2)
-        customStyleAlert.alertStyler.buttonShadowColor = UIColor.red
+        customStyleAlert.alertStyler.buttonShadowColor = .red
         customStyleAlert.alertStyler.buttonShadowOffset = CGSize(width: 10, height: 10)
         customStyleAlert.alertStyler.buttonShadowRadius = 10
         customStyleAlert.alertStyler.buttonShadowOpacity = 0.9
         customStyleAlert.alertStyler.buttonBackgroundColor = .cyan
         customStyleAlert.alertStyler.cancelButtonBackgroundColor = .brown
         customStyleAlert.alertStyler.messageFont = UIFont(name: "AmericanTypewriter-Bold", size: 15)
+        customStyleAlert.alertStyler.buttonHighlightTitleColor = .green
+        customStyleAlert.alertStyler.cancelButtonHighlightTitleColor = .blue
+        customStyleAlert.alertStyler.buttonSelectedTitleColor = .yellow
         customStyleAlert.show()
     }
     
