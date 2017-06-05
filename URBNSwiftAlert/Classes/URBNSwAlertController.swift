@@ -51,7 +51,7 @@ class URBNSwAlertController: NSObject {
             nextAVC.alertConfiguration.presentationView?.addSubview(nextAVC.view)
         }
         else {
-            NotificationCenter.default.addObserver(self, selector: #selector(resignActive), name:  Notification.Name(rawValue: "UIWindowDidBecomeKeyNotification"), object: nil)
+            NotificationCenter.default.addObserver(self, selector: #selector(resignActive(note:)), name:  Notification.Name(rawValue: "UIWindowDidBecomeKeyNotification"), object: nil)
             setupAlertWindow()
             alertWindow?.rootViewController = nextAVC
             alertWindow?.makeKeyAndVisible()
@@ -87,5 +87,15 @@ class URBNSwAlertController: NSObject {
         alertViewController.dismissAlert(sender: self)
     }
     
-    func resignActive() {}
+    /**
+     *  Called when a new window becomes active.
+     *  Specifically used to detect new alertViews or actionSheets so we can dismiss ourselves
+     **/
+    func resignActive(note: Notification) {
+        guard let noteWindow = note.object as? UIWindow, noteWindow != alertWindow, noteWindow != presentingWindow else { return }
+        
+        if let nextAVC = queue.first {
+            dismiss(alertViewController: nextAVC)
+        }
+    }
 }

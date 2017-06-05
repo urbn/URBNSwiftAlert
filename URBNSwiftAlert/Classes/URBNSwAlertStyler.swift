@@ -416,7 +416,5 @@ extension URBNSwAlertStyler {
             return buttonBackgroundColor
         }
     }
-    
-    
 }
 
