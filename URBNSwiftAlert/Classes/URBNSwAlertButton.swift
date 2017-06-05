@@ -16,7 +16,7 @@ public protocol URBNSwAlertButtonContainer: class {
     var actions: [URBNSwAlertAction] { get }
 }
 
-extension URBNSwAlertButtonContainer where Self: UIView {
+public extension URBNSwAlertButtonContainer where Self: UIView {
     var containerViewHeight: CGFloat {
         return height
     }

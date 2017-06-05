@@ -337,12 +337,6 @@ extension ExampleViewController {
 
 // MARK: Custom Buttons
 class ExampleCustomButtons: UIView, URBNSwAlertButtonContainer {
-    var containerView: UIView {
-        return self
-    }
-    
-    var containerViewHeight: CGFloat { return self.height }
-
     var actions: [URBNSwAlertAction] {
         let firstAction = URBNSwAlertAction(customButton: cancelButton) { (action) in
             print("custom Cancel button pressed")
