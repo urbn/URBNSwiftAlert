@@ -8,10 +8,18 @@
 
 import Foundation
 
-// For custom button containers
+/**
+ *  Conform a UIView to this protocol to generate a custom view that holds custom buttons
+ */
 public protocol URBNSwAlertButtonContainer: class {
-    var containerView: UIView { get }
+    var containerViewHeight: CGFloat { get }
     var actions: [URBNSwAlertAction] { get }
+}
+
+extension URBNSwAlertButtonContainer where Self: UIView {
+    var containerViewHeight: CGFloat {
+        return height
+    }
 }
 
 public class URBNSwAlertButton: UIButton {

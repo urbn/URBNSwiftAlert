@@ -89,7 +89,7 @@ extension URBNSwAlertView {
             messageView.isEditable = false
             messageView.text = message
             
-            let buttonH = configuration.customButtons?.containerView.frame.height ?? configuration.styler.buttonHeight
+            let buttonH = configuration.customButtons?.containerViewHeight ?? configuration.styler.buttonHeight
             let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (configuration.styler.standardAlertViewInsets.top) * 2 - buttonH
             let maxWidth = UIScreen.main.bounds.width - (configuration.styler.standardAlertViewInsets.left + configuration.styler.standardAlertViewInsets.right) - configuration.styler.horizontalMargin*2
             let messageSize = messageView.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
@@ -140,7 +140,6 @@ extension URBNSwAlertView {
 }
 
 extension URBNSwAlertView: URBNSwAlertButtonContainer {
-    var containerView: UIView { return self }
     
     var actions: [URBNSwAlertAction] {
         return buttonActions

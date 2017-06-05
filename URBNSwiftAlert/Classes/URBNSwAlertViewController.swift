@@ -20,23 +20,54 @@ open class URBNSwAlertViewController: UIViewController {
         }
     }
     
-    var dismissingHandler: ((Bool) -> Void)?
-    fileprivate var alertView: URBNSwAlertView?
-    fileprivate var blurImageView: UIImageView?
-    fileprivate var alertController = URBNSwAlertController.shared
-    fileprivate var alertViewYContraint: NSLayoutConstraint?
+    /**
+     *  Initialize with a title and / or message
+     *
+     *  @param title   Optional. The title text displayed in the alert
+     *  @param message Optional. The message text displayed in the alert
+     *
+     *
+     *  @return A URBNSwiftAlertViewController ready to be configurated further or displayed
+     */
 
     public convenience init(title: String? = nil, message: String? = nil) {
         self.init(type: .fullStandard, title: title, message: message)
     }
     
+    /**
+     *  Initialize with a custom view
+     *
+     *  @param customView Required.  A UIView or UIView subclass.  Any actions added will generate standard URBNSwAlert Buttons
+     *
+     *  @return A URBNSwiftAlertViewController with a custom view ready to be configurated further or displayed
+     */
+    
     public convenience init(customView: UIView) {
         self.init(type: .customView, customView: customView)
     }
     
+    /**
+     *  Initialize with a title / message / and a URBNSwAlertButtonContainer
+     *
+     *  @param customButtons Required.  A UIView that conforms to the URBNSwAlertButtonContainer protocol
+     *  @param title   Optional. The title text displayed in the alert
+     *  @param message Optional. The message text displayed in the alert
+     *
+     *  @return A URBNSwiftAlertViewController with custom buttons ready to be configurated further or displayed
+     */
+    
     public convenience init(title: String? = nil, message: String? = nil, customButtons: URBNSwAlertButtonContainer) {
         self.init(type: .customButton, title: title, message: message, customButtons: customButtons)
     }
+    
+    /**
+     *  Initialize with a custom UIView and a URBNSwAlertButtonContainer
+     *
+     *  @param customButtons Required.  A UIView that conforms to the URBNSwAlertButtonContainer protocol
+     *  @param customView  Required. A custom UIView
+     *
+     *  @return A URBNSwiftAlertViewController with a custom view and custom buttons ready to be configurated further or displayed
+     */
     
     public convenience init(customView: UIView, customButtons: URBNSwAlertButtonContainer) {
         self.init(type: .fullCustom, customView: customView, customButtons: customButtons)
@@ -55,16 +86,6 @@ open class URBNSwAlertViewController: UIViewController {
             alertConfiguration.actions = customActions
         }
     }
-    
-    /**
-     *  Initialize with a
-     *
-     *  @param title   Optional. The title text displayed in the alert
-     *  @param message Optional. The message text displayed in the alert
-     *  @param view    The custom UIView you wish to display in the alert
-     *
-     *  @return A URBNAlertViewController ready to be configurated further or displayed
-     */
     
     open override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,6 +110,12 @@ open class URBNSwAlertViewController: UIViewController {
             view.addGestureRecognizer(tap)
         }
     }
+    
+    var dismissingHandler: ((Bool) -> Void)?
+    fileprivate var alertView: URBNSwAlertView?
+    fileprivate var blurImageView: UIImageView?
+    fileprivate var alertController = URBNSwAlertController.shared
+    fileprivate var alertViewYContraint: NSLayoutConstraint?
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
