@@ -36,7 +36,10 @@ class ExampleViewController: UIViewController {
     
     func showCustomStyleAlert() {
         let customStyleAlert = URBNSwAlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
-        customStyleAlert.addActions([genericCancelAction, genericDoneAction])
+        let destructiveAction = URBNSwAlertAction(title: "Destruct", type: .destructive, shouldDismiss: true, isEnabled: false) { (action) in
+            print("destructive button pressed")
+        }
+        customStyleAlert.addActions([genericCancelAction, genericDoneAction, destructiveAction])
         customStyleAlert.alertStyler.horizontalMargin = 10
         customStyleAlert.alertStyler.backgroundColor = .orange
         customStyleAlert.alertStyler.alertWrappingInsets = UIEdgeInsets(top: 20, left: 5, bottom: 30, right: 5)
