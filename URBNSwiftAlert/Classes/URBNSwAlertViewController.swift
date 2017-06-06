@@ -8,10 +8,6 @@
 
 import URBNConvenience
 
-public enum URBNSwAlertType {
-    case fullCustom, customView, customButton, fullStandard
-}
-
 open class URBNSwAlertViewController: UIViewController {
     public var alertConfiguration = URBNSwAlertConfiguration()
     public var alertStyler = URBNSwAlertController.shared.alertStyler {
@@ -149,9 +145,8 @@ extension URBNSwAlertViewController {
         }
     }
     
-    private var scaler: CGFloat { return 0.3 }
-    
     func setVisible(isVisible: Bool, completion: ((Void) -> Void)? = nil) {
+        let scaler: CGFloat = 0.3
         guard let ac = alertView else {
             assertionFailure()
             return
@@ -233,7 +228,7 @@ extension URBNSwAlertViewController {
                 }
             }
             
-            if !alertConfiguration.isActiveAlert && alertConfiguration.type != .fullCustom && alertConfiguration.type != .customView {
+            if !alertConfiguration.isActiveAlert || alertConfiguration.tapInsideToDismiss {
                 let tap = UITapGestureRecognizer(target: self, action: #selector(dismissAlert(sender:)))
                 alertView?.addGestureRecognizer(tap)
             }
@@ -326,5 +321,9 @@ extension URBNSwAlertViewController {
             self.view.layoutIfNeeded()
         })
     }
+}
+
+enum URBNSwAlertType {
+    case fullCustom, customView, customButton, fullStandard
 }
 

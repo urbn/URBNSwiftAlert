@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let exampleVC = ExampleViewController()
         
         window = UIWindow(frame: UIScreen.main.bounds)
-        window!.rootViewController = exampleVC
+        window?.rootViewController = exampleVC
         window?.makeKeyAndVisible()
         return true
     }

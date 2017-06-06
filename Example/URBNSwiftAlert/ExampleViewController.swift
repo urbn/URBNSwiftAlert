@@ -39,7 +39,7 @@ class ExampleViewController: UIViewController {
         customStyleAlert.addActions([genericCancelAction, genericDoneAction])
         customStyleAlert.alertStyler.horizontalMargin = 10
         customStyleAlert.alertStyler.backgroundColor = .orange
-        customStyleAlert.alertStyler.standardAlertViewInsets = UIEdgeInsets(top: 2, left: 40, bottom: 20, right: 10)
+        customStyleAlert.alertStyler.alertWrappingInsets = UIEdgeInsets(top: 20, left: 5, bottom: 30, right: 5)
         customStyleAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
         customStyleAlert.alertStyler.alertCornerRadius = 5.0
         customStyleAlert.alertStyler.alertViewShadowColor = .purple
@@ -64,6 +64,7 @@ class ExampleViewController: UIViewController {
     func showCustomViewAlert() {
         let customViewAlert = URBNSwAlertViewController(customView: customView)
         customViewAlert.addActions(genericCancelAction, genericDoneAction)
+        customViewAlert.alertConfiguration.tapInsideToDismiss = true
         customViewAlert.show()
     }
     
@@ -113,6 +114,7 @@ class ExampleViewController: UIViewController {
     func showFullCustomAlert() {
         let customButtons = ExampleCustomButtons()
         let fullCustomViewAlert = URBNSwAlertViewController(customView: customView, customButtons: customButtons)
+        fullCustomViewAlert.alertConfiguration.tapInsideToDismiss = true
         fullCustomViewAlert.show()
     }
     
@@ -225,11 +227,11 @@ extension ExampleViewController {
                 btn.backgroundColor = color
                 btn.layoutMargins = UIEdgeInsets(top: 0, left: 15, bottom: 0, right: 15)
                 return btn
-            })
+            }).sorted{$0.titleLabel?.text?.characters.count ?? 0 < $1.titleLabel?.text?.characters.count ?? 1}
         }
         
-        let leftActiveBtns = btnsMapper(["One Button": #selector(ExampleViewController.showOneButtonAlert),
-                                         "Two Buttons": #selector(ExampleViewController.showTwoBtnAlert),
+        let leftActiveBtns = btnsMapper(["1 Button": #selector(ExampleViewController.showOneButtonAlert),
+                                         "2 Buttons": #selector(ExampleViewController.showTwoBtnAlert),
                                          "Custom Style": #selector(ExampleViewController.showCustomStyleAlert),
                                          "Custom View": #selector(ExampleViewController.showCustomViewAlert)
             ], .blue)
@@ -329,7 +331,9 @@ extension ExampleViewController {
         iv.heightAnchor.constraint(equalToConstant: 100).isActive = true
         iv.contentMode = .scaleAspectFit
         let label = UILabel()
-        label.text = "Cat In Box"
+        label.numberOfLines = 0
+        label.lineBreakMode = .byWordWrapping
+        label.text = "Cat In Box, you can tap inside to dismiss."
         let sv = UIStackView(arrangedSubviews: [iv, label])
         sv.spacing = 20
         sv.wrap(in: customView, with: InsetConstraints(insets: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), priority: UILayoutPriorityDefaultHigh))
