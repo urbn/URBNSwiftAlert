@@ -42,7 +42,6 @@ class ExampleViewController: UIViewController {
         customStyleAlert.addActions([genericCancelAction, genericDoneAction, destructiveAction])
         customStyleAlert.alertStyler.horizontalMargin = 10
         customStyleAlert.alertStyler.backgroundColor = .orange
-        customStyleAlert.alertStyler.alertWrappingInsets = UIEdgeInsets(top: 20, left: 5, bottom: 30, right: 5)
         customStyleAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
         customStyleAlert.alertStyler.alertCornerRadius = 5.0
         customStyleAlert.alertStyler.alertViewShadowColor = .purple

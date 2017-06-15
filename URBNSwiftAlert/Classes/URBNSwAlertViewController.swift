@@ -132,19 +132,13 @@ extension URBNSwAlertViewController {
     func layout(alertContainer: UIView) {
         alertContainer.alpha = 0.0
         
-        if let insets = alertStyler.alertWrappingInsets {
-            assert(alertConfiguration.textFields.isEmpty, "Setting wrapping insets will hide textfields under the keyboard")
-            _ = alertContainer.wrapInView(view, withInsets: insets)
+        view.addSubviewsWithNoConstraints(alertContainer)
+        if alertConfiguration.type != .customView && alertConfiguration.type != .fullCustom {
+            alertContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - alertStyler.horizontalMargin*2).isActive = true
         }
-        else {
-            view.addSubviewsWithNoConstraints(alertContainer)
-            if alertConfiguration.type != .customView && alertConfiguration.type != .fullCustom {
-                alertContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - alertStyler.horizontalMargin*2).isActive = true
-            }
-            alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-            alertViewYContraint = alertContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
-            alertViewYContraint?.isActive = true
-        }
+        alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        alertViewYContraint = alertContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
+        alertViewYContraint?.isActive = true
     }
     
     func setVisible(isVisible: Bool, completion: ((Void) -> Void)? = nil) {

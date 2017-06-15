@@ -76,6 +76,7 @@ extension URBNSwAlertView {
             titleLabel.textAlignment = configuration.styler.titleAlignment
             titleLabel.font = configuration.styler.titleFont
             titleLabel.numberOfLines = 2
+            titleLabel.lineBreakMode = .byWordWrapping
             titleLabel.textColor = configuration.styler.titleColor
             titleLabel.text = title
             stackView.addArrangedSubview(titleLabel.wrapInNewView(with: configuration.styler.titleLabelInsetConstraints))

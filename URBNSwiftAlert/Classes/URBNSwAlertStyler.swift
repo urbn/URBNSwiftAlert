@@ -95,11 +95,6 @@ public struct URBNSwAlertStyler {
     }
     
     /**
-     * Insets of the alert from the top / left / bottom / right of the screen.
-     */
-    public var alertWrappingInsets: UIEdgeInsets?
-    
-    /**
      * Margin between sections in the alert. ie margin between the title and the message; message and the buttons, etc.
      */
     public var standardAlertLabelVerticalSpacing: CGFloat = 10.0
