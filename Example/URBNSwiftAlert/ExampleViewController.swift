@@ -11,16 +11,6 @@ import URBNConvenience
 import URBNSwiftAlert
 
 class ExampleViewController: UIViewController {
-    let presentationView = UIView()
-    let modalButton = UIButton(type: .custom)
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        view.backgroundColor = UIColor.lightGray
-        
-        layoutExampleButtons()
-    }
     
     func showOneButtonAlert() {
         let oneBtnAlert = URBNSwAlertViewController(title: wrappingTitle, message: longMessage)
@@ -215,10 +205,25 @@ class ExampleViewController: UIViewController {
     func closePressed() {
         dismiss(animated: true, completion: nil)
     }
+    
+    // MARK: Example UI Components
+    let presentationView = UIView()
+    var exampleButtons: [[UIButton]]?
+    var exampleSectionLabels: [[UILabel]]?
+    var collectionView: UICollectionView?
+    
+    // MARK: Lifecycle
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = UIColor.lightGray
+        
+        layoutExampleButtons()
+    }
 }
 
 // MARK: Layout Example Buttons
-extension ExampleViewController {
+extension ExampleViewController: UICollectionViewDelegate, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
     func layoutExampleButtons() {
         let btnsMapper: ([String: Selector], UIColor) -> [UIButton] = { (dict, color) in
             return dict.map({ (entry) -> UIButton in
@@ -232,46 +237,23 @@ extension ExampleViewController {
             }).sorted{$0.titleLabel?.text?.characters.count ?? 0 < $1.titleLabel?.text?.characters.count ?? 1}
         }
         
-        let leftActiveBtns = btnsMapper(["1 Button": #selector(ExampleViewController.showOneButtonAlert),
-                                         "2 Buttons": #selector(ExampleViewController.showTwoBtnAlert),
-                                         "Custom Style": #selector(ExampleViewController.showCustomStyleAlert),
-                                         "Custom View": #selector(ExampleViewController.showCustomViewAlert)
-            ], .blue)
+        let allActiveExampleButtons = btnsMapper(["1 Button": #selector(ExampleViewController.showOneButtonAlert),
+                                                  "2 Buttons": #selector(ExampleViewController.showTwoBtnAlert),
+                                                  "Custom Style": #selector(ExampleViewController.showCustomStyleAlert),
+                                                  "Custom View": #selector(ExampleViewController.showCustomViewAlert),
+                                                  "Queued Alerts ": #selector(ExampleViewController.showQueuedAlerts),
+                                                  "Text Field Inputs": #selector(ExampleViewController.showInputsAlert),
+                                                  "All Custom Views": #selector(ExampleViewController.showFullCustomAlert),
+                                                  "Text Field Validate": #selector(ExampleViewController.showValidateInputAlert)], .blue)
         
-        let leftActivBtnsSV = UIStackView(arrangedSubviews: leftActiveBtns)
-        leftActivBtnsSV.axis = .vertical
-        leftActivBtnsSV.spacing = 10
+        let allPassiveExampleButtons = btnsMapper(["Simple Long": #selector(ExampleViewController.showSimpleLongPassiveAlert),
+                                                   "Simple Short": #selector(ExampleViewController.showSimpleShortPassiveAlert),
+                                                   "Custom View": #selector(ExampleViewController.showPassiveCustomAlert),
+                                                   "Queued Alerts": #selector(ExampleViewController.showPassiveQueuedAlerts)], .brown)
         
-        let rightActiveBtns = btnsMapper(["Queued Alerts ": #selector(ExampleViewController.showQueuedAlerts),
-                                          "Inputs": #selector(ExampleViewController.showInputsAlert),
-                                          "Full Custom": #selector(ExampleViewController.showFullCustomAlert),
-                                          "Validate": #selector(ExampleViewController.showValidateInputAlert)
-            ], .blue)
+        let modalButton = btnsMapper(["From Modal": #selector(ExampleViewController.showFromModal) ], .magenta)
         
-        let rightActiveBtnsSV = UIStackView(arrangedSubviews: rightActiveBtns)
-        rightActiveBtnsSV.axis = .vertical
-        rightActiveBtnsSV.spacing = 10
         
-        let activeButtonsSV = UIStackView(arrangedSubviews: [leftActivBtnsSV, rightActiveBtnsSV])
-        activeButtonsSV.spacing = 30
-        
-        let topPassiveBtns = btnsMapper(["Simple Long": #selector(ExampleViewController.showSimpleLongPassiveAlert),
-                                         "Simple Short": #selector(ExampleViewController.showSimpleShortPassiveAlert)
-            ], .brown)
-        
-        let bottomPassiveBtns = btnsMapper(["Custom View": #selector(ExampleViewController.showPassiveCustomAlert),
-                                            "Queued Alerts": #selector(ExampleViewController.showPassiveQueuedAlerts)
-            ], .brown)
-        
-        let topPassiveBtnsSV = UIStackView(arrangedSubviews: topPassiveBtns)
-        topPassiveBtnsSV.spacing = 10
-        topPassiveBtnsSV.axis = .vertical
-        let bottomPassiveBtnsSV = UIStackView(arrangedSubviews: bottomPassiveBtns)
-        bottomPassiveBtnsSV.spacing = 10
-        bottomPassiveBtnsSV.axis = .vertical
-        
-        let passiveBtnsSV = UIStackView(arrangedSubviews: [topPassiveBtnsSV, bottomPassiveBtnsSV])
-        passiveBtnsSV.spacing = 30
         
         let activeAlertsLabel = UILabel()
         activeAlertsLabel.text = "Active Alerts"
@@ -279,31 +261,78 @@ extension ExampleViewController {
         let passiveAlertsLabel = UILabel()
         passiveAlertsLabel.text = "Passive Alerts"
         
-        presentationView.backgroundColor = .white
+        let modalLabel = UILabel()
+        modalLabel.text = "Modal VC"
+        
+        exampleSectionLabels = [[activeAlertsLabel], [passiveAlertsLabel], [modalLabel]]
+        
+        presentationView.backgroundColor = UIColor.darkGray
         presentationView.heightAnchor.constraint(equalToConstant: view.height/3).isActive = true
         presentationView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         
         if let presentFromViewBtn = btnsMapper(["Show in View": #selector(ExampleViewController.showFromView)], .green).first {
-            presentFromViewBtn.wrap(in: presentationView, with: InsetConstraints(insets:  UIEdgeInsets(top: 100, left: 100, bottom: 100, right: 100), priority: UILayoutPriorityDefaultHigh))
+            presentationView.addSubviewsWithNoConstraints(presentFromViewBtn)
+            presentFromViewBtn.heightAnchor.constraint(equalToConstant: 44.0).isActive = true
+            presentFromViewBtn.centerXAnchor.constraint(equalTo: presentationView.centerXAnchor).isActive = true
+            presentFromViewBtn.centerYAnchor.constraint(equalTo: presentationView.centerYAnchor).isActive = true
         }
         
-        modalButton.setTitle("From Modal", for: .normal)
-        modalButton.backgroundColor = .magenta
-        modalButton.addTarget(self, action: #selector(showFromModal), for: .touchUpInside)
+        exampleButtons = [allActiveExampleButtons, allPassiveExampleButtons, modalButton]
         
-        let allElementsSV = UIStackView(arrangedSubviews: [activeAlertsLabel, activeButtonsSV, passiveAlertsLabel, passiveBtnsSV, modalButton, presentationView])
-        allElementsSV.spacing = 20
-        allElementsSV.axis = .vertical
-        allElementsSV.alignment = .center
-        allElementsSV.distribution = .fillProportionally
+        let layout = UICollectionViewFlowLayout()
+        layout.minimumLineSpacing = 1
+        layout.minimumInteritemSpacing = 1
+        layout.headerReferenceSize = CGSize(width: view.width, height: 40.0)
+        collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        collectionView?.delegate = self
+        collectionView?.dataSource = self
+        collectionView?.register(UICollectionViewCell.self, forCellWithReuseIdentifier: "cell")
+        collectionView?.register(UICollectionReusableView.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
+        collectionView?.backgroundColor = UIColor.lightGray
         
-        view.addSubviewsWithNoConstraints(allElementsSV)
-        allElementsSV.topAnchor.constraint(equalTo: view.topAnchor, constant: 30).isActive = true
-        activateVFL(format: "H:|[allElementsSV]|", views: ["allElementsSV": allElementsSV])
+        if let cv = collectionView {
+            let sv = UIStackView(arrangedSubviews: [cv, presentationView])
+            sv.axis = .vertical
+            sv.wrap(in: view, with: InsetConstraints(insets: UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0) , priority: UILayoutPriorityDefaultHigh))
+        }
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let itemWidth = indexPath.section >= 2 ? view.width : view.width/2 - 1
+        return CGSize(width: itemWidth, height: 44.0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        let view = collectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header", for: indexPath)
+        if let label = exampleSectionLabels?[indexPath.section][indexPath.row] {
+            label.backgroundColor = .white
+            label.textAlignment = .center
+            label.wrap(in: view, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: UILayoutPriorityDefaultHigh))
+        }
+        return view
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
+        if let button = exampleButtons?[indexPath.section][indexPath.row] {
+            button.wrap(in: cell, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: UILayoutPriorityDefaultHigh))
+        }
+        
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        guard let btns = exampleButtons?[section] else { return 0 }
+        return btns.count
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        guard let btns = exampleButtons else { return 0 }
+        return btns.count
     }
 }
 
-// MARK: Convenience
+// MARK: Convenience Objects
 extension ExampleViewController {
     var genericCancelAction: URBNSwAlertAction {
         return URBNSwAlertAction(title: "Cancel", type: .cancel) { (action) in
