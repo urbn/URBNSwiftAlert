@@ -97,8 +97,9 @@ open class URBNSwAlertViewController: UIViewController {
         setUpBackground()
         layout(alertContainer: ac)
         
-        setVisible(isVisible: true) { [unowned self] in
-            self.alertConfiguration.textFields.first?.becomeFirstResponder()
+        setVisible(isVisible: true) { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.alertConfiguration.textFields.first?.becomeFirstResponder()
         }
         
         if alertConfiguration.touchOutsideToDismiss {
@@ -250,9 +251,10 @@ extension URBNSwAlertViewController {
         // tell controller to remove top controller and show next alert
         alertController.popQueueAndShowNextIfNecessary()
         
-        setVisible(isVisible: false) {  [unowned self] in
-            self.dismiss(animated: false, completion: nil)
-            self.dismissingHandler?(sender is UITapGestureRecognizer)
+        setVisible(isVisible: false) {  [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.dismiss(animated: false, completion: nil)
+            strongSelf.dismissingHandler?(sender is UITapGestureRecognizer)
         }
     }
 }
@@ -313,8 +315,9 @@ extension URBNSwAlertViewController {
     func keyboardWillHide(notif: Notification) {
         alertViewYContraint?.constant = 0
         
-        UIView.animate(withDuration: TimeInterval(0.1) , animations: { [unowned self] in
-            self.view.layoutIfNeeded()
+        UIView.animate(withDuration: TimeInterval(0.1) , animations: { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.view.layoutIfNeeded()
         })
     }
 }

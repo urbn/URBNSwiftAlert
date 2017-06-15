@@ -27,15 +27,16 @@ class URBNSwAlertController: NSObject {
     public func showNextAlert() {
         guard let nextAVC = queue.first, !alertIsVisible else { return }
         
-        nextAVC.dismissingHandler = {[unowned self] wasTouchedOutside in
+        nextAVC.dismissingHandler = {[weak self] wasTouchedOutside in
+            guard let strongSelf = self else { return }
             if wasTouchedOutside {
-                self.dismiss(alertViewController: nextAVC)
+                strongSelf.dismiss(alertViewController: nextAVC)
             }
             
-            if self.queue.isEmpty {
-                self.presentingWindow.makeKeyAndVisible()
-                self.alertWindow?.isHidden = true
-                self.alertWindow = nil
+            if strongSelf.queue.isEmpty {
+                strongSelf.presentingWindow.makeKeyAndVisible()
+                strongSelf.alertWindow?.isHidden = true
+                strongSelf.alertWindow = nil
             }
             
             if nextAVC.alertConfiguration.presentationView != nil {
