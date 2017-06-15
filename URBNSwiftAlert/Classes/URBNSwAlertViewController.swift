@@ -306,8 +306,9 @@ extension URBNSwAlertViewController {
                 alertViewYContraint?.constant = offSet - 30
             }
             
-            UIView.animate(withDuration: TimeInterval(0.1) , animations: { [unowned self] in
-                self.view.layoutIfNeeded()
+            UIView.animate(withDuration: TimeInterval(0.1) , animations: { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.view.layoutIfNeeded()
             })
         }
     }
