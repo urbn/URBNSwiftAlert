@@ -135,7 +135,13 @@ extension URBNSwAlertViewController {
         
         view.addSubviewsWithNoConstraints(alertContainer)
         if alertConfiguration.type != .customView && alertConfiguration.type != .fullCustom {
-            alertContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - alertStyler.horizontalMargin*2).isActive = true
+            if let minMax = alertStyler.minMaxWidth {
+                alertContainer.widthAnchor.constraint(greaterThanOrEqualToConstant: minMax.0).isActive = true
+                alertContainer.widthAnchor.constraint(lessThanOrEqualToConstant: minMax.1).isActive = true
+            }
+            else {
+                alertContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - alertStyler.horizontalMargin*2).isActive = true
+            }
         }
         alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
         alertViewYContraint = alertContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
