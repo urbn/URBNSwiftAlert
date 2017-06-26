@@ -30,7 +30,7 @@ class ExampleViewController: UIViewController {
             print("destructive button pressed")
         }
         customStyleAlert.addActions([genericCancelAction, genericDoneAction, destructiveAction])
-        customStyleAlert.alertStyler.minMaxWidth = (44, 60)
+        customStyleAlert.alertStyler.minMaxWidth = (min: 44, max: 60)
         customStyleAlert.alertStyler.backgroundColor = .orange
         customStyleAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
         customStyleAlert.alertStyler.alertCornerRadius = 5.0

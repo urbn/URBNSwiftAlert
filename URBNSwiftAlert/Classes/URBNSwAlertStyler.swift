@@ -89,7 +89,7 @@ public struct URBNSwAlertStyler {
      * Min (greaterThanOrEqualTo) and Max widths (lessThanOrEqualTo) for the Alert -   The alert view will use its most compressed layout values for height
      */
     
-    public var minMaxWidth: (CGFloat, CGFloat)?
+    public var minMaxWidth: (min: CGFloat, max: CGFloat)?
     
     /**
      * Margins on left and right sides of the alert, which sets the width constraint.  Used if no min/max widths are given.  The alert view will use its most compressed layout values for height
