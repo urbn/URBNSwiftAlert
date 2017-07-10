@@ -11,25 +11,9 @@ import URBNConvenience
 
 public struct AlertStyler {
     
-    /**
-     * Pass no to disable blurring in the background
-     */
-    public var blurEnabled = true
+    public var blur: Blur = Blur()
     
-    /**
-     * Background color of alert view
-     */
-    public var backgroundColor = UIColor.white
-    
-    /**
-     * Tint color of the view behind the Alert. Blur must be disabled
-     */
-    public var backgroundTintColor: UIColor?
-    
-    /**
-     * Radius of the blurred snapshot
-     */
-    public var blurRadius: CGFloat = 5.0
+    public var background = Background()
     
     /**
      * Opacity of the alert view's shadow
@@ -51,19 +35,14 @@ public struct AlertStyler {
      */
     public var alertShadowOffset = CGSize.zero
     
-    /**
-     * Tint color of the blurred snapshot
-     */
-    public var blurTintColor: UIColor = UIColor.white.withAlphaComponent(0.4) {
-        didSet {
-            assert(blurTintColor.cgColor.alpha < 1.0, "URBNAlertStyle: blurTintColor alpha component must be less than 1.0 to see the blur effect. Please use colorWithAlphaComponent: when setting a custom blurTintColor, for example: UIColor.white.withAlphaComponent(0.4)")
-        }
+    
+    public struct Shadow {
+        public var opacity: Float = 0.0
+        public var radius: CGFloat = 0.0
+        public var color = UIColor.clear
+        public var offset = CGSize.zero
     }
     
-    /**
-     * Saturation blur factor of the blurred snapshot. 1 is normal. < 1 removes color, > 1 adds color
-     */
-    public var saturationDelta: CGFloat = 1.0
     
     /**
      * Bool for using an animation to present alert view
@@ -348,6 +327,43 @@ public struct AlertStyler {
      * The alert position will adjust for the keyboard when using this property
      */
     public var firstResponder: UIView?
+}
+
+// MARK: Container Structs
+extension AlertStyler {
+    public struct Blur {
+        /**
+         * Pass no to disable blurring in the background
+         */
+        public var isEnabled = true
+        /**
+         * Radius of the blurred snapshot
+         */
+        public var radius: CGFloat = 5.0
+        /**
+         * Tint color of the blurred snapshot
+         */
+        public var tintColor: UIColor = UIColor.white.withAlphaComponent(0.4) {
+            didSet {
+                assert(tintColor.cgColor.alpha < 1.0, "URBNAlertStyle: blurTintColor alpha component must be less than 1.0 to see the blur effect. Please use colorWithAlphaComponent: when setting a custom blurTintColor, for example: UIColor.white.withAlphaComponent(0.4)")
+            }
+        }
+        /**
+         * Saturation blur factor of the blurred snapshot. 1 is normal. < 1 removes color, > 1 adds color
+         */
+        public var saturationDelta: CGFloat = 1.0
+    }
+    
+    public struct Background {
+        /**
+         * Background color of alert view
+         */
+        public var color = UIColor.white
+        /**
+         * Tint color of the view behind the Alert. Blur must be disabled
+         */
+        public var tint: UIColor?
+    }
 }
 
 // MARK: Standard Button Styling

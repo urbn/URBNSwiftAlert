@@ -39,7 +39,7 @@ class ExampleViewController: UIViewController {
         customStyleAlert.alertStyler.alertViewShadowRadius = 5.0
         customStyleAlert.alertStyler.alertViewShadowOpacity = 0.9
         customStyleAlert.alertStyler.cancelButtonTitleColor = .magenta
-        customStyleAlert.alertStyler.blurTintColor = UIColor.blue.withAlphaComponent(0.2)
+        customStyleAlert.alertStyler.blur.tintColor = UIColor.blue.withAlphaComponent(0.2)
         customStyleAlert.alertStyler.buttonShadowColor = .red
         customStyleAlert.alertStyler.buttonShadowOffset = CGSize(width: 10, height: 10)
         customStyleAlert.alertStyler.buttonShadowRadius = 10

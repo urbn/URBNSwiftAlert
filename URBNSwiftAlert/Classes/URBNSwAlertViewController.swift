@@ -122,10 +122,10 @@ open class AlertViewController: UIViewController {
 // MARK: Layout and Animations
 extension AlertViewController {
     func setUpBackground() {
-        if alertStyler.blurEnabled {
+        if alertStyler.blur.isEnabled {
             addBlurScreenshot()
         }
-        else if let bgTintColor = alertStyler.backgroundTintColor {
+        else if let bgTintColor = alertStyler.background.tint {
             view.backgroundColor = bgTintColor
         }
     }
@@ -169,7 +169,7 @@ extension AlertViewController {
         
         let fadeAnimation = { [unowned self] in
             ac.alpha = alpha
-            if self.alertStyler.blurEnabled {
+            if self.alertStyler.blur.isEnabled {
                 self.blurImageView?.alpha = alpha
             }
         }
@@ -197,7 +197,7 @@ extension AlertViewController {
     func addBlurScreenshot(withSize size: CGSize? = nil) {
         if let screenShot = UIImage.screenShot(view: viewForScreenshot, afterScreenUpdates: true) {
             let blurredSize = size ?? viewForScreenshot.bounds.size
-            let blurredImage = screenShot.applyBlur(withRadius: alertStyler.blurRadius, tintColor: alertStyler.blurTintColor, saturationDeltaFactor: alertStyler.saturationDelta, maskImage: nil)
+            let blurredImage = screenShot.applyBlur(withRadius: alertStyler.blur.radius, tintColor: alertStyler.blur.tintColor, saturationDeltaFactor: alertStyler.blur.saturationDelta, maskImage: nil)
             
             let rect = CGRect(x: 0, y: 0, width: blurredSize.width, height: blurredSize.height)
             

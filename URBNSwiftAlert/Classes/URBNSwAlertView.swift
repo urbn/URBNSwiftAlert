@@ -23,7 +23,7 @@ class AlertView: UIView {
         
         super.init(frame: CGRect.zero)
         
-        backgroundColor = configuration.styler.backgroundColor
+        backgroundColor = configuration.styler.background.color
         layer.cornerRadius = configuration.styler.alertCornerRadius
         layer.shadowRadius = configuration.styler.alertViewShadowRadius
         layer.shadowOpacity = configuration.styler.alertViewShadowOpacity
