@@ -47,7 +47,7 @@ public class AlertAction: NSObject {
      * @param isEnabled Default true.  Action is enabled
      * @param completion Optional.  Closure that takes in the action as a param and completes when the selector of the target fires.
      */
-    public convenience init(title: String? = nil, type: AlertAction.ActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: ((AlertAction) -> Void)? = nil) {
+    public convenience init(type: AlertAction.ActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, title: String? = nil, completion: ((AlertAction) -> Void)? = nil) {
         self.init(type: type, isEnabled: isEnabled, shouldDismiss: shouldDismiss, completion: completion)
         
         self.title = title

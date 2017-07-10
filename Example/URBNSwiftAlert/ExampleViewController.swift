@@ -26,7 +26,7 @@ class ExampleViewController: UIViewController {
     
     func showCustomStyleAlert() {
         let customStyleAlert = AlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
-        let destructiveAction = AlertAction(title: "Destruct", type: .destructive, shouldDismiss: true, isEnabled: false) { (action) in
+        let destructiveAction = AlertAction(type: .destructive, shouldDismiss: true, isEnabled: false, title: "Destruct") { (action) in
             print("destructive button pressed")
         }
         customStyleAlert.addActions([genericCancelAction, genericDoneAction, destructiveAction])
@@ -93,7 +93,7 @@ class ExampleViewController: UIViewController {
             textField.placeholder = "Confirm"
         }
 
-        let textFieldsAlertAction = AlertAction(title: "Done", type: .normal) { (action) in
+        let textFieldsAlertAction = AlertAction(type: .normal, title: "Done") { (action) in
             print("textfield 0 \(textFieldsAlert.textField?.text ?? "")")
             print("textfield 1 \(textFieldsAlert.textField(atIndex: 1)?.text ?? "")")
             print("textfield 2 \(textFieldsAlert.textField(atIndex: 2)?.text ?? "")")
@@ -112,7 +112,7 @@ class ExampleViewController: UIViewController {
     
     func showValidateInputAlert() {
         let validateAlert = AlertViewController(title: "Textfield Validation", message: "Text must be > 4")
-        let validateCancelAction = AlertAction(title: "Cancel", type: .cancel) { (action) in
+        let validateCancelAction = AlertAction(type: .cancel, title: "Cancel") { (action) in
             print("validate action cancelled")
         }
         
@@ -121,7 +121,7 @@ class ExampleViewController: UIViewController {
             textfield.placeholder = "enter a string"
         }
         
-        let validateDoneAction = AlertAction(title: "Done", type: .normal, shouldDismiss: false, isEnabled: true) { (action) in
+        let validateDoneAction = AlertAction(type: .normal, shouldDismiss: false, isEnabled: true, title: "Done") { (action) in
             guard let textField = validateAlert.textField else { return }
             
             textField.urbn_showLoading(true, animated: true, spinnerInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8))
@@ -335,13 +335,13 @@ extension ExampleViewController: UICollectionViewDelegate, UICollectionViewDeleg
 // MARK: Convenience Objects
 extension ExampleViewController {
     var genericCancelAction: AlertAction {
-        return AlertAction(title: "Cancel", type: .cancel) { (action) in
+        return AlertAction(type: .cancel, title: "Cancel", completion: { (action) in
             print("Cancel pressed")
-        }
+        })
     }
     
     var genericDoneAction: AlertAction {
-        return AlertAction(title: "Done", type: .normal) { (action) in
+        return AlertAction(type: .normal, title: "Done") { (action) in
             print("Done pressed")
         }
     }
