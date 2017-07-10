@@ -26,7 +26,7 @@ class ExampleViewController: UIViewController {
     
     func showCustomStyleAlert() {
         let customStyleAlert = URBNSwAlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
-        let destructiveAction = URBNSwAlertAction(title: "Destruct", type: .destructive, shouldDismiss: true, isEnabled: false) { (action) in
+        let destructiveAction = AlertAction(title: "Destruct", type: .destructive, shouldDismiss: true, isEnabled: false) { (action) in
             print("destructive button pressed")
         }
         customStyleAlert.addActions([genericCancelAction, genericDoneAction, destructiveAction])
@@ -93,7 +93,7 @@ class ExampleViewController: UIViewController {
             textField.placeholder = "Confirm"
         }
 
-        let textFieldsAlertAction = URBNSwAlertAction(title: "Done", type: .normal) { (action) in
+        let textFieldsAlertAction = AlertAction(title: "Done", type: .normal) { (action) in
             print("textfield 0 \(textFieldsAlert.textField?.text ?? "")")
             print("textfield 1 \(textFieldsAlert.textField(atIndex: 1)?.text ?? "")")
             print("textfield 2 \(textFieldsAlert.textField(atIndex: 2)?.text ?? "")")
@@ -112,7 +112,7 @@ class ExampleViewController: UIViewController {
     
     func showValidateInputAlert() {
         let validateAlert = URBNSwAlertViewController(title: "Textfield Validation", message: "Text must be > 4")
-        let validateCancelAction = URBNSwAlertAction(title: "Cancel", type: .cancel) { (action) in
+        let validateCancelAction = AlertAction(title: "Cancel", type: .cancel) { (action) in
             print("validate action cancelled")
         }
         
@@ -121,7 +121,7 @@ class ExampleViewController: UIViewController {
             textfield.placeholder = "enter a string"
         }
         
-        let validateDoneAction = URBNSwAlertAction(title: "Done", type: .normal, shouldDismiss: false, isEnabled: true) { (action) in
+        let validateDoneAction = AlertAction(title: "Done", type: .normal, shouldDismiss: false, isEnabled: true) { (action) in
             guard let textField = validateAlert.textField else { return }
             
             textField.urbn_showLoading(true, animated: true, spinnerInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8))
@@ -147,7 +147,7 @@ class ExampleViewController: UIViewController {
         let passiveAlert = URBNSwAlertViewController(title: "Simple Passive", message: longMessage)
         passiveAlert.alertConfiguration.touchOutsideToDismiss = true
         
-        let passiveAction = URBNSwAlertAction(type: .passive) { (action) in
+        let passiveAction = AlertAction(type: .passive) { (action) in
             print("long passive action")
         }
         
@@ -176,7 +176,7 @@ class ExampleViewController: UIViewController {
         
         let secondPassiveAlert = URBNSwAlertViewController(customView: customView)
         secondPassiveAlert.alertConfiguration.touchOutsideToDismiss = true
-        let secondAction = URBNSwAlertAction(type: .passive) { (action) in
+        let secondAction = AlertAction(type: .passive) { (action) in
             print("second passive action")
         }
         secondPassiveAlert.addActions(secondAction)
@@ -334,14 +334,14 @@ extension ExampleViewController: UICollectionViewDelegate, UICollectionViewDeleg
 
 // MARK: Convenience Objects
 extension ExampleViewController {
-    var genericCancelAction: URBNSwAlertAction {
-        return URBNSwAlertAction(title: "Cancel", type: .cancel) { (action) in
+    var genericCancelAction: AlertAction {
+        return AlertAction(title: "Cancel", type: .cancel) { (action) in
             print("Cancel pressed")
         }
     }
     
-    var genericDoneAction: URBNSwAlertAction {
-        return URBNSwAlertAction(title: "Done", type: .normal) { (action) in
+    var genericDoneAction: AlertAction {
+        return AlertAction(title: "Done", type: .normal) { (action) in
             print("Done pressed")
         }
     }
@@ -375,12 +375,12 @@ extension ExampleViewController {
 
 // MARK: Custom Buttons
 class ExampleCustomButtons: UIView, URBNSwAlertButtonContainer {
-    var actions: [URBNSwAlertAction] {
-        let firstAction = URBNSwAlertAction(customButton: cancelButton) { (action) in
+    var actions: [AlertAction] {
+        let firstAction = AlertAction(customButton: cancelButton) { (action) in
             print("custom Cancel button pressed")
         }
         
-        let secondAction = URBNSwAlertAction(customButton: confirmButton) { (action) in
+        let secondAction = AlertAction(customButton: confirmButton) { (action) in
             print("custom Confirm button pressed")
         }
         

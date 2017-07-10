@@ -1,5 +1,5 @@
 //
-//  URBNSwAlertAction.swift
+//  AlertAction.swift
 //  Pods
 //
 //  Created by Kevin Taniguchi on 5/23/17.
@@ -8,15 +8,15 @@
 
 import Foundation
 
-public enum URBNSwAlertActionType {
+public enum AlertActionType {
     case normal, destructive, cancel, passive, custom
 }
 
-public class URBNSwAlertAction: NSObject {
-    let type: URBNSwAlertActionType
+public class AlertAction: NSObject {
+    let type: AlertActionType
     let shouldDismiss: Bool
     let isEnabled: Bool
-    let completion: ((URBNSwAlertAction) -> Void)?
+    let completion: ((AlertAction) -> Void)?
     public var button: UIButton?
     var title: String?
     
@@ -32,7 +32,7 @@ public class URBNSwAlertAction: NSObject {
      * @param isEnabled Default true.  Action is enabled
      * @param completion Optional.  Closure that takes in the action as a param and completes when the selector of the target fires.
      */
-    public convenience init(customButton: UIButton, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: ((URBNSwAlertAction) -> Void)? = nil) {
+    public convenience init(customButton: UIButton, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: ((AlertAction) -> Void)? = nil) {
         self.init(type: .custom, isEnabled: isEnabled, shouldDismiss: shouldDismiss, completion: completion)
         
         add(button: customButton)
@@ -47,13 +47,13 @@ public class URBNSwAlertAction: NSObject {
      * @param isEnabled Default true.  Action is enabled
      * @param completion Optional.  Closure that takes in the action as a param and completes when the selector of the target fires.
      */
-    public convenience init(title: String? = nil, type: URBNSwAlertActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: ((URBNSwAlertAction) -> Void)? = nil) {
+    public convenience init(title: String? = nil, type: AlertActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: ((AlertAction) -> Void)? = nil) {
         self.init(type: type, isEnabled: isEnabled, shouldDismiss: shouldDismiss, completion: completion)
         
         self.title = title
     }
     
-    private init(type: URBNSwAlertActionType, isEnabled: Bool, shouldDismiss: Bool, completion: ((URBNSwAlertAction) -> Void)?) {
+    private init(type: AlertActionType, isEnabled: Bool, shouldDismiss: Bool, completion: ((AlertAction) -> Void)?) {
         self.type = type
         self.shouldDismiss = shouldDismiss
         self.isEnabled = isEnabled

@@ -359,7 +359,7 @@ extension URBNSwAlertStyler {
      *
      *  @return
      */
-    public func buttonTitleColor(actionType: URBNSwAlertActionType, isEnabled: Bool) -> UIColor {
+    public func buttonTitleColor(actionType: AlertActionType, isEnabled: Bool) -> UIColor {
         if !isEnabled {
             return disabledButtonTitleColor
         }
@@ -381,7 +381,7 @@ extension URBNSwAlertStyler {
      *
      *  @return
      */
-    public func buttonHighlightTitleColor(actionType: URBNSwAlertActionType, isEnabled: Bool) -> UIColor {
+    public func buttonHighlightTitleColor(actionType: AlertActionType, isEnabled: Bool) -> UIColor {
         if !isEnabled {
             return disabledButtonTitleColor
         }
@@ -403,7 +403,7 @@ extension URBNSwAlertStyler {
      *
      *  @return
      */
-    public func buttonBackgroundColor(actionType: URBNSwAlertActionType, isEnabled: Bool) -> UIColor {
+    public func buttonBackgroundColor(actionType: AlertActionType, isEnabled: Bool) -> UIColor {
         if !isEnabled {
             return disabledButtonBackgroundColor
         }

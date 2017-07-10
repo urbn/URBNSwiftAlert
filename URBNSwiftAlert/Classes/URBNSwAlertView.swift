@@ -15,7 +15,7 @@ class URBNSwAlertView: UIView {
     fileprivate lazy var textFieldErrorLabel = UILabel()
     fileprivate let stackView = UIStackView()
     fileprivate lazy var buttonsSV = UIStackView()
-    fileprivate lazy var buttonActions = [URBNSwAlertAction]()
+    fileprivate lazy var buttonActions = [AlertAction]()
     var configuration: URBNSwAlertConfiguration
     
     init(configuration: URBNSwAlertConfiguration) {
@@ -142,7 +142,7 @@ extension URBNSwAlertView {
 
 extension URBNSwAlertView: URBNSwAlertButtonContainer {
     
-    var actions: [URBNSwAlertAction] {
+    var actions: [AlertAction] {
         return buttonActions
     }
     
@@ -151,7 +151,7 @@ extension URBNSwAlertView: URBNSwAlertButtonContainer {
         textFieldErrorLabel.text = errorMessage
     }
     
-    public func addActions(_ actions: [URBNSwAlertAction]) {
+    public func addActions(_ actions: [AlertAction]) {
         for action in actions {
             if action.type != .passive {
                 let button = URBNSwAlertButton(styler: configuration.styler, action: action)

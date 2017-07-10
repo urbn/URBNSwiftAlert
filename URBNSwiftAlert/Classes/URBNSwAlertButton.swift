@@ -13,7 +13,7 @@ import Foundation
  */
 public protocol URBNSwAlertButtonContainer: class {
     var containerViewHeight: CGFloat { get }
-    var actions: [URBNSwAlertAction] { get }
+    var actions: [AlertAction] { get }
 }
 
 public extension URBNSwAlertButtonContainer where Self: UIView {
@@ -24,9 +24,9 @@ public extension URBNSwAlertButtonContainer where Self: UIView {
 
 public class URBNSwAlertButton: UIButton {
     let styler: URBNSwAlertStyler
-    let action: URBNSwAlertAction
+    let action: AlertAction
     
-    init(styler: URBNSwAlertStyler, action: URBNSwAlertAction) {
+    init(styler: URBNSwAlertStyler, action: AlertAction) {
         self.styler = styler
         self.action = action
         

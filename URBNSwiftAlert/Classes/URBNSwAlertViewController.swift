@@ -268,13 +268,13 @@ extension URBNSwAlertViewController {
 // MARK: Actions and Textfields
 extension URBNSwAlertViewController {
     @available(*, unavailable, message: "use addActions instead")
-    public func addAction(_ action: URBNSwAlertAction) {}
+    public func addAction(_ action: AlertAction) {}
     
-    public func addActions(_ actions: URBNSwAlertAction...) {
+    public func addActions(_ actions: AlertAction...) {
         addActions(actions)
     }
     
-    public func addActions(_ actions: [URBNSwAlertAction]) {
+    public func addActions(_ actions: [AlertAction]) {
         alertConfiguration.actions += actions
         let hasActiveAction = !actions.filter{$0.type != .passive}.isEmpty
         alertConfiguration.isActiveAlert = hasActiveAction

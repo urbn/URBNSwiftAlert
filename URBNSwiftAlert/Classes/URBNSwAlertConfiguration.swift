@@ -55,6 +55,6 @@ public struct URBNSwAlertConfiguration {
     var textFields = [UITextField]()
     var customView: UIView?
     var customButtons: URBNSwAlertButtonContainer?
-    var actions = [URBNSwAlertAction]()
+    var actions = [AlertAction]()
     var textFieldInputs = [UITextField]()
 }
