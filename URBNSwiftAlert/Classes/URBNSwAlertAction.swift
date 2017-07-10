@@ -8,12 +8,12 @@
 
 import Foundation
 
-public enum AlertActionType {
-    case normal, destructive, cancel, passive, custom
-}
-
 public class AlertAction: NSObject {
-    let type: AlertActionType
+    public enum ActionType {
+        case normal, destructive, cancel, passive, custom
+    }
+    
+    let type: ActionType
     let shouldDismiss: Bool
     let isEnabled: Bool
     let completion: ((AlertAction) -> Void)?
@@ -47,13 +47,13 @@ public class AlertAction: NSObject {
      * @param isEnabled Default true.  Action is enabled
      * @param completion Optional.  Closure that takes in the action as a param and completes when the selector of the target fires.
      */
-    public convenience init(title: String? = nil, type: AlertActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: ((AlertAction) -> Void)? = nil) {
+    public convenience init(title: String? = nil, type: AlertAction.ActionType, shouldDismiss: Bool = true, isEnabled: Bool = true, completion: ((AlertAction) -> Void)? = nil) {
         self.init(type: type, isEnabled: isEnabled, shouldDismiss: shouldDismiss, completion: completion)
         
         self.title = title
     }
     
-    private init(type: AlertActionType, isEnabled: Bool, shouldDismiss: Bool, completion: ((AlertAction) -> Void)?) {
+    private init(type: AlertAction.ActionType, isEnabled: Bool, shouldDismiss: Bool, completion: ((AlertAction) -> Void)?) {
         self.type = type
         self.shouldDismiss = shouldDismiss
         self.isEnabled = isEnabled
