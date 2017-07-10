@@ -1,5 +1,5 @@
 //
-//  URBNSwAlertView.swift
+//  AlertView.swift
 //  Pods
 //
 //  Created by Kevin Taniguchi on 5/22/17.
@@ -9,16 +9,16 @@
 import Foundation
 import URBNConvenience
 
-class URBNSwAlertView: UIView {
+class AlertView: UIView {
     fileprivate lazy var titleLabel = UILabel()
     fileprivate lazy var messageView = UITextView()
     fileprivate lazy var textFieldErrorLabel = UILabel()
     fileprivate let stackView = UIStackView()
     fileprivate lazy var buttonsSV = UIStackView()
     fileprivate lazy var buttonActions = [AlertAction]()
-    var configuration: URBNSwAlertConfiguration
+    var configuration: AlertConfiguration
     
-    init(configuration: URBNSwAlertConfiguration) {
+    init(configuration: AlertConfiguration) {
         self.configuration = configuration
         
         super.init(frame: CGRect.zero)
@@ -69,7 +69,7 @@ class URBNSwAlertView: UIView {
 }
 
 // MARK: Setup and add UI
-extension URBNSwAlertView {
+extension AlertView {
     func addStandardComponents() {
         if let title = configuration.title, !title.isEmpty {
             titleLabel.backgroundColor = configuration.styler.titleBackgroundColor
@@ -140,7 +140,7 @@ extension URBNSwAlertView {
     }
 }
 
-extension URBNSwAlertView: URBNSwAlertButtonContainer {
+extension AlertView: AlertButtonContainer {
     
     var actions: [AlertAction] {
         return buttonActions
@@ -154,7 +154,7 @@ extension URBNSwAlertView: URBNSwAlertButtonContainer {
     public func addActions(_ actions: [AlertAction]) {
         for action in actions {
             if action.type != .passive {
-                let button = URBNSwAlertButton(styler: configuration.styler, action: action)
+                let button = AlertButton(styler: configuration.styler, action: action)
                 button.heightAnchor.constraint(equalToConstant: configuration.styler.buttonHeight).isActive = true
                 buttonsSV.addArrangedSubview(button)
                 action.add(button: button)
@@ -163,7 +163,7 @@ extension URBNSwAlertView: URBNSwAlertButtonContainer {
     }
 }
 
-extension URBNSwAlertView: UITextFieldDelegate {
+extension AlertView: UITextFieldDelegate {
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         let charCount = textField.text?.characters.count ?? 0
         if let charCount = textField.text?.characters.count, range.length + range.location > charCount {

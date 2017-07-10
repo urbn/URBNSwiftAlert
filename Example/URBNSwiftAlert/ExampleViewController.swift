@@ -13,19 +13,19 @@ import URBNSwiftAlert
 class ExampleViewController: UIViewController {
     
     func showOneButtonAlert() {
-        let oneBtnAlert = URBNSwAlertViewController(title: wrappingTitle, message: longMessage)
+        let oneBtnAlert = AlertViewController(title: wrappingTitle, message: longMessage)
         oneBtnAlert.addActions(genericDoneAction)
         oneBtnAlert.show()
     }
     
     func showTwoBtnAlert() {
-        let twoBtnAlert = URBNSwAlertViewController(title: wrappingTitle, message: longMessage)
+        let twoBtnAlert = AlertViewController(title: wrappingTitle, message: longMessage)
         twoBtnAlert.addActions([genericCancelAction, genericDoneAction])
         twoBtnAlert.show()
     }
     
     func showCustomStyleAlert() {
-        let customStyleAlert = URBNSwAlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
+        let customStyleAlert = AlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
         let destructiveAction = AlertAction(title: "Destruct", type: .destructive, shouldDismiss: true, isEnabled: false) { (action) in
             print("destructive button pressed")
         }
@@ -54,29 +54,29 @@ class ExampleViewController: UIViewController {
     }
     
     func showCustomViewAlert() {
-        let customViewAlert = URBNSwAlertViewController(customView: customView)
+        let customViewAlert = AlertViewController(customView: customView)
         customViewAlert.addActions(genericCancelAction, genericDoneAction)
         customViewAlert.alertConfiguration.tapInsideToDismiss = true
         customViewAlert.show()
     }
     
     func showQueuedAlerts() {
-        let firstAlert = URBNSwAlertViewController(title: "I'm the first alert", message: longMessage)
+        let firstAlert = AlertViewController(title: "I'm the first alert", message: longMessage)
         firstAlert.addActions(genericDoneAction)
         firstAlert.show()
         
-        let secondAlert = URBNSwAlertViewController(title: "I'm the second alert", message: longMessage)
+        let secondAlert = AlertViewController(title: "I'm the second alert", message: longMessage)
         secondAlert.alertStyler.backgroundColor = .brown
         secondAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
         secondAlert.addActions(genericCancelAction, genericDoneAction)
         secondAlert.show()
         
-        let thirdAlert = URBNSwAlertViewController(title: "I'm the third alert", message: "Short message", customButtons: ExampleCustomButtons())
+        let thirdAlert = AlertViewController(title: "I'm the third alert", message: "Short message", customButtons: ExampleCustomButtons())
         thirdAlert.show()
     }
     
     func showInputsAlert() {
-        let textFieldsAlert = URBNSwAlertViewController(title: "Textfields Alert", message: "Enter some info:")
+        let textFieldsAlert = AlertViewController(title: "Textfields Alert", message: "Enter some info:")
         
         textFieldsAlert.addTextfield { (textField) in
             textField.borderStyle = .line
@@ -105,13 +105,13 @@ class ExampleViewController: UIViewController {
     
     func showFullCustomAlert() {
         let customButtons = ExampleCustomButtons()
-        let fullCustomViewAlert = URBNSwAlertViewController(customView: customView, customButtons: customButtons)
+        let fullCustomViewAlert = AlertViewController(customView: customView, customButtons: customButtons)
         fullCustomViewAlert.alertConfiguration.tapInsideToDismiss = true
         fullCustomViewAlert.show()
     }
     
     func showValidateInputAlert() {
-        let validateAlert = URBNSwAlertViewController(title: "Textfield Validation", message: "Text must be > 4")
+        let validateAlert = AlertViewController(title: "Textfield Validation", message: "Text must be > 4")
         let validateCancelAction = AlertAction(title: "Cancel", type: .cancel) { (action) in
             print("validate action cancelled")
         }
@@ -144,7 +144,7 @@ class ExampleViewController: UIViewController {
     }
     
     func showSimpleLongPassiveAlert() {
-        let passiveAlert = URBNSwAlertViewController(title: "Simple Passive", message: longMessage)
+        let passiveAlert = AlertViewController(title: "Simple Passive", message: longMessage)
         passiveAlert.alertConfiguration.touchOutsideToDismiss = true
         
         let passiveAction = AlertAction(type: .passive) { (action) in
@@ -156,32 +156,32 @@ class ExampleViewController: UIViewController {
     }
     
     func showSimpleShortPassiveAlert() {
-        let passiveAlert = URBNSwAlertViewController(title: "Simple Passive", message: "Very short alert. Minimum 2 second duration.")
+        let passiveAlert = AlertViewController(title: "Simple Passive", message: "Very short alert. Minimum 2 second duration.")
         passiveAlert.alertConfiguration.touchOutsideToDismiss = true
         passiveAlert.alertConfiguration.duration = 2.0
         passiveAlert.show()
     }
     
     func showPassiveCustomAlert() {
-        let passiveCustomAlert = URBNSwAlertViewController(customView: customView)
+        let passiveCustomAlert = AlertViewController(customView: customView)
         passiveCustomAlert.alertConfiguration.duration = 5.0
         passiveCustomAlert.alertConfiguration.touchOutsideToDismiss = true
         passiveCustomAlert.show()
     }
     
     func showPassiveQueuedAlerts() {
-        let firstPassiveAlert = URBNSwAlertViewController(title: "First Alert", message: "Will auto dismiss in 3 seconds")
+        let firstPassiveAlert = AlertViewController(title: "First Alert", message: "Will auto dismiss in 3 seconds")
         firstPassiveAlert.alertConfiguration.touchOutsideToDismiss = true
         firstPassiveAlert.alertConfiguration.duration = 3.0
         
-        let secondPassiveAlert = URBNSwAlertViewController(customView: customView)
+        let secondPassiveAlert = AlertViewController(customView: customView)
         secondPassiveAlert.alertConfiguration.touchOutsideToDismiss = true
         let secondAction = AlertAction(type: .passive) { (action) in
             print("second passive action")
         }
         secondPassiveAlert.addActions(secondAction)
         
-        let thirdPassiveAlert = URBNSwAlertViewController(title: "Final alert", message: "Touch to dismiss")
+        let thirdPassiveAlert = AlertViewController(title: "Final alert", message: "Touch to dismiss")
         thirdPassiveAlert.alertConfiguration.touchOutsideToDismiss = true
         
         firstPassiveAlert.show()
@@ -197,7 +197,7 @@ class ExampleViewController: UIViewController {
     }
     
     func showFromView() {
-        let customViewAlert = URBNSwAlertViewController(customView: customView)
+        let customViewAlert = AlertViewController(customView: customView)
         customViewAlert.alertConfiguration.touchOutsideToDismiss = true
         customViewAlert.show(inView: presentationView)
     }
@@ -374,7 +374,7 @@ extension ExampleViewController {
 }
 
 // MARK: Custom Buttons
-class ExampleCustomButtons: UIView, URBNSwAlertButtonContainer {
+class ExampleCustomButtons: UIView, AlertButtonContainer {
     var actions: [AlertAction] {
         let firstAction = AlertAction(customButton: cancelButton) { (action) in
             print("custom Cancel button pressed")

@@ -8,17 +8,17 @@
 
 import Foundation
 
-class URBNSwAlertController: NSObject {
-    public static let shared = URBNSwAlertController()
-    public var alertStyler = URBNSwAlertStyler()
+class AlertController: NSObject {
+    public static let shared = AlertController()
+    public var alertStyler = AlertStyler()
     
     private var alertIsVisible = false
-    private var queue: [URBNSwAlertViewController] = []
+    private var queue: [AlertViewController] = []
     private var alertWindow: UIWindow?
     public var presentingWindow = UIApplication.shared.windows.first ?? UIWindow(frame: UIScreen.main.bounds)
     
     // MARK: Queueing
-    public func addAlertToQueue(avc: URBNSwAlertViewController) {
+    public func addAlertToQueue(avc: AlertViewController) {
         queue.append(avc)
         
         showNextAlert()
@@ -83,7 +83,7 @@ class URBNSwAlertController: NSObject {
         showNextAlert()
     }
     
-    func dismiss(alertViewController: URBNSwAlertViewController) {
+    func dismiss(alertViewController: AlertViewController) {
         alertIsVisible = false
         alertViewController.dismissAlert(sender: self)
     }

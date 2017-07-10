@@ -1,5 +1,5 @@
 //
-//  URBNSwAlertStyler.swift
+//  AlertStyler.swift
 //  Pods
 //
 //  Created by Kevin Taniguchi on 5/22/17.
@@ -9,7 +9,7 @@
 import Foundation
 import URBNConvenience
 
-public struct URBNSwAlertStyler {
+public struct AlertStyler {
     
     /**
      * Pass no to disable blurring in the background
@@ -351,7 +351,7 @@ public struct URBNSwAlertStyler {
 }
 
 // MARK: Standard Button Styling
-extension URBNSwAlertStyler {
+extension AlertStyler {
     /**
      *  Returns the correct button title color for given an actionType
      *

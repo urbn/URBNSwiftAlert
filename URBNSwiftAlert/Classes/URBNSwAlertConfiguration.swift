@@ -1,5 +1,5 @@
 //
-//  URBNSwAlertConfiguration.swift
+//  AlertConfiguration.swift
 //  Pods
 //
 //  Created by Kevin Taniguchi on 5/22/17.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-public struct URBNSwAlertConfiguration {
+public struct AlertConfiguration {
     /**
      *  Title text for the alert
      */
@@ -47,14 +47,14 @@ public struct URBNSwAlertConfiguration {
     /**
      *  When set to true, you can touch outside of an alert to dismiss it
      */
-    public var alertViewButtonContainer: URBNSwAlertButtonContainer?
+    public var alertViewButtonContainer: AlertButtonContainer?
     
     // Internal Variables
     var type = URBNSwAlertType.fullStandard
-    var styler = URBNSwAlertController.shared.alertStyler
+    var styler = AlertController.shared.alertStyler
     var textFields = [UITextField]()
     var customView: UIView?
-    var customButtons: URBNSwAlertButtonContainer?
+    var customButtons: AlertButtonContainer?
     var actions = [AlertAction]()
     var textFieldInputs = [UITextField]()
 }

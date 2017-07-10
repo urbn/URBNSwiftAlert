@@ -1,5 +1,5 @@
 //
-//  URBNSwAlertButton.swift
+//  AlertButton.swift
 //  Pods
 //
 //  Created by Kevin Taniguchi on 5/23/17.
@@ -11,22 +11,22 @@ import Foundation
 /**
  *  Conform a UIView to this protocol to generate a custom view that holds custom buttons
  */
-public protocol URBNSwAlertButtonContainer: class {
+public protocol AlertButtonContainer: class {
     var containerViewHeight: CGFloat { get }
     var actions: [AlertAction] { get }
 }
 
-public extension URBNSwAlertButtonContainer where Self: UIView {
+public extension AlertButtonContainer where Self: UIView {
     var containerViewHeight: CGFloat {
         return height
     }
 }
 
-public class URBNSwAlertButton: UIButton {
-    let styler: URBNSwAlertStyler
+public class AlertButton: UIButton {
+    let styler: AlertStyler
     let action: AlertAction
     
-    init(styler: URBNSwAlertStyler, action: AlertAction) {
+    init(styler: AlertStyler, action: AlertAction) {
         self.styler = styler
         self.action = action
         

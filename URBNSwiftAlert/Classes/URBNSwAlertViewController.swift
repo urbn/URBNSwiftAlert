@@ -8,9 +8,9 @@
 
 import URBNConvenience
 
-open class URBNSwAlertViewController: UIViewController {
-    public var alertConfiguration = URBNSwAlertConfiguration()
-    public var alertStyler = URBNSwAlertController.shared.alertStyler {
+open class AlertViewController: UIViewController {
+    public var alertConfiguration = AlertConfiguration()
+    public var alertStyler = AlertController.shared.alertStyler {
         didSet {
             alertConfiguration.styler = self.alertStyler
         }
@@ -43,33 +43,33 @@ open class URBNSwAlertViewController: UIViewController {
     }
     
     /**
-     *  Initialize with a title / message / and a URBNSwAlertButtonContainer
+     *  Initialize with a title / message / and a AlertButtonContainer
      *
-     *  @param customButtons Required.  A UIView that conforms to the URBNSwAlertButtonContainer protocol
+     *  @param customButtons Required.  A UIView that conforms to the AlertButtonContainer protocol
      *  @param title   Optional. The title text displayed in the alert
      *  @param message Optional. The message text displayed in the alert
      *
      *  @return A URBNSwiftAlertViewController with custom buttons ready to be configurated further or displayed
      */
     
-    public convenience init(title: String? = nil, message: String? = nil, customButtons: URBNSwAlertButtonContainer) {
+    public convenience init(title: String? = nil, message: String? = nil, customButtons: AlertButtonContainer) {
         self.init(type: .customButton, title: title, message: message, customButtons: customButtons)
     }
     
     /**
-     *  Initialize with a custom UIView and a URBNSwAlertButtonContainer
+     *  Initialize with a custom UIView and a AlertButtonContainer
      *
-     *  @param customButtons Required.  A UIView that conforms to the URBNSwAlertButtonContainer protocol
+     *  @param customButtons Required.  A UIView that conforms to the AlertButtonContainer protocol
      *  @param customView  Required. A custom UIView
      *
      *  @return A URBNSwiftAlertViewController with a custom view and custom buttons ready to be configurated further or displayed
      */
     
-    public convenience init(customView: UIView, customButtons: URBNSwAlertButtonContainer) {
+    public convenience init(customView: UIView, customButtons: AlertButtonContainer) {
         self.init(type: .fullCustom, customView: customView, customButtons: customButtons)
     }
     
-    private init(type: URBNSwAlertType, title: String? = nil, message: String? = nil, customView: UIView? = nil, customButtons: URBNSwAlertButtonContainer? = nil) {
+    private init(type: URBNSwAlertType, title: String? = nil, message: String? = nil, customView: UIView? = nil, customButtons: AlertButtonContainer? = nil) {
         super.init(nibName: nil, bundle: nil)
         
         alertConfiguration.type = type
@@ -109,9 +109,9 @@ open class URBNSwAlertViewController: UIViewController {
     }
     
     var dismissingHandler: ((Bool) -> Void)?
-    fileprivate var alertView: URBNSwAlertView?
+    fileprivate var alertView: AlertView?
     fileprivate var blurImageView: UIImageView?
-    fileprivate var alertController = URBNSwAlertController.shared
+    fileprivate var alertController = AlertController.shared
     fileprivate var alertViewYContraint: NSLayoutConstraint?
     
     required public init?(coder aDecoder: NSCoder) {
@@ -120,7 +120,7 @@ open class URBNSwAlertViewController: UIViewController {
 }
 
 // MARK: Layout and Animations
-extension URBNSwAlertViewController {
+extension AlertViewController {
     func setUpBackground() {
         if alertStyler.blurEnabled {
             addBlurScreenshot()
@@ -213,9 +213,9 @@ extension URBNSwAlertViewController {
 }
 
 // MARK: Show and Dismiss
-extension URBNSwAlertViewController {
+extension AlertViewController {
     public func show() {
-       alertView = URBNSwAlertView(configuration: alertConfiguration)
+       alertView = AlertView(configuration: alertConfiguration)
         
         if !alertConfiguration.actions.isEmpty {
             switch alertConfiguration.type {
@@ -266,7 +266,7 @@ extension URBNSwAlertViewController {
 }
 
 // MARK: Actions and Textfields
-extension URBNSwAlertViewController {
+extension AlertViewController {
     @available(*, unavailable, message: "use addActions instead")
     public func addAction(_ action: AlertAction) {}
     
@@ -302,7 +302,7 @@ extension URBNSwAlertViewController {
 }
 
 // MARK: Keyboard management
-extension URBNSwAlertViewController {
+extension AlertViewController {
     func keyboardWillShow(notif: Notification) {
         if let value = notif.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue, let av = alertView  {
             let kbFrame = value.cgRectValue
