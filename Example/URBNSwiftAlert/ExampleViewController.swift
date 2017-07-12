@@ -31,13 +31,13 @@ class ExampleViewController: UIViewController {
         }
         customStyleAlert.addActions([genericCancelAction, genericDoneAction, destructiveAction])
         customStyleAlert.alertStyler.minMaxWidth = (min: 44, max: 250)
-        customStyleAlert.alertStyler.backgroundColor = .orange
+        customStyleAlert.alertStyler.background.color = .orange
         customStyleAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
         customStyleAlert.alertStyler.alertCornerRadius = 5.0
-        customStyleAlert.alertStyler.alertViewShadowColor = .purple
-        customStyleAlert.alertStyler.alertShadowOffset = CGSize(width: 5, height: 5)
-        customStyleAlert.alertStyler.alertViewShadowRadius = 5.0
-        customStyleAlert.alertStyler.alertViewShadowOpacity = 0.9
+        customStyleAlert.alertStyler.alertViewShadow.color = .purple
+        customStyleAlert.alertStyler.alertViewShadow.offset = CGSize(width: 5, height: 5)
+        customStyleAlert.alertStyler.alertViewShadow.radius = 5.0
+        customStyleAlert.alertStyler.alertViewShadow.opacity = 0.9
         customStyleAlert.alertStyler.cancelButtonTitleColor = .magenta
         customStyleAlert.alertStyler.blur.tintColor = UIColor.blue.withAlphaComponent(0.2)
         customStyleAlert.alertStyler.buttonShadowColor = .red
@@ -66,7 +66,7 @@ class ExampleViewController: UIViewController {
         firstAlert.show()
         
         let secondAlert = AlertViewController(title: "I'm the second alert", message: longMessage)
-        secondAlert.alertStyler.backgroundColor = .brown
+        secondAlert.alertStyler.background.color = .brown
         secondAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
         secondAlert.addActions(genericCancelAction, genericDoneAction)
         secondAlert.show()

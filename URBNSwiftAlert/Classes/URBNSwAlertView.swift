@@ -25,10 +25,10 @@ class AlertView: UIView {
         
         backgroundColor = configuration.styler.background.color
         layer.cornerRadius = configuration.styler.alertCornerRadius
-        layer.shadowRadius = configuration.styler.alertViewShadowRadius
-        layer.shadowOpacity = configuration.styler.alertViewShadowOpacity
-        layer.shadowOffset = configuration.styler.alertShadowOffset
-        layer.shadowColor = configuration.styler.alertViewShadowColor.cgColor
+        layer.shadowRadius = configuration.styler.alertViewShadow.radius
+        layer.shadowOpacity = configuration.styler.alertViewShadow.opacity
+        layer.shadowOffset = configuration.styler.alertViewShadow.offset
+        layer.shadowColor = configuration.styler.alertViewShadow.color.cgColor
         
         stackView.axis = .vertical
         

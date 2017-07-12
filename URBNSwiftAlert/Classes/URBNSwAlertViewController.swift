@@ -174,10 +174,10 @@ extension AlertViewController {
             }
         }
         
-        if alertStyler.isAnimated {
-            let duration = TimeInterval(alertStyler.animationDuration)
-            let damping = alertStyler.animationDamping
-            let initVel = isVisible ? 0 : alertStyler.animationInitialVelocity
+        if alertStyler.animation.isAnimated {
+            let duration = TimeInterval(alertStyler.animation.duration)
+            let damping = alertStyler.animation.damping
+            let initVel = isVisible ? 0 : alertStyler.animation.initialVelocity
             
             UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: initVel, options: [], animations: bounceAnimation, completion: { (complete) in
                 if complete {

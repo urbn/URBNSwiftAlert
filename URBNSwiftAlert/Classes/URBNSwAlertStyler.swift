@@ -15,54 +15,31 @@ public struct AlertStyler {
     
     public var background = Background()
     
-    /**
-     * Opacity of the alert view's shadow
-     */
-    public var alertViewShadowOpacity: Float = 0.0
+    public var alertViewShadow = AlertViewShadow()
     
-    /**
-     * Radius of the alert view's shadow
-     */
-    public var alertViewShadowRadius: CGFloat = 0.0
+    public var animation = Animation()
     
-    /**
-     * Color of the alert view's shadow
-     */
-    public var alertViewShadowColor = UIColor.clear
-    
-    /**
-     * Offset of the alert view's shadow
-     */
-    public var alertShadowOffset = CGSize.zero
-    
-    
-    public struct Shadow {
-        public var opacity: Float = 0.0
-        public var radius: CGFloat = 0.0
-        public var color = UIColor.clear
-        public var offset = CGSize.zero
+    public struct Animation {
+        /**
+         * Bool for using an animation to present alert view
+         */
+        public var isAnimated: Bool = true
+        
+        /**
+         * Duration of the presenting and dismissing of the alert view
+         */
+        public var duration: CGFloat = 0.6
+        
+        /**
+         * Spring damping for the presenting and dismissing of the alert view
+         */
+        public var damping: CGFloat = 0.6
+        
+        /**
+         * Spring initial velocity for the presenting and dismissing of the alert view
+         */
+        public var initialVelocity: CGFloat = -10.0
     }
-    
-    
-    /**
-     * Bool for using an animation to present alert view
-     */
-    public var isAnimated: Bool = true
-    
-    /**
-     * Duration of the presenting and dismissing of the alert view
-     */
-    public var animationDuration: CGFloat = 0.6
-    
-    /**
-     * Spring damping for the presenting and dismissing of the alert view
-     */
-    public var animationDamping: CGFloat = 0.6
-    
-    /**
-     * Spring initial velocity for the presenting and dismissing of the alert view
-     */
-    public var animationInitialVelocity: CGFloat = -10.0
     
     /**
      * Min (greaterThanOrEqualTo) and Max widths (lessThanOrEqualTo) for the Alert -   The alert view will use its most compressed layout values for height
@@ -363,6 +340,25 @@ extension AlertStyler {
          * Tint color of the view behind the Alert. Blur must be disabled
          */
         public var tint: UIColor?
+    }
+    
+    public struct AlertViewShadow {
+        /**
+         * Opacity of the alert view's shadow
+         */
+        public var opacity: Float = 0.0
+        /**
+         * Radius of the alert view's shadow
+         */
+        public var radius: CGFloat = 0.0
+        /**
+         * Color of the alert view's shadow
+         */
+        public var color = UIColor.clear
+        /**
+         * Offset of the alert view's shadow
+         */
+        public var offset = CGSize.zero
     }
 }
 
