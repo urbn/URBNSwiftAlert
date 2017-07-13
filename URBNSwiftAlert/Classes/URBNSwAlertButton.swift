@@ -36,35 +36,35 @@ public class AlertButton: UIButton {
         
         setTitleColor(styler.buttonTitleColor(actionType: action.type, isEnabled: isEnabled), for: .normal)
         setTitleColor(styler.buttonHighlightTitleColor(actionType: action.type, isEnabled: isEnabled), for: .highlighted)
-        setTitleColor(styler.buttonSelectedTitleColor, for: .selected)
+        setTitleColor(styler.button.selectedTitleColor, for: .selected)
         backgroundColor = styler.buttonBackgroundColor(actionType: action.type, isEnabled: action.isEnabled)
-        titleLabel?.font = styler.buttonFont
-        layer.cornerRadius = styler.buttonCornerRadius
-        layer.borderWidth = styler.buttonBorderWidth
-        layer.borderColor = styler.buttonBorderColor.cgColor
-        layer.shadowOpacity = styler.buttonShadowOpacity
-        layer.shadowRadius = styler.buttonShadowRadius
-        layer.shadowColor = styler.buttonShadowColor.cgColor
-        layer.shadowOffset = styler.buttonShadowOffset
-        contentEdgeInsets = styler.buttonContentInsets
+        titleLabel?.font = styler.button.font
+        layer.cornerRadius = styler.button.cornerRadius
+        layer.borderWidth = styler.button.borderWidth
+        layer.borderColor = styler.button.borderColor.cgColor
+        layer.shadowOpacity = styler.button.shadowOpacity
+        layer.shadowRadius = styler.button.shadowRadius
+        layer.shadowColor = styler.button.shadowColor.cgColor
+        layer.shadowOffset = styler.button.shadowOffset
+        contentEdgeInsets = styler.button.contentInsets
     }
     
     public override var isHighlighted: Bool {
         didSet {
             switch action.type {
             case .destructive:
-                backgroundColor = isHighlighted ? styler.destructiveButtonHighlightBackgroundColor : styler.destructiveButtonBackgroundColor
+                backgroundColor = isHighlighted ? styler.destructiveButton.highlightBackgroundColor : styler.destructiveButton.backgroundColor
             case .cancel:
-                backgroundColor = isHighlighted ? styler.cancelButtonHighlightBackgroundColor : styler.cancelButtonBackgroundColor
+                backgroundColor = isHighlighted ? styler.cancelButton.highlightBackgroundColor : styler.cancelButton.backgroundColor
             case .custom, .normal, .passive:
-                backgroundColor = isHighlighted ? styler.buttonHighlightBackgroundColor : styler.buttonBackgroundColor
+                backgroundColor = isHighlighted ? styler.button.highlightBackgroundColor : styler.button.backgroundColor
             }
         }
     }
     
     public override var isSelected: Bool {
         didSet {
-            backgroundColor = isSelected ? styler.buttonSelectedBackgroundColor : styler.buttonBackgroundColor(actionType: action.type, isEnabled: isEnabled)
+            backgroundColor = isSelected ? styler.button.selectedBackgroundColor : styler.buttonBackgroundColor(actionType: action.type, isEnabled: isEnabled)
         }
     }
     
@@ -73,7 +73,7 @@ public class AlertButton: UIButton {
             setTitleColor(styler.buttonTitleColor(actionType: action.type, isEnabled: isEnabled), for: .normal)
             setTitleColor(styler.buttonHighlightTitleColor(actionType: action.type, isEnabled: isEnabled), for: .highlighted)
             backgroundColor = styler.buttonBackgroundColor(actionType: action.type, isEnabled: isEnabled)
-            alpha = isEnabled ? 1.0 : styler.disabledButtonAlpha
+            alpha = isEnabled ? 1.0 : styler.disabledButton.alpha
         }
     }
     

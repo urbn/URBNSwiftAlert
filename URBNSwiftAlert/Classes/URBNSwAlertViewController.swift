@@ -135,12 +135,12 @@ extension AlertViewController {
         
         view.addSubviewsWithNoConstraints(alertContainer)
         if alertConfiguration.type != .customView && alertConfiguration.type != .fullCustom {
-            if let minMax = alertStyler.minMaxWidth {
+            if let minMax = alertStyler.alert.minMaxWidth {
                 alertContainer.widthAnchor.constraint(greaterThanOrEqualToConstant: minMax.min).isActive = true
                 alertContainer.widthAnchor.constraint(lessThanOrEqualToConstant: minMax.max).isActive = true
             }
             else {
-                alertContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - alertStyler.horizontalMargin*2).isActive = true
+                alertContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - alertStyler.alert.horizontalMargin*2).isActive = true
             }
         }
         alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true

@@ -30,26 +30,26 @@ class ExampleViewController: UIViewController {
             print("destructive button pressed")
         }
         customStyleAlert.addActions([genericCancelAction, genericDoneAction, destructiveAction])
-        customStyleAlert.alertStyler.minMaxWidth = (min: 44, max: 250)
+        customStyleAlert.alertStyler.alert.minMaxWidth = (min: 44, max: 250)
         customStyleAlert.alertStyler.background.color = .orange
-        customStyleAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
-        customStyleAlert.alertStyler.alertCornerRadius = 5.0
+        customStyleAlert.alertStyler.title.font = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
+        customStyleAlert.alertStyler.alert.cornerRadius = 5.0
         customStyleAlert.alertStyler.alertViewShadow.color = .purple
         customStyleAlert.alertStyler.alertViewShadow.offset = CGSize(width: 5, height: 5)
         customStyleAlert.alertStyler.alertViewShadow.radius = 5.0
         customStyleAlert.alertStyler.alertViewShadow.opacity = 0.9
-        customStyleAlert.alertStyler.cancelButtonTitleColor = .magenta
+        customStyleAlert.alertStyler.cancelButton.titleColor = .magenta
         customStyleAlert.alertStyler.blur.tintColor = UIColor.blue.withAlphaComponent(0.2)
-        customStyleAlert.alertStyler.buttonShadowColor = .red
-        customStyleAlert.alertStyler.buttonShadowOffset = CGSize(width: 10, height: 10)
-        customStyleAlert.alertStyler.buttonShadowRadius = 10
-        customStyleAlert.alertStyler.buttonShadowOpacity = 0.9
-        customStyleAlert.alertStyler.buttonBackgroundColor = .cyan
-        customStyleAlert.alertStyler.cancelButtonBackgroundColor = .brown
-        customStyleAlert.alertStyler.messageFont = UIFont(name: "AmericanTypewriter-Bold", size: 15)
-        customStyleAlert.alertStyler.buttonHighlightTitleColor = .green
-        customStyleAlert.alertStyler.cancelButtonHighlightTitleColor = .blue
-        customStyleAlert.alertStyler.buttonSelectedTitleColor = .yellow
+        customStyleAlert.alertStyler.button.shadowColor = .red
+        customStyleAlert.alertStyler.button.shadowOffset = CGSize(width: 10, height: 10)
+        customStyleAlert.alertStyler.button.shadowRadius = 10
+        customStyleAlert.alertStyler.button.shadowOpacity = 0.9
+        customStyleAlert.alertStyler.button.backgroundColor = .cyan
+        customStyleAlert.alertStyler.cancelButton.backgroundColor = .brown
+        customStyleAlert.alertStyler.message.font = UIFont(name: "AmericanTypewriter-Bold", size: 15)
+        customStyleAlert.alertStyler.button.highlightTitleColor = .green
+        customStyleAlert.alertStyler.cancelButton.highlightTitleColor = .blue
+        customStyleAlert.alertStyler.button.selectedTitleColor = .yellow
         customStyleAlert.show()
     }
     
@@ -67,7 +67,7 @@ class ExampleViewController: UIViewController {
         
         let secondAlert = AlertViewController(title: "I'm the second alert", message: longMessage)
         secondAlert.alertStyler.background.color = .brown
-        secondAlert.alertStyler.titleFont = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
+        secondAlert.alertStyler.title.font = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
         secondAlert.addActions(genericCancelAction, genericDoneAction)
         secondAlert.show()
         

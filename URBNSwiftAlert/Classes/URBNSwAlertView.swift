@@ -24,7 +24,7 @@ class AlertView: UIView {
         super.init(frame: CGRect.zero)
         
         backgroundColor = configuration.styler.background.color
-        layer.cornerRadius = configuration.styler.alertCornerRadius
+        layer.cornerRadius = configuration.styler.alert.cornerRadius
         layer.shadowRadius = configuration.styler.alertViewShadow.radius
         layer.shadowOpacity = configuration.styler.alertViewShadow.opacity
         layer.shadowOffset = configuration.styler.alertViewShadow.offset
@@ -39,13 +39,13 @@ class AlertView: UIView {
         case .fullStandard:
             addStandardComponents()
             addButtons()
-            insets = configuration.styler.standardAlertViewInsets
-            spacing = configuration.styler.standardAlertLabelVerticalSpacing
+            insets = configuration.styler.alert.insets
+            spacing = configuration.styler.alert.labelVerticalSpacing
         case .customButton:
             addStandardComponents()
             addCustomButtons()
-            insets = configuration.styler.standardAlertViewInsets
-            spacing = configuration.styler.standardAlertLabelVerticalSpacing
+            insets = configuration.styler.alert.insets
+            spacing = configuration.styler.alert.labelVerticalSpacing
         case .customView:
             addCustomView()
             addButtons()
@@ -72,38 +72,38 @@ class AlertView: UIView {
 extension AlertView {
     func addStandardComponents() {
         if let title = configuration.title, !title.isEmpty {
-            titleLabel.backgroundColor = configuration.styler.titleBackgroundColor
-            titleLabel.textAlignment = configuration.styler.titleAlignment
-            titleLabel.font = configuration.styler.titleFont
+            titleLabel.backgroundColor = configuration.styler.title.backgroundColor
+            titleLabel.textAlignment = configuration.styler.title.alignment
+            titleLabel.font = configuration.styler.title.font
             titleLabel.numberOfLines = 2
             titleLabel.lineBreakMode = .byWordWrapping
-            titleLabel.textColor = configuration.styler.titleColor
+            titleLabel.textColor = configuration.styler.title.color
             titleLabel.text = title
-            stackView.addArrangedSubview(titleLabel.wrapInNewView(with: configuration.styler.titleLabelInsetConstraints))
+            stackView.addArrangedSubview(titleLabel.wrapInNewView(with: configuration.styler.title.insetConstraints))
         }
         
         if let message = configuration.message, !message.isEmpty {
-            messageView.backgroundColor = configuration.styler.messageBackgroundColor
-            messageView.textAlignment = configuration.styler.messageAlignment
-            messageView.font = configuration.styler.messageFont
-            messageView.textColor = configuration.styler.messageColor
+            messageView.backgroundColor = configuration.styler.message.backgroundColor
+            messageView.textAlignment = configuration.styler.message.alignment
+            messageView.font = configuration.styler.message.font
+            messageView.textColor = configuration.styler.message.color
             messageView.isEditable = false
             messageView.text = message
             
-            let buttonH = configuration.customButtons?.containerViewHeight ?? configuration.styler.buttonHeight
-            let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (configuration.styler.standardAlertViewInsets.top) * 2 - buttonH
-            let maxWidth = UIScreen.main.bounds.width - (configuration.styler.standardAlertViewInsets.left + configuration.styler.standardAlertViewInsets.right) - configuration.styler.horizontalMargin*2
+            let buttonH = configuration.customButtons?.containerViewHeight ?? configuration.styler.button.height
+            let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (configuration.styler.alert.insets.top) * 2 - buttonH
+            let maxWidth = UIScreen.main.bounds.width - (configuration.styler.alert.insets.left + configuration.styler.alert.insets.right) - configuration.styler.alert.horizontalMargin*2
             let messageSize = messageView.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
             let maxHeight = messageSize.height > maxTextViewH ? maxTextViewH : messageSize.height
             
             messageView.heightAnchor.constraint(equalToConstant: maxHeight).isActive = true
-            stackView.addArrangedSubview(messageView.wrapInNewView(with: configuration.styler.messageInsetConstraints))
+            stackView.addArrangedSubview(messageView.wrapInNewView(with: configuration.styler.message.insetConstraints))
         }
         
         if !configuration.textFields.isEmpty {
             let textFieldsSV = UIStackView(arrangedSubviews: configuration.textFields)
             textFieldsSV.axis = .vertical
-            textFieldsSV.spacing = configuration.styler.textFieldVerticalMargin
+            textFieldsSV.spacing = configuration.styler.textField.verticalMargin
             for tf in configuration.textFields {
                 tf.returnKeyType = .done
                 tf.delegate = self
@@ -113,18 +113,18 @@ extension AlertView {
             
             textFieldErrorLabel.numberOfLines = 0
             textFieldErrorLabel.lineBreakMode = .byWordWrapping
-            textFieldErrorLabel.textColor = configuration.styler.textFieldErrorMessageColor
-            textFieldErrorLabel.font = configuration.styler.textFieldErrorMessageFont
+            textFieldErrorLabel.textColor = configuration.styler.textField.errorMessageColor
+            textFieldErrorLabel.font = configuration.styler.textField.errorMessageFont
             stackView.addArrangedSubview(textFieldErrorLabel)
             textFieldErrorLabel.isHidden = true
         }
     }
     
     func addButtons() {
-        buttonsSV.axis = configuration.actions.count < 3 ? configuration.styler.buttonsLayoutAxis : .vertical
+        buttonsSV.axis = configuration.actions.count < 3 ? configuration.styler.button.layoutAxis : .vertical
         buttonsSV.distribution = .fillEqually
-        buttonsSV.spacing = configuration.styler.buttonSpacing
-        stackView.addArrangedSubview(buttonsSV.wrapInNewView(with: configuration.styler.buttonContainerInsetConstraints))
+        buttonsSV.spacing = configuration.styler.button.spacing
+        stackView.addArrangedSubview(buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints))
     }
     
     func addCustomView() {
@@ -155,7 +155,7 @@ extension AlertView: AlertButtonContainer {
         for action in actions {
             if action.type != .passive {
                 let button = AlertButton(styler: configuration.styler, action: action)
-                button.heightAnchor.constraint(equalToConstant: configuration.styler.buttonHeight).isActive = true
+                button.heightAnchor.constraint(equalToConstant: configuration.styler.button.height).isActive = true
                 buttonsSV.addArrangedSubview(button)
                 action.add(button: button)
             }
@@ -172,7 +172,7 @@ extension AlertView: UITextFieldDelegate {
         
         let newLength = charCount + string.characters.count - range.length
         
-        return newLength < configuration.styler.textFieldMaxLength
+        return newLength < configuration.styler.textField.maxLength
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
