@@ -1,9 +1,8 @@
 {
   "name": "URBNSwiftAlert",
   "version": "0.1.0",
-  "summary": "A short description of URBNSwiftAlert.",
-  "description": "TODO: Add long description of the pod here.",
-  "homepage": "https://github.com/Kevin Taniguchi/URBNSwiftAlert",
+  "summary": "A swift version of URBNAlert by Ryan Garchinsky.",
+  "homepage": "https://github.com/URBN/URBNSwiftAlert",
   "license": {
     "type": "MIT",
     "file": "LICENSE"
@@ -12,11 +11,16 @@
     "Kevin Taniguchi": "ktaniguchi@urbn.com"
   },
   "source": {
-    "git": "https://github.com/Kevin Taniguchi/URBNSwiftAlert.git",
+    "git": "git@github.com:urbn/URBNSwiftAlert.git",
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "8.0"
+    "ios": "10.3"
   },
-  "source_files": "URBNSwiftAlert/Classes/**/*"
+  "source_files": "URBNSwiftAlert/Classes/**/*",
+  "dependencies": {
+    "URBNConvenience": [
+
+    ]
+  }
 }
