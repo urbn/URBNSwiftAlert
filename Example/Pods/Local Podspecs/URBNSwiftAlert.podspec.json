@@ -11,7 +11,7 @@
     "Kevin Taniguchi": "ktaniguchi@urbn.com"
   },
   "source": {
-    "git": "https://github.com/URBN/URBNSwiftAlert.git",
+    "git": "git@github.com:urbn/URBNSwiftAlert.git",
     "tag": "0.1.0"
   },
   "platforms": {
