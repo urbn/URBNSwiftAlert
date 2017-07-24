@@ -10,5 +10,5 @@ s.author           = { 'Kevin Taniguchi' => 'ktaniguchi@urbn.com' }
 s.source           = { :git => 'git@github.com:urbn/URBNSwiftAlert.git', :tag => s.version.to_s }
 s.ios.deployment_target = '10.3'
 s.source_files = 'URBNSwiftAlert/Classes/**/*'
-s.dependency 'URBNConvenience'
+s.dependency 'URBNSwiftyConvenience'
 end
