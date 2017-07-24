@@ -5,7 +5,7 @@
 //  Created by Kevin Taniguchi on 5/22/17.
 //
 //
-import URBNConvenience
+import URBNSwiftyConvenience
 
 open class AlertViewController: UIViewController {
     public var alertConfiguration = AlertConfiguration()
@@ -305,7 +305,7 @@ extension AlertViewController {
     func keyboardWillShow(notif: Notification) {
         if let value = notif.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue, let av = alertView  {
             let kbFrame = value.cgRectValue
-            let alertViewBottomYPos = av.height + av.frame.origin.y
+            let alertViewBottomYPos = av.frame.height + av.frame.origin.y
             let offSet = -(alertViewBottomYPos - kbFrame.origin.y)
             if offSet < 0 {
                 alertViewYContraint?.constant = offSet - 30

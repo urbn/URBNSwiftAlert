@@ -6,7 +6,7 @@
 //
 //
 import Foundation
-import URBNConvenience
+import URBNSwiftyConvenience
 
 public struct AlertStyler {
     

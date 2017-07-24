@@ -6,7 +6,7 @@
 //
 //
 import Foundation
-import URBNConvenience
+import URBNSwiftyConvenience
 
 class AlertView: UIView {
     fileprivate lazy var titleLabel = UILabel()

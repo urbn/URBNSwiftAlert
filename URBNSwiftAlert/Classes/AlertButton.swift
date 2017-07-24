@@ -17,7 +17,7 @@ public protocol AlertButtonContainer: class {
 
 public extension AlertButtonContainer where Self: UIView {
     var containerViewHeight: CGFloat {
-        return height
+        return frame.height
     }
 }
 

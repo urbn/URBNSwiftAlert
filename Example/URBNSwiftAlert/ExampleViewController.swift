@@ -8,7 +8,7 @@
 
 import UIKit
 
-import URBNConvenience
+import URBNSwiftyConvenience
 import URBNSwiftAlert
 
 class ExampleViewController: UIViewController {
