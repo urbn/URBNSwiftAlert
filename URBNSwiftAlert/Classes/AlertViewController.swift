@@ -196,12 +196,12 @@ extension AlertViewController {
     func addBlurScreenshot(withSize size: CGSize? = nil) {
         if let screenShot = UIImage.screenShot(view: viewForScreenshot, afterScreenUpdates: true) {
             let blurredSize = size ?? viewForScreenshot.bounds.size
-            let blurredImage = screenShot.applyBlur(withRadius: alertStyler.blur.radius, tintColor: alertStyler.blur.tintColor, saturationDeltaFactor: alertStyler.blur.saturationDelta, maskImage: nil)
+//            let blurredImage = screenShot.applyBlur(withRadius: alertStyler.blur.radius, tintColor: alertStyler.blur.tintColor, saturationDeltaFactor: alertStyler.blur.saturationDelta, maskImage: nil)
             
             let rect = CGRect(x: 0, y: 0, width: blurredSize.width, height: blurredSize.height)
             
             blurImageView = UIImageView(frame: rect)
-            blurImageView?.image = blurredImage
+//            blurImageView?.image = blurredImage
             _ = blurImageView?.wrapInView(view)
         }
     }

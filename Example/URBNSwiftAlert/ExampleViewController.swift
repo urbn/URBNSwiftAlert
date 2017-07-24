@@ -123,21 +123,21 @@ class ExampleViewController: UIViewController {
         }
         
         let validateDoneAction = AlertAction(type: .normal, shouldDismiss: false, isEnabled: true, title: "Done") { (action) in
-            guard let textField = validateAlert.textField else { return }
+//            guard let textField = validateAlert.textField else { return }
             
-            textField.urbn_showLoading(true, animated: true, spinnerInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8))
+//            textField.urbn_showLoading(true, animated: true, spinnerInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8))
             
-            dispatchAfterDelayInSeconds(2.0, DispatchQueue.main, {
-                textField.urbn_showLoading(false, animated: true, spinnerInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8))
-                
-                guard let text = textField.text, text.characters.count < 5 else {
-                    validateAlert.dismissAlert(sender: self)
-                    return
-                }
-                
-                validateAlert.showTextFieldError(message: "Error! You must enter more than 4 characters.  You must now cancel to close.")
-                action.button?.isEnabled = false
-            })
+//            dispatchAfterDelayInSeconds(2.0, DispatchQueue.main, {
+//                textField.urbn_showLoading(false, animated: true, spinnerInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8))
+//                
+//                guard let text = textField.text, text.characters.count < 5 else {
+//                    validateAlert.dismissAlert(sender: self)
+//                    return
+//                }
+//                
+//                validateAlert.showTextFieldError(message: "Error! You must enter more than 4 characters.  You must now cancel to close.")
+//                action.button?.isEnabled = false
+//            })
         }
         
         validateAlert.addActions(validateCancelAction, validateDoneAction)
@@ -268,7 +268,7 @@ extension ExampleViewController: UICollectionViewDelegate, UICollectionViewDeleg
         exampleSectionLabels = [[activeAlertsLabel], [passiveAlertsLabel], [modalLabel]]
         
         presentationView.backgroundColor = UIColor.darkGray
-        presentationView.heightAnchor.constraint(equalToConstant: view.height/3).isActive = true
+        presentationView.heightAnchor.constraint(equalToConstant: view.frame.height/3).isActive = true
         presentationView.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width).isActive = true
         
         if let presentFromViewBtn = btnsMapper(["Show in View": #selector(ExampleViewController.showFromView)], .green).first {
@@ -283,7 +283,7 @@ extension ExampleViewController: UICollectionViewDelegate, UICollectionViewDeleg
         let layout = UICollectionViewFlowLayout()
         layout.minimumLineSpacing = 1
         layout.minimumInteritemSpacing = 1
-        layout.headerReferenceSize = CGSize(width: view.width, height: 40.0)
+        layout.headerReferenceSize = CGSize(width: view.frame.width, height: 40.0)
         collectionView = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         collectionView?.delegate = self
         collectionView?.dataSource = self
@@ -299,7 +299,7 @@ extension ExampleViewController: UICollectionViewDelegate, UICollectionViewDeleg
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let itemWidth = indexPath.section >= 2 ? view.width : view.width/2 - 1
+        let itemWidth = indexPath.section >= 2 ? view.frame.width : view.frame.width/2 - 1
         return CGSize(width: itemWidth, height: 44.0)
     }
     
