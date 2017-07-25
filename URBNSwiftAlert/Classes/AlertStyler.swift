@@ -80,22 +80,6 @@ extension AlertStyler {
          * Pass no to disable blurring in the background
          */
         public var isEnabled = true
-        /**
-         * Radius of the blurred snapshot
-         */
-        public var radius: CGFloat = 5.0
-        /**
-         * Tint color of the blurred snapshot
-         */
-        public var tintColor: UIColor = UIColor.white.withAlphaComponent(0.4) {
-            didSet {
-                assert(tintColor.cgColor.alpha < 1.0, "URBNAlertStyle: blurTintColor alpha component must be less than 1.0 to see the blur effect. Please use colorWithAlphaComponent: when setting a custom blurTintColor, for example: UIColor.white.withAlphaComponent(0.4)")
-            }
-        }
-        /**
-         * Saturation blur factor of the blurred snapshot. 1 is normal. < 1 removes color, > 1 adds color
-         */
-        public var saturationDelta: CGFloat = 1.0
     }
     
     public struct Background {

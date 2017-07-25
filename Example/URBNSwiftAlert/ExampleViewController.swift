@@ -40,7 +40,6 @@ class ExampleViewController: UIViewController {
         customStyleAlert.alertStyler.alertViewShadow.radius = 5.0
         customStyleAlert.alertStyler.alertViewShadow.opacity = 0.9
         customStyleAlert.alertStyler.cancelButton.titleColor = .magenta
-        customStyleAlert.alertStyler.blur.tintColor = UIColor.blue.withAlphaComponent(0.2)
         customStyleAlert.alertStyler.button.shadowColor = .red
         customStyleAlert.alertStyler.button.shadowOffset = CGSize(width: 10, height: 10)
         customStyleAlert.alertStyler.button.shadowRadius = 10
@@ -123,21 +122,13 @@ class ExampleViewController: UIViewController {
         }
         
         let validateDoneAction = AlertAction(type: .normal, shouldDismiss: false, isEnabled: true, title: "Done") { (action) in
-//            guard let textField = validateAlert.textField else { return }
             
-//            textField.urbn_showLoading(true, animated: true, spinnerInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8))
-            
-//            dispatchAfterDelayInSeconds(2.0, DispatchQueue.main, {
-//                textField.urbn_showLoading(false, animated: true, spinnerInsets: UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 8))
-//                
-//                guard let text = textField.text, text.characters.count < 5 else {
-//                    validateAlert.dismissAlert(sender: self)
-//                    return
-//                }
-//                
-//                validateAlert.showTextFieldError(message: "Error! You must enter more than 4 characters.  You must now cancel to close.")
-//                action.button?.isEnabled = false
-//            })
+            guard let text = validateAlert.textField?.text, text.characters.count < 5 else {
+                validateAlert.dismissAlert(sender: self)
+                return
+            }
+            validateAlert.showTextFieldError(message: "Error! You must enter more than 4 characters.  You must now cancel to close.")
+            action.button?.isEnabled = false
         }
         
         validateAlert.addActions(validateCancelAction, validateDoneAction)
