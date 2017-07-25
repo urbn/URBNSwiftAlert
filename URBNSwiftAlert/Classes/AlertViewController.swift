@@ -217,52 +217,6 @@ extension AlertViewController {
     }
 }
 
-extension UIImage {
-    public func blur(withRadius radius: CGFloat, tintColor: UIColor, saturationDeltaFactor: CGFloat) -> UIImage? {
-        
-        let imageToBlur = self
-        
-        guard let blur = CIFilter(name: "CIGaussianBlur") else { return nil }
-        
-        blur.setValue(CIImage(image: imageToBlur), forKey: kCIInputImageKey)
-        blur.setValue(radius, forKey: kCIInputRadiusKey)
-        
-        let ciContext  = CIContext(options: nil)
-        
-        let boundingRect = CGRect(x: -radius * 4,
-                                  y: -radius * 4,
-                                  width: size.width + (radius * 8),
-                                  height: size.height + (radius * 8))
-        
-        let result = blur.value(forKey: kCIOutputImageKey) as? CIImage
-        
-        if let r = result, let cgImage = ciContext.createCGImage(r, from: boundingRect) {
-            return UIImage(cgImage: cgImage)
-        }
-        return nil
-        
-        //        var context = CIContext(options: nil)
-        //
-        //        func blurEffect() {
-        //
-        //            let currentFilter = CIFilter(name: "CIGaussianBlur")
-        //            let beginImage = CIImage(image: bg.image!)
-        //            currentFilter!.setValue(beginImage, forKey: kCIInputImageKey)
-        //            currentFilter!.setValue(10, forKey: kCIInputRadiusKey)
-        //
-        //            let cropFilter = CIFilter(name: "CICrop")
-        //            cropFilter!.setValue(currentFilter!.outputImage, forKey: kCIInputImageKey)
-        //            cropFilter!.setValue(CIVector(cgRect: beginImage!.extent), forKey: "inputRectangle")
-        //
-        //            let output = cropFilter!.outputImage
-        //            let cgimg = context.createCGImage(output!, from: output!.extent)
-        //            let processedImage = UIImage(cgImage: cgimg!)
-        //            bg.image = processedImage
-        //        }
-    }
-
-}
-
 // MARK: Show and Dismiss
 extension AlertViewController {
     public func show() {
