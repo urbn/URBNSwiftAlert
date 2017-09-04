@@ -80,6 +80,15 @@ extension AlertStyler {
          * Pass no to disable blurring in the background
          */
         public var isEnabled = true
+        
+        /**
+         * Tint color of the blur.  If Blur.isEnabled = false, then this is the color of the AlertViewController.view
+         */
+        public var tint: UIColor = .clear {
+            didSet {
+                assert(tint.cgColor.alpha < 1.0 && isEnabled, "URBNAlertStyle: blurTintColor alpha component must be less than 1.0 to see the blur effect. Please use colorWithAlphaComponent: when setting a custom blurTintColor, for example: UIColor.white.withAlphaComponent(0.4)")
+            }
+        }
     }
     
     public struct Background {
@@ -87,10 +96,6 @@ extension AlertStyler {
          * Background color of alert view
          */
         public var color = UIColor.white
-        /**
-         * Tint color of the view behind the Alert. Blur must be disabled
-         */
-        public var tint: UIColor?
     }
     
     public struct AlertViewShadow {

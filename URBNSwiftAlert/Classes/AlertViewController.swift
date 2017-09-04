@@ -124,8 +124,8 @@ extension AlertViewController {
         if alertStyler.blur.isEnabled {
             addBlurScreenshot()
         }
-        else if let bgTintColor = alertStyler.background.tint {
-            view.backgroundColor = bgTintColor
+        else {
+            view.backgroundColor = alertStyler.blur.tint
         }
     }
     
@@ -200,7 +200,8 @@ extension AlertViewController {
             let rect = CGRect(x: 0, y: 0, width: blurredSize.width, height: blurredSize.height)
             
             blurImageView = UIImageView(frame: rect)
-            blurImageView?.image = screenShot
+            blurImageView?.image = screenShot.withRenderingMode(.alwaysTemplate)
+            blurImageView?.tintColor = alertStyler.blur.tint
             let blurEffect = UIBlurEffect(style: .light)
             let blurView = UIVisualEffectView(effect: blurEffect)
             
