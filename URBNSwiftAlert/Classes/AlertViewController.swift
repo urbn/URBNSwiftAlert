@@ -281,12 +281,9 @@ extension AlertViewController {
     
     public func addActions(_ actions: [AlertAction]) {
         alertConfiguration.actions += actions
-        let hasActiveAction = !actions.filter{$0.type != .passive}.isEmpty
-        alertConfiguration.isActiveAlert = hasActiveAction
     }
     
     public func addTextfield(configurationHandler: ((UITextField) -> Void)) {
-        alertConfiguration.isActiveAlert = true
         let tf = UITextField()
         alertConfiguration.textFields.append(tf)
         configurationHandler(tf)

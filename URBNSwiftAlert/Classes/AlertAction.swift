@@ -19,10 +19,6 @@ public class AlertAction: NSObject {
     public var button: UIButton?
     var title: String?
     
-    var isButton: Bool {
-        return type != .passive
-    }
-    
     /**
      * Init an action with custom button, action type, dismissable and enabled bool, and completion handler
      * Used for creating connecting a custom button to an action

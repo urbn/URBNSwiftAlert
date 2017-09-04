@@ -24,11 +24,6 @@ public struct AlertConfiguration {
     public var presentationView: UIView?
     
     /**
-     *  Flag if the alert is active. False = a passive alert
-     */
-    public var isActiveAlert = false
-    
-    /**
      *  Duration of a passive alert (no buttons added)
      */
     public var duration: CGFloat?
@@ -56,4 +51,10 @@ public struct AlertConfiguration {
     var customButtons: AlertButtonContainer?
     var actions = [AlertAction]()
     var textFieldInputs = [UITextField]()
+    
+    var isActiveAlert: Bool {
+        let hasActiveAction = !actions.filter{$0.type != .passive}.isEmpty
+        return hasActiveAction
+    }
+    
 }
