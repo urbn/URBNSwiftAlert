@@ -86,7 +86,12 @@ extension AlertStyler {
          */
         public var tint: UIColor = .clear {
             didSet {
-                assert(tint.cgColor.alpha < 1.0 && isEnabled, "URBNAlertStyle: blurTintColor alpha component must be less than 1.0 to see the blur effect. Please use colorWithAlphaComponent: when setting a custom blurTintColor, for example: UIColor.white.withAlphaComponent(0.4)")
+                if tint.cgColor.alpha > 1 {
+                    tint = tint.withAlphaComponent(1.0)
+                }
+                else if tint.cgColor.alpha < 0 {
+                    tint = tint.withAlphaComponent(0)
+                }
             }
         }
     }
