@@ -20,11 +20,11 @@ public struct AlertStyler {
     
     public var button = Button()
     
-    public var cancelButton = CancelButton()
+    public var cancelButton = Button()
     
-    public var destructiveButton = DestructiveButton()
+    public var destructiveButton = Button(actionType: Button.ActionType.destructive)
     
-    public var disabledButton = DisabledButton()
+    public var disabledButton = Button(actionType: Button.ActionType.disabled)
     
     public var title = Title()
     
@@ -86,7 +86,12 @@ extension AlertStyler {
          */
         public var tint: UIColor = .clear {
             didSet {
-                assert(tint.cgColor.alpha < 1.0 && isEnabled, "URBNAlertStyle: blurTintColor alpha component must be less than 1.0 to see the blur effect. Please use colorWithAlphaComponent: when setting a custom blurTintColor, for example: UIColor.white.withAlphaComponent(0.4)")
+                if tint.cgColor.alpha > 1 {
+                    tint = tint.withAlphaComponent(1.0)
+                }
+                else if tint.cgColor.alpha < 0 {
+                    tint = tint.withAlphaComponent(0)
+                }
             }
         }
     }
@@ -118,6 +123,27 @@ extension AlertStyler {
     }
     
     public struct Button {
+        
+        public enum ActionType {
+            case destructive, disabled
+        }
+        
+        public init() {}
+        
+        public init(actionType: ActionType) {
+            switch actionType {
+            case .destructive:
+                titleColor = UIColor.red
+                highlightTitleColor = UIColor.red
+                backgroundColor = UIColor.gray
+                highlightBackgroundColor = UIColor.darkGray
+            case .disabled:
+                titleColor = UIColor.lightGray
+                backgroundColor = UIColor.darkGray
+                alpha = 1.0
+            }
+        }
+        
         /**
          * Height of the alert's buttons
          */
@@ -218,66 +244,12 @@ extension AlertStyler {
          *  Layout axis for buttons (for 3+ always vertical always used)
          */
         public var layoutAxis = UILayoutConstraintAxis.horizontal
-    }
-    
-    public struct CancelButton {
-        /**
-         * Text color of cancel button title
-         */
-        public var titleColor = UIColor.black
-        /**
-         * Background color of the cancel button for an active alert
-         */
-        public var backgroundColor = UIColor.gray
         
         /**
-         * Background color of a highlighted button for a cancel action
-         */
-        public var highlightBackgroundColor = UIColor.darkGray
-        
-        /**
-         * Text color of cancel button title when highlighted
-         */
-        public var highlightTitleColor = UIColor.black
-    }
-    
-    public struct DestructiveButton {
-        /**
-         * Text color of destructive button colors
-         */
-        public var titleColor = UIColor.red
-        
-        /**
-         * Text color of destructive button title when highlighted
-         */
-        public var highlightTitleColor = UIColor.red
-        
-        /**
-         * Background color of the denial button for an active alert (at position 0)
-         */
-        public var backgroundColor = UIColor.gray
-        
-        /**
-         * Background color of a highlighted button for a destructive action
-         */
-        public var highlightBackgroundColor = UIColor.darkGray
-    }
-    
-    public struct DisabledButton {
-        /**
-         * Text color of a disabled button
-         */
-        public var titleColor = UIColor.lightGray
-        /**
-         * Background color of a disabled button for an active alert
-         */
-        public var backgroundColor = UIColor.darkGray
-        /**
-         * Alpha value of a disabled button
+         * Alpha value of a button
          */
         public var alpha: CGFloat = 1.0
     }
-    
     
     public struct Animation {
         /**
