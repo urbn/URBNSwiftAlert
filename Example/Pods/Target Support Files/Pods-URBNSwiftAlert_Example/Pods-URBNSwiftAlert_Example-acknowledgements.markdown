@@ -1,9 +1,9 @@
 # Acknowledgements
 This application makes use of the following third party libraries:
 
-## URBNConvenience
+## URBNSwiftAlert
 
-Copyright (c) 2014 jgrandelli <jasongrandelli@gmail.com>
+Copyright (c) 2017 Kevin Taniguchi <ktaniguchi@urbn.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -24,9 +24,9 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
-## URBNSwiftAlert
+## URBNSwiftyConvenience
 
-Copyright (c) 2017 Kevin Taniguchi <ktaniguchi@urbn.com>
+Copyright (c) 2017 Lloyd <lloyd1nspace@users.noreply.github.com>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
