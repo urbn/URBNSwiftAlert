@@ -82,6 +82,18 @@ extension AlertStyler {
         public var isEnabled = true
         
         /**
+         * Radius of the blurred snapshot
+         */
+        
+        public var radius: CGFloat = 10.0
+        
+        /**
+         * Saturation blur factor of the blurred snapshot. 1 is normal. < 1 removes color, > 1 adds color
+         */
+        
+        public var saturation: CGFloat = 1.0
+        
+        /**
          * Tint color of the blur.  If Blur.isEnabled = false, then this is the color of the AlertViewController.view
          */
         public var tint: UIColor = .clear {

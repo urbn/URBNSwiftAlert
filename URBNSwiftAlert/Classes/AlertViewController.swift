@@ -200,14 +200,12 @@ extension AlertViewController {
             let rect = CGRect(x: 0, y: 0, width: blurredSize.width, height: blurredSize.height)
             
             blurImageView = UIImageView(frame: rect)
-            blurImageView?.image = screenShot.withRenderingMode(.alwaysTemplate)
-            blurImageView?.tintColor = alertStyler.blur.tint
-            let blurEffect = UIBlurEffect(style: .light)
-            let blurView = UIVisualEffectView(effect: blurEffect)
+            
+            let experiment = screenShot.applyBlurWithRadius(alertStyler.blur.radius, tintColor: alertStyler.blur.tint, saturationDeltaFactor: alertStyler.blur.saturation)
+            
+            blurImageView?.image = experiment
             
             if let imgV = blurImageView {
-                blurView.frame = imgV.bounds
-                imgV.addSubview(blurView)
                 imgV.wrap(in: view, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: UILayoutPriorityRequired))
             }
         }
