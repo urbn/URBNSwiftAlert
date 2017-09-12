@@ -15,11 +15,12 @@
     "tag": "0.1.0"
   },
   "platforms": {
-    "ios": "10.3"
+    "ios": "10.0"
   },
+  "requires_arc": true,
   "source_files": "URBNSwiftAlert/Classes/**/*",
   "dependencies": {
-    "URBNConvenience": [
+    "URBNSwiftyConvenience": [
 
     ]
   }
