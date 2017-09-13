@@ -8,35 +8,36 @@
 
 /* Begin PBXBuildFile section */
 		0163FF9CDA63E15F9B45F2E68360F979 /* LayoutConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0783FB6C86902298C848426B0DBE41 /* LayoutConvenience.swift */; };
-		0B059AA6D60D16CBB15BB04522EEAE33 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1261A9D9C44EEE67FC610D013F8893B8 /* AlertViewController.swift */; };
-		10934533C6845DAA99666539C4E8A5F2 /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2AF20EC61A32B2CCCEE7E9C7B7EE4DD /* AlertController.swift */; };
 		109FF8D6BEDF984429CDFF8DC64196E4 /* URBNSwiftyConvenience-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 07BA4B82D5BA749D896398C3F0048679 /* URBNSwiftyConvenience-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		173F490ACE77BB9079B860712BD412B0 /* URBNSwiftAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = D64B61C30489246D5CC94061F4E27784 /* URBNSwiftAlert-dummy.m */; };
+		1A4AA771A90168D23A96A4F834DD5BD9 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C434F254E4F7D9F58FEAF253ECFF5046 /* AlertViewController.swift */; };
 		1C93DD9943780EF104A6844F6000C972 /* Pods-URBNSwiftAlert_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1480522BEBD9CBF5E4CB35B187169D9A /* Pods-URBNSwiftAlert_Tests-dummy.m */; };
+		22CA1B6ED97DF3FCBEB5F9DA90E0163B /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F2699E1A3AEB9B76EEA6DE4165BEB63 /* AlertController.swift */; };
 		2EC361EF95D3559B6CC01CB0FBDBD7E0 /* URBNSwiftyConvenience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4CD6F212E149AD89212AB2C97F2816C /* URBNSwiftyConvenience.framework */; };
-		3008E15B11E8349CC67716BE40D185FE /* AlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7C021077327AC4D0741A5E44BD917EF2 /* AlertConfiguration.swift */; };
 		392C38EB969B5327285088034DE72719 /* URBNSwiftyConvenience-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1EB5E87EAE15D1C69054E1C10DA3825F /* URBNSwiftyConvenience-dummy.m */; };
 		42B8C6FBBE5D5BC1B5403D2911951CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */; };
 		5A994985EBDD1E3E30034996BFC97087 /* DictionaryConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 19B11E8A84D662D45F9B51DEF22E209B /* DictionaryConvenience.swift */; };
+		5AD0FE0360E3BB5C52B2B69276E6BABA /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BBD8E26FD8619B5E13D685A45C75243 /* AlertView.swift */; };
 		5EE9D821A49D08CB3F1655FFA8E0C13D /* NotificationConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 405A2153B5ABB46310B4555E49E20F39 /* NotificationConvenience.swift */; };
+		6430DEAA4E707F8801A0B85E68761B80 /* AlertStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4BE8F8AF03978B64B80E9939946EA665 /* AlertStyler.swift */; };
 		6F06D5D473DE108F2EE785EDF9C8F519 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */; };
+		70D909577FF08063906CCBD0C15D3187 /* AlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCFA304B76398875C698D3A2407D2053 /* AlertConfiguration.swift */; };
 		79E7377DE7643D6EA821E5C43FFE741B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */; };
 		82B1E4EBF303CB41A28B1C31F359C661 /* DateConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7EF9FCD05E705343556AD9A478BF6A02 /* DateConvenience.swift */; };
 		84D9FCCEC72B62CC3C731A35D5AD15CC /* SearchableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F2311DB2380A6D4A22004C20BE2372 /* SearchableProtocol.swift */; };
 		879993CE64B9DD3953999EA9C875A472 /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4129D8A143EE32C97365729F88B4FAFF /* QRCodeGenerator.swift */; };
-		9515CAC66881CDDA5DB69AAEE20EAE1F /* URBNSwiftAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 791CD97EA699159A438907EF331E18BF /* URBNSwiftAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9B13F45562EA86C2EF6562CCC340DF60 /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 85A9994A679ED7BBB36A1867E9A23056 /* AlertButton.swift */; };
-		A56678E636A2199DF98A918202AF1C78 /* AlertStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A8F528477807CBE84F20F33D9D6AE16 /* AlertStyler.swift */; };
+		9515CAC66881CDDA5DB69AAEE20EAE1F /* URBNSwiftAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = D43810B02D58AA7EAA6D0A3C575F293E /* URBNSwiftAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		998DA805B70076692924C8E0C3A04466 /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B0AD4E002710274759CDB10653D60C /* AlertAction.swift */; };
+		9D37AA0C3D0C34A496EDAEC544F84D38 /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA609D08936058416A33B0EDD6C8ABD /* AlertButton.swift */; };
 		AB31AB86FEFB064B5E42FA1A3AA4FE36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */; };
 		AC14ECF0A549D9DCB9143DA19BACB56F /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCDB5DC54BC28DD007587C1F72E76969 /* ResultType.swift */; };
 		AD481F0F557896CF0F27DA6B1FBBFF85 /* CollectionViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = 048B6A4CB5430456CCCC927E76A7F207 /* CollectionViewHelpers.swift */; };
-		AFA21785855AD026E071A9608FCB5B2F /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C74EDF4238C3E76686D697DE2D8462 /* AlertAction.swift */; };
 		C2D7F26DB9995E4BE765C462D57CB77E /* Pods-URBNSwiftAlert_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D4BA079E4563451629D0D64AB704E7 /* Pods-URBNSwiftAlert_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D37FABA7C3F88029E046F9FE5D3235CF /* Pods-URBNSwiftAlert_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCAF0EAB21DC6610368C2A868FD015B /* Pods-URBNSwiftAlert_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D72B0FB2D4EAB70D3747E61F2B345C07 /* URBNSwiftAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 8EC7A972034642B9F92E5BA8529808D7 /* URBNSwiftAlert-dummy.m */; };
 		DD13802E122EB812CF35A9485B5B35CA /* TableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = B215836444D402D4C8CA9B39EF1EF12B /* TableViewHelpers.swift */; };
 		EF934A58376AD4A0DC0CCFAA82B4EBE4 /* UIImageConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403BFB56D8A22BC0E7721535DE93C7C /* UIImageConvenience.swift */; };
+		F0E7F9B222B8C8F1DDAB8A4AD042D674 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = C7AFA887382E48D1FF27B8274B6C04DE /* UIImage+Blur.swift */; };
 		F272CA70EDE89F3C951AFEA59257F204 /* Pods-URBNSwiftAlert_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DB625624D69B075A95C8A269B8A10F /* Pods-URBNSwiftAlert_Example-dummy.m */; };
-		F293C787B59F43120F77B19D9020F441 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94ADF3976C79EBD9869C80E957B214F /* AlertView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,60 +65,61 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B890E589404894C7421B526D24A917 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		048B6A4CB5430456CCCC927E76A7F207 /* CollectionViewHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionViewHelpers.swift; path = URBNSwiftyConvenience/Classes/CollectionViewHelpers.swift; sourceTree = "<group>"; };
 		07BA4B82D5BA749D896398C3F0048679 /* URBNSwiftyConvenience-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftyConvenience-umbrella.h"; sourceTree = "<group>"; };
-		0ABE3BC982FD6AF21D94B9EDF1B2CC07 /* URBNSwiftAlert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftAlert-prefix.pch"; sourceTree = "<group>"; };
-		1261A9D9C44EEE67FC610D013F8893B8 /* AlertViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertViewController.swift; path = URBNSwiftAlert/Classes/AlertViewController.swift; sourceTree = "<group>"; };
 		1290278BF911609592F32F66D7807D91 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		1480522BEBD9CBF5E4CB35B187169D9A /* Pods-URBNSwiftAlert_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-URBNSwiftAlert_Tests-dummy.m"; sourceTree = "<group>"; };
 		19B11E8A84D662D45F9B51DEF22E209B /* DictionaryConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DictionaryConvenience.swift; path = URBNSwiftyConvenience/Classes/DictionaryConvenience.swift; sourceTree = "<group>"; };
 		1BC35B0A99F0B47823A16A3CD238CAE6 /* Pods-URBNSwiftAlert_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		1EB5E87EAE15D1C69054E1C10DA3825F /* URBNSwiftyConvenience-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftyConvenience-dummy.m"; sourceTree = "<group>"; };
+		1F2699E1A3AEB9B76EEA6DE4165BEB63 /* AlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = URBNSwiftAlert/Classes/AlertController.swift; sourceTree = "<group>"; };
+		2BBD8E26FD8619B5E13D685A45C75243 /* AlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertView.swift; path = URBNSwiftAlert/Classes/AlertView.swift; sourceTree = "<group>"; };
 		39A73B699CAF82424CA87EDD917C955A /* Pods-URBNSwiftAlert_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftAlert_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		3A91F4F4A0DDBE27528B6FB374E849FF /* Pods-URBNSwiftAlert_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-URBNSwiftAlert_Tests.modulemap"; sourceTree = "<group>"; };
+		3FA609D08936058416A33B0EDD6C8ABD /* AlertButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertButton.swift; path = URBNSwiftAlert/Classes/AlertButton.swift; sourceTree = "<group>"; };
 		405A2153B5ABB46310B4555E49E20F39 /* NotificationConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotificationConvenience.swift; path = URBNSwiftyConvenience/Classes/NotificationConvenience.swift; sourceTree = "<group>"; };
 		4129D8A143EE32C97365729F88B4FAFF /* QRCodeGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeGenerator.swift; path = URBNSwiftyConvenience/Classes/QRCodeGenerator.swift; sourceTree = "<group>"; };
-		41A058D0E81270EB2ACFA2F561863BA9 /* URBNSwiftAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftAlert.xcconfig; sourceTree = "<group>"; };
 		4572BBE63A3B45C14337B21F80380C98 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		4BE8F8AF03978B64B80E9939946EA665 /* AlertStyler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertStyler.swift; path = URBNSwiftAlert/Classes/AlertStyler.swift; sourceTree = "<group>"; };
 		4D3300192AB8CDF7BBCFE5F16A87C650 /* URBNSwiftyConvenience.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = URBNSwiftyConvenience.modulemap; sourceTree = "<group>"; };
 		507A46E4E676A3E0FBA3A1345C54A124 /* Pods-URBNSwiftAlert_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Tests-resources.sh"; sourceTree = "<group>"; };
 		50F9AFF32A4108E05EA79206946D24BB /* Pods-URBNSwiftAlert_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-URBNSwiftAlert_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		54DB625624D69B075A95C8A269B8A10F /* Pods-URBNSwiftAlert_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-URBNSwiftAlert_Example-dummy.m"; sourceTree = "<group>"; };
 		56FD21395FB7FF476FB4B69EE289129E /* URBNSwiftyConvenience-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftyConvenience-prefix.pch"; sourceTree = "<group>"; };
-		5F26939E070329DE80BD8A1F67BB4852 /* URBNSwiftAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = URBNSwiftAlert.modulemap; sourceTree = "<group>"; };
 		72B2022692C44461387698C7BB17B2DC /* Pods-URBNSwiftAlert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		791CD97EA699159A438907EF331E18BF /* URBNSwiftAlert-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftAlert-umbrella.h"; sourceTree = "<group>"; };
-		7C021077327AC4D0741A5E44BD917EF2 /* AlertConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertConfiguration.swift; path = URBNSwiftAlert/Classes/AlertConfiguration.swift; sourceTree = "<group>"; };
 		7C9C1942A2BF9D75DCDF19C00CED5266 /* Pods-URBNSwiftAlert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7EF9FCD05E705343556AD9A478BF6A02 /* DateConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateConvenience.swift; path = URBNSwiftyConvenience/Classes/DateConvenience.swift; sourceTree = "<group>"; };
 		7F0E72CAEDC244CEA4C9FC316778D9CD /* Pods_URBNSwiftAlert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_URBNSwiftAlert_Tests.framework; path = "Pods-URBNSwiftAlert_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		823FA64861B7C4B71D522BBD14CA9975 /* Pods_URBNSwiftAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_URBNSwiftAlert_Example.framework; path = "Pods-URBNSwiftAlert_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8403BFB56D8A22BC0E7721535DE93C7C /* UIImageConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageConvenience.swift; path = URBNSwiftyConvenience/Classes/UIImageConvenience.swift; sourceTree = "<group>"; };
-		85A9994A679ED7BBB36A1867E9A23056 /* AlertButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertButton.swift; path = URBNSwiftAlert/Classes/AlertButton.swift; sourceTree = "<group>"; };
-		8A8F528477807CBE84F20F33D9D6AE16 /* AlertStyler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertStyler.swift; path = URBNSwiftAlert/Classes/AlertStyler.swift; sourceTree = "<group>"; };
+		84B1CD76D62BAB0928D3776027F8C700 /* URBNSwiftAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftAlert.xcconfig; sourceTree = "<group>"; };
 		8E64188A0889300F365460460B1858C1 /* Pods-URBNSwiftAlert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Example.release.xcconfig"; sourceTree = "<group>"; };
-		8EC7A972034642B9F92E5BA8529808D7 /* URBNSwiftAlert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftAlert-dummy.m"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		99B0AD4E002710274759CDB10653D60C /* AlertAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertAction.swift; path = URBNSwiftAlert/Classes/AlertAction.swift; sourceTree = "<group>"; };
 		A2D4BA079E4563451629D0D64AB704E7 /* Pods-URBNSwiftAlert_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftAlert_Tests-umbrella.h"; sourceTree = "<group>"; };
 		A4D3568FBD0A468FE5631653AF63F9A5 /* URBNSwiftyConvenience.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftyConvenience.xcconfig; sourceTree = "<group>"; };
-		A94ADF3976C79EBD9869C80E957B214F /* AlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertView.swift; path = URBNSwiftAlert/Classes/AlertView.swift; sourceTree = "<group>"; };
+		AAF7EB8A0FBAD45E8768911A9E8CF140 /* URBNSwiftAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = URBNSwiftAlert.modulemap; sourceTree = "<group>"; };
+		ABD0F2314E50FDCC5C387009A0D66091 /* URBNSwiftAlert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftAlert-prefix.pch"; sourceTree = "<group>"; };
 		B0F2311DB2380A6D4A22004C20BE2372 /* SearchableProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SearchableProtocol.swift; path = URBNSwiftyConvenience/Classes/SearchableProtocol.swift; sourceTree = "<group>"; };
 		B0F87F4F6D6C63D99B7E765200B5A28E /* URBNSwiftAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = URBNSwiftAlert.framework; path = URBNSwiftAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B215836444D402D4C8CA9B39EF1EF12B /* TableViewHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableViewHelpers.swift; path = URBNSwiftyConvenience/Classes/TableViewHelpers.swift; sourceTree = "<group>"; };
 		B30398F7998C42B2C3461EC8800B9705 /* Pods-URBNSwiftAlert_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		B3AF6141316697112E1FE9603811A788 /* URBNSwiftyConvenience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = URBNSwiftyConvenience.framework; path = URBNSwiftyConvenience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40F387D8723406EB504F8DE7707AF1B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		B45A4EF61FB764B57E538A508D13CA90 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCDB5DC54BC28DD007587C1F72E76969 /* ResultType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResultType.swift; path = URBNSwiftyConvenience/Classes/ResultType.swift; sourceTree = "<group>"; };
 		BD3670FCD63DB1321EB5F12F11790C68 /* Pods-URBNSwiftAlert_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-URBNSwiftAlert_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		C434F254E4F7D9F58FEAF253ECFF5046 /* AlertViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertViewController.swift; path = URBNSwiftAlert/Classes/AlertViewController.swift; sourceTree = "<group>"; };
+		C7AFA887382E48D1FF27B8274B6C04DE /* UIImage+Blur.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Blur.swift"; path = "URBNSwiftAlert/Classes/UIImage+Blur.swift"; sourceTree = "<group>"; };
 		CDCAF0EAB21DC6610368C2A868FD015B /* Pods-URBNSwiftAlert_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftAlert_Example-umbrella.h"; sourceTree = "<group>"; };
+		D43810B02D58AA7EAA6D0A3C575F293E /* URBNSwiftAlert-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftAlert-umbrella.h"; sourceTree = "<group>"; };
+		D64B61C30489246D5CC94061F4E27784 /* URBNSwiftAlert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftAlert-dummy.m"; sourceTree = "<group>"; };
 		DB4CCDE4EBF0131352AEF2EC9A928F03 /* Pods-URBNSwiftAlert_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Example-frameworks.sh"; sourceTree = "<group>"; };
+		DCFA304B76398875C698D3A2407D2053 /* AlertConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertConfiguration.swift; path = URBNSwiftAlert/Classes/AlertConfiguration.swift; sourceTree = "<group>"; };
 		DD8FD8BC7CD00C66946CBF4B71EA247C /* Pods-URBNSwiftAlert_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftAlert_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
-		E2AF20EC61A32B2CCCEE7E9C7B7EE4DD /* AlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = URBNSwiftAlert/Classes/AlertController.swift; sourceTree = "<group>"; };
 		E3AD6AC84046D085C6C6EF577C039B7C /* Pods-URBNSwiftAlert_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-URBNSwiftAlert_Example.modulemap"; sourceTree = "<group>"; };
 		E4CD6F212E149AD89212AB2C97F2816C /* URBNSwiftyConvenience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URBNSwiftyConvenience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		E9C74EDF4238C3E76686D697DE2D8462 /* AlertAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertAction.swift; path = URBNSwiftAlert/Classes/AlertAction.swift; sourceTree = "<group>"; };
 		EE0783FB6C86902298C848426B0DBE41 /* LayoutConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConvenience.swift; path = URBNSwiftyConvenience/Classes/LayoutConvenience.swift; sourceTree = "<group>"; };
 		F807CE141BA4B1AB2FCAF3E7F828FD67 /* Pods-URBNSwiftAlert_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Example-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -159,18 +161,29 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0F0758283B48F14606E9DD5E4EDE603C /* Support Files */ = {
+		15736845F53DFFB0A63B85053E72F1DF /* URBNSwiftAlert */ = {
 			isa = PBXGroup;
 			children = (
-				B45A4EF61FB764B57E538A508D13CA90 /* Info.plist */,
-				5F26939E070329DE80BD8A1F67BB4852 /* URBNSwiftAlert.modulemap */,
-				41A058D0E81270EB2ACFA2F561863BA9 /* URBNSwiftAlert.xcconfig */,
-				8EC7A972034642B9F92E5BA8529808D7 /* URBNSwiftAlert-dummy.m */,
-				0ABE3BC982FD6AF21D94B9EDF1B2CC07 /* URBNSwiftAlert-prefix.pch */,
-				791CD97EA699159A438907EF331E18BF /* URBNSwiftAlert-umbrella.h */,
+				99B0AD4E002710274759CDB10653D60C /* AlertAction.swift */,
+				3FA609D08936058416A33B0EDD6C8ABD /* AlertButton.swift */,
+				DCFA304B76398875C698D3A2407D2053 /* AlertConfiguration.swift */,
+				1F2699E1A3AEB9B76EEA6DE4165BEB63 /* AlertController.swift */,
+				4BE8F8AF03978B64B80E9939946EA665 /* AlertStyler.swift */,
+				2BBD8E26FD8619B5E13D685A45C75243 /* AlertView.swift */,
+				C434F254E4F7D9F58FEAF253ECFF5046 /* AlertViewController.swift */,
+				C7AFA887382E48D1FF27B8274B6C04DE /* UIImage+Blur.swift */,
+				B7F93F5128536D3E32C4EB003221080B /* Support Files */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/URBNSwiftAlert";
+			name = URBNSwiftAlert;
+			path = ../..;
+			sourceTree = "<group>";
+		};
+		2BA11B3FE1E522B93692603D17788622 /* Development Pods */ = {
+			isa = PBXGroup;
+			children = (
+				15736845F53DFFB0A63B85053E72F1DF /* URBNSwiftAlert */,
+			);
+			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		37155959198671014591C061182E1AD1 /* URBNSwiftyConvenience */ = {
@@ -205,36 +218,12 @@
 			isa = PBXGroup;
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
-				95ED7BAC440C7781BC6637438A17E482 /* Development Pods */,
+				2BA11B3FE1E522B93692603D17788622 /* Development Pods */,
 				9949A465ED19B87F8096B18E88A037F1 /* Frameworks */,
 				D770689596C9FD8E4B615C0927D0802C /* Pods */,
 				969C2A1A970D918D91FBA1D2EC9B460D /* Products */,
 				5A5870B94DA9A815F2CC3EB2F0E694F2 /* Targets Support Files */,
 			);
-			sourceTree = "<group>";
-		};
-		8F252CFA4BBB6514E6F2A38F63D3901B /* URBNSwiftAlert */ = {
-			isa = PBXGroup;
-			children = (
-				E9C74EDF4238C3E76686D697DE2D8462 /* AlertAction.swift */,
-				85A9994A679ED7BBB36A1867E9A23056 /* AlertButton.swift */,
-				7C021077327AC4D0741A5E44BD917EF2 /* AlertConfiguration.swift */,
-				E2AF20EC61A32B2CCCEE7E9C7B7EE4DD /* AlertController.swift */,
-				8A8F528477807CBE84F20F33D9D6AE16 /* AlertStyler.swift */,
-				A94ADF3976C79EBD9869C80E957B214F /* AlertView.swift */,
-				1261A9D9C44EEE67FC610D013F8893B8 /* AlertViewController.swift */,
-				0F0758283B48F14606E9DD5E4EDE603C /* Support Files */,
-			);
-			name = URBNSwiftAlert;
-			path = ../..;
-			sourceTree = "<group>";
-		};
-		95ED7BAC440C7781BC6637438A17E482 /* Development Pods */ = {
-			isa = PBXGroup;
-			children = (
-				8F252CFA4BBB6514E6F2A38F63D3901B /* URBNSwiftAlert */,
-			);
-			name = "Development Pods";
 			sourceTree = "<group>";
 		};
 		969C2A1A970D918D91FBA1D2EC9B460D /* Products */ = {
@@ -263,6 +252,20 @@
 				47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */,
 			);
 			name = iOS;
+			sourceTree = "<group>";
+		};
+		B7F93F5128536D3E32C4EB003221080B /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				00B890E589404894C7421B526D24A917 /* Info.plist */,
+				AAF7EB8A0FBAD45E8768911A9E8CF140 /* URBNSwiftAlert.modulemap */,
+				84B1CD76D62BAB0928D3776027F8C700 /* URBNSwiftAlert.xcconfig */,
+				D64B61C30489246D5CC94061F4E27784 /* URBNSwiftAlert-dummy.m */,
+				ABD0F2314E50FDCC5C387009A0D66091 /* URBNSwiftAlert-prefix.pch */,
+				D43810B02D58AA7EAA6D0A3C575F293E /* URBNSwiftAlert-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/URBNSwiftAlert";
 			sourceTree = "<group>";
 		};
 		C50B2A420FE5D9F6758CF13D2B8AFCA2 /* Pods-URBNSwiftAlert_Example */ = {
@@ -384,7 +387,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 985FC63E1877B73AB834AF0005D0FD7D /* Build configuration list for PBXNativeTarget "URBNSwiftAlert" */;
 			buildPhases = (
-				110C3651D0017FA040D60B738F9570B1 /* Sources */,
+				9AEE6ADCE5F689F8AFDE2893E870904A /* Sources */,
 				CDF024D42D9882A42D84473E79BB0A05 /* Frameworks */,
 				477E5A2C45FD16BE9F1653027EE98C21 /* Headers */,
 			);
@@ -462,26 +465,27 @@
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		110C3651D0017FA040D60B738F9570B1 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				AFA21785855AD026E071A9608FCB5B2F /* AlertAction.swift in Sources */,
-				9B13F45562EA86C2EF6562CCC340DF60 /* AlertButton.swift in Sources */,
-				3008E15B11E8349CC67716BE40D185FE /* AlertConfiguration.swift in Sources */,
-				10934533C6845DAA99666539C4E8A5F2 /* AlertController.swift in Sources */,
-				A56678E636A2199DF98A918202AF1C78 /* AlertStyler.swift in Sources */,
-				F293C787B59F43120F77B19D9020F441 /* AlertView.swift in Sources */,
-				0B059AA6D60D16CBB15BB04522EEAE33 /* AlertViewController.swift in Sources */,
-				D72B0FB2D4EAB70D3747E61F2B345C07 /* URBNSwiftAlert-dummy.m in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		7BDFCA6B2F5100CD750BB6B93D4D730B /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				F272CA70EDE89F3C951AFEA59257F204 /* Pods-URBNSwiftAlert_Example-dummy.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		9AEE6ADCE5F689F8AFDE2893E870904A /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				998DA805B70076692924C8E0C3A04466 /* AlertAction.swift in Sources */,
+				9D37AA0C3D0C34A496EDAEC544F84D38 /* AlertButton.swift in Sources */,
+				70D909577FF08063906CCBD0C15D3187 /* AlertConfiguration.swift in Sources */,
+				22CA1B6ED97DF3FCBEB5F9DA90E0163B /* AlertController.swift in Sources */,
+				6430DEAA4E707F8801A0B85E68761B80 /* AlertStyler.swift in Sources */,
+				5AD0FE0360E3BB5C52B2B69276E6BABA /* AlertView.swift in Sources */,
+				1A4AA771A90168D23A96A4F834DD5BD9 /* AlertViewController.swift in Sources */,
+				F0E7F9B222B8C8F1DDAB8A4AD042D674 /* UIImage+Blur.swift in Sources */,
+				173F490ACE77BB9079B860712BD412B0 /* URBNSwiftAlert-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -684,7 +688,7 @@
 		};
 		8BFCBF1EB1186A86F462CFABDCC10088 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41A058D0E81270EB2ACFA2F561863BA9 /* URBNSwiftAlert.xcconfig */;
+			baseConfigurationReference = 84B1CD76D62BAB0928D3776027F8C700 /* URBNSwiftAlert.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -719,7 +723,7 @@
 		};
 		958D371A56BCB943FA11DA183A91E0AE /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 41A058D0E81270EB2ACFA2F561863BA9 /* URBNSwiftAlert.xcconfig */;
+			baseConfigurationReference = 84B1CD76D62BAB0928D3776027F8C700 /* URBNSwiftAlert.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
