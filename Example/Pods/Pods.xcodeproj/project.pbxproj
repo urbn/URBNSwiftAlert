@@ -37,7 +37,6 @@
 		EF934A58376AD4A0DC0CCFAA82B4EBE4 /* UIImageConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8403BFB56D8A22BC0E7721535DE93C7C /* UIImageConvenience.swift */; };
 		F272CA70EDE89F3C951AFEA59257F204 /* Pods-URBNSwiftAlert_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DB625624D69B075A95C8A269B8A10F /* Pods-URBNSwiftAlert_Example-dummy.m */; };
 		F293C787B59F43120F77B19D9020F441 /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94ADF3976C79EBD9869C80E957B214F /* AlertView.swift */; };
-		F6EB99071F6702410011ED69 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6EB99061F6702410011ED69 /* UIImage+Blur.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -75,39 +74,39 @@
 		1BC35B0A99F0B47823A16A3CD238CAE6 /* Pods-URBNSwiftAlert_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		1EB5E87EAE15D1C69054E1C10DA3825F /* URBNSwiftyConvenience-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftyConvenience-dummy.m"; sourceTree = "<group>"; };
 		39A73B699CAF82424CA87EDD917C955A /* Pods-URBNSwiftAlert_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftAlert_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		3A91F4F4A0DDBE27528B6FB374E849FF /* Pods-URBNSwiftAlert_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-URBNSwiftAlert_Tests.modulemap"; sourceTree = "<group>"; };
+		3A91F4F4A0DDBE27528B6FB374E849FF /* Pods-URBNSwiftAlert_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-URBNSwiftAlert_Tests.modulemap"; sourceTree = "<group>"; };
 		405A2153B5ABB46310B4555E49E20F39 /* NotificationConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotificationConvenience.swift; path = URBNSwiftyConvenience/Classes/NotificationConvenience.swift; sourceTree = "<group>"; };
 		4129D8A143EE32C97365729F88B4FAFF /* QRCodeGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeGenerator.swift; path = URBNSwiftyConvenience/Classes/QRCodeGenerator.swift; sourceTree = "<group>"; };
 		41A058D0E81270EB2ACFA2F561863BA9 /* URBNSwiftAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftAlert.xcconfig; sourceTree = "<group>"; };
 		4572BBE63A3B45C14337B21F80380C98 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4D3300192AB8CDF7BBCFE5F16A87C650 /* URBNSwiftyConvenience.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = URBNSwiftyConvenience.modulemap; sourceTree = "<group>"; };
+		4D3300192AB8CDF7BBCFE5F16A87C650 /* URBNSwiftyConvenience.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = URBNSwiftyConvenience.modulemap; sourceTree = "<group>"; };
 		507A46E4E676A3E0FBA3A1345C54A124 /* Pods-URBNSwiftAlert_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Tests-resources.sh"; sourceTree = "<group>"; };
 		50F9AFF32A4108E05EA79206946D24BB /* Pods-URBNSwiftAlert_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-URBNSwiftAlert_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		54DB625624D69B075A95C8A269B8A10F /* Pods-URBNSwiftAlert_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-URBNSwiftAlert_Example-dummy.m"; sourceTree = "<group>"; };
 		56FD21395FB7FF476FB4B69EE289129E /* URBNSwiftyConvenience-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftyConvenience-prefix.pch"; sourceTree = "<group>"; };
-		5F26939E070329DE80BD8A1F67BB4852 /* URBNSwiftAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = URBNSwiftAlert.modulemap; sourceTree = "<group>"; };
+		5F26939E070329DE80BD8A1F67BB4852 /* URBNSwiftAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = URBNSwiftAlert.modulemap; sourceTree = "<group>"; };
 		72B2022692C44461387698C7BB17B2DC /* Pods-URBNSwiftAlert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		791CD97EA699159A438907EF331E18BF /* URBNSwiftAlert-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftAlert-umbrella.h"; sourceTree = "<group>"; };
 		7C021077327AC4D0741A5E44BD917EF2 /* AlertConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertConfiguration.swift; path = URBNSwiftAlert/Classes/AlertConfiguration.swift; sourceTree = "<group>"; };
 		7C9C1942A2BF9D75DCDF19C00CED5266 /* Pods-URBNSwiftAlert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		7EF9FCD05E705343556AD9A478BF6A02 /* DateConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateConvenience.swift; path = URBNSwiftyConvenience/Classes/DateConvenience.swift; sourceTree = "<group>"; };
-		7F0E72CAEDC244CEA4C9FC316778D9CD /* Pods_URBNSwiftAlert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftAlert_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		823FA64861B7C4B71D522BBD14CA9975 /* Pods_URBNSwiftAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftAlert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F0E72CAEDC244CEA4C9FC316778D9CD /* Pods_URBNSwiftAlert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_URBNSwiftAlert_Tests.framework; path = "Pods-URBNSwiftAlert_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		823FA64861B7C4B71D522BBD14CA9975 /* Pods_URBNSwiftAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_URBNSwiftAlert_Example.framework; path = "Pods-URBNSwiftAlert_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8403BFB56D8A22BC0E7721535DE93C7C /* UIImageConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageConvenience.swift; path = URBNSwiftyConvenience/Classes/UIImageConvenience.swift; sourceTree = "<group>"; };
 		85A9994A679ED7BBB36A1867E9A23056 /* AlertButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertButton.swift; path = URBNSwiftAlert/Classes/AlertButton.swift; sourceTree = "<group>"; };
 		8A8F528477807CBE84F20F33D9D6AE16 /* AlertStyler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertStyler.swift; path = URBNSwiftAlert/Classes/AlertStyler.swift; sourceTree = "<group>"; };
 		8E64188A0889300F365460460B1858C1 /* Pods-URBNSwiftAlert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Example.release.xcconfig"; sourceTree = "<group>"; };
 		8EC7A972034642B9F92E5BA8529808D7 /* URBNSwiftAlert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftAlert-dummy.m"; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		A2D4BA079E4563451629D0D64AB704E7 /* Pods-URBNSwiftAlert_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftAlert_Tests-umbrella.h"; sourceTree = "<group>"; };
 		A4D3568FBD0A468FE5631653AF63F9A5 /* URBNSwiftyConvenience.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftyConvenience.xcconfig; sourceTree = "<group>"; };
 		A94ADF3976C79EBD9869C80E957B214F /* AlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertView.swift; path = URBNSwiftAlert/Classes/AlertView.swift; sourceTree = "<group>"; };
 		B0F2311DB2380A6D4A22004C20BE2372 /* SearchableProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SearchableProtocol.swift; path = URBNSwiftyConvenience/Classes/SearchableProtocol.swift; sourceTree = "<group>"; };
-		B0F87F4F6D6C63D99B7E765200B5A28E /* URBNSwiftAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URBNSwiftAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0F87F4F6D6C63D99B7E765200B5A28E /* URBNSwiftAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = URBNSwiftAlert.framework; path = URBNSwiftAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B215836444D402D4C8CA9B39EF1EF12B /* TableViewHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableViewHelpers.swift; path = URBNSwiftyConvenience/Classes/TableViewHelpers.swift; sourceTree = "<group>"; };
 		B30398F7998C42B2C3461EC8800B9705 /* Pods-URBNSwiftAlert_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		B3AF6141316697112E1FE9603811A788 /* URBNSwiftyConvenience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URBNSwiftyConvenience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3AF6141316697112E1FE9603811A788 /* URBNSwiftyConvenience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = URBNSwiftyConvenience.framework; path = URBNSwiftyConvenience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B40F387D8723406EB504F8DE7707AF1B /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B45A4EF61FB764B57E538A508D13CA90 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCDB5DC54BC28DD007587C1F72E76969 /* ResultType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResultType.swift; path = URBNSwiftyConvenience/Classes/ResultType.swift; sourceTree = "<group>"; };
@@ -116,11 +115,10 @@
 		DB4CCDE4EBF0131352AEF2EC9A928F03 /* Pods-URBNSwiftAlert_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Example-frameworks.sh"; sourceTree = "<group>"; };
 		DD8FD8BC7CD00C66946CBF4B71EA247C /* Pods-URBNSwiftAlert_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftAlert_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		E2AF20EC61A32B2CCCEE7E9C7B7EE4DD /* AlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = URBNSwiftAlert/Classes/AlertController.swift; sourceTree = "<group>"; };
-		E3AD6AC84046D085C6C6EF577C039B7C /* Pods-URBNSwiftAlert_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = "sourcecode.module-map"; path = "Pods-URBNSwiftAlert_Example.modulemap"; sourceTree = "<group>"; };
+		E3AD6AC84046D085C6C6EF577C039B7C /* Pods-URBNSwiftAlert_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-URBNSwiftAlert_Example.modulemap"; sourceTree = "<group>"; };
 		E4CD6F212E149AD89212AB2C97F2816C /* URBNSwiftyConvenience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URBNSwiftyConvenience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9C74EDF4238C3E76686D697DE2D8462 /* AlertAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertAction.swift; path = URBNSwiftAlert/Classes/AlertAction.swift; sourceTree = "<group>"; };
 		EE0783FB6C86902298C848426B0DBE41 /* LayoutConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConvenience.swift; path = URBNSwiftyConvenience/Classes/LayoutConvenience.swift; sourceTree = "<group>"; };
-		F6EB99061F6702410011ED69 /* UIImage+Blur.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIImage+Blur.swift"; sourceTree = "<group>"; };
 		F807CE141BA4B1AB2FCAF3E7F828FD67 /* Pods-URBNSwiftAlert_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Example-resources.sh"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -190,6 +188,7 @@
 				8403BFB56D8A22BC0E7721535DE93C7C /* UIImageConvenience.swift */,
 				F4CE9FA79CCDADC60B694E1BDF3E21AD /* Support Files */,
 			);
+			name = URBNSwiftyConvenience;
 			path = URBNSwiftyConvenience;
 			sourceTree = "<group>";
 		};
@@ -224,7 +223,6 @@
 				8A8F528477807CBE84F20F33D9D6AE16 /* AlertStyler.swift */,
 				A94ADF3976C79EBD9869C80E957B214F /* AlertView.swift */,
 				1261A9D9C44EEE67FC610D013F8893B8 /* AlertViewController.swift */,
-				F6EB99061F6702410011ED69 /* UIImage+Blur.swift */,
 				0F0758283B48F14606E9DD5E4EDE603C /* Support Files */,
 			);
 			name = URBNSwiftAlert;
@@ -472,7 +470,6 @@
 				9B13F45562EA86C2EF6562CCC340DF60 /* AlertButton.swift in Sources */,
 				3008E15B11E8349CC67716BE40D185FE /* AlertConfiguration.swift in Sources */,
 				10934533C6845DAA99666539C4E8A5F2 /* AlertController.swift in Sources */,
-				F6EB99071F6702410011ED69 /* UIImage+Blur.swift in Sources */,
 				A56678E636A2199DF98A918202AF1C78 /* AlertStyler.swift in Sources */,
 				F293C787B59F43120F77B19D9020F441 /* AlertView.swift in Sources */,
 				0B059AA6D60D16CBB15BB04522EEAE33 /* AlertViewController.swift in Sources */,
