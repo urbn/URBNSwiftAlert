@@ -3,7 +3,7 @@
 //  URBNSwiftAlert
 //
 //  Created by Kevin Taniguchi on 05/23/2017.
-//  Copyright (c) 2017 Kevin Taniguchi. All rights reserved.
+//  Copyright (c) 2017 Urban Outfitters, Inc.. All rights reserved.
 //
 
 import UIKit
