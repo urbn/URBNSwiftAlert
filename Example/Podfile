@@ -1,3 +1,5 @@
+platform :ios, '10.0'
+
 use_frameworks!
 
 target 'URBNSwiftAlert_Example' do
@@ -6,6 +8,6 @@ target 'URBNSwiftAlert_Example' do
   target 'URBNSwiftAlert_Tests' do
     inherit! :search_paths
 
-    
+
   end
 end
