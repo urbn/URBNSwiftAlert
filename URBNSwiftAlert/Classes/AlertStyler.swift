@@ -73,6 +73,16 @@ extension AlertStyler {
          * Corner radius of the alert view itself
          */
         public var cornerRadius: CGFloat = 0.0
+        
+        /**
+         * Separator color between the title/message and button, uses urbn_topBorder on buttonSV
+         */
+        public var buttonContainerSeparatorColor: UIColor = .clear
+        
+        /**
+         * Separator pixel width between the title/message and button, uses urbn_topBorder on buttonSV
+         */
+        public var buttonContainerSeparatorPixelWidth: Int = 0
     }
     
     public struct Blur {
