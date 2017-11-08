@@ -26,7 +26,7 @@ public struct InsetConstraints {
         self.right = right
     }
     
-    public init(insets: UIEdgeInsets, horizontalPriority: UILayoutPriority = UILayoutPriorityRequired, verticalPriority: UILayoutPriority = UILayoutPriorityRequired) {
+    public init(insets: UIEdgeInsets, horizontalPriority: UILayoutPriority, verticalPriority: UILayoutPriority) {
         self.init(top: (constant: insets.top, priority: verticalPriority),
                   left: (constant: insets.left, priority: horizontalPriority),
                   bottom: (constant: insets.bottom, priority: verticalPriority),
