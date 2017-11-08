@@ -59,7 +59,7 @@ class AlertView: UIView {
         
         stackView.spacing = spacing
 
-        buttonsSV.urbn_topBorderStyle = BorderStyle(color: configuration.styler.alert.buttonContainerSeparatorColor, pixelWidth: configuration.styler.alert.buttonContainerSeparatorPixelWidth)
+        buttonsSV.urbn_topBorderStyle = configuration.styler.alert.buttonContainerSeparatorBorderStyle
 
         stackView.wrap(in: self, with: InsetConstraints(insets: insets, priority: UILayoutPriorityDefaultHigh))
     }

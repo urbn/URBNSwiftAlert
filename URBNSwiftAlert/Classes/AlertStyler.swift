@@ -75,14 +75,9 @@ extension AlertStyler {
         public var cornerRadius: CGFloat = 0.0
         
         /**
-         * Separator color between the title/message and button, uses urbn_topBorder on buttonSV
+         * Separator border style between the title/message and button, uses urbn_topBorder on buttonSV
          */
-        public var buttonContainerSeparatorColor: UIColor = .clear
-        
-        /**
-         * Separator pixel width between the title/message and button, uses urbn_topBorder on buttonSV
-         */
-        public var buttonContainerSeparatorPixelWidth: Int = 0
+        public var buttonContainerSeparatorBorderStyle = BorderStyle(color: .clear, pixelWidth: 0, insets: .zero)
     }
     
     public struct Blur {
