@@ -41,8 +41,6 @@ class ExampleViewController: UIViewController {
         customStyleAlert.alertStyler.alertViewShadow.offset = CGSize(width: 5, height: 5)
         customStyleAlert.alertStyler.alertViewShadow.radius = 5.0
         customStyleAlert.alertStyler.alertViewShadow.opacity = 0.9
-//        customStyleAlert.alertStyler.alert.buttonContainerSeparatorColor = .green
-//        customStyleAlert.alertStyler.alert.buttonContainerSeparatorPixelWidth = 5
         customStyleAlert.alertStyler.alert.buttonContainerSeparatorBorderStyle = BorderStyle(color: .red, pixelWidth: 5)
         customStyleAlert.alertStyler.cancelButton.titleColor = .magenta
         customStyleAlert.alertStyler.button.shadowColor = .red
