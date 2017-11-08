@@ -58,7 +58,9 @@ class AlertView: UIView {
             spacing = 0.0
         }
         
-        separatorBorderView.urbn_bottomBorderStyle = configuration.styler.alert.alertSeparatorBorderStyle
+        let separatorBorderStyle = configuration.styler.alert.alertSeparatorBorderStyle
+        separatorBorderView.heightAnchor.constraint(equalToConstant: CGFloat(separatorBorderStyle.pixelWidth) / UIScreen.main.scale).isActive = true
+        separatorBorderView.backgroundColor = separatorBorderStyle.color
 
         stackView.spacing = spacing
         stackView.wrap(in: self, with: InsetConstraints(insets: insets, priority: UILayoutPriorityDefaultHigh))
