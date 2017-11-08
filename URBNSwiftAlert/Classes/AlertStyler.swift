@@ -77,7 +77,7 @@ extension AlertStyler {
         /**
          * Separator border style between the title/message and button, uses urbn_topBorder on buttonSV
          */
-        public var buttonContainerSeparatorBorderStyle = BorderStyle(color: .clear, pixelWidth: 0, insets: .zero)
+        public var alertSeparatorBorderStyle = BorderStyle(color: .clear, pixelWidth: 0, insets: .zero)
     }
     
     public struct Blur {

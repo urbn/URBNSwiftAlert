@@ -15,6 +15,7 @@ class AlertView: UIView {
     fileprivate let stackView = UIStackView()
     fileprivate lazy var buttonsSV = UIStackView()
     fileprivate lazy var buttonActions = [AlertAction]()
+    fileprivate let separatorBorderView = UIView()
     var configuration: AlertConfiguration
     
     init(configuration: AlertConfiguration) {
@@ -57,10 +58,8 @@ class AlertView: UIView {
             spacing = 0.0
         }
         
+        separatorBorderView.urbn_topBorderStyle = configuration.styler.alert.alertSeparatorBorderStyle
         stackView.spacing = spacing
-
-        buttonsSV.urbn_topBorderStyle = configuration.styler.alert.buttonContainerSeparatorBorderStyle
-
         stackView.wrap(in: self, with: InsetConstraints(insets: insets, priority: UILayoutPriorityDefaultHigh))
     }
     
@@ -125,7 +124,7 @@ extension AlertView {
         buttonsSV.axis = configuration.actions.count < 3 ? configuration.styler.button.layoutAxis : .vertical
         buttonsSV.distribution = .fillEqually
         buttonsSV.spacing = configuration.styler.button.spacing
-        stackView.addArrangedSubview(buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints))
+        stackView.addArrangedSubviews(separatorBorderView, buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints))
     }
     
     func addCustomView() {
