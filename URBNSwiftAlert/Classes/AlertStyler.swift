@@ -75,7 +75,7 @@ extension AlertStyler {
         public var cornerRadius: CGFloat = 0.0
         
         /**
-         * Separator border style between the title/message and button, uses urbn_topBorder on buttonSV
+         * Separator border style between the title/message and button, uses urbn_topBorder on borderView
          */
         public var alertSeparatorBorderStyle = BorderStyle(color: .clear, pixelWidth: 0, insets: .zero)
     }
