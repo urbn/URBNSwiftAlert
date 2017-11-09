@@ -129,7 +129,6 @@ extension AlertView {
         buttonsSV.spacing = configuration.styler.button.spacing
 
         let borderButtonSV = UIStackView(arrangedSubviews: [separatorBorderView, buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints)])
-        borderButtonSV.spacing = 0
         borderButtonSV.axis = .vertical
 
         separatorBorderView.bottomAnchor.constraint(equalTo: buttonsSV.topAnchor).isActive = true
