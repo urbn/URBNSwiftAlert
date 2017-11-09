@@ -58,7 +58,9 @@ class AlertView: UIView {
             spacing = 0.0
         }
         
-        separatorBorderView.urbn_topBorderStyle = configuration.styler.alert.alertSeparatorBorderStyle
+        let separatorBorderStyle = configuration.styler.alert.alertSeparatorBorderStyle
+        separatorBorderView.heightAnchor.constraint(equalToConstant: CGFloat(separatorBorderStyle.pixelWidth) / UIScreen.main.scale).isActive = true
+        separatorBorderView.backgroundColor = separatorBorderStyle.color
 
         stackView.spacing = spacing
         stackView.wrap(in: self, with: InsetConstraints(insets: insets, priority: UILayoutPriorityDefaultHigh))
@@ -125,7 +127,11 @@ extension AlertView {
         buttonsSV.axis = configuration.actions.count < 3 ? configuration.styler.button.layoutAxis : .vertical
         buttonsSV.distribution = .fillEqually
         buttonsSV.spacing = configuration.styler.button.spacing
-        stackView.addArrangedSubviews(separatorBorderView, buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints))
+
+        let borderButtonSV = UIStackView(arrangedSubviews: [separatorBorderView, buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints)])
+        borderButtonSV.axis = .vertical
+
+        stackView.addArrangedSubviews(borderButtonSV)
     }
     
     func addCustomView() {
