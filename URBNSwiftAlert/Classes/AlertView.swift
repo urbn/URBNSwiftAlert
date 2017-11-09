@@ -131,8 +131,6 @@ extension AlertView {
         let borderButtonSV = UIStackView(arrangedSubviews: [separatorBorderView, buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints)])
         borderButtonSV.axis = .vertical
 
-        separatorBorderView.bottomAnchor.constraint(equalTo: buttonsSV.topAnchor).isActive = true
-
         stackView.addArrangedSubviews(borderButtonSV)
     }
     
