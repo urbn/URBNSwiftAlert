@@ -127,8 +127,14 @@ extension AlertView {
         buttonsSV.axis = configuration.actions.count < 3 ? configuration.styler.button.layoutAxis : .vertical
         buttonsSV.distribution = .fillEqually
         buttonsSV.spacing = configuration.styler.button.spacing
-        stackView.addArrangedSubviews(separatorBorderView, buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints))
+
+        let borderButtonSV = UIStackView(arrangedSubviews: [separatorBorderView, buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints)])
+        borderButtonSV.spacing = 0
+        borderButtonSV.axis = .vertical
+
         separatorBorderView.bottomAnchor.constraint(equalTo: buttonsSV.topAnchor).isActive = true
+
+        stackView.addArrangedSubviews(borderButtonSV)
     }
     
     func addCustomView() {
