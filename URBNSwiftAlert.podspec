@@ -11,5 +11,5 @@ s.source           = { :git => 'git@github.com:urbn/URBNSwiftAlert.git', :tag =>
 s.platform         = :ios, '10.0'
 s.requires_arc     = true
 s.source_files     = 'URBNSwiftAlert/Classes/**/*'
-s.dependency 'URBNSwiftyConvenience', '~> 0.3.3'
+s.dependency 'URBNSwiftyConvenience', '~> 0.4'
 end
