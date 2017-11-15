@@ -7,7 +7,7 @@
 //
 import Foundation
 
-class AlertController: NSObject {
+public class AlertController: NSObject {
     public static let shared = AlertController()
     public var alertStyler = AlertStyler()
     
