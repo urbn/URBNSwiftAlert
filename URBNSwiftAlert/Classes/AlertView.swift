@@ -128,7 +128,10 @@ extension AlertView {
         buttonsSV.distribution = .fillEqually
         buttonsSV.spacing = configuration.styler.button.spacing
 
-        let borderButtonSV = UIStackView(arrangedSubviews: [separatorBorderView, buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints)])
+        let buttonContainer = UIView()
+        buttonContainer.backgroundColor = .lightGray
+        buttonsSV.wrap(in: buttonContainer, with: configuration.styler.button.containerInsetConstraints)
+        let borderButtonSV = UIStackView(arrangedSubviews: [separatorBorderView, buttonContainer])
         borderButtonSV.axis = .vertical
 
         stackView.addArrangedSubviews(borderButtonSV)
