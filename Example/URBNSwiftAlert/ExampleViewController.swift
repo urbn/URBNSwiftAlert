@@ -59,7 +59,8 @@ class ExampleViewController: UIViewController {
     }
     
     func showCustomViewAlert() {
-        let customViewAlert = AlertViewController(customView: customView)
+//        let customViewAlert = AlertViewController(customView: customView)
+        let customViewAlert = AlertViewController(title: "Title", message: "Label", customView: customView)
         customViewAlert.addActions(genericCancelAction, genericDoneAction)
         customViewAlert.alertConfiguration.tapInsideToDismiss = true
         customViewAlert.show()

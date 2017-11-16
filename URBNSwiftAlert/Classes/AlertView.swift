@@ -47,6 +47,7 @@ class AlertView: UIView {
             insets = configuration.styler.alert.insets
             spacing = configuration.styler.alert.labelVerticalSpacing
         case .customView:
+            addStandardComponents()
             addCustomView()
             addButtons()
             insets = UIEdgeInsets.zero
