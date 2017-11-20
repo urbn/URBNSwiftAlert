@@ -8,8 +8,19 @@
 import Foundation
 
 public class AlertAction: NSObject {
+    
+    /**
+     * ActionType sets predefined title / highlight / background colors for buttons
+     * normal, destructive, and cancel are convenience types when you have a lot of alerts throughout an app that
+     * have similar functions (for example, you want all cancel buttons in the app to look the same, so you set the colors once)
+    */
+    
     public enum ActionType {
-        case normal, destructive, cancel, passive, custom
+        case normal      // applies title color and background for normal buttons
+        case destructive // applies title color and background for destructive buttons
+        case cancel      // applies title color and background for cancel buttons
+        case passive     // no button added, action will be applied on tapping alert
+        case custom      // applies title color and background for custom buttons
     }
     
     let type: ActionType

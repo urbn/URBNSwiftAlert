@@ -37,8 +37,8 @@ open class AlertViewController: UIViewController {
      *  @return A URBNSwiftAlertViewController with a custom view ready to be configurated further or displayed
      */
     
-    public convenience init(customView: UIView) {
-        self.init(type: .customView, customView: customView)
+    public convenience init(title: String? = nil, message: String? = nil, customView: UIView) {
+        self.init(type: .customView, title: title, message: message, customView: customView)
     }
     
     /**

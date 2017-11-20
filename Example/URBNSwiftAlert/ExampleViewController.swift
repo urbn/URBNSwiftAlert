@@ -48,6 +48,8 @@ class ExampleViewController: UIViewController {
         customStyleAlert.alertStyler.button.shadowRadius = 10
         customStyleAlert.alertStyler.button.shadowOpacity = 0.9
         customStyleAlert.alertStyler.button.backgroundColor = .cyan
+        customStyleAlert.alertStyler.button.spacing = 2.0
+        customStyleAlert.alertStyler.button.buttonContainerBackgroundColor = .black
         customStyleAlert.alertStyler.cancelButton.backgroundColor = .brown
         customStyleAlert.alertStyler.message.font = UIFont(name: "AmericanTypewriter-Bold", size: 15)
         customStyleAlert.alertStyler.button.highlightTitleColor = .green
@@ -57,7 +59,7 @@ class ExampleViewController: UIViewController {
     }
     
     func showCustomViewAlert() {
-        let customViewAlert = AlertViewController(customView: customView)
+        let customViewAlert = AlertViewController(title: "Title", message: "Label", customView: customView)
         customViewAlert.addActions(genericCancelAction, genericDoneAction)
         customViewAlert.alertConfiguration.tapInsideToDismiss = true
         customViewAlert.show()

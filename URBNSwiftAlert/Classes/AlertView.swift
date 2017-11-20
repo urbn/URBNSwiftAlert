@@ -47,6 +47,7 @@ class AlertView: UIView {
             insets = configuration.styler.alert.insets
             spacing = configuration.styler.alert.labelVerticalSpacing
         case .customView:
+            addStandardComponents()
             addCustomView()
             addButtons()
             insets = UIEdgeInsets.zero
@@ -128,7 +129,10 @@ extension AlertView {
         buttonsSV.distribution = .fillEqually
         buttonsSV.spacing = configuration.styler.button.spacing
 
-        let borderButtonSV = UIStackView(arrangedSubviews: [separatorBorderView, buttonsSV.wrapInNewView(with: configuration.styler.button.containerInsetConstraints)])
+        let buttonContainer = UIView()
+        buttonContainer.backgroundColor = configuration.styler.button.buttonContainerBackgroundColor
+        buttonsSV.wrap(in: buttonContainer, with: configuration.styler.button.containerInsetConstraints)
+        let borderButtonSV = UIStackView(arrangedSubviews: [separatorBorderView, buttonContainer])
         borderButtonSV.axis = .vertical
 
         stackView.addArrangedSubviews(borderButtonSV)

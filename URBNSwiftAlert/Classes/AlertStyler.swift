@@ -177,6 +177,11 @@ extension AlertStyler {
         public var backgroundColor = UIColor.gray
         
         /**
+         * Background color of the button container
+        */
+        public var buttonContainerBackgroundColor = UIColor.lightGray
+        
+        /**
          * Background color of a highlighted button for an active alert
          */
         public var highlightBackgroundColor = UIColor.darkGray
