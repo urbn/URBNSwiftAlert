@@ -10,6 +10,8 @@ import URBNSwiftyConvenience
 
 public struct AlertStyler {
     
+    public init() {}
+    
     public var blur: Blur = Blur()
     
     public var background = Background()
