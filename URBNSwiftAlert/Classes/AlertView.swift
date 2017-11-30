@@ -105,7 +105,15 @@ extension AlertView {
         }
         
         if !configuration.textFields.isEmpty {
-            let textFieldsSV = UIStackView(arrangedSubviews: configuration.textFields)
+            let textFieldsSV = UIStackView()
+            
+            for tf in configuration.textFields {
+                let container = UIView()
+                container.embed(subview: tf, insets: configuration.styler.textField.edgeInsets)
+                
+                textFieldsSV.addArrangedSubview(container)
+            }
+            
             textFieldsSV.axis = .vertical
             textFieldsSV.spacing = configuration.styler.textField.verticalMargin
             for tf in configuration.textFields {
