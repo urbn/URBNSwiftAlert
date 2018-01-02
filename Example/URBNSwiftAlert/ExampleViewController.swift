@@ -352,7 +352,7 @@ extension ExampleViewController {
     }
     
     var shortMessage: String {
-        return "And the message that is a bunch of text that will turn scrollable once the text view runs out of space.\nAnd the message that is a bunch of text."
+        return "And the message that is a bunch of text that will turn scrollable once the text view runs out of space.\nAnd the message that is a bunch of text. And the message that is a bunch of text."
     }
     
     var customView: UIView {
