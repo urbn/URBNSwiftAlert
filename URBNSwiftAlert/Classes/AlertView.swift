@@ -99,7 +99,7 @@ extension AlertView {
             let maxWidth = UIScreen.main.bounds.width - (configuration.styler.alert.insets.left + configuration.styler.alert.insets.right) - configuration.styler.alert.horizontalMargin*2
             let messageSize = messageView.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
             let maxHeight = messageSize.height > maxTextViewH ? maxTextViewH : messageSize.height
-            messageView.isScrollEnabled = messageSize.height > maxTextViewH
+
             messageView.heightAnchor.constraint(greaterThanOrEqualToConstant: maxHeight).isActive = true
             stackView.addArrangedSubview(messageView.wrapInNewView(with: configuration.styler.message.insetConstraints))
         }
