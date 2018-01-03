@@ -20,7 +20,7 @@ class ExampleViewController: UIViewController {
     }
     
     func showTwoBtnAlert() {
-        let twoBtnAlert = AlertViewController(title: wrappingTitle, message: longMessage)
+        let twoBtnAlert = AlertViewController(title: wrappingTitle, message: shortMessage)
         twoBtnAlert.addActions([genericCancelAction, genericDoneAction])
         twoBtnAlert.show()
     }
@@ -66,7 +66,7 @@ class ExampleViewController: UIViewController {
     }
     
     func showQueuedAlerts() {
-        let firstAlert = AlertViewController(title: "I'm the first alert", message: longMessage)
+        let firstAlert = AlertViewController(title: "I'm the first alert", message: shortMessage)
         firstAlert.addActions(genericDoneAction)
         firstAlert.show()
         
@@ -349,6 +349,10 @@ extension ExampleViewController {
     
     var longMessage: String {
         return "And the message that is a bunch of text that will turn scrollable once the text view runs out of space.\nAnd the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text.  And the message that is a bunch of text. And the message that is a bunch of text. And the message that is a bunch of text."
+    }
+    
+    var shortMessage: String {
+        return "And the message that is a bunch of text that will turn scrollable once the text view runs out of space.\nAnd the message that is a bunch of text. And the message that is a bunch of text."
     }
     
     var customView: UIView {

@@ -97,10 +97,12 @@ extension AlertView {
             let buttonH = configuration.customButtons?.containerViewHeight ?? configuration.styler.button.height
             let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (configuration.styler.alert.insets.top) * 2 - buttonH
             let maxWidth = UIScreen.main.bounds.width - (configuration.styler.alert.insets.left + configuration.styler.alert.insets.right) - configuration.styler.alert.horizontalMargin*2
+            
             let messageSize = messageView.sizeThatFits(CGSize(width: maxWidth, height: CGFloat.greatestFiniteMagnitude))
             let maxHeight = messageSize.height > maxTextViewH ? maxTextViewH : messageSize.height
-            
-            messageView.heightAnchor.constraint(equalToConstant: maxHeight).isActive = true
+            messageView.isScrollEnabled = messageSize.height > maxTextViewH
+            messageView.heightAnchor.constraint(greaterThanOrEqualToConstant: maxHeight).isActive = true
+            messageView.widthAnchor.constraint(lessThanOrEqualToConstant: maxWidth).isActive = true
             stackView.addArrangedSubview(messageView.wrapInNewView(with: configuration.styler.message.insetConstraints))
         }
         
