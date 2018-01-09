@@ -284,6 +284,7 @@ extension AlertViewController {
     
     public func addTextfield(configurationHandler: ((UITextField) -> Void)) {
         let tf = UITextField()
+        tf.accessibilityIdentifier = "alertTextField"
         alertConfiguration.textFields.append(tf)
         configurationHandler(tf)
     }
