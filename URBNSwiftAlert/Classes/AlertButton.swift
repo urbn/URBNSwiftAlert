@@ -46,6 +46,7 @@ public class AlertButton: UIButton {
         layer.shadowColor = styler.button.shadowColor.cgColor
         layer.shadowOffset = styler.button.shadowOffset
         contentEdgeInsets = styler.button.contentInsets
+        accessibilityIdentifier = "URBNAlert-button"
     }
     
     public override var isHighlighted: Bool {
