@@ -70,7 +70,7 @@ public class AlertController: NSObject {
         }
         alertWindow?.windowLevel = UIWindowLevelAlert
         alertWindow?.isHidden = false
-        alertWindow?.accessibilityIdentifier = "URBNAlert-window"
+        alertWindow?.accessibilityIdentifier = "alertWindow"
         
         NotificationCenter.default.addObserver(self, selector: #selector(resignActive) , name:  Notification.Name(rawValue: "UIWindowDidBecomeKeyNotification")  , object: nil)
     }

@@ -83,7 +83,7 @@ extension AlertView {
             titleLabel.lineBreakMode = .byWordWrapping
             titleLabel.textColor = configuration.styler.title.color
             titleLabel.text = title
-            titleLabel.accessibilityIdentifier = "URBNAlert-title"
+            titleLabel.accessibilityIdentifier = "alertTitle"
             stackView.addArrangedSubview(titleLabel.wrapInNewView(with: configuration.styler.title.insetConstraints))
         }
         
@@ -94,7 +94,7 @@ extension AlertView {
             messageView.textColor = configuration.styler.message.color
             messageView.isEditable = false
             messageView.text = message
-            messageView.accessibilityIdentifier = "URBNAlert-message"
+            messageView.accessibilityIdentifier = "alertMessage"
             
             let buttonH = configuration.customButtons?.containerViewHeight ?? configuration.styler.button.height
             let maxTextViewH = UIScreen.main.bounds.height - titleLabel.intrinsicContentSize.height - 150.0 - (configuration.styler.alert.insets.top) * 2 - buttonH
@@ -133,7 +133,7 @@ extension AlertView {
             textFieldErrorLabel.font = configuration.styler.textField.errorMessageFont
             stackView.addArrangedSubview(textFieldErrorLabel)
             textFieldErrorLabel.isHidden = true
-            textFieldErrorLabel.accessibilityIdentifier = "URBNAlert-textFieldError"
+            textFieldErrorLabel.accessibilityIdentifier = "alertTextFieldError"
         }
     }
     
