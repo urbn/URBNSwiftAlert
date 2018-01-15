@@ -147,7 +147,7 @@ extension AlertViewController {
         alertViewYContraint?.isActive = true
     }
     
-    func setVisible(isVisible: Bool, completion: ((Void) -> Void)? = nil) {
+    func setVisible(isVisible: Bool, completion: (() -> Void)? = nil) {
         let scaler: CGFloat = 0.3
         guard let ac = alertView else {
             assertionFailure()
@@ -206,7 +206,7 @@ extension AlertViewController {
             blurImageView?.image = experiment
             
             if let imgV = blurImageView {
-                imgV.wrap(in: view, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: UILayoutPriorityRequired))
+                imgV.wrap(in: view, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: .required))
             }
         }
     }
@@ -249,7 +249,7 @@ extension AlertViewController {
         show()
     }
     
-    public func dismissAlert(sender: Any) {
+    @objc public func dismissAlert(sender: Any) {
         view.endEditing(true)
         
         if !alertConfiguration.isActiveAlert && alertConfiguration.type != .customButton && alertConfiguration.type != .fullCustom {
@@ -305,7 +305,7 @@ extension AlertViewController {
 
 // MARK: Keyboard management
 extension AlertViewController {
-    func keyboardWillShow(notif: Notification) {
+    @objc func keyboardWillShow(notif: Notification) {
         if let value = notif.userInfo?[UIKeyboardFrameEndUserInfoKey] as? NSValue, let av = alertView  {
             let kbFrame = value.cgRectValue
             let alertViewBottomYPos = av.frame.height + av.frame.origin.y
@@ -321,7 +321,7 @@ extension AlertViewController {
         }
     }
     
-    func keyboardWillHide(notif: Notification) {
+    @objc func keyboardWillHide(notif: Notification) {
         alertViewYContraint?.constant = 0
         
         UIView.animate(withDuration: TimeInterval(0.1) , animations: { [weak self] in

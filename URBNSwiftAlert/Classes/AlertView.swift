@@ -64,7 +64,7 @@ class AlertView: UIView {
         separatorBorderView.backgroundColor = separatorBorderStyle.color
 
         stackView.spacing = spacing
-        stackView.wrap(in: self, with: InsetConstraints(insets: insets, priority: UILayoutPriorityDefaultHigh))
+        stackView.wrap(in: self, with: InsetConstraints(insets: insets, priority: .defaultHigh))
     }
     
     required init?(coder aDecoder: NSCoder) {
