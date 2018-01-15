@@ -1,6 +1,6 @@
 {
   "name": "URBNSwiftAlert",
-  "version": "0.2.0",
+  "version": "0.2.7",
   "summary": "A swift version of URBNAlert by Ryan Garchinsky.",
   "homepage": "https://github.com/URBN/URBNSwiftAlert",
   "license": {
@@ -12,7 +12,7 @@
   },
   "source": {
     "git": "git@github.com:urbn/URBNSwiftAlert.git",
-    "tag": "0.2.0"
+    "tag": "0.2.7"
   },
   "platforms": {
     "ios": "10.0"
@@ -21,7 +21,7 @@
   "source_files": "URBNSwiftAlert/Classes/**/*",
   "dependencies": {
     "URBNSwiftyConvenience": [
-      "~> 0.3.3"
+      "~> 1.0"
     ]
   }
 }

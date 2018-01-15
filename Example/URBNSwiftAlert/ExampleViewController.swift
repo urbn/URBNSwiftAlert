@@ -13,19 +13,19 @@ import URBNSwiftAlert
 
 class ExampleViewController: UIViewController {
     
-    func showOneButtonAlert() {
+    @objc func showOneButtonAlert() {
         let oneBtnAlert = AlertViewController(title: wrappingTitle, message: longMessage)
         oneBtnAlert.addActions(genericDoneAction)
         oneBtnAlert.show()
     }
     
-    func showTwoBtnAlert() {
+    @objc func showTwoBtnAlert() {
         let twoBtnAlert = AlertViewController(title: wrappingTitle, message: shortMessage)
         twoBtnAlert.addActions([genericCancelAction, genericDoneAction])
         twoBtnAlert.show()
     }
     
-    func showCustomStyleAlert() {
+    @objc func showCustomStyleAlert() {
         let customStyleAlert = AlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
         let destructiveAction = AlertAction(type: .destructive, shouldDismiss: true, isEnabled: false, title: "Destruct") { (action) in
             print("destructive button pressed")
@@ -58,14 +58,14 @@ class ExampleViewController: UIViewController {
         customStyleAlert.show()
     }
     
-    func showCustomViewAlert() {
+    @objc func showCustomViewAlert() {
         let customViewAlert = AlertViewController(title: "Title", message: "Label", customView: customView)
         customViewAlert.addActions(genericCancelAction, genericDoneAction)
         customViewAlert.alertConfiguration.tapInsideToDismiss = true
         customViewAlert.show()
     }
     
-    func showQueuedAlerts() {
+    @objc func showQueuedAlerts() {
         let firstAlert = AlertViewController(title: "I'm the first alert", message: shortMessage)
         firstAlert.addActions(genericDoneAction)
         firstAlert.show()
@@ -80,7 +80,7 @@ class ExampleViewController: UIViewController {
         thirdAlert.show()
     }
     
-    func showInputsAlert() {
+    @objc func showInputsAlert() {
         let textFieldsAlert = AlertViewController(title: "Textfields Alert", message: "Enter some info:")
         
         textFieldsAlert.addTextfield { (textField) in
@@ -108,14 +108,14 @@ class ExampleViewController: UIViewController {
         textFieldsAlert.show()
     }
     
-    func showFullCustomAlert() {
+    @objc func showFullCustomAlert() {
         let customButtons = ExampleCustomButtons()
         let fullCustomViewAlert = AlertViewController(customView: customView, customButtons: customButtons)
         fullCustomViewAlert.alertConfiguration.tapInsideToDismiss = true
         fullCustomViewAlert.show()
     }
     
-    func showValidateInputAlert() {
+    @objc func showValidateInputAlert() {
         let validateAlert = AlertViewController(title: "Textfield Validation", message: "Text must be > 4")
         let validateCancelAction = AlertAction(type: .cancel, title: "Cancel") { (action) in
             print("validate action cancelled")
@@ -140,7 +140,7 @@ class ExampleViewController: UIViewController {
         validateAlert.show()
     }
     
-    func showSimpleLongPassiveAlert() {
+    @objc func showSimpleLongPassiveAlert() {
         let passiveAlert = AlertViewController(title: "Simple Passive", message: longMessage)
         passiveAlert.alertConfiguration.touchOutsideToDismiss = true
         
@@ -152,21 +152,21 @@ class ExampleViewController: UIViewController {
         passiveAlert.show()
     }
     
-    func showSimpleShortPassiveAlert() {
+    @objc func showSimpleShortPassiveAlert() {
         let passiveAlert = AlertViewController(title: "Simple Passive", message: "Very short alert. Minimum 2 second duration.")
         passiveAlert.alertConfiguration.touchOutsideToDismiss = true
         passiveAlert.alertConfiguration.duration = 2.0
         passiveAlert.show()
     }
     
-    func showPassiveCustomAlert() {
+    @objc func showPassiveCustomAlert() {
         let passiveCustomAlert = AlertViewController(customView: customView)
         passiveCustomAlert.alertConfiguration.duration = 5.0
         passiveCustomAlert.alertConfiguration.touchOutsideToDismiss = true
         passiveCustomAlert.show()
     }
     
-    func showPassiveQueuedAlerts() {
+    @objc func showPassiveQueuedAlerts() {
         let firstPassiveAlert = AlertViewController(title: "First Alert", message: "Will auto dismiss in 3 seconds")
         firstPassiveAlert.alertConfiguration.touchOutsideToDismiss = true
         firstPassiveAlert.alertConfiguration.duration = 3.0
@@ -186,20 +186,20 @@ class ExampleViewController: UIViewController {
         thirdPassiveAlert.show()
     }
     
-    func showFromModal() {
+    @objc func showFromModal() {
         let vc = ExampleViewController()
         let nav = UINavigationController(rootViewController: vc)
         vc.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "Close", style: .plain, target: self, action: #selector(closePressed))
         present(nav, animated: true, completion: nil)
     }
     
-    func showFromView() {
+    @objc func showFromView() {
         let customViewAlert = AlertViewController(customView: customView)
         customViewAlert.alertConfiguration.touchOutsideToDismiss = true
         customViewAlert.show(inView: presentationView)
     }
     
-    func closePressed() {
+    @objc func closePressed() {
         dismiss(animated: true, completion: nil)
     }
     
@@ -290,7 +290,7 @@ extension ExampleViewController: UICollectionViewDelegate, UICollectionViewDeleg
         if let cv = collectionView {
             let sv = UIStackView(arrangedSubviews: [cv, presentationView])
             sv.axis = .vertical
-            sv.wrap(in: view, with: InsetConstraints(insets: UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0) , priority: UILayoutPriorityDefaultHigh))
+            sv.wrap(in: view, with: InsetConstraints(insets: UIEdgeInsets(top: 44, left: 0, bottom: 0, right: 0) , priority: .defaultHigh))
         }
     }
     
@@ -304,7 +304,7 @@ extension ExampleViewController: UICollectionViewDelegate, UICollectionViewDeleg
         if let label = exampleSectionLabels?[indexPath.section][indexPath.row] {
             label.backgroundColor = .white
             label.textAlignment = .center
-            label.wrap(in: view, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: UILayoutPriorityDefaultHigh))
+            label.wrap(in: view, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: .defaultHigh))
         }
         return view
     }
@@ -312,7 +312,7 @@ extension ExampleViewController: UICollectionViewDelegate, UICollectionViewDeleg
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cell", for: indexPath)
         if let button = exampleButtons?[indexPath.section][indexPath.row] {
-            button.wrap(in: cell, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: UILayoutPriorityDefaultHigh))
+            button.wrap(in: cell, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: .defaultHigh))
         }
         
         return cell
@@ -368,7 +368,7 @@ extension ExampleViewController {
         label.text = "Cat In Box, you can tap inside to dismiss."
         let sv = UIStackView(arrangedSubviews: [iv, label])
         sv.spacing = 20
-        sv.wrap(in: customView, with: InsetConstraints(insets: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), priority: UILayoutPriorityDefaultHigh))
+        sv.wrap(in: customView, with: InsetConstraints(insets: UIEdgeInsets(top: 20, left: 20, bottom: 20, right: 20), priority: .defaultHigh))
         
         return customView
     }
@@ -419,7 +419,7 @@ class ExampleCustomButtons: UIView, AlertButtonContainer {
         
         super.init(frame: frame)
         
-        sv.wrap(in: self, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: UILayoutPriorityDefaultHigh))
+        sv.wrap(in: self, with: InsetConstraints(insets: UIEdgeInsets.zero, priority: .defaultHigh))
     }
     
     required init?(coder aDecoder: NSCoder) {
