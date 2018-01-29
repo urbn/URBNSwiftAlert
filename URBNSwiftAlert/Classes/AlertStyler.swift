@@ -376,6 +376,11 @@ extension AlertStyler {
          *  Vertical margin between textfields
          */
         public var verticalMargin: CGFloat = 5.0
+        
+        /**
+         *  Height of the textfields. Defaults to nil. If nil or 0 this will default to the intrinsic content size.
+         */
+        public var height: CGFloat? = nil
     }
 }
 
