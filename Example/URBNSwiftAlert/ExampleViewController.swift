@@ -82,6 +82,7 @@ class ExampleViewController: UIViewController {
     
     @objc func showInputsAlert() {
         let textFieldsAlert = AlertViewController(title: "Textfields Alert", message: "Enter some info:")
+        textFieldsAlert.alertStyler.textField.height = 50.0
         
         textFieldsAlert.addTextfield { (textField) in
             textField.borderStyle = .line
