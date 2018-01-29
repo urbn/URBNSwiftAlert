@@ -111,12 +111,13 @@ extension AlertView {
         if !configuration.textFields.isEmpty {
             let textFieldsSV = UIStackView()
             
-            for tf in configuration.textFields {
-                let container = UIView()
-                container.embed(subview: tf, insets: configuration.styler.textField.edgeInsets)
+            configuration.textFields.forEach({ (tf) in
+                if let height = configuration.styler.textField.height, height > 0 {
+                    tf.heightAnchor.constraint(equalToConstant: height).isActive = true
+                }
                 
-                textFieldsSV.addArrangedSubview(container)
-            }
+                textFieldsSV.addArrangedSubview(tf)
+            })
             
             textFieldsSV.axis = .vertical
             textFieldsSV.spacing = configuration.styler.textField.verticalMargin
@@ -125,15 +126,15 @@ extension AlertView {
                 tf.delegate = self
             }
             
-            stackView.addArrangedSubview(textFieldsSV)
-            
             textFieldErrorLabel.numberOfLines = 0
             textFieldErrorLabel.lineBreakMode = .byWordWrapping
             textFieldErrorLabel.textColor = configuration.styler.textField.errorMessageColor
             textFieldErrorLabel.font = configuration.styler.textField.errorMessageFont
-            stackView.addArrangedSubview(textFieldErrorLabel)
+            textFieldsSV.addArrangedSubview(textFieldErrorLabel)
             textFieldErrorLabel.isHidden = true
             textFieldErrorLabel.accessibilityIdentifier = "alertTextFieldError"
+            
+            stackView.addArrangedSubview(textFieldsSV.wrapInNewView(with: InsetConstraints(insets: configuration.styler.textField.edgeInsets)))
         }
     }
     
