@@ -137,12 +137,17 @@ extension AlertViewController {
             if let minMax = alertStyler.alert.minMaxWidth {
                 alertContainer.widthAnchor.constraint(greaterThanOrEqualToConstant: minMax.min).isActive = true
                 alertContainer.widthAnchor.constraint(lessThanOrEqualToConstant: minMax.max).isActive = true
+                alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
             }
             else {
-                alertContainer.widthAnchor.constraint(equalToConstant: UIScreen.main.bounds.width - alertStyler.alert.horizontalMargin*2).isActive = true
+                alertContainer.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: alertStyler.alert.horizontalMargin).isActive = true
+                alertContainer.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -alertStyler.alert.horizontalMargin).isActive = true
             }
         }
-        alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        else {
+            alertContainer.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        }
+        
         alertViewYContraint = alertContainer.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: 0)
         alertViewYContraint?.isActive = true
     }
@@ -334,3 +339,4 @@ extension AlertViewController {
 enum URBNSwAlertType {
     case fullCustom, customView, customButton, fullStandard
 }
+

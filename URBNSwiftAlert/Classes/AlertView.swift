@@ -62,9 +62,11 @@ class AlertView: UIView {
         let separatorBorderStyle = configuration.styler.alert.alertSeparatorBorderStyle
         separatorBorderView.heightAnchor.constraint(equalToConstant: CGFloat(separatorBorderStyle.pixelWidth) / UIScreen.main.scale).isActive = true
         separatorBorderView.backgroundColor = separatorBorderStyle.color
-
+        
         stackView.spacing = spacing
-        stackView.wrap(in: self, with: InsetConstraints(insets: insets, priority: .defaultHigh))
+        embed(subview: stackView, insets: insets)
+        
+        backgroundColor = .magenta
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -75,15 +77,24 @@ class AlertView: UIView {
 // MARK: Setup and add UI
 extension AlertView {
     func addStandardComponents() {
+        
         if let title = configuration.title, !title.isEmpty {
             titleLabel.backgroundColor = configuration.styler.title.backgroundColor
             titleLabel.textAlignment = configuration.styler.title.alignment
             titleLabel.font = configuration.styler.title.font
             titleLabel.numberOfLines = 0
+            titleLabel.lineBreakMode = .byWordWrapping
             titleLabel.textColor = configuration.styler.title.color
             titleLabel.text = title
             titleLabel.accessibilityIdentifier = "alertTitle"
-            stackView.addArrangedSubview(titleLabel.wrapInNewView(with: configuration.styler.title.insetConstraints))
+            
+            let titleInsetConstraints = configuration.styler.title.insetConstraints
+            
+            let titleContainer = UIView()
+            
+            titleContainer.embed(subview: titleLabel, insets: UIEdgeInsets(top: titleInsetConstraints.top.constant, left: titleInsetConstraints.left.constant, bottom: titleInsetConstraints.bottom.constant, right: titleInsetConstraints.right.constant))
+            
+            stackView.addArrangedSubview(titleContainer)
         }
         
         if let message = configuration.message, !message.isEmpty {
@@ -103,8 +114,12 @@ extension AlertView {
             let maxHeight = messageSize.height > maxTextViewH ? maxTextViewH : messageSize.height
             messageView.isScrollEnabled = messageSize.height > maxTextViewH
             messageView.heightAnchor.constraint(greaterThanOrEqualToConstant: maxHeight).isActive = true
-            messageView.widthAnchor.constraint(lessThanOrEqualToConstant: maxWidth).isActive = true
-            stackView.addArrangedSubview(messageView.wrapInNewView(with: configuration.styler.message.insetConstraints))
+            
+            let messageContainer = UIView()
+            let messageInsetConstraints = configuration.styler.message.insetConstraints
+            messageContainer.embed(subview: messageView, insets: UIEdgeInsets(top: messageInsetConstraints.top.constant, left: messageInsetConstraints.left.constant, bottom: messageInsetConstraints.bottom.constant, right: messageInsetConstraints.right.constant))
+            
+            stackView.addArrangedSubview(messageContainer)
         }
         
         if !configuration.textFields.isEmpty {
@@ -141,13 +156,13 @@ extension AlertView {
         buttonsSV.axis = configuration.actions.count < 3 ? configuration.styler.button.layoutAxis : .vertical
         buttonsSV.distribution = .fillEqually
         buttonsSV.spacing = configuration.styler.button.spacing
-
+        
         let buttonContainer = UIView()
         buttonContainer.backgroundColor = configuration.styler.button.buttonContainerBackgroundColor
         buttonsSV.wrap(in: buttonContainer, with: configuration.styler.button.containerInsetConstraints)
         let borderButtonSV = UIStackView(arrangedSubviews: [separatorBorderView, buttonContainer])
         borderButtonSV.axis = .vertical
-
+        
         stackView.addArrangedSubviews(borderButtonSV)
     }
     
@@ -204,3 +219,4 @@ extension AlertView: UITextFieldDelegate {
         return false
     }
 }
+
