@@ -79,8 +79,7 @@ extension AlertView {
             titleLabel.backgroundColor = configuration.styler.title.backgroundColor
             titleLabel.textAlignment = configuration.styler.title.alignment
             titleLabel.font = configuration.styler.title.font
-            titleLabel.numberOfLines = 2
-            titleLabel.lineBreakMode = .byWordWrapping
+            titleLabel.numberOfLines = 0
             titleLabel.textColor = configuration.styler.title.color
             titleLabel.text = title
             titleLabel.accessibilityIdentifier = "alertTitle"

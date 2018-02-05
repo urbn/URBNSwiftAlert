@@ -26,7 +26,7 @@ class ExampleViewController: UIViewController {
     }
     
     @objc func showCustomStyleAlert() {
-        let customStyleAlert = AlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
+        let customStyleAlert = AlertViewController(title: "Custom Styled Alert \(wrappingTitle)", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
         let destructiveAction = AlertAction(type: .destructive, shouldDismiss: true, isEnabled: false, title: "Destruct") { (action) in
             print("destructive button pressed")
         }
@@ -35,7 +35,8 @@ class ExampleViewController: UIViewController {
         customStyleAlert.alertStyler.background.color = .orange
         customStyleAlert.alertStyler.blur.isEnabled = true
         customStyleAlert.alertStyler.blur.tint = UIColor.green.withAlphaComponent(0.5)
-        customStyleAlert.alertStyler.title.font = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
+        customStyleAlert.alertStyler.title.font = UIFont(name: "Chalkduster", size: 12) ?? UIFont.systemFont(ofSize: 12)
+        customStyleAlert.alertStyler.title.insetConstraints = InsetConstraints(insets: UIEdgeInsets(top: 0, left: 18, bottom: 4, right: 18))
         customStyleAlert.alertStyler.alert.cornerRadius = 5.0
         customStyleAlert.alertStyler.alertViewShadow.color = .purple
         customStyleAlert.alertStyler.alertViewShadow.offset = CGSize(width: 5, height: 5)
@@ -344,7 +345,7 @@ extension ExampleViewController {
     }
     
     var wrappingTitle: String {
-        return "The Title of my message can be up to 2 lines long.  It wraps and centers."
+        return "This is a title that wraps. 1.  This is a title that wraps. 2. This is a title that wraps. 3. This is a title that wraps. 4.  This is a title that wraps. 5."
     }
     
     var longMessage: String {
