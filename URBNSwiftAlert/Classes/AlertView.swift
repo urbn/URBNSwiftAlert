@@ -87,9 +87,7 @@ extension AlertView {
             titleLabel.accessibilityIdentifier = "alertTitle"
             
             let titleInsetConstraints = configuration.styler.title.insetConstraints
-            
             let titleContainer = UIView()
-            
             titleContainer.embed(subview: titleLabel, insets: UIEdgeInsets(top: titleInsetConstraints.top.constant, left: titleInsetConstraints.left.constant, bottom: titleInsetConstraints.bottom.constant, right: titleInsetConstraints.right.constant))
             
             stackView.addArrangedSubview(titleContainer)
