@@ -65,8 +65,6 @@ class AlertView: UIView {
         
         stackView.spacing = spacing
         embed(subview: stackView, insets: insets)
-        
-        backgroundColor = .magenta
     }
     
     required init?(coder aDecoder: NSCoder) {
