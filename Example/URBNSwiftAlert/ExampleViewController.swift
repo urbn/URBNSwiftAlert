@@ -26,22 +26,34 @@ class ExampleViewController: UIViewController {
     }
     
     @objc func showCustomStyleAlert() {
-        let customStyleAlert = AlertViewController(title: "Custom Styled Alert", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
+        let customStyleAlert = AlertViewController(title: "Custom Styled Alert \(wrappingTitle)", message: "You can change fonts, colors, buttons, size, corner radius, and more.")
         let destructiveAction = AlertAction(type: .destructive, shouldDismiss: true, isEnabled: false, title: "Destruct") { (action) in
             print("destructive button pressed")
         }
         customStyleAlert.addActions([genericCancelAction, genericDoneAction, destructiveAction])
-        customStyleAlert.alertStyler.alert.minMaxWidth = (min: 44, max: 250)
         customStyleAlert.alertStyler.background.color = .orange
         customStyleAlert.alertStyler.blur.isEnabled = true
         customStyleAlert.alertStyler.blur.tint = UIColor.green.withAlphaComponent(0.5)
-        customStyleAlert.alertStyler.title.font = UIFont(name: "Chalkduster", size: 30) ?? UIFont.systemFont(ofSize: 12)
+        
+        customStyleAlert.alertStyler.title.font = UIFont(name: "Chalkduster", size: 12) ?? UIFont.systemFont(ofSize: 12)
+        customStyleAlert.alertStyler.title.insetConstraints = InsetConstraints(insets: UIEdgeInsets(top: 0, left: 30, bottom: 4, right: 30))
+        
+        let messageInsets = UIEdgeInsets(top: 0, left: 30, bottom: 30, right: 30)
+        customStyleAlert.alertStyler.message.insetConstraints = InsetConstraints(insets: messageInsets)
+        customStyleAlert.alertStyler.message.font = UIFont(name: "AmericanTypewriter-Bold", size: 15)
+        
+        customStyleAlert.alertStyler.alert.labelVerticalSpacing = 0
         customStyleAlert.alertStyler.alert.cornerRadius = 5.0
+        customStyleAlert.alertStyler.alert.horizontalMargin = 30
+        customStyleAlert.alertStyler.alert.insets = UIEdgeInsets(top: 30, left: 0, bottom: 0, right: 0)
+        
         customStyleAlert.alertStyler.alertViewShadow.color = .purple
         customStyleAlert.alertStyler.alertViewShadow.offset = CGSize(width: 5, height: 5)
         customStyleAlert.alertStyler.alertViewShadow.radius = 5.0
         customStyleAlert.alertStyler.alertViewShadow.opacity = 0.9
+        
         customStyleAlert.alertStyler.alert.alertSeparatorBorderStyle = BorderStyle(color: .red, pixelWidth: 5)
+        
         customStyleAlert.alertStyler.cancelButton.titleColor = .magenta
         customStyleAlert.alertStyler.button.shadowColor = .red
         customStyleAlert.alertStyler.button.shadowOffset = CGSize(width: 10, height: 10)
@@ -50,11 +62,12 @@ class ExampleViewController: UIViewController {
         customStyleAlert.alertStyler.button.backgroundColor = .cyan
         customStyleAlert.alertStyler.button.spacing = 2.0
         customStyleAlert.alertStyler.button.buttonContainerBackgroundColor = .black
-        customStyleAlert.alertStyler.cancelButton.backgroundColor = .brown
-        customStyleAlert.alertStyler.message.font = UIFont(name: "AmericanTypewriter-Bold", size: 15)
         customStyleAlert.alertStyler.button.highlightTitleColor = .green
-        customStyleAlert.alertStyler.cancelButton.highlightTitleColor = .blue
         customStyleAlert.alertStyler.button.selectedTitleColor = .yellow
+        
+        customStyleAlert.alertStyler.cancelButton.backgroundColor = .brown
+        customStyleAlert.alertStyler.cancelButton.highlightTitleColor = .blue
+        
         customStyleAlert.show()
     }
     
@@ -344,7 +357,7 @@ extension ExampleViewController {
     }
     
     var wrappingTitle: String {
-        return "The Title of my message can be up to 2 lines long.  It wraps and centers."
+        return "This is a title that wraps. 1.  This is a title that wraps. 2. This is a title that wraps. 3. This is a title that wraps. 4.  This is a title that wraps. 5."
     }
     
     var longMessage: String {
