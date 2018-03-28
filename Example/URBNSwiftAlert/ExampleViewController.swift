@@ -21,6 +21,7 @@ class ExampleViewController: UIViewController {
     
     @objc func showTwoBtnAlert() {
         let twoBtnAlert = AlertViewController(title: wrappingTitle, message: shortMessage)
+        twoBtnAlert.alertStyler.button.textAlignment = .right
         twoBtnAlert.addActions([genericCancelAction, genericDoneAction])
         twoBtnAlert.show()
     }
@@ -64,7 +65,6 @@ class ExampleViewController: UIViewController {
         customStyleAlert.alertStyler.button.buttonContainerBackgroundColor = .black
         customStyleAlert.alertStyler.button.highlightTitleColor = .green
         customStyleAlert.alertStyler.button.selectedTitleColor = .yellow
-        customStyleAlert.alertStyler.button.textAlignment = .right
         
         customStyleAlert.alertStyler.cancelButton.backgroundColor = .brown
         customStyleAlert.alertStyler.cancelButton.highlightTitleColor = .blue
