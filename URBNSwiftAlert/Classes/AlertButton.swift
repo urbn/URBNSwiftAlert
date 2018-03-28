@@ -39,8 +39,7 @@ public class AlertButton: UIButton {
         backgroundColor = styler.buttonBackgroundColor(actionType: action.type, isEnabled: action.isEnabled)
         titleLabel?.font = styler.button.font
         titleLabel?.adjustsFontSizeToFitWidth = true
-        titleLabel?.numberOfLines = 0
-        titleLabel?.textAlignment = styler.button.textAlignment
+        titleLabel?.minimumScaleFactor = styler.button.minimumScaleFactor
         layer.cornerRadius = styler.button.cornerRadius
         layer.borderWidth = styler.button.borderWidth
         layer.borderColor = styler.button.borderColor.cgColor

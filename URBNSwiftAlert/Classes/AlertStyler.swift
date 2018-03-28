@@ -275,10 +275,10 @@ extension AlertStyler {
         public var alpha: CGFloat = 1.0
         
         /**
-         * Text alignment of a button's title label
+         * Minimum scale factor of a button's title label
          */
         
-        public var textAlignment: NSTextAlignment = .left
+        public var minimumScaleFactor: CGFloat = 0.5
     }
     
     public struct Animation {

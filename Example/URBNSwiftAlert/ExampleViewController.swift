@@ -21,7 +21,8 @@ class ExampleViewController: UIViewController {
     
     @objc func showTwoBtnAlert() {
         let twoBtnAlert = AlertViewController(title: wrappingTitle, message: shortMessage)
-        twoBtnAlert.alertStyler.button.textAlignment = .right
+        twoBtnAlert.alertStyler.button.minimumScaleFactor = 0.1
+        twoBtnAlert.alertStyler.button.font = UIFont(name: "AmericanTypewriter-Bold", size: 15)
         twoBtnAlert.addActions([genericCancelAction, genericDoneAction])
         twoBtnAlert.show()
     }
