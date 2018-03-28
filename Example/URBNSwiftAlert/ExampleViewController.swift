@@ -411,7 +411,7 @@ class ExampleCustomButtons: UIView, AlertButtonContainer {
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.imageView?.contentMode = .scaleAspectFit
         confirmButton = UIButton(type: .custom)
-        confirmButton.setTitle("Done", for: .normal)
+        confirmButton.setTitle("Done with extra text extra text extra text", for: .normal)
         confirmButton.imageView?.contentMode = .scaleAspectFit
         confirmButton.backgroundColor = .purple
         
