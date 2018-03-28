@@ -351,7 +351,7 @@ extension ExampleViewController {
     }
     
     var genericDoneAction: AlertAction {
-        return AlertAction(type: .normal, title: "Done") { (action) in
+        return AlertAction(type: .normal, title: "Done with extra text extra text extra text") { (action) in
             print("Done pressed")
         }
     }
@@ -411,7 +411,7 @@ class ExampleCustomButtons: UIView, AlertButtonContainer {
         cancelButton.setTitle("Cancel", for: .normal)
         cancelButton.imageView?.contentMode = .scaleAspectFit
         confirmButton = UIButton(type: .custom)
-        confirmButton.setTitle("Done with extra text extra text extra text", for: .normal)
+        confirmButton.setTitle("Done", for: .normal)
         confirmButton.imageView?.contentMode = .scaleAspectFit
         confirmButton.backgroundColor = .purple
         
