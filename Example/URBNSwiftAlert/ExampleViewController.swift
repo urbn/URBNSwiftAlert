@@ -21,6 +21,8 @@ class ExampleViewController: UIViewController {
     
     @objc func showTwoBtnAlert() {
         let twoBtnAlert = AlertViewController(title: wrappingTitle, message: shortMessage)
+        twoBtnAlert.alertStyler.button.minimumScaleFactor = 0.1
+        twoBtnAlert.alertStyler.button.font = UIFont(name: "AmericanTypewriter-Bold", size: 15)
         twoBtnAlert.addActions([genericCancelAction, genericDoneAction])
         twoBtnAlert.show()
     }
@@ -351,7 +353,7 @@ extension ExampleViewController {
     }
     
     var genericDoneAction: AlertAction {
-        return AlertAction(type: .normal, title: "Done") { (action) in
+        return AlertAction(type: .normal, title: "Done with extra text extra text extra text") { (action) in
             print("Done pressed")
         }
     }

@@ -273,6 +273,12 @@ extension AlertStyler {
          * Alpha value of a button
          */
         public var alpha: CGFloat = 1.0
+        
+        /**
+         * Minimum scale factor of a button's title label
+         */
+        
+        public var minimumScaleFactor: CGFloat = 0.5
     }
     
     public struct Animation {
