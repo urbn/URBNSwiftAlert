@@ -1,19 +1,23 @@
 PODS:
-  - URBNSwiftAlert (1.0):
+  - URBNSwiftAlert (1.3):
     - URBNSwiftyConvenience (~> 1.0)
   - URBNSwiftyConvenience (1.0)
 
 DEPENDENCIES:
   - URBNSwiftAlert (from `../`)
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - URBNSwiftyConvenience
+
 EXTERNAL SOURCES:
   URBNSwiftAlert:
-    :path: ../
+    :path: "../"
 
 SPEC CHECKSUMS:
-  URBNSwiftAlert: 52d542736b0be649142e8ebd4fb00758e1e99207
+  URBNSwiftAlert: c40b06b4d491faa825a435179964c50b6cbf2236
   URBNSwiftyConvenience: c348a56166f4bd599e8c700512d5f35c3c697e34
 
 PODFILE CHECKSUM: dad806117410cc8491b4e77cc5115e388ef493db
 
-COCOAPODS: 1.4.0
+COCOAPODS: 1.5.2
