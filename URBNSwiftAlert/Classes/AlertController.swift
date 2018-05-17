@@ -83,6 +83,13 @@ public class AlertController: NSObject {
         showNextAlert()
     }
     
+    /// Conveinence to close alerts that are visible or in queue
+    public func dismissAllAlerts() {
+        queue.forEach { (avc) in
+            avc.dismissAlert(sender: self)
+        }
+    }
+    
     @objc func dismiss(alertViewController: AlertViewController) {
         alertIsVisible = false
         alertViewController.dismissAlert(sender: self)
