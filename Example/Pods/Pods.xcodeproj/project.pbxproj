@@ -7,40 +7,40 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		109FF8D6BEDF984429CDFF8DC64196E4 /* URBNSwiftyConvenience-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 71F49F312A7ED8BF8F03534B8100BEE4 /* URBNSwiftyConvenience-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		173F490ACE77BB9079B860712BD412B0 /* URBNSwiftAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B994AC13D60A998AFE4B0D5E138D7C45 /* URBNSwiftAlert-dummy.m */; };
+		109FF8D6BEDF984429CDFF8DC64196E4 /* URBNSwiftyConvenience-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = FC352B4A1BC0FF574ADC68B7AA026641 /* URBNSwiftyConvenience-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		14FABDDA446ED3C4FE3BC5A9216CED5B /* Pods-URBNSwiftAlert_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 450A0DC5D77A188BAFF43AD40811B522 /* Pods-URBNSwiftAlert_Tests-dummy.m */; };
+		173F490ACE77BB9079B860712BD412B0 /* URBNSwiftAlert-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F8648151F5B4A2697406FB009AF2EFCD /* URBNSwiftAlert-dummy.m */; };
 		1A4AA771A90168D23A96A4F834DD5BD9 /* AlertViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C650D5E1AD510DDEEB31C6531E60127F /* AlertViewController.swift */; };
-		1C93DD9943780EF104A6844F6000C972 /* Pods-URBNSwiftAlert_Tests-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 1480522BEBD9CBF5E4CB35B187169D9A /* Pods-URBNSwiftAlert_Tests-dummy.m */; };
 		22CA1B6ED97DF3FCBEB5F9DA90E0163B /* AlertController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9A581375B1A0873D0834CD99F234225E /* AlertController.swift */; };
 		2EC361EF95D3559B6CC01CB0FBDBD7E0 /* URBNSwiftyConvenience.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4CD6F212E149AD89212AB2C97F2816C /* URBNSwiftyConvenience.framework */; };
 		33C39ACEDDAC3636FDCD49DADBDF9245 /* NotificationConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF98DEDBDDE819F54F21323220BDC00 /* NotificationConvenience.swift */; };
 		3AA806C7E0BE6B8E39566B64D82246B8 /* QRCodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9832F20DED16B2C913F736CB2594F10F /* QRCodeGenerator.swift */; };
 		42B8C6FBBE5D5BC1B5403D2911951CF0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */; };
+		5A48F2A9E555E93658CD10F9FF4632F5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */; };
 		5AD0FE0360E3BB5C52B2B69276E6BABA /* AlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB44A92FF809B416BC6ADE65932111CE /* AlertView.swift */; };
 		6430DEAA4E707F8801A0B85E68761B80 /* AlertStyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CCC59DD944A0D347CB5CB0095D8DC67 /* AlertStyler.swift */; };
 		6D42E969B1B55BC1FD4301F4FCDE191B /* UIViewAnchorConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = F6B3C8316871548C05801E379CA6CAC9 /* UIViewAnchorConvenience.swift */; };
-		6F06D5D473DE108F2EE785EDF9C8F519 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */; };
 		70D909577FF08063906CCBD0C15D3187 /* AlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 156BB6BFF36A224E7B5A59DDD9C4E135 /* AlertConfiguration.swift */; };
 		773ACB7D38A78C44D53D580EB4B47084 /* DateConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E33CB0A4DD107809FBB65FC117EE7992 /* DateConvenience.swift */; };
 		78288956AEF91C32DF88D9E79C00DFFE /* UIColorConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = E2774282F2A1A0AFDCAC19AA6C964D16 /* UIColorConvenience.swift */; };
 		79E7377DE7643D6EA821E5C43FFE741B /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */; };
-		9515CAC66881CDDA5DB69AAEE20EAE1F /* URBNSwiftAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 7141CDEA064CFD1CF4068431ED9600D9 /* URBNSwiftAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		90FD95A79F259782370E9CFE23D922A2 /* Pods-URBNSwiftAlert_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = C6B44FCA58E498D70C0741B81E28C226 /* Pods-URBNSwiftAlert_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9515CAC66881CDDA5DB69AAEE20EAE1F /* URBNSwiftAlert-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 48DE7AFF71093C9194F872F4F4CFAC67 /* URBNSwiftAlert-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		998DA805B70076692924C8E0C3A04466 /* AlertAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 31CBA97E0A562F81F6EF7C5899591AC5 /* AlertAction.swift */; };
 		9D37AA0C3D0C34A496EDAEC544F84D38 /* AlertButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557451DD37F31EAAC1373976DEF30CB2 /* AlertButton.swift */; };
 		A9F8BE30B2BBAFFFE8B4A45B543C6678 /* AssociatedKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3CD9602F1FD1CEA6615C7B558DD572A6 /* AssociatedKey.swift */; };
 		AB31AB86FEFB064B5E42FA1A3AA4FE36 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */; };
-		B3228D711EA8EA186FD556AFB8449ABF /* URBNSwiftyConvenience-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AFA67CF9551946AFE341061F141D881 /* URBNSwiftyConvenience-dummy.m */; };
+		B3228D711EA8EA186FD556AFB8449ABF /* URBNSwiftyConvenience-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 896C0FB6A681CDFB60FBE3074B35F155 /* URBNSwiftyConvenience-dummy.m */; };
 		BB2160882EE5D4E22E8D51DED59B90C9 /* LayoutConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 419ABCF6779290E40209876B654144E5 /* LayoutConvenience.swift */; };
 		C06C0166C19A6ED95FAE377DFEDE6022 /* UIImageConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B563ED0DE872C7C4F12FD505AF8031E /* UIImageConvenience.swift */; };
-		C2D7F26DB9995E4BE765C462D57CB77E /* Pods-URBNSwiftAlert_Tests-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = A2D4BA079E4563451629D0D64AB704E7 /* Pods-URBNSwiftAlert_Tests-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		D37FABA7C3F88029E046F9FE5D3235CF /* Pods-URBNSwiftAlert_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = CDCAF0EAB21DC6610368C2A868FD015B /* Pods-URBNSwiftAlert_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D37FABA7C3F88029E046F9FE5D3235CF /* Pods-URBNSwiftAlert_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 0EFE0B3A4C08EE70EFDE89E6A201CA3F /* Pods-URBNSwiftAlert_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		D51F6E1B6653DB49D47390EEEC819DDA /* Border.swift in Sources */ = {isa = PBXBuildFile; fileRef = C68B9F741991B59FA0B9D11BF2D0D14E /* Border.swift */; };
 		DDFF329D60B973A368B5EBEFF08190E7 /* DictionaryConvenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9062AD13A942CC7B49BF3043A07E3C6E /* DictionaryConvenience.swift */; };
 		E2849BD31F27D8F155D2D0FE368D68DF /* CollectionViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCBA3942F5ACAAB4C3E11527D033191B /* CollectionViewHelpers.swift */; };
 		ED1CDFD9EEB8348278F699A358B34670 /* UIView+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93D27654104A79E1623E32251B52C071 /* UIView+Additions.swift */; };
 		F0E7F9B222B8C8F1DDAB8A4AD042D674 /* UIImage+Blur.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6D2AE57B33329E1EF19DA3148AA0D6D /* UIImage+Blur.swift */; };
 		F2615D9773859170BA5C8650930D6EE7 /* Geometry+Additions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94515A50F9FEC473723452D12A29C713 /* Geometry+Additions.swift */; };
-		F272CA70EDE89F3C951AFEA59257F204 /* Pods-URBNSwiftAlert_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 54DB625624D69B075A95C8A269B8A10F /* Pods-URBNSwiftAlert_Example-dummy.m */; };
+		F272CA70EDE89F3C951AFEA59257F204 /* Pods-URBNSwiftAlert_Example-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = F23DA8239BEFF36B67430810CC9850E9 /* Pods-URBNSwiftAlert_Example-dummy.m */; };
 		F7DEE3C2F1E5BD6E3455D80B9AC1B10A /* ResultType.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAA03999A3B787409F0555D89934C3D6 /* ResultType.swift */; };
 		FB1FD06DC2B3D4382C273E74F970589A /* TableViewHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7B088AFC2A566717FD247C31846A85D /* TableViewHelpers.swift */; };
 		FB8FC5016530BE89151A47AB025D07AC /* SearchableProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2AA31E20C8B415A339C7E92F7BC892 /* SearchableProtocol.swift */; };
@@ -68,41 +68,49 @@
 			remoteGlobalIDString = 6E82FCC0E6F69BAD679120E69545E913;
 			remoteInfo = URBNSwiftAlert;
 		};
+		E8A461D0B6E7E1FCB7754B9414B28C34 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 064B86968930C72694420CADFEBF6BDD;
+			remoteInfo = "Pods-URBNSwiftAlert_Example";
+		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1290278BF911609592F32F66D7807D91 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		1480522BEBD9CBF5E4CB35B187169D9A /* Pods-URBNSwiftAlert_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-URBNSwiftAlert_Tests-dummy.m"; sourceTree = "<group>"; };
+		0EFE0B3A4C08EE70EFDE89E6A201CA3F /* Pods-URBNSwiftAlert_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftAlert_Example-umbrella.h"; sourceTree = "<group>"; };
+		11AF3AE53C285AD06206221DD70ED9D4 /* Pods-URBNSwiftAlert_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Example-resources.sh"; sourceTree = "<group>"; };
 		156BB6BFF36A224E7B5A59DDD9C4E135 /* AlertConfiguration.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertConfiguration.swift; path = URBNSwiftAlert/Classes/AlertConfiguration.swift; sourceTree = "<group>"; };
-		1BC35B0A99F0B47823A16A3CD238CAE6 /* Pods-URBNSwiftAlert_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Tests-frameworks.sh"; sourceTree = "<group>"; };
-		25EA164E196F63C3DCA46D9DD483A493 /* URBNSwiftAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftAlert.xcconfig; sourceTree = "<group>"; };
+		1FB276FF7C17AAC94E962E94802DEE7E /* Pods-URBNSwiftAlert_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-URBNSwiftAlert_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
+		22EAB06969D7391FEEA2DC285F44C064 /* URBNSwiftyConvenience.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = URBNSwiftyConvenience.modulemap; sourceTree = "<group>"; };
+		279A22ED0B48A2D248DECD64167F9A4C /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2F04E76AE52D345F0F8F729CA52399CD /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		31CBA97E0A562F81F6EF7C5899591AC5 /* AlertAction.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertAction.swift; path = URBNSwiftAlert/Classes/AlertAction.swift; sourceTree = "<group>"; };
-		39A73B699CAF82424CA87EDD917C955A /* Pods-URBNSwiftAlert_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftAlert_Example-acknowledgements.plist"; sourceTree = "<group>"; };
-		3A91F4F4A0DDBE27528B6FB374E849FF /* Pods-URBNSwiftAlert_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-URBNSwiftAlert_Tests.modulemap"; sourceTree = "<group>"; };
+		3255127C241CAD53AF71DB8107460C5E /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		3CD9602F1FD1CEA6615C7B558DD572A6 /* AssociatedKey.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AssociatedKey.swift; path = URBNSwiftyConvenience/Classes/AssociatedKey.swift; sourceTree = "<group>"; };
+		40B7029F3C01B12A45134C45BC6E2642 /* Pods-URBNSwiftAlert_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Example-frameworks.sh"; sourceTree = "<group>"; };
 		419ABCF6779290E40209876B654144E5 /* LayoutConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = LayoutConvenience.swift; path = URBNSwiftyConvenience/Classes/LayoutConvenience.swift; sourceTree = "<group>"; };
-		4572BBE63A3B45C14337B21F80380C98 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		450A0DC5D77A188BAFF43AD40811B522 /* Pods-URBNSwiftAlert_Tests-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-URBNSwiftAlert_Tests-dummy.m"; sourceTree = "<group>"; };
 		47C91BE10976CB51A97C70563C44C0CF /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		4AFA67CF9551946AFE341061F141D881 /* URBNSwiftyConvenience-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftyConvenience-dummy.m"; sourceTree = "<group>"; };
-		507A46E4E676A3E0FBA3A1345C54A124 /* Pods-URBNSwiftAlert_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Tests-resources.sh"; sourceTree = "<group>"; };
-		50F9AFF32A4108E05EA79206946D24BB /* Pods-URBNSwiftAlert_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-URBNSwiftAlert_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
-		54DB625624D69B075A95C8A269B8A10F /* Pods-URBNSwiftAlert_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-URBNSwiftAlert_Example-dummy.m"; sourceTree = "<group>"; };
+		48DE7AFF71093C9194F872F4F4CFAC67 /* URBNSwiftAlert-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftAlert-umbrella.h"; sourceTree = "<group>"; };
+		4A54D6C62FD123A45281F3C9374211ED /* URBNSwiftyConvenience-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftyConvenience-prefix.pch"; sourceTree = "<group>"; };
+		4BA621166EBEDA9F2F6C5AEAF0C289D5 /* Pods-URBNSwiftAlert_Tests-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Tests-resources.sh"; sourceTree = "<group>"; };
+		4E9B0B7AC627B3B7F8C2ACC259D23032 /* Pods-URBNSwiftAlert_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftAlert_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		557451DD37F31EAAC1373976DEF30CB2 /* AlertButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertButton.swift; path = URBNSwiftAlert/Classes/AlertButton.swift; sourceTree = "<group>"; };
+		63D723C83537BA99C3EE36CA2908B820 /* Pods-URBNSwiftAlert_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-URBNSwiftAlert_Tests.modulemap"; sourceTree = "<group>"; };
+		65A035856CC9419DA38872F84F7B2000 /* Pods-URBNSwiftAlert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Tests.release.xcconfig"; sourceTree = "<group>"; };
 		6A4C7F26B82BF2BC2BB9D2CDA3C5CCC2 /* URBNSwiftAlert.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = URBNSwiftAlert.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6B563ED0DE872C7C4F12FD505AF8031E /* UIImageConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageConvenience.swift; path = URBNSwiftyConvenience/Classes/UIImageConvenience.swift; sourceTree = "<group>"; };
 		6BF98DEDBDDE819F54F21323220BDC00 /* NotificationConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotificationConvenience.swift; path = URBNSwiftyConvenience/Classes/NotificationConvenience.swift; sourceTree = "<group>"; };
-		7141CDEA064CFD1CF4068431ED9600D9 /* URBNSwiftAlert-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftAlert-umbrella.h"; sourceTree = "<group>"; };
-		71F017F449F5C3E84AE6FD7730DF704F /* URBNSwiftAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = URBNSwiftAlert.modulemap; sourceTree = "<group>"; };
-		71F49F312A7ED8BF8F03534B8100BEE4 /* URBNSwiftyConvenience-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftyConvenience-umbrella.h"; sourceTree = "<group>"; };
-		72B2022692C44461387698C7BB17B2DC /* Pods-URBNSwiftAlert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		7C9C1942A2BF9D75DCDF19C00CED5266 /* Pods-URBNSwiftAlert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		6ED573FA44E134BA6FDCF55CF33E2E29 /* Pods-URBNSwiftAlert_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftAlert_Example-acknowledgements.plist"; sourceTree = "<group>"; };
+		6FB83A8B80B71FB19309A02EF4A13EAD /* URBNSwiftAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = URBNSwiftAlert.modulemap; sourceTree = "<group>"; };
 		7F0E72CAEDC244CEA4C9FC316778D9CD /* Pods_URBNSwiftAlert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_URBNSwiftAlert_Tests.framework; path = "Pods-URBNSwiftAlert_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		7FEFE9EB11E528BE1D91D2FC05644918 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		823FA64861B7C4B71D522BBD14CA9975 /* Pods_URBNSwiftAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_URBNSwiftAlert_Example.framework; path = "Pods-URBNSwiftAlert_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
-		8443691795CC9DBE8D0135A74555DC9A /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		849E23651E2915C76AA5FACFEC3D06E0 /* URBNSwiftyConvenience.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftyConvenience.xcconfig; sourceTree = "<group>"; };
-		8E64188A0889300F365460460B1858C1 /* Pods-URBNSwiftAlert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Example.release.xcconfig"; sourceTree = "<group>"; };
+		8956F2A85AC80F3F873F28582423064F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		896C0FB6A681CDFB60FBE3074B35F155 /* URBNSwiftyConvenience-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftyConvenience-dummy.m"; sourceTree = "<group>"; };
+		8C698B1D61D1AF25AA5615AF09330124 /* Pods-URBNSwiftAlert_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9062AD13A942CC7B49BF3043A07E3C6E /* DictionaryConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DictionaryConvenience.swift; path = URBNSwiftyConvenience/Classes/DictionaryConvenience.swift; sourceTree = "<group>"; };
+		932A59FDB648512C051A733B05D96562 /* URBNSwiftAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftAlert.xcconfig; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93D27654104A79E1623E32251B52C071 /* UIView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Additions.swift"; path = "URBNSwiftyConvenience/Classes/UIView+Additions.swift"; sourceTree = "<group>"; };
 		94515A50F9FEC473723452D12A29C713 /* Geometry+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Geometry+Additions.swift"; path = "URBNSwiftyConvenience/Classes/Geometry+Additions.swift"; sourceTree = "<group>"; };
@@ -111,32 +119,31 @@
 		9A581375B1A0873D0834CD99F234225E /* AlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = URBNSwiftAlert/Classes/AlertController.swift; sourceTree = "<group>"; };
 		9CCC59DD944A0D347CB5CB0095D8DC67 /* AlertStyler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertStyler.swift; path = URBNSwiftAlert/Classes/AlertStyler.swift; sourceTree = "<group>"; };
 		9EFB9F2D15C7833B7F4D5DEF053BF4F2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
-		A019E5742312C0B32E553BC467B81AD3 /* URBNSwiftyConvenience-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftyConvenience-prefix.pch"; sourceTree = "<group>"; };
-		A2D4BA079E4563451629D0D64AB704E7 /* Pods-URBNSwiftAlert_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftAlert_Tests-umbrella.h"; sourceTree = "<group>"; };
-		AF713127BF824194DB20959836D2161E /* URBNSwiftyConvenience.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = URBNSwiftyConvenience.modulemap; sourceTree = "<group>"; };
+		9EFFE084ACB76B975B6F20FF2EC56320 /* Pods-URBNSwiftAlert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Example.debug.xcconfig"; sourceTree = "<group>"; };
+		A532C7654816D9F9799AD2A656E8903D /* Pods-URBNSwiftAlert_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-URBNSwiftAlert_Example.modulemap"; sourceTree = "<group>"; };
 		B0F87F4F6D6C63D99B7E765200B5A28E /* URBNSwiftAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = URBNSwiftAlert.framework; path = URBNSwiftAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B30398F7998C42B2C3461EC8800B9705 /* Pods-URBNSwiftAlert_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		B287654D7621DA47F5BA763DBE8CCE8A /* URBNSwiftyConvenience.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftyConvenience.xcconfig; sourceTree = "<group>"; };
 		B3AF6141316697112E1FE9603811A788 /* URBNSwiftyConvenience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = URBNSwiftyConvenience.framework; path = URBNSwiftyConvenience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B3FCB183DEA978688C0ED24840FD605E /* URBNSwiftAlert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftAlert-prefix.pch"; sourceTree = "<group>"; };
 		B6D2AE57B33329E1EF19DA3148AA0D6D /* UIImage+Blur.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Blur.swift"; path = "URBNSwiftAlert/Classes/UIImage+Blur.swift"; sourceTree = "<group>"; };
-		B994AC13D60A998AFE4B0D5E138D7C45 /* URBNSwiftAlert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftAlert-dummy.m"; sourceTree = "<group>"; };
-		BD3670FCD63DB1321EB5F12F11790C68 /* Pods-URBNSwiftAlert_Example-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-URBNSwiftAlert_Example-acknowledgements.markdown"; sourceTree = "<group>"; };
 		C650D5E1AD510DDEEB31C6531E60127F /* AlertViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertViewController.swift; path = URBNSwiftAlert/Classes/AlertViewController.swift; sourceTree = "<group>"; };
 		C68B9F741991B59FA0B9D11BF2D0D14E /* Border.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Border.swift; path = URBNSwiftyConvenience/Classes/Border.swift; sourceTree = "<group>"; };
+		C6B44FCA58E498D70C0741B81E28C226 /* Pods-URBNSwiftAlert_Tests-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftAlert_Tests-umbrella.h"; sourceTree = "<group>"; };
 		CCBA3942F5ACAAB4C3E11527D033191B /* CollectionViewHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = CollectionViewHelpers.swift; path = URBNSwiftyConvenience/Classes/CollectionViewHelpers.swift; sourceTree = "<group>"; };
-		CDCAF0EAB21DC6610368C2A868FD015B /* Pods-URBNSwiftAlert_Example-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-URBNSwiftAlert_Example-umbrella.h"; sourceTree = "<group>"; };
 		D7B088AFC2A566717FD247C31846A85D /* TableViewHelpers.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = TableViewHelpers.swift; path = URBNSwiftyConvenience/Classes/TableViewHelpers.swift; sourceTree = "<group>"; };
 		DAA03999A3B787409F0555D89934C3D6 /* ResultType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ResultType.swift; path = URBNSwiftyConvenience/Classes/ResultType.swift; sourceTree = "<group>"; };
-		DB4CCDE4EBF0131352AEF2EC9A928F03 /* Pods-URBNSwiftAlert_Example-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Example-frameworks.sh"; sourceTree = "<group>"; };
-		DD8FD8BC7CD00C66946CBF4B71EA247C /* Pods-URBNSwiftAlert_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftAlert_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
+		E1BD5E00430236353D65C0BC4BCCB862 /* Pods-URBNSwiftAlert_Tests-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-URBNSwiftAlert_Tests-acknowledgements.markdown"; sourceTree = "<group>"; };
 		E2774282F2A1A0AFDCAC19AA6C964D16 /* UIColorConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIColorConvenience.swift; path = URBNSwiftyConvenience/Classes/UIColorConvenience.swift; sourceTree = "<group>"; };
 		E33CB0A4DD107809FBB65FC117EE7992 /* DateConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DateConvenience.swift; path = URBNSwiftyConvenience/Classes/DateConvenience.swift; sourceTree = "<group>"; };
-		E3AD6AC84046D085C6C6EF577C039B7C /* Pods-URBNSwiftAlert_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-URBNSwiftAlert_Example.modulemap"; sourceTree = "<group>"; };
 		E4CD6F212E149AD89212AB2C97F2816C /* URBNSwiftyConvenience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URBNSwiftyConvenience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EC0FF540DD7D19451AA826B846A7901A /* URBNSwiftAlert-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftAlert-prefix.pch"; sourceTree = "<group>"; };
+		F23DA8239BEFF36B67430810CC9850E9 /* Pods-URBNSwiftAlert_Example-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-URBNSwiftAlert_Example-dummy.m"; sourceTree = "<group>"; };
+		F2C516545B8F7F6DFAD99F84E16097CE /* Pods-URBNSwiftAlert_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Example.release.xcconfig"; sourceTree = "<group>"; };
 		F6B3C8316871548C05801E379CA6CAC9 /* UIViewAnchorConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIViewAnchorConvenience.swift; path = URBNSwiftyConvenience/Classes/UIViewAnchorConvenience.swift; sourceTree = "<group>"; };
-		F807CE141BA4B1AB2FCAF3E7F828FD67 /* Pods-URBNSwiftAlert_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Example-resources.sh"; sourceTree = "<group>"; };
+		F8648151F5B4A2697406FB009AF2EFCD /* URBNSwiftAlert-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftAlert-dummy.m"; sourceTree = "<group>"; };
 		FB2AA31E20C8B415A339C7E92F7BC892 /* SearchableProtocol.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SearchableProtocol.swift; path = URBNSwiftyConvenience/Classes/SearchableProtocol.swift; sourceTree = "<group>"; };
 		FB44A92FF809B416BC6ADE65932111CE /* AlertView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertView.swift; path = URBNSwiftAlert/Classes/AlertView.swift; sourceTree = "<group>"; };
+		FBAECB79E9D8318447A2B09CA728038F /* Pods-URBNSwiftAlert_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-URBNSwiftAlert_Tests-frameworks.sh"; sourceTree = "<group>"; };
+		FC352B4A1BC0FF574ADC68B7AA026641 /* URBNSwiftyConvenience-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "URBNSwiftyConvenience-umbrella.h"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,14 +152,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				42B8C6FBBE5D5BC1B5403D2911951CF0 /* Foundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		903EBB270AB9DB20191E038BF35C4851 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				6F06D5D473DE108F2EE785EDF9C8F519 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -173,6 +172,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		ED8FFC71019E00F8303F22EB9057F81F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5A48F2A9E555E93658CD10F9FF4632F5 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -184,27 +191,63 @@
 			name = "Development Pods";
 			sourceTree = "<group>";
 		};
-		14B3DCB0CEC100C54B3AC6EE2C35BAC5 /* Support Files */ = {
+		3329114AEA25F745F1BD2D520E8135B6 /* Pods-URBNSwiftAlert_Example */ = {
 			isa = PBXGroup;
 			children = (
-				7FEFE9EB11E528BE1D91D2FC05644918 /* Info.plist */,
-				71F017F449F5C3E84AE6FD7730DF704F /* URBNSwiftAlert.modulemap */,
-				25EA164E196F63C3DCA46D9DD483A493 /* URBNSwiftAlert.xcconfig */,
-				B994AC13D60A998AFE4B0D5E138D7C45 /* URBNSwiftAlert-dummy.m */,
-				B3FCB183DEA978688C0ED24840FD605E /* URBNSwiftAlert-prefix.pch */,
-				7141CDEA064CFD1CF4068431ED9600D9 /* URBNSwiftAlert-umbrella.h */,
+				8956F2A85AC80F3F873F28582423064F /* Info.plist */,
+				A532C7654816D9F9799AD2A656E8903D /* Pods-URBNSwiftAlert_Example.modulemap */,
+				1FB276FF7C17AAC94E962E94802DEE7E /* Pods-URBNSwiftAlert_Example-acknowledgements.markdown */,
+				6ED573FA44E134BA6FDCF55CF33E2E29 /* Pods-URBNSwiftAlert_Example-acknowledgements.plist */,
+				F23DA8239BEFF36B67430810CC9850E9 /* Pods-URBNSwiftAlert_Example-dummy.m */,
+				40B7029F3C01B12A45134C45BC6E2642 /* Pods-URBNSwiftAlert_Example-frameworks.sh */,
+				11AF3AE53C285AD06206221DD70ED9D4 /* Pods-URBNSwiftAlert_Example-resources.sh */,
+				0EFE0B3A4C08EE70EFDE89E6A201CA3F /* Pods-URBNSwiftAlert_Example-umbrella.h */,
+				9EFFE084ACB76B975B6F20FF2EC56320 /* Pods-URBNSwiftAlert_Example.debug.xcconfig */,
+				F2C516545B8F7F6DFAD99F84E16097CE /* Pods-URBNSwiftAlert_Example.release.xcconfig */,
 			);
-			name = "Support Files";
-			path = "Example/Pods/Target Support Files/URBNSwiftAlert";
+			name = "Pods-URBNSwiftAlert_Example";
+			path = "Target Support Files/Pods-URBNSwiftAlert_Example";
+			sourceTree = "<group>";
+		};
+		356FC9A65CCDA289234680B8045D035F /* Pods-URBNSwiftAlert_Tests */ = {
+			isa = PBXGroup;
+			children = (
+				3255127C241CAD53AF71DB8107460C5E /* Info.plist */,
+				63D723C83537BA99C3EE36CA2908B820 /* Pods-URBNSwiftAlert_Tests.modulemap */,
+				E1BD5E00430236353D65C0BC4BCCB862 /* Pods-URBNSwiftAlert_Tests-acknowledgements.markdown */,
+				4E9B0B7AC627B3B7F8C2ACC259D23032 /* Pods-URBNSwiftAlert_Tests-acknowledgements.plist */,
+				450A0DC5D77A188BAFF43AD40811B522 /* Pods-URBNSwiftAlert_Tests-dummy.m */,
+				FBAECB79E9D8318447A2B09CA728038F /* Pods-URBNSwiftAlert_Tests-frameworks.sh */,
+				4BA621166EBEDA9F2F6C5AEAF0C289D5 /* Pods-URBNSwiftAlert_Tests-resources.sh */,
+				C6B44FCA58E498D70C0741B81E28C226 /* Pods-URBNSwiftAlert_Tests-umbrella.h */,
+				8C698B1D61D1AF25AA5615AF09330124 /* Pods-URBNSwiftAlert_Tests.debug.xcconfig */,
+				65A035856CC9419DA38872F84F7B2000 /* Pods-URBNSwiftAlert_Tests.release.xcconfig */,
+			);
+			name = "Pods-URBNSwiftAlert_Tests";
+			path = "Target Support Files/Pods-URBNSwiftAlert_Tests";
 			sourceTree = "<group>";
 		};
 		5A5870B94DA9A815F2CC3EB2F0E694F2 /* Targets Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C50B2A420FE5D9F6758CF13D2B8AFCA2 /* Pods-URBNSwiftAlert_Example */,
-				CFE2102D2B160A3ADD8CFDF3EF3864B2 /* Pods-URBNSwiftAlert_Tests */,
+				3329114AEA25F745F1BD2D520E8135B6 /* Pods-URBNSwiftAlert_Example */,
+				356FC9A65CCDA289234680B8045D035F /* Pods-URBNSwiftAlert_Tests */,
 			);
 			name = "Targets Support Files";
+			sourceTree = "<group>";
+		};
+		7842FA2CD368A89462EC0AEBBD5CB6CF /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				279A22ED0B48A2D248DECD64167F9A4C /* Info.plist */,
+				6FB83A8B80B71FB19309A02EF4A13EAD /* URBNSwiftAlert.modulemap */,
+				932A59FDB648512C051A733B05D96562 /* URBNSwiftAlert.xcconfig */,
+				F8648151F5B4A2697406FB009AF2EFCD /* URBNSwiftAlert-dummy.m */,
+				EC0FF540DD7D19451AA826B846A7901A /* URBNSwiftAlert-prefix.pch */,
+				48DE7AFF71093C9194F872F4F4CFAC67 /* URBNSwiftAlert-umbrella.h */,
+			);
+			name = "Support Files";
+			path = "Example/Pods/Target Support Files/URBNSwiftAlert";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -239,7 +282,7 @@
 				C650D5E1AD510DDEEB31C6531E60127F /* AlertViewController.swift */,
 				B6D2AE57B33329E1EF19DA3148AA0D6D /* UIImage+Blur.swift */,
 				B2018A1EC86EB403BC2745631BBB2C4C /* Pod */,
-				14B3DCB0CEC100C54B3AC6EE2C35BAC5 /* Support Files */,
+				7842FA2CD368A89462EC0AEBBD5CB6CF /* Support Files */,
 			);
 			name = URBNSwiftAlert;
 			path = ../..;
@@ -283,54 +326,18 @@
 			name = Pod;
 			sourceTree = "<group>";
 		};
-		C50B2A420FE5D9F6758CF13D2B8AFCA2 /* Pods-URBNSwiftAlert_Example */ = {
+		B5A5C9D6E1F5A83E6C583921B8DB1DA7 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				1290278BF911609592F32F66D7807D91 /* Info.plist */,
-				E3AD6AC84046D085C6C6EF577C039B7C /* Pods-URBNSwiftAlert_Example.modulemap */,
-				BD3670FCD63DB1321EB5F12F11790C68 /* Pods-URBNSwiftAlert_Example-acknowledgements.markdown */,
-				39A73B699CAF82424CA87EDD917C955A /* Pods-URBNSwiftAlert_Example-acknowledgements.plist */,
-				54DB625624D69B075A95C8A269B8A10F /* Pods-URBNSwiftAlert_Example-dummy.m */,
-				DB4CCDE4EBF0131352AEF2EC9A928F03 /* Pods-URBNSwiftAlert_Example-frameworks.sh */,
-				F807CE141BA4B1AB2FCAF3E7F828FD67 /* Pods-URBNSwiftAlert_Example-resources.sh */,
-				CDCAF0EAB21DC6610368C2A868FD015B /* Pods-URBNSwiftAlert_Example-umbrella.h */,
-				7C9C1942A2BF9D75DCDF19C00CED5266 /* Pods-URBNSwiftAlert_Example.debug.xcconfig */,
-				8E64188A0889300F365460460B1858C1 /* Pods-URBNSwiftAlert_Example.release.xcconfig */,
-			);
-			name = "Pods-URBNSwiftAlert_Example";
-			path = "Target Support Files/Pods-URBNSwiftAlert_Example";
-			sourceTree = "<group>";
-		};
-		CC88D643DB0EB46074B7E470B21BD8AF /* Support Files */ = {
-			isa = PBXGroup;
-			children = (
-				8443691795CC9DBE8D0135A74555DC9A /* Info.plist */,
-				AF713127BF824194DB20959836D2161E /* URBNSwiftyConvenience.modulemap */,
-				849E23651E2915C76AA5FACFEC3D06E0 /* URBNSwiftyConvenience.xcconfig */,
-				4AFA67CF9551946AFE341061F141D881 /* URBNSwiftyConvenience-dummy.m */,
-				A019E5742312C0B32E553BC467B81AD3 /* URBNSwiftyConvenience-prefix.pch */,
-				71F49F312A7ED8BF8F03534B8100BEE4 /* URBNSwiftyConvenience-umbrella.h */,
+				2F04E76AE52D345F0F8F729CA52399CD /* Info.plist */,
+				22EAB06969D7391FEEA2DC285F44C064 /* URBNSwiftyConvenience.modulemap */,
+				B287654D7621DA47F5BA763DBE8CCE8A /* URBNSwiftyConvenience.xcconfig */,
+				896C0FB6A681CDFB60FBE3074B35F155 /* URBNSwiftyConvenience-dummy.m */,
+				4A54D6C62FD123A45281F3C9374211ED /* URBNSwiftyConvenience-prefix.pch */,
+				FC352B4A1BC0FF574ADC68B7AA026641 /* URBNSwiftyConvenience-umbrella.h */,
 			);
 			name = "Support Files";
 			path = "../Target Support Files/URBNSwiftyConvenience";
-			sourceTree = "<group>";
-		};
-		CFE2102D2B160A3ADD8CFDF3EF3864B2 /* Pods-URBNSwiftAlert_Tests */ = {
-			isa = PBXGroup;
-			children = (
-				4572BBE63A3B45C14337B21F80380C98 /* Info.plist */,
-				3A91F4F4A0DDBE27528B6FB374E849FF /* Pods-URBNSwiftAlert_Tests.modulemap */,
-				50F9AFF32A4108E05EA79206946D24BB /* Pods-URBNSwiftAlert_Tests-acknowledgements.markdown */,
-				DD8FD8BC7CD00C66946CBF4B71EA247C /* Pods-URBNSwiftAlert_Tests-acknowledgements.plist */,
-				1480522BEBD9CBF5E4CB35B187169D9A /* Pods-URBNSwiftAlert_Tests-dummy.m */,
-				1BC35B0A99F0B47823A16A3CD238CAE6 /* Pods-URBNSwiftAlert_Tests-frameworks.sh */,
-				507A46E4E676A3E0FBA3A1345C54A124 /* Pods-URBNSwiftAlert_Tests-resources.sh */,
-				A2D4BA079E4563451629D0D64AB704E7 /* Pods-URBNSwiftAlert_Tests-umbrella.h */,
-				B30398F7998C42B2C3461EC8800B9705 /* Pods-URBNSwiftAlert_Tests.debug.xcconfig */,
-				72B2022692C44461387698C7BB17B2DC /* Pods-URBNSwiftAlert_Tests.release.xcconfig */,
-			);
-			name = "Pods-URBNSwiftAlert_Tests";
-			path = "Target Support Files/Pods-URBNSwiftAlert_Tests";
 			sourceTree = "<group>";
 		};
 		FA07D22837CFA6C2309879F5788B03FE /* URBNSwiftyConvenience */ = {
@@ -352,7 +359,7 @@
 				6B563ED0DE872C7C4F12FD505AF8031E /* UIImageConvenience.swift */,
 				93D27654104A79E1623E32251B52C071 /* UIView+Additions.swift */,
 				F6B3C8316871548C05801E379CA6CAC9 /* UIViewAnchorConvenience.swift */,
-				CC88D643DB0EB46074B7E470B21BD8AF /* Support Files */,
+				B5A5C9D6E1F5A83E6C583921B8DB1DA7 /* Support Files */,
 			);
 			name = URBNSwiftyConvenience;
 			path = URBNSwiftyConvenience;
@@ -361,14 +368,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		1E4351A87F808CC9494686068DA9312A /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				C2D7F26DB9995E4BE765C462D57CB77E /* Pods-URBNSwiftAlert_Tests-umbrella.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		477E5A2C45FD16BE9F1653027EE98C21 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -382,6 +381,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				D37FABA7C3F88029E046F9FE5D3235CF /* Pods-URBNSwiftAlert_Example-umbrella.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8E2D765C1EECAD9FE5B1A5464A7BC469 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				90FD95A79F259782370E9CFE23D922A2 /* Pods-URBNSwiftAlert_Tests-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +420,24 @@
 			name = "Pods-URBNSwiftAlert_Example";
 			productName = "Pods-URBNSwiftAlert_Example";
 			productReference = 823FA64861B7C4B71D522BBD14CA9975 /* Pods_URBNSwiftAlert_Example.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		3A9DEA85A359739802595A1A1E22C05F /* Pods-URBNSwiftAlert_Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 6544A4E513AD2F5DBA401DF2A378D1EF /* Build configuration list for PBXNativeTarget "Pods-URBNSwiftAlert_Tests" */;
+			buildPhases = (
+				C52674F9FFB7AC0477B4E9DA2063EC29 /* Sources */,
+				ED8FFC71019E00F8303F22EB9057F81F /* Frameworks */,
+				8E2D765C1EECAD9FE5B1A5464A7BC469 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A968AD5C46A9A94889FD87CEA01200ED /* PBXTargetDependency */,
+			);
+			name = "Pods-URBNSwiftAlert_Tests";
+			productName = "Pods-URBNSwiftAlert_Tests";
+			productReference = 7F0E72CAEDC244CEA4C9FC316778D9CD /* Pods_URBNSwiftAlert_Tests.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		6E82FCC0E6F69BAD679120E69545E913 /* URBNSwiftAlert */ = {
@@ -450,31 +475,14 @@
 			productReference = B3AF6141316697112E1FE9603811A788 /* URBNSwiftyConvenience.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		E4BD512599FE7BA58714C402F2F3A3B9 /* Pods-URBNSwiftAlert_Tests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = B7A395D5A97EE2D32D2569B19F239232 /* Build configuration list for PBXNativeTarget "Pods-URBNSwiftAlert_Tests" */;
-			buildPhases = (
-				E7F6CAA5C19C1E7261961183EFE2528F /* Sources */,
-				903EBB270AB9DB20191E038BF35C4851 /* Frameworks */,
-				1E4351A87F808CC9494686068DA9312A /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = "Pods-URBNSwiftAlert_Tests";
-			productName = "Pods-URBNSwiftAlert_Tests";
-			productReference = 7F0E72CAEDC244CEA4C9FC316778D9CD /* Pods_URBNSwiftAlert_Tests.framework */;
-			productType = "com.apple.product-type.framework";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
 		D41D8CD98F00B204E9800998ECF8427E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0830;
-				LastUpgradeCheck = 0700;
+				LastSwiftUpdateCheck = 0930;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -489,7 +497,7 @@
 			projectRoot = "";
 			targets = (
 				064B86968930C72694420CADFEBF6BDD /* Pods-URBNSwiftAlert_Example */,
-				E4BD512599FE7BA58714C402F2F3A3B9 /* Pods-URBNSwiftAlert_Tests */,
+				3A9DEA85A359739802595A1A1E22C05F /* Pods-URBNSwiftAlert_Tests */,
 				6E82FCC0E6F69BAD679120E69545E913 /* URBNSwiftAlert */,
 				9EBB5AFD5A55B1CE1FC9A04EDC90DDC5 /* URBNSwiftyConvenience */,
 			);
@@ -545,11 +553,11 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E7F6CAA5C19C1E7261961183EFE2528F /* Sources */ = {
+		C52674F9FFB7AC0477B4E9DA2063EC29 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1C93DD9943780EF104A6844F6000C972 /* Pods-URBNSwiftAlert_Tests-dummy.m in Sources */,
+				14FABDDA446ED3C4FE3BC5A9216CED5B /* Pods-URBNSwiftAlert_Tests-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +576,12 @@
 			target = 6E82FCC0E6F69BAD679120E69545E913 /* URBNSwiftAlert */;
 			targetProxy = 9B7BC22F83FC1EC56E3C68CE866852DD /* PBXContainerItemProxy */;
 		};
+		A968AD5C46A9A94889FD87CEA01200ED /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Pods-URBNSwiftAlert_Example";
+			target = 064B86968930C72694420CADFEBF6BDD /* Pods-URBNSwiftAlert_Example */;
+			targetProxy = E8A461D0B6E7E1FCB7754B9414B28C34 /* PBXContainerItemProxy */;
+		};
 		C44CA34A0BF5012EE3D788BCE6278DEB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = URBNSwiftyConvenience;
@@ -577,41 +591,12 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		01968E2529638858D631D47CDCD83D56 /* Debug */ = {
+		143D96E2D54298A08BB36D797A1028F6 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25EA164E196F63C3DCA46D9DD483A493 /* URBNSwiftAlert.xcconfig */;
+			baseConfigurationReference = F2C516545B8F7F6DFAD99F84E16097CE /* Pods-URBNSwiftAlert_Example.release.xcconfig */;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/URBNSwiftAlert/URBNSwiftAlert-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/URBNSwiftAlert/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/URBNSwiftAlert/URBNSwiftAlert.modulemap";
-				PRODUCT_NAME = URBNSwiftAlert;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		3F4833E0B33E271A58BDA00D16085767 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 8E64188A0889300F365460460B1858C1 /* Pods-URBNSwiftAlert_Example.release.xcconfig */;
-			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -631,7 +616,7 @@
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_URBNSwiftAlert_Example;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
@@ -642,10 +627,12 @@
 			};
 			name = Release;
 		};
-		66762C0A9169065450ACFC60B5FFF4E2 /* Debug */ = {
+		36FBDA8CE57769CC8A0F4A9F59C31515 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B30398F7998C42B2C3461EC8800B9705 /* Pods-URBNSwiftAlert_Tests.debug.xcconfig */;
+			baseConfigurationReference = 9EFFE084ACB76B975B6F20FF2EC56320 /* Pods-URBNSwiftAlert_Example.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -655,58 +642,28 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-URBNSwiftAlert_Tests/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-URBNSwiftAlert_Example/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-URBNSwiftAlert_Tests/Pods-URBNSwiftAlert_Tests.modulemap";
+				MODULEMAP_FILE = "Target Support Files/Pods-URBNSwiftAlert_Example/Pods-URBNSwiftAlert_Example.modulemap";
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
 				PODS_ROOT = "$(SRCROOT)";
 				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_URBNSwiftAlert_Tests;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Debug;
 		};
-		78761412FBE1F3079D2130245226EA56 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 849E23651E2915C76AA5FACFEC3D06E0 /* URBNSwiftyConvenience.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/URBNSwiftyConvenience/URBNSwiftyConvenience-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/URBNSwiftyConvenience/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/URBNSwiftyConvenience/URBNSwiftyConvenience.modulemap";
-				PRODUCT_NAME = URBNSwiftyConvenience;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		7C07ED8089F70A31B83996A8910D7F18 /* Debug */ = {
+		553022A828EE1991F07D2D73F565AEF8 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -716,10 +673,12 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -727,6 +686,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -735,6 +695,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -759,81 +720,13 @@
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Debug;
 		};
-		831D442AAABADD47217ED70473FAA468 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7C9C1942A2BF9D75DCDF19C00CED5266 /* Pods-URBNSwiftAlert_Example.debug.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-URBNSwiftAlert_Example/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-URBNSwiftAlert_Example/Pods-URBNSwiftAlert_Example.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_URBNSwiftAlert_Example;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Debug;
-		};
-		84AA193A128365412D8800D1AECD69A7 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 72B2022692C44461387698C7BB17B2DC /* Pods-URBNSwiftAlert_Tests.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-URBNSwiftAlert_Tests/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-URBNSwiftAlert_Tests/Pods-URBNSwiftAlert_Tests.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_URBNSwiftAlert_Tests;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		98F29E7567052F62660DDD7069ADF73C /* Release */ = {
+		58CE816B060A41D32CEC095441D0E3E0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -843,10 +736,12 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
 				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
@@ -854,6 +749,7 @@
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
 				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
@@ -862,6 +758,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGNING_ALLOWED = NO;
 				CODE_SIGNING_REQUIRED = NO;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -882,16 +779,85 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = NO_SIGNING/;
 				STRIP_INSTALLED_PRODUCT = NO;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;
 		};
-		A7F9AC36823F49B58E3EA5FCF7CFEC8E /* Release */ = {
+		7294CD7A3594D511E66A71C1261B54AA /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 25EA164E196F63C3DCA46D9DD483A493 /* URBNSwiftAlert.xcconfig */;
+			baseConfigurationReference = 8C698B1D61D1AF25AA5615AF09330124 /* Pods-URBNSwiftAlert_Tests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-URBNSwiftAlert_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-URBNSwiftAlert_Tests/Pods-URBNSwiftAlert_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		A11B99AF88BEDC1567B027408328E5F4 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 65A035856CC9419DA38872F84F7B2000 /* Pods-URBNSwiftAlert_Tests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = NO;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "Target Support Files/Pods-URBNSwiftAlert_Tests/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-URBNSwiftAlert_Tests/Pods-URBNSwiftAlert_Tests.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		AD066E66FE2C88796CF511D5056EF504 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 932A59FDB648512C051A733B05D96562 /* URBNSwiftAlert.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -907,23 +873,24 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/URBNSwiftAlert/URBNSwiftAlert.modulemap";
+				PRODUCT_MODULE_NAME = URBNSwiftAlert;
 				PRODUCT_NAME = URBNSwiftAlert;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Release;
+			name = Debug;
 		};
-		D2B8D2EE1E733C1AA185031CB712C8BD /* Debug */ = {
+		CEEDB9593A4C99D97230C00E0630BFA5 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 849E23651E2915C76AA5FACFEC3D06E0 /* URBNSwiftyConvenience.xcconfig */;
+			baseConfigurationReference = B287654D7621DA47F5BA763DBE8CCE8A /* URBNSwiftyConvenience.xcconfig */;
 			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -939,6 +906,41 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				MODULEMAP_FILE = "Target Support Files/URBNSwiftyConvenience/URBNSwiftyConvenience.modulemap";
+				PRODUCT_MODULE_NAME = URBNSwiftyConvenience;
+				PRODUCT_NAME = URBNSwiftyConvenience;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
+		D609A9EA195426F2AFFA68C3AC488CEE /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B287654D7621DA47F5BA763DBE8CCE8A /* URBNSwiftyConvenience.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/URBNSwiftyConvenience/URBNSwiftyConvenience-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/URBNSwiftyConvenience/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/URBNSwiftyConvenience/URBNSwiftyConvenience.modulemap";
+				PRODUCT_MODULE_NAME = URBNSwiftyConvenience;
 				PRODUCT_NAME = URBNSwiftyConvenience;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
@@ -951,14 +953,48 @@
 			};
 			name = Debug;
 		};
+		EF4115D966B1439EA8304E38358B96A2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 932A59FDB648512C051A733B05D96562 /* URBNSwiftAlert.xcconfig */;
+			buildSettings = {
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/URBNSwiftAlert/URBNSwiftAlert-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/URBNSwiftAlert/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/URBNSwiftAlert/URBNSwiftAlert.modulemap";
+				PRODUCT_MODULE_NAME = URBNSwiftAlert;
+				PRODUCT_NAME = URBNSwiftAlert;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
 		05C9EC1C271A10AF70F211054CF3CC00 /* Build configuration list for PBXNativeTarget "URBNSwiftyConvenience" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				D2B8D2EE1E733C1AA185031CB712C8BD /* Debug */,
-				78761412FBE1F3079D2130245226EA56 /* Release */,
+				D609A9EA195426F2AFFA68C3AC488CEE /* Debug */,
+				CEEDB9593A4C99D97230C00E0630BFA5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -966,8 +1002,8 @@
 		111ABD1B2CFEA55A80C66CBE325936CB /* Build configuration list for PBXNativeTarget "Pods-URBNSwiftAlert_Example" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				831D442AAABADD47217ED70473FAA468 /* Debug */,
-				3F4833E0B33E271A58BDA00D16085767 /* Release */,
+				36FBDA8CE57769CC8A0F4A9F59C31515 /* Debug */,
+				143D96E2D54298A08BB36D797A1028F6 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -975,8 +1011,17 @@
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7C07ED8089F70A31B83996A8910D7F18 /* Debug */,
-				98F29E7567052F62660DDD7069ADF73C /* Release */,
+				553022A828EE1991F07D2D73F565AEF8 /* Debug */,
+				58CE816B060A41D32CEC095441D0E3E0 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		6544A4E513AD2F5DBA401DF2A378D1EF /* Build configuration list for PBXNativeTarget "Pods-URBNSwiftAlert_Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7294CD7A3594D511E66A71C1261B54AA /* Debug */,
+				A11B99AF88BEDC1567B027408328E5F4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -984,17 +1029,8 @@
 		985FC63E1877B73AB834AF0005D0FD7D /* Build configuration list for PBXNativeTarget "URBNSwiftAlert" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				01968E2529638858D631D47CDCD83D56 /* Debug */,
-				A7F9AC36823F49B58E3EA5FCF7CFEC8E /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		B7A395D5A97EE2D32D2569B19F239232 /* Build configuration list for PBXNativeTarget "Pods-URBNSwiftAlert_Tests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				66762C0A9169065450ACFC60B5FFF4E2 /* Debug */,
-				84AA193A128365412D8800D1AECD69A7 /* Release */,
+				AD066E66FE2C88796CF511D5056EF504 /* Debug */,
+				EF4115D966B1439EA8304E38358B96A2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
