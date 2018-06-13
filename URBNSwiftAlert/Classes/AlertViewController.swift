@@ -92,7 +92,8 @@ open class AlertViewController: UIViewController {
         
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notif:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notif:)), name: .UIKeyboardWillHide, object: nil)
-        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notif:)), name: .UIKeyboardDidChangeFrame, object: nil)
+
         setUpBackground()
         layout(alertContainer: ac)
         
