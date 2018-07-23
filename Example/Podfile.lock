@@ -1,5 +1,5 @@
 PODS:
-  - URBNSwiftAlert (1.3):
+  - URBNSwiftAlert (1.3.2):
     - URBNSwiftyConvenience (~> 1.0)
   - URBNSwiftyConvenience (1.0)
 
@@ -15,9 +15,9 @@ EXTERNAL SOURCES:
     :path: "../"
 
 SPEC CHECKSUMS:
-  URBNSwiftAlert: c40b06b4d491faa825a435179964c50b6cbf2236
+  URBNSwiftAlert: 55d0077e367da19dced46cf51dd81c9171968d06
   URBNSwiftyConvenience: c348a56166f4bd599e8c700512d5f35c3c697e34
 
 PODFILE CHECKSUM: dad806117410cc8491b4e77cc5115e388ef493db
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3
