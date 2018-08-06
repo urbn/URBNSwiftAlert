@@ -15,6 +15,11 @@ open class AlertViewController: UIViewController {
         }
     }
     
+    /// Tracks wether an alert is in the process of being transitioned in / out:
+    /// - if true we defer other animations until after the transition has finished using the `setVisibleAnimationCompletion`
+    private var setVisibleAnimationInProgress: Bool = false
+    private var setVisibleAnimationCompletion: (() -> Void)? = nil
+    
     /**
      *  Initialize with a title and / or message
      *
@@ -184,9 +189,14 @@ extension AlertViewController {
             let damping = alertStyler.animation.damping
             let initVel = isVisible ? 0 : alertStyler.animation.initialVelocity
             
+            setVisibleAnimationInProgress = true
             UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: initVel, options: [], animations: bounceAnimation, completion: { (complete) in
                 if complete {
                     completion?()
+                    
+                    /// If set execute animations after visibility animation has completed to avoid conflicts
+                    self.setVisibleAnimationCompletion?()
+                    self.setVisibleAnimationInProgress = false
                 }
             })
             
@@ -328,12 +338,27 @@ extension AlertViewController {
     }
     
     @objc func keyboardWillHide(notif: Notification) {
-        alertViewYContraint?.constant = 0
+        func keyboardWillHideAnimation(completion: ((Bool) -> Void)? = nil) {
+            self.alertViewYContraint?.constant = 0
+            
+            UIView.animate(withDuration: TimeInterval(0.1), animations: { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.view.layoutIfNeeded()
+            }, completion: completion)
+        }
         
-        UIView.animate(withDuration: TimeInterval(0.1) , animations: { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.view.layoutIfNeeded()
-        })
+        if setVisibleAnimationInProgress {
+            setVisibleAnimationCompletion = { [weak self] in
+                keyboardWillHideAnimation(completion: { (complete) in
+                    guard complete else { return }
+                    
+                    self?.setVisibleAnimationCompletion = nil
+                })
+            }
+        }
+        else {
+            keyboardWillHideAnimation()
+        }
     }
 }
 
