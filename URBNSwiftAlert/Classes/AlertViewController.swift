@@ -15,11 +15,7 @@ open class AlertViewController: UIViewController {
         }
     }
     
-    /// Tracks wether an alert is in the process of being transitioned in / out:
-    /// - if true we defer other animations until after the transition has finished using the `setVisibleAnimationCompletion`
     private var visibilityAnimation: UIViewPropertyAnimator? = nil
-    private var resetVisibilityAnimation: Bool = true
-    
     
     /**
      *  Initialize with a title and / or message
@@ -167,7 +163,7 @@ extension AlertViewController {
         }
         
         if isVisible {
-            ac.alpha = 1.0
+            ac.alpha = 0.0
             ac.transform = CGAffineTransform(scaleX: scaler, y: scaler)
         }
         
