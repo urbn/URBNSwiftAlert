@@ -17,8 +17,9 @@ open class AlertViewController: UIViewController {
     
     /// Tracks wether an alert is in the process of being transitioned in / out:
     /// - if true we defer other animations until after the transition has finished using the `setVisibleAnimationCompletion`
-    private var setVisibleAnimationInProgress: Bool = false
-    private var setVisibleAnimationCompletion: (() -> Void)? = nil
+    private var visibilityAnimation: UIViewPropertyAnimator? = nil
+    private var resetVisibilityAnimation: Bool = true
+    
     
     /**
      *  Initialize with a title and / or message
@@ -98,7 +99,7 @@ open class AlertViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notif:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notif:)), name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notif:)), name: .UIKeyboardDidChangeFrame, object: nil)
-
+        
         setUpBackground()
         layout(alertContainer: ac)
         
@@ -166,7 +167,7 @@ extension AlertViewController {
         }
         
         if isVisible {
-            ac.alpha = 0.0
+            ac.alpha = 1.0
             ac.transform = CGAffineTransform(scaleX: scaler, y: scaler)
         }
         
@@ -187,20 +188,20 @@ extension AlertViewController {
         if alertStyler.animation.isAnimated {
             let duration = TimeInterval(alertStyler.animation.duration)
             let damping = alertStyler.animation.damping
-            let initVel = isVisible ? 0 : alertStyler.animation.initialVelocity
-            
-            setVisibleAnimationInProgress = true
-            UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: initVel, options: [], animations: bounceAnimation, completion: { (complete) in
-                if complete {
+            let initialVelocity = isVisible ? CGVector(dx: 0, dy: alertStyler.animation.initialVelocity) : CGVector(dx: 0, dy: 0)
+            let timingParameters = UISpringTimingParameters(dampingRatio: damping, initialVelocity: initialVelocity)
+            visibilityAnimation = UIViewPropertyAnimator(duration: duration, timingParameters: timingParameters)
+            visibilityAnimation?.addAnimations(bounceAnimation)
+            visibilityAnimation?.addCompletion({ (position) in
+                if case .end = position {
                     completion?()
-                    
-                    /// If set execute animations after visibility animation has completed to avoid conflicts
-                    self.setVisibleAnimationCompletion?()
-                    self.setVisibleAnimationInProgress = false
                 }
             })
             
-            UIView.animate(withDuration: duration/2, animations: fadeAnimation)
+            visibilityAnimation?.startAnimation()
+            
+            let fadePropertyAnimation = UIViewPropertyAnimator(duration: duration/2, curve: .easeIn, animations: fadeAnimation)
+            fadePropertyAnimation.startAnimation()
         }
         else {
             fadeAnimation()
@@ -344,16 +345,13 @@ extension AlertViewController {
             UIView.animate(withDuration: TimeInterval(0.1), animations: { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.view.layoutIfNeeded()
-            }, completion: completion)
+                }, completion: completion)
         }
         
-        if setVisibleAnimationInProgress {
-            setVisibleAnimationCompletion = { [weak self] in
-                keyboardWillHideAnimation(completion: { (complete) in
-                    guard complete else { return }
-                    
-                    self?.setVisibleAnimationCompletion = nil
-                })
+        if let visibilityAnimation = visibilityAnimation,
+            visibilityAnimation.isRunning {
+            self.visibilityAnimation?.addCompletion { (_) in
+                keyboardWillHideAnimation()
             }
         }
         else {
@@ -365,4 +363,3 @@ extension AlertViewController {
 enum URBNSwAlertType {
     case fullCustom, customView, customButton, fullStandard
 }
-
