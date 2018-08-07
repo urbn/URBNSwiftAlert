@@ -339,13 +339,13 @@ extension AlertViewController {
     }
     
     @objc func keyboardWillHide(notif: Notification) {
-        func keyboardWillHideAnimation(completion: ((Bool) -> Void)? = nil) {
+        func keyboardWillHideAnimation() {
             self.alertViewYContraint?.constant = 0
             
             UIView.animate(withDuration: TimeInterval(0.1), animations: { [weak self] in
                 guard let strongSelf = self else { return }
                 strongSelf.view.layoutIfNeeded()
-                }, completion: completion)
+            })
         }
         
         if let visibilityAnimation = visibilityAnimation,
