@@ -15,6 +15,8 @@ open class AlertViewController: UIViewController {
         }
     }
     
+    private var visibilityAnimation: UIViewPropertyAnimator? = nil
+    
     /**
      *  Initialize with a title and / or message
      *
@@ -93,7 +95,7 @@ open class AlertViewController: UIViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notif:)), name: .UIKeyboardWillShow, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide(notif:)), name: .UIKeyboardWillHide, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow(notif:)), name: .UIKeyboardDidChangeFrame, object: nil)
-
+        
         setUpBackground()
         layout(alertContainer: ac)
         
@@ -182,15 +184,20 @@ extension AlertViewController {
         if alertStyler.animation.isAnimated {
             let duration = TimeInterval(alertStyler.animation.duration)
             let damping = alertStyler.animation.damping
-            let initVel = isVisible ? 0 : alertStyler.animation.initialVelocity
-            
-            UIView.animate(withDuration: duration, delay: 0, usingSpringWithDamping: damping, initialSpringVelocity: initVel, options: [], animations: bounceAnimation, completion: { (complete) in
-                if complete {
+            let initialVelocity = isVisible ? CGVector(dx: 0, dy: alertStyler.animation.initialVelocity) : CGVector(dx: 0, dy: 0)
+            let timingParameters = UISpringTimingParameters(dampingRatio: damping, initialVelocity: initialVelocity)
+            visibilityAnimation = UIViewPropertyAnimator(duration: duration, timingParameters: timingParameters)
+            visibilityAnimation?.addAnimations(bounceAnimation)
+            visibilityAnimation?.addCompletion({ (position) in
+                if case .end = position {
                     completion?()
                 }
             })
             
-            UIView.animate(withDuration: duration/2, animations: fadeAnimation)
+            visibilityAnimation?.startAnimation()
+            
+            let fadePropertyAnimation = UIViewPropertyAnimator(duration: duration/2, curve: .easeIn, animations: fadeAnimation)
+            fadePropertyAnimation.startAnimation()
         }
         else {
             fadeAnimation()
@@ -328,16 +335,27 @@ extension AlertViewController {
     }
     
     @objc func keyboardWillHide(notif: Notification) {
-        alertViewYContraint?.constant = 0
+        func keyboardWillHideAnimation() {
+            self.alertViewYContraint?.constant = 0
+            
+            UIView.animate(withDuration: TimeInterval(0.1), animations: { [weak self] in
+                guard let strongSelf = self else { return }
+                strongSelf.view.layoutIfNeeded()
+            })
+        }
         
-        UIView.animate(withDuration: TimeInterval(0.1) , animations: { [weak self] in
-            guard let strongSelf = self else { return }
-            strongSelf.view.layoutIfNeeded()
-        })
+        if let visibilityAnimation = visibilityAnimation,
+            visibilityAnimation.isRunning {
+            self.visibilityAnimation?.addCompletion { (_) in
+                keyboardWillHideAnimation()
+            }
+        }
+        else {
+            keyboardWillHideAnimation()
+        }
     }
 }
 
 enum URBNSwAlertType {
     case fullCustom, customView, customButton, fullStandard
 }
-
