@@ -289,7 +289,7 @@ extension AlertViewController {
 }
 
 // MARK: Actions and Textfields
-extension AlertViewController: UITextFieldDelegate {
+extension AlertViewController {
     @available(*, unavailable, message: "use addActions instead")
     public func addAction(_ action: AlertAction) {}
     
@@ -303,7 +303,6 @@ extension AlertViewController: UITextFieldDelegate {
     
     public func addTextfield(configurationHandler: ((UITextField) -> Void)) {
         let tf = UITextField()
-        //tf.delegate = alertView
         tf.accessibilityIdentifier = "alertTextField"
         alertConfiguration.textFields.append(tf)
         configurationHandler(tf)

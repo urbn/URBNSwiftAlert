@@ -11,7 +11,6 @@ import URBNSwiftyConvenience
 public typealias EmptyHandler = () -> Void
 
 class AlertView: UIView {
-    
     fileprivate lazy var titleLabel = UILabel()
     fileprivate lazy var messageView = UITextView()
     fileprivate lazy var textFieldErrorLabel = UILabel()
