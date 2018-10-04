@@ -237,7 +237,7 @@ extension AlertViewController {
         alertView = AlertView(configuration: alertConfiguration)
         
         if let returnButtonHandler = returnButtonHandler {
-            alertView?.returnButtonHandler?()
+            alertView?.returnButtonHandler = returnButtonHandler
         }
         
         if !alertConfiguration.actions.isEmpty {
