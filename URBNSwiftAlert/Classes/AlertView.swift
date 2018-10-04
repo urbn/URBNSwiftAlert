@@ -8,7 +8,10 @@
 import Foundation
 import URBNSwiftyConvenience
 
+public typealias EmptyHandler = () -> Void
+
 class AlertView: UIView {
+    
     fileprivate lazy var titleLabel = UILabel()
     fileprivate lazy var messageView = UITextView()
     fileprivate lazy var textFieldErrorLabel = UILabel()
@@ -16,6 +19,7 @@ class AlertView: UIView {
     fileprivate lazy var buttonsSV = UIStackView()
     fileprivate lazy var buttonActions = [AlertAction]()
     fileprivate let separatorBorderView = UIView()
+    var returnButtonHandler: EmptyHandler?
     var configuration: AlertConfiguration
     
     init(configuration: AlertConfiguration) {
@@ -196,6 +200,10 @@ extension AlertView: AlertButtonContainer {
             }
         }
     }
+    
+    public func addReturnKeyboardHandler(_ handler: @escaping EmptyHandler) {
+        returnButtonHandler = handler
+    }
 }
 
 extension AlertView: UITextFieldDelegate {
@@ -212,6 +220,8 @@ extension AlertView: UITextFieldDelegate {
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         textField.resignFirstResponder()
+        returnButtonHandler?()
+        
         return false
     }
 }

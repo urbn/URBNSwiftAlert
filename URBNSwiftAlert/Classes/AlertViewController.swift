@@ -9,6 +9,8 @@ import URBNSwiftyConvenience
 
 open class AlertViewController: UIViewController {
     public var alertConfiguration = AlertConfiguration()
+    private var returnButtonHandler: EmptyHandler?
+    
     public var alertStyler = AlertController.shared.alertStyler {
         didSet {
             alertConfiguration.styler = self.alertStyler
@@ -234,6 +236,10 @@ extension AlertViewController {
     public func show() {
         alertView = AlertView(configuration: alertConfiguration)
         
+        if let returnButtonHandler = returnButtonHandler {
+            alertView?.returnButtonHandler?()
+        }
+        
         if !alertConfiguration.actions.isEmpty {
             switch alertConfiguration.type {
             case .fullStandard, .customView:
@@ -283,7 +289,7 @@ extension AlertViewController {
 }
 
 // MARK: Actions and Textfields
-extension AlertViewController {
+extension AlertViewController: UITextFieldDelegate {
     @available(*, unavailable, message: "use addActions instead")
     public func addAction(_ action: AlertAction) {}
     
@@ -297,9 +303,14 @@ extension AlertViewController {
     
     public func addTextfield(configurationHandler: ((UITextField) -> Void)) {
         let tf = UITextField()
+        //tf.delegate = alertView
         tf.accessibilityIdentifier = "alertTextField"
         alertConfiguration.textFields.append(tf)
         configurationHandler(tf)
+    }
+    
+    public func addReturnKeyboardHandler(_ handler: @escaping EmptyHandler) {
+        returnButtonHandler = handler
     }
     
     public var textField: UITextField? {
