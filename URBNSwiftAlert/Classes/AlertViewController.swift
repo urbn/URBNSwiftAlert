@@ -308,6 +308,7 @@ extension AlertViewController {
         configurationHandler(tf)
     }
     
+    /// Handler for when the user hits the Return button on the keyboard
     public func addReturnKeyboardHandler(_ handler: @escaping EmptyHandler) {
         returnButtonHandler = handler
     }
