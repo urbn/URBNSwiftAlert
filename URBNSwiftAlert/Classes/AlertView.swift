@@ -199,10 +199,6 @@ extension AlertView: AlertButtonContainer {
             }
         }
     }
-    
-    public func addReturnKeyboardHandler(_ handler: @escaping EmptyHandler) {
-        returnButtonHandler = handler
-    }
 }
 
 extension AlertView: UITextFieldDelegate {
