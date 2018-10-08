@@ -99,31 +99,31 @@
 		557451DD37F31EAAC1373976DEF30CB2 /* AlertButton.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertButton.swift; path = URBNSwiftAlert/Classes/AlertButton.swift; sourceTree = "<group>"; };
 		63D723C83537BA99C3EE36CA2908B820 /* Pods-URBNSwiftAlert_Tests.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-URBNSwiftAlert_Tests.modulemap"; sourceTree = "<group>"; };
 		65A035856CC9419DA38872F84F7B2000 /* Pods-URBNSwiftAlert_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Tests.release.xcconfig"; sourceTree = "<group>"; };
-		6A4C7F26B82BF2BC2BB9D2CDA3C5CCC2 /* URBNSwiftAlert.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; path = URBNSwiftAlert.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		6A4C7F26B82BF2BC2BB9D2CDA3C5CCC2 /* URBNSwiftAlert.podspec */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; path = URBNSwiftAlert.podspec; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		6B563ED0DE872C7C4F12FD505AF8031E /* UIImageConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = UIImageConvenience.swift; path = URBNSwiftyConvenience/Classes/UIImageConvenience.swift; sourceTree = "<group>"; };
 		6BF98DEDBDDE819F54F21323220BDC00 /* NotificationConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = NotificationConvenience.swift; path = URBNSwiftyConvenience/Classes/NotificationConvenience.swift; sourceTree = "<group>"; };
 		6ED573FA44E134BA6FDCF55CF33E2E29 /* Pods-URBNSwiftAlert_Example-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-URBNSwiftAlert_Example-acknowledgements.plist"; sourceTree = "<group>"; };
 		6FB83A8B80B71FB19309A02EF4A13EAD /* URBNSwiftAlert.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = URBNSwiftAlert.modulemap; sourceTree = "<group>"; };
-		7F0E72CAEDC244CEA4C9FC316778D9CD /* Pods_URBNSwiftAlert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftAlert_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		823FA64861B7C4B71D522BBD14CA9975 /* Pods_URBNSwiftAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_URBNSwiftAlert_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7F0E72CAEDC244CEA4C9FC316778D9CD /* Pods_URBNSwiftAlert_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_URBNSwiftAlert_Tests.framework; path = "Pods-URBNSwiftAlert_Tests.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
+		823FA64861B7C4B71D522BBD14CA9975 /* Pods_URBNSwiftAlert_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_URBNSwiftAlert_Example.framework; path = "Pods-URBNSwiftAlert_Example.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8956F2A85AC80F3F873F28582423064F /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		896C0FB6A681CDFB60FBE3074B35F155 /* URBNSwiftyConvenience-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "URBNSwiftyConvenience-dummy.m"; sourceTree = "<group>"; };
 		8C698B1D61D1AF25AA5615AF09330124 /* Pods-URBNSwiftAlert_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		9062AD13A942CC7B49BF3043A07E3C6E /* DictionaryConvenience.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = DictionaryConvenience.swift; path = URBNSwiftyConvenience/Classes/DictionaryConvenience.swift; sourceTree = "<group>"; };
 		932A59FDB648512C051A733B05D96562 /* URBNSwiftAlert.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftAlert.xcconfig; sourceTree = "<group>"; };
-		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		93D27654104A79E1623E32251B52C071 /* UIView+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIView+Additions.swift"; path = "URBNSwiftyConvenience/Classes/UIView+Additions.swift"; sourceTree = "<group>"; };
 		94515A50F9FEC473723452D12A29C713 /* Geometry+Additions.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "Geometry+Additions.swift"; path = "URBNSwiftyConvenience/Classes/Geometry+Additions.swift"; sourceTree = "<group>"; };
 		9832F20DED16B2C913F736CB2594F10F /* QRCodeGenerator.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = QRCodeGenerator.swift; path = URBNSwiftyConvenience/Classes/QRCodeGenerator.swift; sourceTree = "<group>"; };
-		99D5DE91D27A26743397CA6A5F85226E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = LICENSE; sourceTree = "<group>"; };
+		99D5DE91D27A26743397CA6A5F85226E /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; path = LICENSE; sourceTree = "<group>"; };
 		9A581375B1A0873D0834CD99F234225E /* AlertController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertController.swift; path = URBNSwiftAlert/Classes/AlertController.swift; sourceTree = "<group>"; };
 		9CCC59DD944A0D347CB5CB0095D8DC67 /* AlertStyler.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertStyler.swift; path = URBNSwiftAlert/Classes/AlertStyler.swift; sourceTree = "<group>"; };
-		9EFB9F2D15C7833B7F4D5DEF053BF4F2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		9EFB9F2D15C7833B7F4D5DEF053BF4F2 /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; path = README.md; sourceTree = "<group>"; };
 		9EFFE084ACB76B975B6F20FF2EC56320 /* Pods-URBNSwiftAlert_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-URBNSwiftAlert_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		A532C7654816D9F9799AD2A656E8903D /* Pods-URBNSwiftAlert_Example.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.module; path = "Pods-URBNSwiftAlert_Example.modulemap"; sourceTree = "<group>"; };
-		B0F87F4F6D6C63D99B7E765200B5A28E /* URBNSwiftAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URBNSwiftAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B0F87F4F6D6C63D99B7E765200B5A28E /* URBNSwiftAlert.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = URBNSwiftAlert.framework; path = URBNSwiftAlert.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B287654D7621DA47F5BA763DBE8CCE8A /* URBNSwiftyConvenience.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = URBNSwiftyConvenience.xcconfig; sourceTree = "<group>"; };
-		B3AF6141316697112E1FE9603811A788 /* URBNSwiftyConvenience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = URBNSwiftyConvenience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B3AF6141316697112E1FE9603811A788 /* URBNSwiftyConvenience.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = URBNSwiftyConvenience.framework; path = URBNSwiftyConvenience.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B6D2AE57B33329E1EF19DA3148AA0D6D /* UIImage+Blur.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = "UIImage+Blur.swift"; path = "URBNSwiftAlert/Classes/UIImage+Blur.swift"; sourceTree = "<group>"; };
 		C650D5E1AD510DDEEB31C6531E60127F /* AlertViewController.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = AlertViewController.swift; path = URBNSwiftAlert/Classes/AlertViewController.swift; sourceTree = "<group>"; };
 		C68B9F741991B59FA0B9D11BF2D0D14E /* Border.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Border.swift; path = URBNSwiftyConvenience/Classes/Border.swift; sourceTree = "<group>"; };
@@ -361,6 +361,7 @@
 				F6B3C8316871548C05801E379CA6CAC9 /* UIViewAnchorConvenience.swift */,
 				B5A5C9D6E1F5A83E6C583921B8DB1DA7 /* Support Files */,
 			);
+			name = URBNSwiftyConvenience;
 			path = URBNSwiftyConvenience;
 			sourceTree = "<group>";
 		};
@@ -481,7 +482,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0930;
-				LastUpgradeCheck = 0940;
+				LastUpgradeCheck = 0930;
 			};
 			buildConfigurationList = 2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -779,7 +780,6 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				STRIP_INSTALLED_PRODUCT = NO;
-				SWIFT_COMPILATION_MODE = wholemodule;
 				SYMROOT = "${SRCROOT}/../build";
 			};
 			name = Release;

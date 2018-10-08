@@ -9,6 +9,14 @@ import URBNSwiftyConvenience
 
 open class AlertViewController: UIViewController {
     public var alertConfiguration = AlertConfiguration()
+    
+    /// Handler for when the user hits the Return button on the keyboard
+    public var returnButtonHandler: EmptyHandler? {
+        didSet {
+            alertView?.returnButtonHandler = returnButtonHandler
+        }
+    }
+    
     public var alertStyler = AlertController.shared.alertStyler {
         didSet {
             alertConfiguration.styler = self.alertStyler
@@ -233,6 +241,10 @@ extension AlertViewController {
 extension AlertViewController {
     public func show() {
         alertView = AlertView(configuration: alertConfiguration)
+        
+        if let returnButtonHandler = returnButtonHandler {
+            alertView?.returnButtonHandler = returnButtonHandler
+        }
         
         if !alertConfiguration.actions.isEmpty {
             switch alertConfiguration.type {
