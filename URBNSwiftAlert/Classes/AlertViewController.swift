@@ -9,7 +9,13 @@ import URBNSwiftyConvenience
 
 open class AlertViewController: UIViewController {
     public var alertConfiguration = AlertConfiguration()
-    private var returnButtonHandler: EmptyHandler?
+    
+    /// Handler for when the user hits the Return button on the keyboard
+    public var returnButtonHandler: EmptyHandler? {
+        didSet {
+            alertView?.returnButtonHandler = returnButtonHandler
+        }
+    }
     
     public var alertStyler = AlertController.shared.alertStyler {
         didSet {
@@ -306,11 +312,6 @@ extension AlertViewController {
         tf.accessibilityIdentifier = "alertTextField"
         alertConfiguration.textFields.append(tf)
         configurationHandler(tf)
-    }
-    
-    /// Handler for when the user hits the Return button on the keyboard
-    public func addReturnKeyboardHandler(_ handler: @escaping EmptyHandler) {
-        returnButtonHandler = handler
     }
     
     public var textField: UITextField? {
